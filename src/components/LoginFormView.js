@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import s from './LoginForm.module.scss';
+import cx from 'classnames';
 
 export default class LoginFormView extends Component {
   constructor(props) {
@@ -23,17 +25,23 @@ export default class LoginFormView extends Component {
   }
 
   render() {
+    const { username, password } = this.state;
     return (
-      <div>
-        <input
-          onChange={e => this.handleFieldChange(e, 'username')}
-          type="text"
-        />
-        <input
-          onChange={e => this.handleFieldChange(e, 'password')}
-          type="password"
-        />
-        <button onClick={() => this.handleLoginButtonClick()}>Login</button>
+      <div className={cx(s.wrapper, s.loginWrapper)}>
+        <div className={s.loginBox}>
+          <h1>Login</h1>
+          <input
+            onChange={e => this.handleFieldChange(e, 'username')}
+            type="text"
+            value={username}
+          />
+          <input
+            onChange={e => this.handleFieldChange(e, 'password')}
+            type="password"
+            value={password}
+          />
+          <button onClick={() => this.handleLoginButtonClick()}>Login</button>
+        </div>
       </div>
     );
   }

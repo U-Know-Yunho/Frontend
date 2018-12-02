@@ -1,6 +1,8 @@
-@import '../common.scss';
+@import '../common.module.scss';
 
-.menu-bar {
+.menuBar {
+  width: 800px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,9 +11,9 @@
   .logo {
     position: relative;
     width: 100px;
-    height: 50px;
-    border: 1px solid #ccc;
-    // 서형: 웹 접근성을 위해 Home 텍스트 숨기기. CGV 로고만 보이게
+    height: 8vh;
+    cursor: pointer;
+    // 웹 접근성을 위해 Home 텍스트 숨기기. CGV 로고만 보이게
     text-indent: 150px;
     overflow: hidden;
     &::after {
@@ -28,9 +30,13 @@
   }
 
   .menu {
+    position: relative;
+    right: -13px;
     .link {
       border: 1px solid red;
-      margin: 0 10px;
+      padding: 3px 10px;
+      margin: 0 3px;
+      color: $main-black;
       text-transform: uppercase;
     }
   }

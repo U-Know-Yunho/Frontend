@@ -6,7 +6,6 @@ export default class RegisterPage extends Component {
   render() {
     return (
       <Layout>
-        <h1>Register</h1>
         <RegisterForm />
       </Layout>
     );

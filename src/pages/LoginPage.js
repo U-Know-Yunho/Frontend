@@ -6,7 +6,6 @@ export default class LoginPage extends Component {
   render() {
     return (
       <Layout>
-        <h1>Login</h1>
         <LoginForm />
       </Layout>
     );

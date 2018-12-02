@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MovieList from '../containers/MovieList';
 import Layout from '../components/Layout';
 import qs from 'qs';
+import s from './MoviePage.module.scss';
 
 export default class MoviePage extends Component {
   render() {
@@ -14,10 +15,12 @@ export default class MoviePage extends Component {
 
     return (
       <Layout>
-        <h2>무비 차트</h2>
-        <Link to="/movies">현재상영작</Link>
-        <Link to="/movies/?movie=upcomming">개봉예정작</Link>
-        <MovieList page="main" movie={movie} />
+        <div className={s.wrapper}>
+          <h2>무비 차트</h2>
+          <Link to="/movies">현재상영작</Link>
+          <Link to="/movies/?movie=upcomming">개봉예정작</Link>
+          <MovieList page="main" movie={movie} />
+        </div>
       </Layout>
     );
   }

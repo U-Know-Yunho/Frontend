@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import Header from '../containers/Header';
-import classNames from 'classnames';
-import './Layout.scss';
+import s from './Layout.module.scss';
 
 export default class Layout extends Component {
   render() {
-    const wrapper = classNames('wrapper');
-    const footer = classNames('footer');
     return (
-      <div className={wrapper}>
-        <Header />
-        {this.props.children}
+      <div className={s.layoutWrapper}>
+        <header className={s.header}>
+          <Header />
+        </header>
+        <div className={s.children}>{this.props.children}</div>
 
-        <footer className={footer}>푸터</footer>
+        <footer className={s.footer}>
+          <div className={s.footerContent}>푸터</div>
+        </footer>
       </div>
     );
   }

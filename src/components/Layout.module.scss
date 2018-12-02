@@ -1,0 +1,26 @@
+@import '../common.module.scss';
+
+.layoutWrapper {
+  margin: 0 auto;
+  position: relative;
+  .header {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 20px 20px $bg-lightgray;
+  }
+  .children {
+    //   footer 가 20vh, 헤더가 8vh
+    min-height: calc(100vh - 20vh - 8vh);
+  }
+  .footer {
+    border: 1px solid black;
+    height: 20vh;
+    width: 100%;
+    &Content {
+      width: 800px;
+      margin: 0 auto;
+      border: 1px solid black;
+      height: 100%;
+    }
+  }
+}
