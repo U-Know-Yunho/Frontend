@@ -14,6 +14,7 @@ export default class MoviePage extends Component {
 
     return (
       <Layout>
+        <h2>무비 차트</h2>
         <Link to="/movies">현재상영작</Link>
         <Link to="/movies/?movie=upcomming">개봉예정작</Link>
         <MovieList page="main" movie={movie} />
