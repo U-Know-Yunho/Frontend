@@ -16,11 +16,11 @@ class App extends Component {
         <UserProvider>
           <>
             <Route exact path="/" component={HomePage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/movies" component={MoviePage} />
-            <Route path="/reservation" component={ReservationPage} />
-            <Route path="/about" component={AboutPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/register" component={RegisterPage} />
+            <Route exact path="/movies" component={MoviePage} />
+            <Route exact path="/reservation" component={ReservationPage} />
+            <Route exact path="/about" component={AboutPage} />
           </>
         </UserProvider>
       </BrowserRouter>
