@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import Layout from '../components/Layout';
-
-export default class MoviePage extends Component {
-  render() {
-    return (
-      <Layout>
-        <div>무비페이지</div>
-=======
 import { Link } from 'react-router-dom';
 import MovieList from '../containers/MovieList';
 import Layout from '../components/Layout';
@@ -27,7 +18,6 @@ export default class MoviePage extends Component {
         <Link to="/movies">현재상영작</Link>
         <Link to="/movies/?movie=upcomming">개봉예정작</Link>
         <MovieList page="main" movie={movie} />
->>>>>>> 4f2628f580c6f5d7e0b1c77bfcbb1850edcc8da0
       </Layout>
     );
   }

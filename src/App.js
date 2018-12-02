@@ -6,7 +6,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import UserProvider from './contexts/UserContext';
 import RegisterPage from './pages/RegisterPage';
-import MoviePage from './pages/MoviePage';
 import ReservationPage from './pages/ReservationPage';
 import AboutPage from './pages/AboutPage';
 
