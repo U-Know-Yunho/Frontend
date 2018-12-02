@@ -6,6 +6,7 @@ export default class Layout extends Component {
     return (
       <div>
         <Header />
+        {this.props.children}
         <footer>익스큐즈뭬!!</footer>
       </div>
     );
