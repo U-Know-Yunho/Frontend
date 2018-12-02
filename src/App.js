@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import HomePage from './pages/HomePage';
+import MoviePage from './pages/MoviePage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import UserProvider from './contexts/UserContext';
