@@ -14,6 +14,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .movieNav {
+    // 현재상영작 & 개봉예정작 버튼
+    button {
+      background-color: #242320;
+      color: #f4f4f4;
+      width: 150px;
+      height: 50px;
+      font-size: 1rem;
+      margin: 10px;
+      cursor: pointer;
+    }
+    // 각 버튼 클릭 시 빨간 색으로 표시
+    .active {
+      background: #ee2e24;
+    }
+  }
+  // 전체보기 링크
+  .more {
+    display: inline-block;
+    width: 70%;
+    margin: 7px auto;
+    text-align: right;
+    color: #242320;
+  }
   // 무비 리스트 가운데 정렬
   ul {
     width: 70%;
