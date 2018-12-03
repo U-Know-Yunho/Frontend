@@ -5,6 +5,7 @@
   height: 20vh;
   background-color: rosybrown;
 }
+// 무비 차트 영역
 .movie {
   width: 100%;
   height: 600px;
@@ -13,6 +14,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // 무비 리스트 가운데 정렬
   ul {
     width: 70%;
     margin: 0 auto;

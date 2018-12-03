@@ -23,7 +23,7 @@ export default class HomePage extends Component {
     return (
       <Layout>
         <main>
-          <div className={s.carousel}>Carousel</div>
+          <section className={s.carousel}>Carousel</section>
           <section className={s.movie}>
             <div className={s.movieNav}>
               <button onClick={() => this.handleMovie('current')}>
@@ -40,7 +40,7 @@ export default class HomePage extends Component {
             )}
             <MovieList page="home" movie={movie} />
           </section>
-          <div className={s.trailer}>예고편 Trailer</div>
+          <section className={s.trailer}>예고편 Trailer</section>
           <div className={s.event}>Event</div>
         </main>
       </Layout>
