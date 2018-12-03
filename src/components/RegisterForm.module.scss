@@ -1,0 +1,61 @@
+@import '../common.module.scss';
+
+.registerWrapper {
+  border: 1px solid salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .registerBox {
+    border: 1px solid blue;
+    width: 40%;
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
+    span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    input {
+      line-height: 1.4rem;
+      padding-left: 5px;
+      &[type='email'],
+      &[type='tel'],
+      &[type='password'] {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      &[placeholder='Lastname'] {
+        width: 30%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      &[placeholder='Firstname'] {
+        display: inline-block;
+        width: calc(70% - 5px);
+      }
+    }
+    button {
+      display: block;
+      width: 100%;
+    }
+
+    .usernameInput {
+      width: 70%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .checkIdBtn {
+      //   line-height: 1.4rem;
+      display: inline-block;
+      width: calc(30% - 5px);
+      padding: 0;
+    }
+  }
+}

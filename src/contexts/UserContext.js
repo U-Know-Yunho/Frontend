@@ -7,24 +7,65 @@ export default class UserProvider extends Component {
     super(props);
 
     this.state = {
+      isLogin: false,
       login: this.login.bind(this),
+      logout: this.logout.bind(this),
+      register: this.register.bind(this),
+      checkId: this.checkId.bind(this),
     };
+  }
+  async componentDidMount() {
+    if (localStorage.getItem('token')) {
+      this.setState({
+        isLogin: true,
+      });
+    }
+  }
+
+  async register({ ...value }) {
+    const {
+      username,
+      password,
+      last_name,
+      first_name,
+      email,
+      phone_number,
+    } = value;
+
+    const res = await api.post('/api/members/signup/', {
+      username,
+      password,
+      last_name,
+      first_name,
+      email,
+      phone_number,
+    });
+    console.log(res.data);
+  }
+
+  async checkId(username) {
+    const res = await api.post('/api/members/checkID/', {
+      username,
+    });
+    return res.data.message;
   }
 
   async login(username, password) {
-    const res = await api.post(
-      '/api/members/login',
-      {
-        username,
-        password,
-      },
-      {
-        headers: { 'Content-type': 'application/json' },
-        credentials: 'same-origin',
-      }
-    );
+    const res = await api.post('/api/members/login/', {
+      username,
+      password,
+    });
     localStorage.setItem('token', res.data.token);
   }
+
+  async logout() {
+    localStorage.removeItem('token');
+    await api.get('/api/members/logout/');
+    this.setState({
+      isLogin: false,
+    });
+  }
+
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }

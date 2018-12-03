@@ -22,8 +22,8 @@ export default class HomePage extends Component {
     const { movie } = this.state;
     return (
       <Layout>
-        <div className={s.carousel}>Carousel</div>
-        <div className={s.wrapper}>
+        <section className={s.carousel}>Carousel</section>
+        <section className={s.wrapper}>
           <button onClick={() => this.handleMovie('current')}>
             현재 상영작
           </button>
@@ -36,9 +36,9 @@ export default class HomePage extends Component {
             <Link to="/movies/?type=upcomming">전체 보기</Link>
           )}
           <MovieList page="home" movie={movie} />
-        </div>
-        <div className={s.trailer}>예고편 Trailer</div>
-        <div className={s.event}>Event</div>
+        </section>
+        <section className={s.trailer}>예고편 Trailer</section>
+        <section className={s.event}>Event</section>
       </Layout>
     );
   }

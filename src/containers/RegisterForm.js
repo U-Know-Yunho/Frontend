@@ -4,9 +4,10 @@ import { withUser } from '../contexts/UserContext';
 
 class RegisterForm extends Component {
   render() {
+    const { register, checkId } = this.props;
     return (
       <div>
-        <RegisterFormView />
+        <RegisterFormView onRegister={register} onCheckId={checkId} />
       </div>
     );
   }

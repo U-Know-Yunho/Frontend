@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700|Noto+Sans:400,700');
+// 영어 : Noto Sans / 한글 : Noto Sans KR
+
 $main-black: #242320;
 $main-red: #ee2e24;
 $sub-red: #e4433a;
 $bg-lightgray: #f4f4f4;
 $lightgray: #302f2a;
 
+$content-width: 800px;
+
 // 넓이 지정해주고 가운데 맞춤
 .wrapper {
   border: 1px solid #ccc;
-  width: 800px;
+  width: $content-width;
   margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
 }
