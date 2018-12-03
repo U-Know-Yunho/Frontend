@@ -34,14 +34,15 @@
   // 전체보기 링크
   .more {
     display: inline-block;
-    width: 68%;
-    margin: 7px auto;
-    text-align: right;
+    // width: 68%;
+    width: 100px;
+    margin: 7px 0 7px 77%;
+    // text-align: right;
     color: #242320;
   }
   // 무비 리스트 가운데 정렬
   ul {
-    width: 70%;
+    width: 70vw;
     margin: 0 auto;
   }
 }
