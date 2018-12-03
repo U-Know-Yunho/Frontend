@@ -25,26 +25,28 @@ export default class RegisterFormView extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const username = e.target.elements.username.value;
-    const password = e.target.elements.password.value;
-    const firstname = e.target.elements.firstname.value;
-    const lastname = e.target.elements.lastname.value;
-    const email = e.target.elements.email.value;
-    const phonenumber = e.target.elements.phonenumber.value;
+    if (this.state.isIdConfirmed) {
+      const username = e.target.elements.username.value;
+      const password = e.target.elements.password.value;
+      const firstname = e.target.elements.firstname.value;
+      const lastname = e.target.elements.lastname.value;
+      const email = e.target.elements.email.value;
+      const phonenumber = e.target.elements.phonenumber.value;
 
-    const { ...value } = {
-      username,
-      password,
-      firstname,
-      lastname,
-      email,
-      phonenumber,
-    };
-    await this.props.onRegister({ ...value });
-    // 회원가입이 성공적으로 되었을 때
-    this.setState({
-      success: true,
-    });
+      const { ...value } = {
+        username,
+        password,
+        firstname,
+        lastname,
+        email,
+        phonenumber,
+      };
+      await this.props.onRegister({ ...value });
+      // 회원가입이 성공적으로 되었을 때
+      this.setState({
+        success: true,
+      });
+    }
   }
 
   async handleCheckIdButtonClick() {
@@ -142,6 +144,10 @@ export default class RegisterFormView extends Component {
             <input type="tel" name="phonenumber" required />
 
             <button className={s.registerBtn}>가입하기</button>
+
+            <div className={s.loginWrapper}>
+              <span>로그인</span>
+            </div>
           </form>
         </div>
       );

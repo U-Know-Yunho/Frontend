@@ -61,15 +61,15 @@ export default class UserProvider extends Component {
     });
   }
 
-  async logout() {
+  logout() {
     const token = localStorage.getItem('token');
     console.log(token);
 
-    // await api.get('/api/members/logout/', {
-    //   headers: {
-    //     Authorization: 'Token ' + token,
-    //   },
-    // });
+    api.get('/api/members/logout/', {
+      headers: {
+        Authorization: 'Token ' + token,
+      },
+    });
 
     localStorage.removeItem('token');
     this.setState({

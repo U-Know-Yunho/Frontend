@@ -55,9 +55,11 @@ export default class LoginFormView extends Component {
               onClick={() => this.handleLoginButtonClick()}
               className={s.loginBtn}
             >
-              Login
+              로그인
             </button>
-            <span>회원가입</span>
+            <div className={s.registerWrapper}>
+              <span>회원가입</span>
+            </div>
             <button className={s.naver}>네이버로 시작하기</button>
             <button className={s.kakao}>카카오로 시작하기</button>
             <button className={s.facebook}>페이스북으로 시작하기</button>

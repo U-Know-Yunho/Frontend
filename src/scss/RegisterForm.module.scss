@@ -84,5 +84,20 @@
     .wrong {
       color: red;
     }
+    .loginWrapper {
+      text-align: right;
+      height: fit-content;
+      margin-bottom: 30px;
+      span {
+        position: relative;
+        left: 0;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: normal;
+        font-weight: bold;
+        text-align: right;
+      }
+    }
   }
 }
