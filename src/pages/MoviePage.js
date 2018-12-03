@@ -4,6 +4,7 @@ import MovieList from '../containers/MovieList';
 import Layout from '../components/Layout';
 import qs from 'qs';
 import s from '../scss/MoviePage.module.scss';
+import classNames from 'classnames';
 
 export default class MoviePage extends Component {
   render() {
@@ -16,9 +17,18 @@ export default class MoviePage extends Component {
     return (
       <Layout>
         <div className={s.wrapper}>
-          <h2>무비 차트</h2>
-          <Link to="/movies">현재상영작</Link>
-          <Link to="/movies/?movie=upcomming">개봉예정작</Link>
+          {!movie ? <h2>MOVIE CHART</h2> : <h2>UPCOMMING</h2>}
+          <nav className={s.nav}>
+            <Link to="/movies" className={classNames({ [s.active]: !movie })}>
+              현재상영작
+            </Link>
+            <Link
+              to="/movies/?movie=upcomming"
+              className={classNames({ [s.active]: movie })}
+            >
+              개봉예정작
+            </Link>
+          </nav>
           {/* movie가 upcomming이면 변수 movie가 truthy로 upcomming을 보내고 current면 null, 즉 falsy이므로 'current'를 보냅니다 */}
           <MovieList page="main" movie={movie ? movie : 'current'} />
         </div>

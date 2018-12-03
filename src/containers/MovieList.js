@@ -42,6 +42,24 @@ export default class MovieList extends Component {
         postImg:
           'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
+      {
+        id: 4,
+        title: '인생의',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
+      {
+        id: 5,
+        title: '진리',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
+      {
+        id: 6,
+        title: '호우',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
     ];
 
     if (this.props.page === 'main') {
@@ -60,7 +78,7 @@ export default class MovieList extends Component {
       // this.setState({
       //   list
       // })
-      const homeList = list.slice(0, 2);
+      const homeList = list.slice(0, 4);
       this.setState({
         list: homeList,
       });
