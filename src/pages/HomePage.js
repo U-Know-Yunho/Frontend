@@ -41,7 +41,7 @@ export default class HomePage extends Component {
             <MovieList page="home" movie={movie} />
           </section>
           <section className={s.trailer}>예고편 Trailer</section>
-          <div className={s.event}>Event</div>
+          <section className={s.event}>Event</section>
         </main>
       </Layout>
     );
