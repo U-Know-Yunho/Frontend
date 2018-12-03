@@ -89,11 +89,11 @@ export default class RegisterFormView extends Component {
               중복체크
             </button>
             {isIdConfirmed === null ? (
-              <span className={s.default}>아이디 중복체크를 해주세요.</span>
+              <span className={s.default}>아이디 중복체크를 해주세요</span>
             ) : isIdConfirmed ? (
-              <span className={s.correct}>사용 가능한 아이디입니다.</span>
+              <span className={s.correct}>사용 가능한 아이디입니다</span>
             ) : (
-              <span className={s.wrong}>이미 존재하는 아이디입니다.</span>
+              <span className={s.wrong}>이미 존재하는 아이디입니다</span>
             )}
 
             <span>Password</span>
@@ -141,7 +141,7 @@ export default class RegisterFormView extends Component {
             <span>휴대전화</span>
             <input type="tel" name="phonenumber" required />
 
-            <button>가입하기</button>
+            <button className={s.registerBtn}>가입하기</button>
           </form>
         </div>
       );
