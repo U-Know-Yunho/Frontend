@@ -31,7 +31,7 @@ export default class UserProvider extends Component {
 }
 
 function withUser(WrappedComponent) {
-  return function(props) {
+  return function WithUser(props) {
     return (
       <Consumer>{value => <WrappedComponent {...value} {...props} />}</Consumer>
     );

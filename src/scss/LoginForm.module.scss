@@ -1,0 +1,23 @@
+@import '../common.module.scss';
+
+.loginWrapper {
+  //   footer 가 20vh, 헤더가 8vh
+  height: calc(100vh - 20vh - 8vh);
+  border: 1px solid salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loginBox {
+    text-align: center;
+    border: 1px solid blue;
+    width: 200px;
+    height: 250px;
+    input[type='text'],
+    input[type='password'],
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+}
