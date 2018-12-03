@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from './LoginForm.module.scss';
+import s from '../scss/LoginForm.module.scss';
 import cx from 'classnames';
 import { Redirect } from 'react-router-dom';
 

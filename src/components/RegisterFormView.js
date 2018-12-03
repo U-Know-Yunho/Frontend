@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import s from './RegisterForm.module.scss';
 import cx from 'classnames';
 import api from '../api';
 import { Redirect } from 'react-router-dom';
+import s from '../scss/RegisterForm.module.scss';
 
 export default class RegisterFormView extends Component {
   constructor(props) {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import qs from 'qs';
 import MovieListView from '../components/MovieListView';
 
 export default class MovieList extends Component {
@@ -13,7 +12,7 @@ export default class MovieList extends Component {
   // page: main -> /movie 경로, MoviePage 상태(전체 리스트)
   // page: home -> / 경로, MainPage 상태(리스트 중 4개)
   // movie: current -> 리스트 종류 현재 상영작
-  // movie: upcoming -> 리스트 종류 개봉 예정작
+  // movie: upcomming -> 리스트 종류 개봉 예정작
 
   componentDidMount() {
     // 현재 상영작 & 개봉 예정작 판별하여 가지고 있는 전체 영화 리스트 요청
@@ -28,14 +27,38 @@ export default class MovieList extends Component {
       {
         id: 1,
         title: '보헤미안',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
       {
         id: 2,
         title: '랩',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
       {
         id: 3,
         title: '소디',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
+      {
+        id: 4,
+        title: '인생의',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
+      {
+        id: 5,
+        title: '진리',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
+      },
+      {
+        id: 6,
+        title: '호우',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
     ];
 
@@ -55,7 +78,7 @@ export default class MovieList extends Component {
       // this.setState({
       //   list
       // })
-      const homeList = list.slice(0, 2);
+      const homeList = list.slice(0, 4);
       this.setState({
         list: homeList,
       });
@@ -63,6 +86,6 @@ export default class MovieList extends Component {
   }
 
   render() {
-    return <MovieListView list={this.state.list} />;
+    return <MovieListView list={this.state.list} movie={this.props.movie} />;
   }
 }

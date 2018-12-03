@@ -1,0 +1,62 @@
+@import '../common.module.scss';
+
+// 전체 ul
+.movieList {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  // min-width: 750px;
+}
+
+// 각각 li
+.movieItem {
+  border: 1px solid grey;
+  background-color: white;
+  text-align: center;
+  width: calc(100% / 4.3);
+  min-width: 180px;
+  position: relative;
+  box-sizing: border-box;
+  margin: 7px;
+  // 포스터 이미지
+  img {
+    width: 100%;
+  }
+  // 영화 타이틀
+  figcaption {
+    margin-top: 10px;
+    height: 30px;
+    line-height: 31px;
+    font-size: 1.3rem;
+  }
+  // 상세정보 & 예매하기 버튼
+  .button {
+    display: flex;
+    a {
+      display: inline-block;
+      width: 100px;
+      height: 50px;
+      line-height: 51px;
+      margin: 5px;
+      background-color: #f2f2f1;
+      box-sizing: border-box;
+      &:hover {
+        background-color: white;
+        border: 1px solid mediumaquamarine;
+        color: mediumaquamarine;
+      }
+    }
+  }
+  // 순위 스티커
+  .rank {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 36px;
+    background-color: rgba(238, 46, 36, 0.8);
+    top: -3px;
+    left: 10px;
+    color: #f2f2f1;
+  }
+}

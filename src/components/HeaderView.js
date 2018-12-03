@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from './Header.module.scss';
+import s from '../scss/Header.module.scss';
 import { Link } from 'react-router-dom';
 
 export default class HeaderView extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../containers/Header';
-import s from './Layout.module.scss';
+import s from '../scss/Layout.module.scss';
 
 export default class Layout extends Component {
   render() {
