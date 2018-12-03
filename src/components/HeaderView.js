@@ -23,18 +23,21 @@ export default class HeaderView extends Component {
                 logout();
                 history.push('/');
               }}
+              className={s.link}
             >
               Logout
             </button>
           ) : (
-            <Link to="/login" className={s.link}>
-              Login
-            </Link>
-          )}
+            <>
+              <Link to="/login" className={s.link}>
+                Login
+              </Link>
 
-          <Link to="/register" className={s.link}>
-            Join
-          </Link>
+              <Link to="/register" className={s.link}>
+                Join
+              </Link>
+            </>
+          )}
           <Link to="/about" className={s.link}>
             About
           </Link>

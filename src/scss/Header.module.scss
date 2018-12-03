@@ -33,11 +33,16 @@
     position: relative;
     right: -13px;
     .link {
-      border: 1px solid red;
       padding: 3px 10px;
       margin: 0 3px;
       color: $main-black;
       text-transform: uppercase;
+      font-size: 0.8rem;
+      background-color: #fff;
+      border: 0;
+      &:active {
+        outline: none;
+      }
     }
   }
 }
