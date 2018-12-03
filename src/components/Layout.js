@@ -10,9 +10,11 @@ export default class Layout extends Component {
           <Header />
         </header>
         <div className={s.children}>{this.props.children}</div>
-
         <footer className={s.footer}>
-          <div className={s.footerContent}>푸터</div>
+          <div className={s.footerImg} />
+          <div className={s.footerInfo}>
+            Team Uknow-Yunho : CGV CLONE PROJECT
+          </div>
         </footer>
       </div>
     );

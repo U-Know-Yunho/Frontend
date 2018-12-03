@@ -28,6 +28,9 @@
     height: 30px;
     line-height: 31px;
     font-size: 1.3rem;
+    overflow: hidden;
+    // text-overflow안됨.. 왤까..
+    // text-overflow: ellipsis;
   }
   // 상세정보 & 예매하기 버튼
   .button {
