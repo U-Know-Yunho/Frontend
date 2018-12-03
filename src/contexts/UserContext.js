@@ -56,11 +56,14 @@ export default class UserProvider extends Component {
       password,
     });
     localStorage.setItem('token', res.data.token);
+    this.setState({
+      isLogin: true,
+    });
   }
 
   async logout() {
+    // await api.get('/api/members/logout/');
     localStorage.removeItem('token');
-    await api.get('/api/members/logout/');
     this.setState({
       isLogin: false,
     });
