@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import qs from 'qs';
 import MovieListView from '../components/MovieListView';
 
 export default class MovieList extends Component {
@@ -28,14 +27,20 @@ export default class MovieList extends Component {
       {
         id: 1,
         title: '보헤미안',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
       {
         id: 2,
         title: '랩',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
       {
         id: 3,
         title: '소디',
+        postImg:
+          'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81127/81127_185.jpg',
       },
     ];
 
@@ -63,6 +68,6 @@ export default class MovieList extends Component {
   }
 
   render() {
-    return <MovieListView list={this.state.list} />;
+    return <MovieListView list={this.state.list} movie={this.props.movie} />;
   }
 }

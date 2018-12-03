@@ -1,1 +1,50 @@
 @import '../common.module.scss';
+
+.movieList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.movieItem {
+  border: 1px solid grey;
+  background-color: white;
+  text-align: center;
+  width: 230px;
+  position: relative;
+  box-sizing: border-box;
+  img {
+    width: 100%;
+  }
+  figcaption {
+    margin-top: 10px;
+    height: 30px;
+    line-height: 31px;
+    font-size: 1.3rem;
+  }
+  .button {
+    display: flex;
+    a {
+      display: inline-block;
+      width: 100px;
+      height: 50px;
+      line-height: 51px;
+      margin: 10px;
+      background-color: #f2f2f1;
+      box-sizing: border-box;
+      &:hover {
+        background-color: white;
+        border: 1px solid mediumaquamarine;
+        color: mediumaquamarine;
+      }
+    }
+  }
+  .rank {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    line-height: 36px;
+    background-color: rgba(238, 46, 36, 0.8);
+    top: 10px;
+    left: -2px;
+  }
+}
