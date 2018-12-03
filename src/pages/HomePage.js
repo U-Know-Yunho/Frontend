@@ -22,7 +22,9 @@ export default class HomePage extends Component {
     return (
       <Layout>
         <button onClick={() => this.handleMovie('current')}>현재 상영작</button>
-        <button onClick={() => this.handleMovie('upcome')}>상영 예정작</button>
+        <button onClick={() => this.handleMovie('upcoming')}>
+          상영 예정작
+        </button>
         {movie === 'current' ? (
           <Link to="/movies">전체 보기</Link>
         ) : (
