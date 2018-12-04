@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import s from '../scss/MovieDetail.module.scss';
 import CarouselView from './CarouselView';
 import VideoView from './VideoView';
+import s from '../scss/MovieDetail.module.scss';
 
 export default class MovieDetailView extends Component {
   static defaultProps = {
@@ -87,7 +87,6 @@ export default class MovieDetailView extends Component {
       main_img_url,
       stillcuts,
     } = this.props;
-    console.log(this.props);
 
     const castsData = this.handleArray(casts);
     const descriptionData = this.handleString(description);
@@ -113,13 +112,13 @@ export default class MovieDetailView extends Component {
                 예매율: {reservation_score}%
               </span>
               <ul>
-                <li>감독: {director}</li>
-                <li>
-                  <span>배우: </span> <div>{castsData}</div>{' '}
+                <li className={s.list}>감독: {director}</li>
+                <li className={s.list}>
+                  <span>배우: </span> <div>{castsData}</div>
                 </li>
-                <li>장르: {genre}</li>
-                <li>기본: {duration_min}분</li>
-                <li>개봉: {opening_date}</li>
+                <li className={s.list}>장르: {genre}</li>
+                <li className={s.list}>기본: {duration_min}분</li>
+                <li className={s.list}>개봉: {opening_date}</li>
               </ul>
             </div>
           </div>

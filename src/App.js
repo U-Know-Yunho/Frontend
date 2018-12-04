@@ -9,6 +9,7 @@ import UserProvider from './contexts/UserContext';
 import RegisterPage from './pages/RegisterPage';
 import ReservationPage from './pages/ReservationPage';
 import AboutPage from './pages/AboutPage';
+import SecStep from './containers/ SecStep';
 
 class App extends Component {
   render() {
@@ -19,12 +20,16 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
-            <Route path="/movies/detail/:movieId" component={MovieDetailPage} />
-            {/* <Route path="/movies/detail" component={MovieDetailPage} /> */}
+            <Route
+              exact
+              path="/movies/detail/:movieId"
+              component={MovieDetailPage}
+            />
             <Route exact path="/movies" component={MoviePage} />
             <Route path="/reservation" component={ReservationPage} />
             <Route exact path="/about" component={AboutPage} />
-            {/* <Route exact path="/myCGV" component={} /> */}
+            {/* test 경로 (삭제 예정) */}
+            <Route exact path="/sec" component={SecStep} />
           </>
         </UserProvider>
       </BrowserRouter>

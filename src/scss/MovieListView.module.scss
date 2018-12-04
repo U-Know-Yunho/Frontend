@@ -24,13 +24,15 @@
   }
   // 영화 타이틀
   figcaption {
+    width: 100%;
     margin-top: 10px;
     height: 30px;
     line-height: 31px;
     font-size: 1.3rem;
+    white-space: nowrap;
     overflow: hidden;
     // text-overflow안됨.. 왤까..
-    // text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
   // 상세정보 & 예매하기 버튼
   .button {
