@@ -18,15 +18,20 @@ export default class HeaderView extends Component {
             Reservation
           </Link>
           {isLogin ? (
-            <button
-              onClick={() => {
-                logout();
-                history.push('/');
-              }}
-              className={s.link}
-            >
-              Logout
-            </button>
+            <>
+              <button
+                onClick={() => {
+                  logout();
+                  history.push('/');
+                }}
+                className={s.link}
+              >
+                Logout
+              </button>
+              <Link to="/myCGV" className={s.link}>
+                myCGV
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/login" className={s.link}>

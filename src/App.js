@@ -19,10 +19,12 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
-            <Route path="/movies" component={MoviePage} />
             <Route path="/movies/detail/:movieId" component={MovieDetailPage} />
+            {/* <Route path="/movies/detail" component={MovieDetailPage} /> */}
+            <Route exact path="/movies" component={MoviePage} />
             <Route path="/reservation" component={ReservationPage} />
             <Route exact path="/about" component={AboutPage} />
+            {/* <Route exact path="/myCGV" component={} /> */}
           </>
         </UserProvider>
       </BrowserRouter>

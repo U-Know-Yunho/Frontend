@@ -1,7 +1,7 @@
 @import '../common.module.scss';
 
 .loginWrapper {
-  border: 1px solid salmon;
+  //   border: 1px solid salmon;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,17 @@
     }
     .naver::after {
       background: url('http://dclip.co.kr/web/upload/131/image/naver.svg');
-      background-size: contain;
+    }
+    .kakao::after {
+      background: url('http://img.hani.co.kr/imgdb/resize/2012/1103/1359262936_135183197954_20121103.JPG');
+    }
+    .facebook::after {
+      background: url('https://www.sstransport.com/wp-content/uploads/2012/03/Facebook-icon-300x300.png');
+    }
+    .naver::after,
+    .kakao::after,
+    .facebook::after {
+      background-size: 30px;
       background-repeat: no-repeat;
       background-position: 50%;
     }
