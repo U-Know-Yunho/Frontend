@@ -8,22 +8,26 @@
 .wrapper {
   display: flex;
   align-items: center;
-  background-color: $main-black;
+  background-color: $black;
   color: white;
   padding: 20px;
+
   p {
     height: 26px;
     line-height: 27px;
     margin: 0 7px;
   }
+
   ul {
     display: flex;
+
     li {
-      background-color: $lightgray;
+      background-color: $light-gray;
       margin: 2px;
       padding: 5px 10px;
       cursor: pointer;
     }
+
     .selected {
       background-color: white;
       color: black;
