@@ -13,9 +13,17 @@ export default class ReserveProvider extends Component {
       theater: '',
       date: '',
       time: '',
-      number: '',
+      number: 0,
       seat: '',
+      onNumber: this.onNumber.bind(this),
     };
+  }
+
+  onNumber(number) {
+    // const number = e.target.value;
+    this.setState({
+      number,
+    });
   }
 
   render() {
