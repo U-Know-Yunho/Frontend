@@ -25,6 +25,7 @@
       font-size: 1rem;
       margin: 10px;
       cursor: pointer;
+      border: 0;
     }
     // 각 버튼 클릭 시 빨간 색으로 표시
     .active {
@@ -52,6 +53,8 @@
   background-color: powderblue;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   .trailerVideo {
     width: 50%;
   }
@@ -60,4 +63,20 @@
   width: 100%;
   height: 20vh;
   background-color: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.subTitle {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  color: #f4f4f4;
+  width: 150px;
+  height: 50px;
+  font-size: 1rem;
+  margin: 10px;
+  line-height: 50px;
+  background: #ee2e24;
 }

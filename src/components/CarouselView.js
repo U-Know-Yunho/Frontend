@@ -18,8 +18,8 @@ export default class CarouselView extends Component {
         // onClickItem={onClickItem}
         // onClickThumb={onClickThumb}
       >
-        {stillcuts.map((s, idx) => (
-          <div key={idx}>
+        {stillcuts.map(s => (
+          <div key={s}>
             <img src={s} alt="stillcut" />
             {/* <p className="legend">Legend 1</p> */}
           </div>

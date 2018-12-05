@@ -16,7 +16,28 @@ export default class ReserveProvider extends Component {
       number: 0,
       seat: '',
       onNumber: this.onNumber.bind(this),
+      onMovie: this.onMovie.bind(this),
+      onTheater: this.onTheater.bind(this),
+      onDate: this.onDate.bind(this),
     };
+  }
+
+  onMovie(movie) {
+    this.setState({
+      movie,
+    });
+  }
+
+  onTheater(theater) {
+    this.setState({
+      theater,
+    });
+  }
+
+  onDate(date) {
+    this.setState({
+      date,
+    });
   }
 
   onNumber(number) {

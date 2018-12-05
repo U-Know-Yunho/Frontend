@@ -129,8 +129,8 @@ export default class MovieDetailView extends Component {
           </div>
           <div className={s.subWrapper}>
             <span className={s.subTitle}>줄거리</span>
-            {descriptionData.map((d, idx) => (
-              <span key={idx} className={s.descriptionLine}>
+            {descriptionData.map(d => (
+              <span key={d} className={s.descriptionLine}>
                 {d}
               </span>
             ))}
