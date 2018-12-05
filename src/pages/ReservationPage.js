@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import qs from 'qs';
+import ReserveProvider from '../contexts/ReserveContext';
+import ReservationSteps from '../containers/ReservationSteps';
 
 export default class ReservationPage extends Component {
   render() {
@@ -9,6 +11,12 @@ export default class ReservationPage extends Component {
     // '/reservation' 경로면 pk 값 null
     // '/reservation/?moviePk=?' 경로면 특정 영화의 pk가 pk 값에 저장
     // firstStep component에서 선택된 영화 값으로 이 pk를 활용
-    return <Layout />;
+    return (
+      <Layout>
+        <ReserveProvider>
+          <ReservationSteps />
+        </ReserveProvider>
+      </Layout>
+    );
   }
 }
