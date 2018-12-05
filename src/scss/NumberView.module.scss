@@ -5,14 +5,28 @@
 
 // 오른팔이 2시에 온다고했다
 // 우선 진행하고있겠음 호호
-// ul {
-//   display: flex;
-//   li {
-//     border: 1px solid black;
-//     margin: 10px;
-//   }
-//   .selected {
-//     background-color: black;
-//     color: white;
-//   }
-// }
+.wrapper {
+  display: flex;
+  align-items: center;
+  background-color: $main-black;
+  color: white;
+  padding: 20px;
+  p {
+    height: 26px;
+    line-height: 27px;
+    margin: 0 7px;
+  }
+  ul {
+    display: flex;
+    li {
+      background-color: $lightgray;
+      margin: 2px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .selected {
+      background-color: white;
+      color: black;
+    }
+  }
+}
