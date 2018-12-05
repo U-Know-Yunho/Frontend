@@ -17,10 +17,11 @@
     // 웹 접근성을 위해 Home 텍스트 숨기기. CGV 로고만 보이게
     text-indent: 150px;
     overflow: hidden;
+
     &::after {
       content: '';
       position: absolute;
-      top: 0;
+      top: 7px;
       left: 0;
       width: inherit;
       height: inherit;
@@ -33,16 +34,23 @@
   .menu {
     position: relative;
     right: -13px;
+
     .link {
       padding: 3px 10px;
       margin: 0 3px;
-      color: $main-black;
+      color: $black;
       text-transform: uppercase;
       font-size: 0.8rem;
+      font-weight: 700;
       background-color: #fff;
       border: 0;
+
       &:active {
         outline: none;
+      }
+
+      &:hover {
+        color: $red;
       }
     }
   }

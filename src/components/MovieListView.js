@@ -14,7 +14,7 @@ export default class MovieListView extends Component {
               <div className={s.rank}>{l.pk}</div>
             ) : null}
             <figure>
-              <img src={l.main_img_url} alt={l.title} />
+              <img src={l.mainImgUrl} alt={l.title} />
               <figcaption>{l.title}</figcaption>
             </figure>
             <div className={s.button}>

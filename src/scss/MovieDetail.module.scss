@@ -6,26 +6,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .movieDetailBox {
     width: $content-width;
     // border: 1px solid #ccc;
     padding: 80px;
+
     h2 {
-      color: $main-red;
+      color: $red;
       font-size: 2rem;
       text-transform: uppercase;
       text-align: center;
       margin: 50px 0;
     }
+
     .movieInfo {
       //   border: 1px solid white;
       display: flex;
       justify-content: space-between;
+
       .posterWrapper {
         width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         .poster {
           width: 100%;
           height: calc(100% - 50px);
@@ -34,32 +39,37 @@
           width: 100%;
           height: 35px;
           color: #fff;
-          background-color: $main-red;
+          background-color: $red;
           border: 0;
           font-weight: bold;
           text-align: center;
           line-height: 35px;
         }
       }
+
       .basicInfo {
         width: 70%;
         // border: 1px solid orange;
         padding: 20px;
         color: #fff;
+
         .title {
           font-size: 1.5rem;
         }
+
         .reservationScore {
           display: block;
           font-size: 1.1rem;
           margin: 30px 0;
           color: #ccc;
         }
+
         .list {
           color: #aaa;
           font-size: 0.9rem;
           line-height: 1.4rem;
           display: flex;
+
           span {
             margin-right: 3px;
             width: fit-content;
@@ -68,10 +78,12 @@
         }
       }
     }
+
     .subWrapper {
       //   border: 1px solid salmon;
       text-align: center;
       margin: 50px 0;
+
       .subTitle {
         height: 40px;
         background-color: #555;
@@ -81,6 +93,7 @@
         line-height: 40px;
         margin: 30px;
       }
+
       .descriptionLine {
         color: #aaa;
         line-height: 1.5rem;

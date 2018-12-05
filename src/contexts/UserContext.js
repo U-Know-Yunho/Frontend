@@ -26,19 +26,19 @@ export default class UserProvider extends Component {
     const {
       username,
       password,
-      last_name,
-      first_name,
+      lastName,
+      firstName,
       email,
-      phone_number,
+      phoneNumber,
     } = value;
 
     const res = await api.post('/api/members/signup/', {
       username,
       password,
-      last_name,
-      first_name,
+      lastName,
+      firstName,
       email,
-      phone_number,
+      phoneNumber,
     });
     console.log(res.data);
   }

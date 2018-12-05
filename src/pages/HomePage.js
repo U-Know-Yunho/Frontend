@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import s from '../scss/HomePage.module.scss';
 import classNames from 'classnames';
 import VideoView from '../components/VideoView';
-import CarouselView from '../components/CarouselView';
+import MainCarouselView from '../components/MainCarouselView';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -26,7 +26,9 @@ export default class HomePage extends Component {
     return (
       <Layout>
         <main>
-          <section className={s.carousel}>Carousel</section>
+          <section className={s.carousel}>
+            <MainCarouselView />
+          </section>
           <section className={s.movie}>
             <div className={s.movieNav}>
               <button

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import SlideShow from 'react-image-show';
 
 export default class CarouselView extends Component {
   render() {
@@ -12,19 +11,18 @@ export default class CarouselView extends Component {
     //   'https://brandinside.asia/wp-content/uploads/2018/11/5b80a85aabb59.jpg',
     // ];
     return (
-      <Carousel
-        showArrows={true}
-        // onChange={onChange}
-        // onClickItem={onClickItem}
-        // onClickThumb={onClickThumb}
-      >
-        {stillcuts.map(s => (
-          <div key={s}>
-            <img src={s} alt="stillcut" />
-            {/* <p className="legend">Legend 1</p> */}
-          </div>
-        ))}
-      </Carousel>
+      <SlideShow
+        images={stillcuts}
+        width="100%"
+        imagesWidth="100%"
+        imagesHeight="400px"
+        imagesHeightMobile="56vw"
+        thumbnailsWidth="100%"
+        thumbnailsHeight="20px"
+        indicators
+        thumbnails
+        fixedImagesHeight
+      />
     );
   }
 }

@@ -1,11 +1,44 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700|Noto+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700|Noto+Sans:400,700');
 // 영어 : Noto Sans / 한글 : Noto Sans KR
 
-$main-black: #242320;
-$main-red: #ee2e24;
-$sub-red: #e4433a;
-$bg-lightgray: #f4f4f4;
-$lightgray: #302f2a;
+
+//--- ALL COLOR GUIDE ---
+// 밝음에서 어두운순차
+
+// white
+$white: #ffffff;
+$silver-white: #f4f4f4;
+$stone-white: #f3f3f3;
+$dark-white: #f2f2f1;
+$darken-white: #f0f0f0;
+$deepdarken-white: #d4d4d4;
+
+//silver
+$light-silver: #d1d1d1;
+$ligten-silver: #d3d3d3;
+$stone-silver: #adadad;
+$silver: #9c9c9c;
+
+//gray
+$light-gray: #878986;
+$silver-gray: #686868;
+$lightenstone-gray: #514f4f;
+$lightstone-gray: #4e4e4e;
+$stone-gray: #373633;
+$gray: #302f2a;
+$dark-gray: #2b2a28;
+
+//black
+$black: #1c1a1a;
+$dark-black: #1b1919;
+
+//red
+$red: #e4433a;
+$dark-red: #ee2e24;
+
+
+
+// main-Width
 
 $content-width: 70vw;
 
@@ -18,4 +51,5 @@ $content-width: 70vw;
 
 button {
   cursor: pointer;
+  outline: none;
 }

@@ -10,14 +10,14 @@ export default class MovieDetailView extends Component {
     title: '',
     director: '',
     casts: [],
-    duration_min: null,
-    opening_date: '',
+    durationMin: null,
+    openingDate: '',
     genre: '',
     description: '',
     trailer: '',
-    reservation_score: null,
-    now_show: null,
-    main_img_url: '',
+    reservationScore: null,
+    nowShow: null,
+    mainImgUrl: '',
     stillcuts: [],
   };
 
@@ -38,7 +38,7 @@ export default class MovieDetailView extends Component {
   handleImages(stillcuts) {
     let arr = [];
     for (const s of stillcuts) {
-      arr.push(s.image_url);
+      arr.push(s.imageUrl);
     }
     return arr;
   }
@@ -78,14 +78,14 @@ export default class MovieDetailView extends Component {
       title,
       director,
       casts,
-      duration_min,
-      opening_date,
+      durationMin,
+      openingDate,
       genre,
       description,
       trailer,
-      reservation_score,
-      now_show,
-      main_img_url,
+      reservationScore,
+      nowShow,
+      mainImgUrl,
       stillcuts,
     } = this.props;
 
@@ -102,19 +102,17 @@ export default class MovieDetailView extends Component {
             <div className={s.posterWrapper}>
               <img
                 className={s.poster}
-                src={main_img_url}
+                src={mainImgUrl}
                 alt={`${title} 포스터`}
               />
-              {/* <button> */}
               <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
                 예매하기
               </Link>
-              {/* </button> */}
             </div>
             <div className={s.basicInfo}>
               <h3 className={s.title}>{title}</h3>
               <span className={s.reservationScore}>
-                예매율: {reservation_score}%
+                예매율: {reservationScore}%
               </span>
               <ul>
                 <li className={s.list}>감독: {director}</li>
@@ -122,8 +120,8 @@ export default class MovieDetailView extends Component {
                   <span>배우: </span> <div>{castsData}</div>
                 </li>
                 <li className={s.list}>장르: {genre}</li>
-                <li className={s.list}>기본: {duration_min}분</li>
-                <li className={s.list}>개봉: {opening_date}</li>
+                <li className={s.list}>기본: {durationMin}분</li>
+                <li className={s.list}>개봉: {openingDate}</li>
               </ul>
             </div>
           </div>
