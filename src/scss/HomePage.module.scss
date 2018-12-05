@@ -2,8 +2,8 @@
 
 .carousel {
   width: 100%;
-  height: 20vh;
   background-color: rosybrown;
+  height: 20vh;
 }
 // 무비 차트 영역
 .movie {
@@ -48,8 +48,13 @@
 }
 .trailer {
   width: 100%;
-  height: 20vh;
+
   background-color: powderblue;
+  display: flex;
+  justify-content: center;
+  .trailerVideo {
+    width: $content-width;
+  }
 }
 .event {
   width: 100%;

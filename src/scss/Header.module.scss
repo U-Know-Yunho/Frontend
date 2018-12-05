@@ -6,12 +6,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
+  //   border: 1px solid #ccc;
+  height: 10vh;
 
   .logo {
     position: relative;
     width: 100px;
-    height: 8vh;
+    height: 90%;
     cursor: pointer;
     // 웹 접근성을 위해 Home 텍스트 숨기기. CGV 로고만 보이게
     text-indent: 150px;

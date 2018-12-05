@@ -4,6 +4,8 @@ import MovieList from '../containers/MovieList';
 import { Link } from 'react-router-dom';
 import s from '../scss/HomePage.module.scss';
 import classNames from 'classnames';
+import VideoView from '../components/VideoView';
+import CarouselView from '../components/CarouselView';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -51,7 +53,11 @@ export default class HomePage extends Component {
             )}
             <MovieList page="home" movie={movie} />
           </section>
-          <section className={s.trailer}>예고편 Trailer</section>
+          <section className={s.trailer}>
+            <div className={s.trailerVideo}>
+              <VideoView />
+            </div>
+          </section>
           <section className={s.event}>Event</section>
         </main>
       </Layout>
