@@ -21,7 +21,7 @@
     &::after {
       content: '';
       position: absolute;
-      top: 0;
+      top: 7px;
       left: 0;
       width: inherit;
       height: inherit;
@@ -41,11 +41,16 @@
       color: $black;
       text-transform: uppercase;
       font-size: 0.8rem;
+      font-weight: 700;
       background-color: #fff;
       border: 0;
 
       &:active {
         outline: none;
+      }
+
+      &:hover {
+        color: $red;
       }
     }
   }

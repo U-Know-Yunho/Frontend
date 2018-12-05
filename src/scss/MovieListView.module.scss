@@ -18,10 +18,12 @@
   position: relative;
   box-sizing: border-box;
   margin: 7px;
+
   // 포스터 이미지
   img {
     width: 100%;
   }
+
   // 영화 타이틀
   figcaption {
     width: 100%;
@@ -34,9 +36,11 @@
     // text-overflow안됨.. 왤까..
     text-overflow: ellipsis;
   }
+
   // 상세정보 & 예매하기 버튼
   .button {
     display: flex;
+
     a {
       display: inline-block;
       width: 100px;
@@ -45,13 +49,15 @@
       margin: 5px;
       background-color: #f2f2f1;
       box-sizing: border-box;
+
       &:hover {
         background-color: white;
-        border: 1px solid mediumaquamarine;
-        color: mediumaquamarine;
+        border: 1px solid $red;
+        color: $red;
       }
     }
   }
+
   // 순위 스티커
   .rank {
     position: absolute;
@@ -59,7 +65,7 @@
     height: 35px;
     text-align: center;
     line-height: 36px;
-    background-color: rgba(238, 46, 36, 0.8);
+    background-color: rgba(238, 46, 36, 0.95);
     top: -2px;
     left: 10px;
     color: #f2f2f1;
