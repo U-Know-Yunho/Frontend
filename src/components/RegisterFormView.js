@@ -75,28 +75,30 @@ export default class RegisterFormView extends Component {
             <h1>Join</h1>
 
             <span>Username</span>
-            <input
-              type="text"
-              name="username"
-              className={s.usernameInput}
-              onChange={e => this.handleFieldChange(e, 'username')}
-              required
-            />
+            <div className={s.inputWrapper}>
+              <input
+                type="text"
+                name="username"
+                className={s.usernameInput}
+                onChange={e => this.handleFieldChange(e, 'username')}
+                required
+              />
 
-            <button
-              type="button"
-              onClick={() => this.handleCheckIdButtonClick()}
-              className={s.checkIdBtn}
-            >
-              중복체크
-            </button>
-            {isIdConfirmed === null ? (
-              <span className={s.default}>아이디 중복체크를 해주세요</span>
-            ) : isIdConfirmed ? (
-              <span className={s.correct}>사용 가능한 아이디입니다</span>
-            ) : (
-              <span className={s.wrong}>이미 존재하는 아이디입니다</span>
-            )}
+              <button
+                type="button"
+                onClick={() => this.handleCheckIdButtonClick()}
+                className={s.checkIdBtn}
+              >
+                중복체크
+              </button>
+              {isIdConfirmed === null ? (
+                <span className={s.default}>아이디 중복체크를 해주세요</span>
+              ) : isIdConfirmed ? (
+                <span className={s.correct}>사용 가능한 아이디입니다</span>
+              ) : (
+                <span className={s.wrong}>이미 존재하는 아이디입니다</span>
+              )}
+            </div>
 
             <span>Password</span>
             <input
@@ -108,20 +110,22 @@ export default class RegisterFormView extends Component {
             />
 
             <span>Confirm Password</span>
-            <input
-              value={confirmPassword}
-              type="password"
-              onChange={e => this.handleFieldChange(e, 'confirmPassword')}
-              required
-            />
+            <div className={s.inputWrapper}>
+              <input
+                value={confirmPassword}
+                type="password"
+                onChange={e => this.handleFieldChange(e, 'confirmPassword')}
+                required
+              />
 
-            {confirmPassword === '' ? (
-              <span className={s.default}>비밀번호를 확인해주세요</span>
-            ) : confirmPassword === password ? (
-              <span className={s.correct}>비밀번호가 일치합니다</span>
-            ) : (
-              <span className={s.wrong}>비밀번호가 일치하지 않습니다</span>
-            )}
+              {confirmPassword === '' ? (
+                <span className={s.default}>비밀번호를 확인해주세요</span>
+              ) : confirmPassword === password ? (
+                <span className={s.correct}>비밀번호가 일치합니다</span>
+              ) : (
+                <span className={s.wrong}>비밀번호가 일치하지 않습니다</span>
+              )}
+            </div>
 
             <span>이름</span>
             <input

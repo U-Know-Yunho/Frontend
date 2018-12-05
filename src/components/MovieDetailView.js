@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CarouselView from './CarouselView';
 import VideoView from './VideoView';
 import s from '../scss/MovieDetail.module.scss';
+import { Link } from 'react-router-dom';
 
 export default class MovieDetailView extends Component {
   static defaultProps = {
@@ -104,7 +105,11 @@ export default class MovieDetailView extends Component {
                 src={main_img_url}
                 alt={`${title} 포스터`}
               />
-              <button>예매하기</button>
+              {/* <button> */}
+              <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
+                예매하기
+              </Link>
+              {/* </button> */}
             </div>
             <div className={s.basicInfo}>
               <h3 className={s.title}>{title}</h3>
