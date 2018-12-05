@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieListView from '../components/MovieListView';
+import api from '../api';
 
 export default class MovieList extends Component {
   // 받는 prop : page와 movie
@@ -17,15 +18,19 @@ export default class MovieList extends Component {
 
   componentDidMount() {
     // 현재 상영작 & 개봉 예정작 판별하여 가지고 있는 전체 영화 리스트 요청
-    // const { movie } = this.props;
-    // const { data: 영화 리스트 배열 } = api.get('/movies', {
-    //   params: {
-    //     // 현재 상영작 & 개봉 예정작 판별 조건
-    //     // now_show: true -> 현재상영작
-    //     // now_show: false -> 개봉예정작
-    //     // now_show: (movie === 'current'? true : false)
-    //   },
-    // });
+    const { movie } = this.props;
+    const res = api.get(
+      '/movies/list/'
+      // {
+      //   params: {
+      //     // 현재 상영작 & 개봉 예정작 판별 조건
+      //     // now_show: true -> 현재상영작
+      //     // now_show: false -> 개봉예정작
+      //     // now_show: (movie === 'current'? true : false)
+      //   },
+      // }
+    );
+    console.log(res);
     const list = [
       {
         pk: 8,
