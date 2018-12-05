@@ -9,7 +9,7 @@ import UserProvider from './contexts/UserContext';
 import RegisterPage from './pages/RegisterPage';
 import ReservationPage from './pages/ReservationPage';
 import AboutPage from './pages/AboutPage';
-import SecStep from './containers/ SecStep';
+import SecStep from './containers/SecStep';
 
 class App extends Component {
   render() {
