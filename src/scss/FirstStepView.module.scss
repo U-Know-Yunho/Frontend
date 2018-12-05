@@ -1,0 +1,53 @@
+@import '../common.module.scss';
+
+.firstStepWrapper {
+  //   border: 1px solid salmon;
+  h1 {
+    text-transform: uppercase;
+    // border: 1px solid purple;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    color: #ee2e24;
+    font-size: 1.5rem;
+  }
+  .FirstStep {
+    &Box {
+      width: 70vw;
+      //   border: 1px solid orange;
+      height: 400px;
+      display: flex;
+      span {
+        text-align: center;
+        display: block;
+        color: #fff;
+        background-color: #242320;
+        padding: 5px;
+      }
+    }
+    &Movie,
+    &Theater,
+    &Date,
+    &Time {
+      background-color: #403f3a;
+      color: #ccc;
+    }
+    &Movie {
+      flex: 1;
+      //   width: 25%;
+      height: 100%;
+      border-right: 1px solid #ccc;
+    }
+    &Theater {
+      flex: 1;
+      border-right: 1px solid #ccc;
+    }
+    &Date {
+      flex: 1;
+      border-right: 1px solid #ccc;
+    }
+    &Time {
+      flex: 1;
+    }
+  }
+}
