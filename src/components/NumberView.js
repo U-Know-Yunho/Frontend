@@ -12,8 +12,6 @@ class NumberView extends Component {
   render() {
     const num = [0, 1, 2, 3, 4, 5, 6, 7];
     const { number, onNumber } = this.props;
-    console.log(number);
-    console.log(onNumber);
     return (
       <div className={s.wrapper}>
         <p>인원수</p>
@@ -21,10 +19,9 @@ class NumberView extends Component {
           {num.map(n => (
             <li
               key={n}
-              value={n}
               // 선택중인 값과 li의 값이 같다면 선택된 상태라는 클래스를 붙여서 다른 css를 적용한다.
               className={classNames({ [s.selected]: number === n })}
-              onClick={e => onNumber(e.target.value)}
+              onClick={() => onNumber(n)}
             >
               {n}
             </li>

@@ -41,7 +41,6 @@ export default class ReserveProvider extends Component {
   }
 
   onNumber(number) {
-    // const number = e.target.value;
     this.setState({
       number,
     });
