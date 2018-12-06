@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/NumberView.module.scss';
-import { withReserving, ReserveConsumer } from '../contexts/ReserveContext';
-import { UserConsumer } from '../contexts/UserContext';
+import { withReserving } from '../contexts/ReserveContext';
 
 class NumberView extends Component {
   static defaultProps = {
@@ -14,7 +13,7 @@ class NumberView extends Component {
     const { number, onNumber } = this.props;
     return (
       <div className={s.wrapper}>
-        <p>인원수</p>
+        <p>인원</p>
         <ul>
           {num.map(n => (
             <li

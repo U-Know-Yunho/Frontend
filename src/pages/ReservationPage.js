@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import qs from 'qs';
 import ReserveProvider from '../contexts/ReserveContext';
 import ReservationSteps from '../containers/ReservationSteps';
+import s from '../scss/ReservationPage.module.scss';
 
 export default class ReservationPage extends Component {
   render() {
@@ -14,7 +15,10 @@ export default class ReservationPage extends Component {
     return (
       <Layout>
         <ReserveProvider>
-          <ReservationSteps />
+          <div className={s.wrapper}>
+            <h1>Reservation</h1>
+            <ReservationSteps />
+          </div>
         </ReserveProvider>
       </Layout>
     );
