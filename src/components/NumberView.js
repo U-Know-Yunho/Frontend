@@ -24,7 +24,7 @@ class NumberView extends Component {
               value={n}
               // 선택중인 값과 li의 값이 같다면 선택된 상태라는 클래스를 붙여서 다른 css를 적용한다.
               className={classNames({ [s.selected]: number === n })}
-              onClick={e => onNumber(e.target.value)}
+              onClick={e => onNumber(n.target.value)}
             >
               {n}
             </li>
