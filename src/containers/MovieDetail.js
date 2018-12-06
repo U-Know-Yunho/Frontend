@@ -31,7 +31,6 @@ class MovieDetail extends Component {
 
   async componentDidMount() {
     const { movieId } = this.props;
-
     const res = await api.get(`/api/movies/detail/${movieId}/`);
 
     const {

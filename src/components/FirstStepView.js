@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import s from '../scss/FirstStepView.module.scss';
 
 export default class FirstStepView extends Component {
-  onClickMovie(e) {
+  onClickMovie(m) {
     const { handleWithMovie } = this.props;
-    handleWithMovie(e.target.innerHTML);
+    handleWithMovie(m);
   }
 
-  onClickTheater(e) {
+  onClickTheater(t) {
     const { handleWithTheater } = this.props;
-    handleWithTheater(e.target.innerHTML);
+    handleWithTheater(t);
   }
 
-  onClickDate(e) {
+  onClickDate(d) {
     const { handleWithDate } = this.props;
-    handleWithDate(e.target.innerHTML);
+    handleWithDate(d);
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class FirstStepView extends Component {
             <span>영화</span>
             <ul>
               {selectedMovieList.map(m => (
-                <li key={m} onClick={e => this.onClickMovie(e)}>
+                <li key={m} onClick={() => this.onClickMovie(m)}>
                   {m}
                 </li>
               ))}
@@ -42,7 +42,7 @@ export default class FirstStepView extends Component {
             <span>극장</span>
             <ul>
               {selectedTheaterList.map(t => (
-                <li key={t} onClick={e => this.onClickTheater(e)}>
+                <li key={t} onClick={() => this.onClickTheater(t)}>
                   {t}
                 </li>
               ))}
@@ -52,7 +52,7 @@ export default class FirstStepView extends Component {
             <span>날짜</span>
             <ul>
               {selectedDateList.map(d => (
-                <li key={d} onClick={e => this.onClickDate(e)}>
+                <li key={d} onClick={() => this.onClickDate(d)}>
                   {d}
                 </li>
               ))}
