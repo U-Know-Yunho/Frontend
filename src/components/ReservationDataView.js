@@ -27,28 +27,28 @@ export default class ReservationDataView extends Component {
         )}
         <div className={s.movieData}>
           {movie ? (
-            <span className={s.empty}>영화선택</span>
-          ) : (
             <span>{movie}</span>
+          ) : (
+            <span className={s.empty}>영화선택</span>
           )}
         </div>
         <div className={s.basicData}>
           {theater && date && time ? (
-            <span className={s.empty}>영화정보</span>
-          ) : (
             <ul>
               <li>{theater}</li>
               <li>
                 {date} {time}
               </li>
             </ul>
+          ) : (
+            <span className={s.empty}>영화정보</span>
           )}
         </div>
         <div className={s.seatData}>
           {seat ? (
-            <span className={s.empty}>좌석선택</span>
-          ) : (
             <span>{seat}</span>
+          ) : (
+            <span className={s.empty}>좌석선택</span>
           )}
         </div>
         <div className={s.payData}>결제</div>

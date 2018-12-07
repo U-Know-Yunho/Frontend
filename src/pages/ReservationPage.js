@@ -16,7 +16,6 @@ export default class ReservationPage extends Component {
       <Layout>
         <ReserveProvider>
           <div className={s.wrapper}>
-            <h1>Reservation</h1>
             <ReservationSteps />
           </div>
         </ReserveProvider>

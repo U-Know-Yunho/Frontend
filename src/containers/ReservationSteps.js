@@ -9,6 +9,7 @@ class ReservationSteps extends Component {
   render() {
     return (
       <div className={s.ReservationStepsWrapper}>
+        <h1>Reservation</h1>
         {this.props.step === 'first' ? (
           <FirstStep {...this.props} />
         ) : (
