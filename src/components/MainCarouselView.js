@@ -40,12 +40,10 @@ export default class MainCarouselView extends Component {
           </p>
         </div>
         <div>
-          <img src="https://i.ytimg.com/vi/qSfnoV9ESng/maxresdefault.jpg" />
+          <img src="https://i.ytimg.com/vi/d8Xaqr4sIX8/maxresdefault.jpg" />
           <p className="legend" style={captionStyle}>
-            Legend 2
-            <span style={subCaptionStyle}>
-              Fantastic Beasts: The Crimes of Grindelwald
-            </span>
+            보헤미안 랩소디
+            <span style={subCaptionStyle}>Bohemian Rhapsody</span>
           </p>
         </div>
       </Carousel>
