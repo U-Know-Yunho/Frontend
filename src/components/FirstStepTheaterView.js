@@ -6,16 +6,16 @@ export default class FirstStepTheaterView extends Component {
     const {
       onLocation,
       onSubLocation,
-      selectedLocationList,
+      allLocationList,
       onSubLocationList,
     } = this.props;
     let subArr = [];
-    for (const item of selectedLocationList) {
-      if (item.location === l.location) {
+    for (const item of allLocationList) {
+      if (item.location === l) {
         subArr.push(item.subLocation);
       }
     }
-    onLocation(l.location);
+    onLocation(l);
     onSubLocation('');
     onSubLocationList(subArr);
   }
@@ -34,8 +34,8 @@ export default class FirstStepTheaterView extends Component {
         <div className={s.locationWrapper}>
           <ul className={s.locationBox}>
             {selectedLocationList.map(t => (
-              <li key={t.location} onClick={() => this.handleLocation(t)}>
-                {t.location}
+              <li key={t} onClick={() => this.handleLocation(t)}>
+                {t}
               </li>
             ))}
           </ul>
