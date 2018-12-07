@@ -21,13 +21,29 @@ export default class LoginFormView extends Component {
   }
 
   async handleLoginButtonClick() {
-    const { onLogin } = this.props;
+    const { onLogin, onCheckId } = this.props;
     const { username, password } = this.state;
-    await onLogin(username, password);
-    // 로그인이 성공적으로 끝났을 때
-    this.setState({
-      success: true,
-    });
+    const msg = await onCheckId(username);
+    if (msg === '이미 존재하는 아이디입니다.') {
+      try {
+        await onLogin(username, password);
+        // 로그인이 성공적으로 끝났을 때
+        this.setState({
+          success: true,
+        });
+      } catch {
+        alert('비밀번호가 틀렸습니다.');
+        this.setState({
+          password: '',
+        });
+      }
+    } else {
+      alert('가입된 사용자가 아닙니다.');
+      this.setState({
+        username: '',
+        password: '',
+      });
+    }
   }
 
   render() {

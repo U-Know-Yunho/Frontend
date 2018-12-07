@@ -25,9 +25,6 @@ export default class FirstStepTheaterView extends Component {
   }
   render() {
     const { selectedLocationList, selectedSubLocationList } = this.props;
-    // 0: {pk: 3, location: "독도", subLocation: "울릉도"}
-    // 1: {pk: 2, location: "시흥시", subLocation: "배곧동"}
-    // 2: {pk: 1, location: "서울시", subLocation: "성북지점"}
     return (
       <div className={s.theaterBox}>
         <h3>극장</h3>
