@@ -1,42 +1,8 @@
 @import '../common.module.scss';
 
 .seatArea {
+  margin: 0 auto;
   .row {
-    .eachSeat {
-      input {
-        display: none;
-      }
-
-      label {
-        width: 23px;
-        height: 23px;
-        display: inline-block;
-        border: 2px solid #fff;
-        text-align: center;
-        line-height: 20px;
-        margin-right: 6px;
-        border-radius: 3px;
-        cursor: pointer;
-        background-color: black;
-      }
-
-      label {
-        font-size: 16px;
-        opacity: 0.5;
-      }
-      label:hover {
-        background: #16a085;
-      }
-      input:checked {
-        label {
-          opacity: 1;
-        }
-      }
-      input:checked {
-        + label {
-          background: #16a085;
-        }
-      }
-    }
+    display: flex;
   }
 }
