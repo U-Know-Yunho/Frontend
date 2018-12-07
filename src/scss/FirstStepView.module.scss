@@ -13,7 +13,6 @@
     &Box {
       width: 70vw;
       //   border: 1px solid orange;
-      height: 400px;
       display: flex;
       span {
         text-align: center;
@@ -24,6 +23,8 @@
       }
       ul {
         padding: 10px;
+        height: 400px;
+        overflow-y: scroll;
       }
       li {
         cursor: pointer;

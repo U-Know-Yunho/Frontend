@@ -3,6 +3,7 @@ import { withReserving } from '../contexts/ReserveContext';
 import FirstStep from '../containers/FirstStep';
 import SecStep from '../containers/SecStep';
 import s from '../scss/ReservationSteps.module.scss';
+import ReservationDataView from '../components/ReservationDataView';
 
 class ReservationSteps extends Component {
   render() {
@@ -13,6 +14,7 @@ class ReservationSteps extends Component {
         ) : (
           <SecStep {...this.props} />
         )}
+        <ReservationDataView {...this.props} />
       </div>
     );
   }

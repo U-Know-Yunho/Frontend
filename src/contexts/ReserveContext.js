@@ -19,7 +19,14 @@ export default class ReserveProvider extends Component {
       onMovie: this.onMovie.bind(this),
       onTheater: this.onTheater.bind(this),
       onDate: this.onDate.bind(this),
+      onStep: this.onStep.bind(this),
     };
+  }
+
+  onStep(step) {
+    this.setState({
+      step,
+    });
   }
 
   onMovie(movie) {

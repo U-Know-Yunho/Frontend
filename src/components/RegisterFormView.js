@@ -52,7 +52,6 @@ export default class RegisterFormView extends Component {
   async handleCheckIdButtonClick() {
     const { username } = this.state;
     const message = await this.props.onCheckId(username);
-    console.log(message);
     if (message === '사용 가능한 아이디입니다.') {
       this.setState({
         isIdConfirmed: true,

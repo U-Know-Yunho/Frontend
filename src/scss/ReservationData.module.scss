@@ -1,0 +1,45 @@
+@import '../common.module.scss';
+
+.dataWrapper {
+  width: 70vw;
+  height: 150px;
+  display: flex;
+  background-color: $black;
+  margin: 20px 0;
+  .movieSelectButton,
+  .movieData,
+  .basicData,
+  .seatData,
+  .payData,
+  .seatSelectButton,
+  .goReserveButton {
+    flex: 1;
+  }
+  .movieData,
+  .basicData,
+  .seatData {
+    border-right: 1px solid #ccc;
+  }
+  .movieSelectButton {
+    background-color: $silver-gray;
+    cursor: pointer;
+    color: $white;
+  }
+  .seatSelectButton,
+  .goReserveButton {
+    background-color: $red;
+    cursor: pointer;
+    color: $white;
+  }
+  .movieData,
+  .basicData,
+  .seatData,
+  .payData {
+    color: $white;
+    padding: 20px;
+  }
+  .empty {
+    color: $light-gray;
+    font-weight: bold;
+  }
+}

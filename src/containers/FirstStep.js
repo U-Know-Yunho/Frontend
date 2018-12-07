@@ -6,7 +6,7 @@ export default class FirstStep extends Component {
     super(props);
 
     this.state = {
-      selectedMovieList: ['가디언즈', '오브', '갤럭시'],
+      selectedMovieList: ['으어', '우어', '추워'],
       selectedTheaterList: ['가', '나', '다'],
       selectedDateList: ['오', '늘'],
       handleWithMovie: this.handleWithMovie.bind(this),
