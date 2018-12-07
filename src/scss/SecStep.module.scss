@@ -4,10 +4,10 @@
   width: 70vw;
   min-width: 660px;
   //   border: 1px solid orange;
-  height: 400px;
+  height: 500px;
+  background-color: $lightstone-gray;
   .firstLine {
     display: flex;
-    // flex-wrap: wrap; 반응형시
     width: 100%;
     background-color: $black;
     color: $stone-white;
