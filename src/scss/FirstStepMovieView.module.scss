@@ -1,0 +1,15 @@
+@import '../common.module.scss';
+
+.movieBox {
+  flex: 1;
+  background-color: $lightstone-gray;
+  color: #ccc;
+  height: 300px;
+  overflow-y: scroll;
+  h3 {
+    background-color: $gray;
+    color: $white;
+    text-align: center;
+    padding: 5px;
+  }
+}

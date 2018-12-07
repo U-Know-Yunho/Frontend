@@ -1,0 +1,29 @@
+@import '../common.module.scss';
+
+.theaterBox {
+  flex: 1;
+  background-color: $lightstone-gray;
+  color: #ccc;
+  height: 300px;
+  overflow-y: scroll;
+  h3 {
+    background-color: $gray;
+    color: $white;
+    text-align: center;
+    padding: 5px;
+    height: 10%;
+  }
+  .locationWrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 90%;
+    .locationBox {
+      flex: 1;
+    }
+    .subLocationBox {
+      flex: 1;
+      background-color: $silver;
+      color: $black;
+    }
+  }
+}

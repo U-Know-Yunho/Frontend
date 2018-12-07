@@ -10,8 +10,9 @@ export default class ReservationDataView extends Component {
   render() {
     const {
       step,
-      movie,
-      theater,
+      movieTitle,
+      location,
+      subLocation,
       date,
       time,
       number,
@@ -26,16 +27,18 @@ export default class ReservationDataView extends Component {
           </div>
         )}
         <div className={s.movieData}>
-          {movie ? (
-            <span>{movie}</span>
+          {movieTitle ? (
+            <span>{movieTitle}</span>
           ) : (
             <span className={s.empty}>영화선택</span>
           )}
         </div>
         <div className={s.basicData}>
-          {theater && date && time ? (
+          {location && date && time ? (
             <ul>
-              <li>{theater}</li>
+              <li>
+                {location} {subLocation}
+              </li>
               <li>
                 {date} {time}
               </li>
