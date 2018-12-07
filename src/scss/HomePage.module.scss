@@ -18,6 +18,7 @@
   justify-content: center;
 
   .movieNav {
+
     // 현재상영작 & 개봉예정작 버튼
     button {
       background-color: $gray;
@@ -42,7 +43,7 @@
     display: inline-block;
     width: 72px;
     height: 24px;
-    margin: 8px 0 8px 79%;
+    margin: 8px 0 8px 78%;
     color: $lightenstone-gray;
     position: relative;
     top: 25px;
@@ -72,27 +73,71 @@
   }
 }
 
+
 // 이벤트 영역
+.subTitle {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  color: #f4f4f4;
+  width: 150px;
+  height: 50px;
+  font-size: 1rem;
+  margin: 64px 0 0 0;
+  line-height: 50px;
+  background: #ee2e24;
+}
+
 .event {
   width: 100%;
-  height: 300px;
+
   background-color: $dark-white;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   .eventImages {
     width: 70vw;
-    border: 1px solid red;
+    height: 70vh;
+    margin-bottom: 64px;
+    position: relative;
+
     .firstEvent {
-      border: 1px solid orange;
+      width: 64%;
+      height: 48%;
+      margin-right: 10vw;
+      position: absolute;
+      top: 0;
+      border: 1px solid $red;
+      background-image: url('http://img.cgv.co.kr/event/develop/1810_ott_insta/header.jpg');
+      background-repeat: no-repeat;
+      background-size: 115%;
+      background-position: -50px -5px;
     }
+
     .secondEvent {
-      border: 1px solid green;
+      width: 64%;
+      height: 48%;
+      position: absolute;
+      bottom: 0;
+      border: 1px solid $red;
+      background-image: url('http://img.cgv.co.kr/R2014/images/arthouse/main_visual.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 0 -5px;
     }
+
     .thirdEvent {
-      border: 1px solid blue;
+      width: 34%;
+      height: 70vh;
+      position: absolute;
+      right: 0;
+      border: 1px solid $red;
+      background-image: url('http://img.cgv.co.kr/event/develop/1808_ssg_card/bg_event.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 0 -15px;
     }
   }
 }
@@ -106,11 +151,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   .trailerVideo {
     width: 50%;
   }
-  padding: 5vh 0 10vh 0;
+
+
+  padding-bottom: 10vh;
 }
+
 .subTitle {
   display: inline-block;
   width: 100px;
@@ -119,7 +168,7 @@
   width: 150px;
   height: 50px;
   font-size: 1rem;
-  margin: 5vh 0;
+  margin: 64px 0;
   line-height: 50px;
   background: #ee2e24;
 }
