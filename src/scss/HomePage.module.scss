@@ -92,30 +92,12 @@
 
 .event {
   width: 100%;
-<<<<<<< HEAD
-  height: 300px;
+
   background-color: $dark-white;
-  border: 1px solid red;
-=======
-  background-color: $dark-white;
->>>>>>> feature/addcontents
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-<<<<<<< HEAD
-  .eventImages {
-    width: 70vw;
-    border: 1px solid red;
-    .firstEvent {
-      border: 1px solid orange;
-    }
-    .secondEvent {
-      border: 1px solid green;
-    }
-    .thirdEvent {
-      border: 1px solid blue;
-=======
 
   .eventImages {
     width: 70vw;
@@ -158,7 +140,6 @@
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: 0 -15px;
->>>>>>> feature/addcontents
     }
   }
 }
@@ -176,15 +157,11 @@
   .trailerVideo {
     width: 50%;
   }
-<<<<<<< HEAD
-  padding: 5vh 0 10vh 0;
-}
-=======
+
 
   padding-bottom: 10vh;
 }
 
->>>>>>> feature/addcontents
 .subTitle {
   display: inline-block;
   width: 100px;
