@@ -1,3 +1,6 @@
-.MainCarouselViewWrapper {
-  height: 200px;
+@import '../common.module.scss';
+
+.carouselWrapper {
+  width: 70vw;
+  margin: 0 auto;
 }
