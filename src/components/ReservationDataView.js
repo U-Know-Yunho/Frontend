@@ -11,6 +11,7 @@ export default class ReservationDataView extends Component {
     const {
       step,
       movieTitle,
+      moviePoster,
       location,
       subLocation,
       date,
@@ -18,17 +19,33 @@ export default class ReservationDataView extends Component {
       number,
       seat,
       onStep,
+      price,
     } = this.props;
     return (
       <div className={s.dataWrapper}>
-        {step === 'first' ? null : (
+        {step === 'first' ? (
+          <div className={s.homeButton} onClick={() => onStep('first')}>
+            CGV 홈
+          </div>
+        ) : (
           <div className={s.movieSelectButton} onClick={() => onStep('first')}>
             영화선택
           </div>
         )}
         <div className={s.movieData}>
           {movieTitle ? (
-            <span>{movieTitle}</span>
+            <>
+              <img
+                src={moviePoster}
+                alt={movieTitle}
+                className={s.moviePoster}
+              />
+              <div className={s.movieInfo}>
+                <span className={s.movieTitle}>{movieTitle}</span>
+                <span>SCREENX 2D</span>
+                <span>12세 관람가</span>
+              </div>
+            </>
           ) : (
             <span className={s.empty}>영화선택</span>
           )}
@@ -54,7 +71,9 @@ export default class ReservationDataView extends Component {
             <span className={s.empty}>좌석선택</span>
           )}
         </div>
-        <div className={s.payData}>결제</div>
+        <div className={s.payData}>
+          {price ? <span>{price}</span> : <span className={s.empty}>결제</span>}
+        </div>
         {step === 'first' ? (
           <div className={s.seatSelectButton} onClick={() => onStep('sec')}>
             좌석선택

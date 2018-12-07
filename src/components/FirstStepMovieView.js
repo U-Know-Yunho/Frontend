@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import s from '../scss/FirstStepMovieView.module.scss';
 
 export default class FirstStepMovieView extends Component {
-  handleMovieTitle(str) {
-    const { onMovieTitle } = this.props;
+  handleMovieTitle(str, url) {
+    const { onMovieTitle, onMoviePoster } = this.props;
     onMovieTitle(str);
+    console.log(url);
+    onMoviePoster(url);
   }
   render() {
     const { selectedMovieList } = this.props;
+    console.log(selectedMovieList);
     return (
       <div className={s.movieBox}>
         <h3>영화</h3>
         <ul>
           {selectedMovieList.map(m => (
-            <li key={m.title} onClick={() => this.handleMovieTitle(m.title)}>
+            <li
+              key={m.title}
+              onClick={() => this.handleMovieTitle(m.title, m.mainImgUrl)}
+            >
               {m.title}
             </li>
           ))}

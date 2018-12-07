@@ -6,6 +6,7 @@
   display: flex;
   background-color: $black;
   margin: 20px 0;
+  .homeButton,
   .movieSelectButton,
   .movieData,
   .basicData,
@@ -20,26 +21,69 @@
   .seatData {
     border-right: 1px solid #ccc;
   }
+  .homeButton,
   .movieSelectButton {
     background-color: $silver-gray;
     cursor: pointer;
     color: $white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
   .seatSelectButton,
   .goReserveButton {
     background-color: $red;
     cursor: pointer;
     color: $white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .movieData,
   .basicData,
   .seatData,
   .payData {
     color: $white;
-    padding: 20px;
+    padding: 10px;
+  }
+  .movieData {
+    display: flex;
+    color: $silver;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .moviePoster {
+      width: 40%;
+      height: 70%;
+      margin-right: 3px;
+    }
+    .movieInfo {
+      .movieTitle {
+        font-size: 0.8rem;
+        display: block;
+        color: $white;
+        line-height: 1.2rem;
+        text-overflow: ellipsis;
+        margin-bottom: 5px;
+      }
+      span {
+        display: block;
+        line-height: 1rem;
+        margin: 0 3px;
+      }
+    }
   }
   .empty {
+    height: 100%;
     color: $light-gray;
     font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

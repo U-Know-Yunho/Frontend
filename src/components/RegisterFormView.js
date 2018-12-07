@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import s from '../scss/RegisterForm.module.scss';
 
@@ -14,6 +15,9 @@ export default class RegisterFormView extends Component {
       confirmPassword: '',
       success: false,
     };
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   handleFieldChange(e, name) {
@@ -41,11 +45,16 @@ export default class RegisterFormView extends Component {
         email,
         phonenumber,
       };
-      await this.props.onRegister({ ...value });
-      // 회원가입이 성공적으로 되었을 때
-      this.setState({
-        success: true,
-      });
+
+      try {
+        await this.props.onRegister({ ...value });
+        // 회원가입이 성공적으로 되었을 때
+        this.setState({
+          success: true,
+        });
+      } catch {
+        alert('잘못 입력했습니다.');
+      }
     }
   }
 
@@ -66,7 +75,7 @@ export default class RegisterFormView extends Component {
   render() {
     const { isIdConfirmed, success, password, confirmPassword } = this.state;
     if (success) {
-      return <Redirect to="/" />;
+      return <Redirect to="/login" />;
     } else {
       return (
         <div className={cx(s.wrapper, s.registerWrapper)}>
@@ -148,9 +157,11 @@ export default class RegisterFormView extends Component {
 
             <button className={s.registerBtn}>가입하기</button>
 
-            <div className={s.loginWrapper}>
-              <span>로그인</span>
-            </div>
+            <Link to="/login">
+              <div className={s.loginWrapper}>
+                <span>로그인</span>
+              </div>
+            </Link>
           </form>
         </div>
       );

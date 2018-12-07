@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import s from '../scss/LoginForm.module.scss';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 
 export default class LoginFormView extends Component {
@@ -12,6 +13,9 @@ export default class LoginFormView extends Component {
       password: '',
       success: false,
     };
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   handleFieldChange(e, name) {
@@ -73,9 +77,12 @@ export default class LoginFormView extends Component {
             >
               로그인
             </button>
-            <div className={s.registerWrapper}>
-              <span>회원가입</span>
-            </div>
+
+            <Link to="/register">
+              <div className={s.registerWrapper}>
+                <span>회원가입</span>
+              </div>
+            </Link>
             <button className={s.naver}>네이버로 시작하기</button>
             <button className={s.kakao}>카카오로 시작하기</button>
             <button className={s.facebook}>페이스북으로 시작하기</button>

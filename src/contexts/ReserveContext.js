@@ -33,6 +33,7 @@ export default class ReserveProvider extends Component {
       // 상태 변경 함수들
       onNumber: this.onNumber.bind(this),
       onMovieTitle: this.onMovieTitle.bind(this),
+      onMoviePoster: this.onMoviePoster.bind(this),
       onLocation: this.onLocation.bind(this),
       onSubLocation: this.onSubLocation.bind(this),
       onDate: this.onDate.bind(this),
@@ -43,6 +44,12 @@ export default class ReserveProvider extends Component {
   onStep(step) {
     this.setState({
       step,
+    });
+  }
+
+  onMoviePoster(moviePoster) {
+    this.setState({
+      moviePoster,
     });
   }
 
