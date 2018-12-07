@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import s from '../scss/SeatView.module.scss';
+import s from '../scss/EachSeat.module.scss';
 
 // 각 좌석의 체크박스 입니다.
 // 체크박스는 제어되는 체크박스입니다.

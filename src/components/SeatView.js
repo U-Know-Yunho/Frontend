@@ -15,32 +15,29 @@ class SeatView extends Component {
         { row: 2, number: 2, isReserved: false },
       ],
       [
-        { row: 3, number: 1, isReserved: true },
-        { row: 3, number: 2, isReserved: false },
+        { row: 3, number: 1, isReserved: false },
+        { row: 3, number: 2, isReserved: true },
       ],
     ];
     const { number, onIncreaseSelect, onDecreaseSelect, selected } = this.props;
     return (
-      <div className={s.secondLine}>
-        <div className={s.seatArea}>
-          {seatArr.map((rowItem, index) => (
-            <div className={s.row} key={index}>
-              {rowItem.map(i => (
-                <EachSeat
-                  key={`${i.row}${i.number}`}
-                  row={i.row}
-                  colNum={i.number}
-                  isReserved={i.isReserved}
-                  number={number}
-                  onIncreaseSelect={() => onIncreaseSelect()}
-                  onDecreaseSelect={() => onDecreaseSelect()}
-                  selected={selected}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-        <div className={s.side}>옵션 창입니다</div>
+      <div className={s.seatArea}>
+        {seatArr.map((rowItem, index) => (
+          <div className={s.row} key={index}>
+            {rowItem.map(i => (
+              <EachSeat
+                key={`${i.row}${i.number}`}
+                row={i.row}
+                colNum={i.number}
+                isReserved={i.isReserved}
+                number={number}
+                onIncreaseSelect={() => onIncreaseSelect()}
+                onDecreaseSelect={() => onDecreaseSelect()}
+                selected={selected}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     );
   }

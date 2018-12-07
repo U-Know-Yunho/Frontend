@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Seat from './Seat';
+// import Seat from './Seat';
 import ReserveProvider from '../contexts/ReserveContext';
 import NumberView from '../components/NumberView';
 import FirstDataView from '../components/FirstDataView';
@@ -47,12 +47,15 @@ export default class SecStep extends Component {
               />
               <FirstDataView />
             </div>
-            <SeatView
-              key={this.state.seatKey}
-              selected={this.state.selected}
-              onIncreaseSelect={() => this.handleIncreaseSelect()}
-              onDecreaseSelect={() => this.handleDecreaseSelect()}
-            />
+            <div className={s.secondLine}>
+              <SeatView
+                key={this.state.seatKey}
+                selected={this.state.selected}
+                onIncreaseSelect={() => this.handleIncreaseSelect()}
+                onDecreaseSelect={() => this.handleDecreaseSelect()}
+              />
+              <div className={s.side}>옵션 창입니다</div>
+            </div>
           </div>
         </ReserveProvider>
       </React.Fragment>
