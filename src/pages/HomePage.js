@@ -63,6 +63,11 @@ export default class HomePage extends Component {
           </section>
           <section className={s.event}>
             <span className={s.subTitle}>이벤트</span>
+            <div className={s.eventImages}>
+              <div className={s.firstEvent} />
+              <div className={s.secondEvent} />
+              <div className={s.thirdEvent} />
+            </div>
           </section>
         </main>
       </Layout>
