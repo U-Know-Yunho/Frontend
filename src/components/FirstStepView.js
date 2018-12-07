@@ -26,7 +26,6 @@ export default class FirstStepView extends Component {
 
     return (
       <div className={s.firstStepWrapper}>
-        <h1>Reservation</h1>
         <div className={s.FirstStepBox}>
           <div className={s.FirstStepMovie}>
             <span>영화</span>

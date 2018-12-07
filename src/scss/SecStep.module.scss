@@ -1,0 +1,16 @@
+@import '../common.module.scss';
+
+.wrapper {
+  width: 70vw;
+  min-width: 660px;
+  //   border: 1px solid orange;
+  height: 400px;
+  .firstLine {
+    display: flex;
+    // flex-wrap: wrap; 반응형시
+    width: 100%;
+    background-color: $black;
+    color: $stone-white;
+    padding: 20px;
+  }
+}
