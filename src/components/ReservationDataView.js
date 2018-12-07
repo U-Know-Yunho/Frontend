@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import s from '../scss/ReservationData.module.scss';
 
 export default class ReservationDataView extends Component {
-  handleEmptyString(str) {
-    return str.trim() === '';
-  }
+  //   handleEmptyString(str) {
+  //     console.log(str);
+  //     return str.trim() === '';
+  //   }
 
   render() {
     const {
@@ -25,16 +26,14 @@ export default class ReservationDataView extends Component {
           </div>
         )}
         <div className={s.movieData}>
-          {this.handleEmptyString(movie) ? (
+          {movie ? (
             <span className={s.empty}>영화선택</span>
           ) : (
             <span>{movie}</span>
           )}
         </div>
         <div className={s.basicData}>
-          {this.handleEmptyString(theater) &&
-          this.handleEmptyString(date) &&
-          this.handleEmptyString(time) ? (
+          {theater && date && time ? (
             <span className={s.empty}>영화정보</span>
           ) : (
             <ul>
@@ -46,7 +45,7 @@ export default class ReservationDataView extends Component {
           )}
         </div>
         <div className={s.seatData}>
-          {this.handleEmptyString(seat) ? (
+          {seat ? (
             <span className={s.empty}>좌석선택</span>
           ) : (
             <span>{seat}</span>
