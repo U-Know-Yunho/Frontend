@@ -12,4 +12,11 @@
     text-align: center;
     padding: 5px;
   }
+  li {
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+      color: $dark-red;
+    }
+  }
 }

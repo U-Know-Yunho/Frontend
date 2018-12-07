@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import SlideShow from 'react-image-show';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export default class CarouselView extends Component {
   render() {
@@ -11,18 +11,26 @@ export default class CarouselView extends Component {
     //   'https://brandinside.asia/wp-content/uploads/2018/11/5b80a85aabb59.jpg',
     // ];
     return (
-      <SlideShow
-        images={stillcuts}
-        width="100%"
-        imagesWidth="100%"
-        imagesHeight="400px"
-        imagesHeightMobile="56vw"
-        thumbnailsWidth="100%"
-        thumbnailsHeight="20px"
-        indicators
-        thumbnails
-        fixedImagesHeight
-      />
+      <Carousel
+        autoPlay={true}
+        showIndicators={false}
+        infiniteLoop={true}
+        interval={2000}
+      >
+        {stillcuts.map(s => (
+          <div
+            key={s}
+            style={{
+              //   display: 'block',
+              height: '400px',
+              width: 'auto',
+              background: '#302f2a',
+            }}
+          >
+            <img src={s} style={{ height: 'inherit', width: 'inherit' }} />
+          </div>
+        ))}
+      </Carousel>
     );
   }
 }

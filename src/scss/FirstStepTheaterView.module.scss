@@ -13,6 +13,14 @@
     padding: 5px;
     height: 10%;
   }
+
+  li {
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+      color: $dark-red;
+    }
+  }
   .locationWrapper {
     display: flex;
     justify-content: space-between;
