@@ -1,16 +1,21 @@
 @import '../common.module.scss';
 
-.theaterBox {
+.eachDataBox {
   flex: 1;
-  background-color: $lightstone-gray;
+  background-color: $stone-gray;
   color: #ccc;
   height: 500px;
-  overflow-y: scroll;
+  border-right: 1px solid $silver;
   h3 {
-    background-color: $gray;
+    background-color: $black;
     color: $white;
     text-align: center;
-    padding: 5px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .scrollBox {
+    height: 460px;
+    overflow-y: scroll;
   }
 
   li {
@@ -20,17 +25,20 @@
       color: $dark-red;
     }
   }
+  .selected {
+    color: $red;
+  }
   .locationWrapper {
     display: flex;
     justify-content: space-between;
-    height: 90%;
+    height: 460px;
     .locationBox {
       flex: 1;
     }
     .subLocationBox {
       flex: 1;
-      background-color: $silver;
-      color: $black;
+      background-color: $lightstone-gray;
+      color: $white;
     }
   }
 }

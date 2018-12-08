@@ -8,6 +8,7 @@ export default class FirstStepTheater extends Component {
 
     this.state = {
       selectedLocationList: [],
+      //   ["서울", "인천", "독도", "경기"]
       allLocationList: [],
       //   0: {pk: 9, location: "서울", subLocation: "목동"}
       //   1: {pk: 8, location: "서울", subLocation: "성신여대"}
@@ -20,12 +21,12 @@ export default class FirstStepTheater extends Component {
       //   8: {pk: 1, location: "서울", subLocation: "성북지점"}
 
       selectedSubLocationList: [],
-      //   ["서울", "인천", "독도", "경기"]
       onSubLocationList: this.onSubLocationList.bind(this),
     };
   }
 
   async componentDidMount() {
+    const { location } = this.props;
     const { data: list } = await api.get('api/theaters/list/');
     const arr = [];
     for (const item of list) {
@@ -39,6 +40,15 @@ export default class FirstStepTheater extends Component {
       selectedLocationList: arr,
       allLocationList: list,
     });
+    if (location !== '') {
+      let subArr = [];
+      for (const item of list) {
+        if (item.location === location) {
+          subArr.push(item.subLocation);
+        }
+      }
+      this.onSubLocationList(subArr);
+    }
   }
 
   onSubLocationList(selectedSubLocationList) {

@@ -11,6 +11,7 @@ export default class FirstStep extends Component {
   }
 
   render() {
+    const { pk } = this.props;
     return (
       <div className={s.firstStepWrapper}>
         <FirstStepMovie {...this.props} />

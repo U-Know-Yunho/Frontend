@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import s from '../scss/FirstStepMovieView.module.scss';
+import classNames from 'classnames';
+import s from '../scss/FirstStepView.module.scss';
 
 export default class FirstStepMovieView extends Component {
   handleMovieTitle(str, url) {
@@ -8,15 +9,16 @@ export default class FirstStepMovieView extends Component {
     onMoviePoster(url);
   }
   render() {
-    const { selectedMovieList } = this.props;
+    const { selectedMovieList, movieTitle } = this.props;
     return (
-      <div className={s.movieBox}>
+      <div className={s.eachDataBox}>
         <h3>영화</h3>
-        <ul>
+        <ul className={s.scrollBox}>
           {selectedMovieList.map(m => (
             <li
               key={m.title}
               onClick={() => this.handleMovieTitle(m.title, m.mainImgUrl)}
+              className={classNames({ [s.selected]: m.title === movieTitle })}
             >
               {m.title}
             </li>

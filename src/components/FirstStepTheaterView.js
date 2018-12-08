@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import s from '../scss/FirstStepTheaterView.module.scss';
+import classNames from 'classnames';
+import s from '../scss/FirstStepView.module.scss';
 
 export default class FirstStepTheaterView extends Component {
   handleLocation(l) {
@@ -19,27 +20,44 @@ export default class FirstStepTheaterView extends Component {
     onSubLocation('');
     onSubLocationList(subArr);
   }
+
   handleSubLocation(l) {
     const { onSubLocation } = this.props;
     onSubLocation(l);
   }
+
+  handleSubLocationList() {}
+
   render() {
-    const { selectedLocationList, selectedSubLocationList } = this.props;
+    const {
+      selectedLocationList,
+      selectedSubLocationList,
+      location,
+      subLocation,
+    } = this.props;
     return (
-      <div className={s.theaterBox}>
+      <div className={s.eachDataBox}>
         <h3>극장</h3>
         <div className={s.locationWrapper}>
           <ul className={s.locationBox}>
             {selectedLocationList.map(t => (
-              <li key={t} onClick={() => this.handleLocation(t)}>
+              <li
+                key={t}
+                onClick={() => this.handleLocation(t)}
+                className={classNames({ [s.selected]: t === location })}
+              >
                 {t}
               </li>
             ))}
           </ul>
           <ul className={s.subLocationBox}>
-            {selectedSubLocationList
+            {selectedSubLocationList !== []
               ? selectedSubLocationList.map(l => (
-                  <li key={l} onClick={() => this.handleSubLocation(l)}>
+                  <li
+                    key={l}
+                    onClick={() => this.handleSubLocation(l)}
+                    className={classNames({ [s.selected]: l === subLocation })}
+                  >
                     {l}
                   </li>
                 ))

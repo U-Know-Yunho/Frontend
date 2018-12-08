@@ -12,15 +12,18 @@ export default class FirstStepMovie extends Component {
   }
 
   async componentDidMount() {
-    //   선택된 무비가 없으면
-    const { movieTitle } = this.props;
-    if (movieTitle.trim() === '') {
-      const { data: list } = await api.get('api/movies/list/');
-      this.setState({
-        selectedMovieList: list,
-      });
+    const { pk, onMovieTitle, onMoviePoster } = this.props;
+    const { data: list } = await api.get('api/movies/list/');
+
+    this.setState({
+      selectedMovieList: list,
+    });
+    //   선택된 무비가 있으면
+    if (pk) {
+      const s = list.find(l => l.pk.toString() === pk);
+      onMovieTitle(s.title);
+      onMoviePoster(s.mainImgUrl);
     }
-    // 선택된 무비가 있으면
   }
   render() {
     const { selectedMovieList } = this.state;

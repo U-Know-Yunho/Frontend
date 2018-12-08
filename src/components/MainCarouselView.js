@@ -33,7 +33,7 @@ export default class MainCarouselView extends Component {
         <div>
           <img src="https://t1.daumcdn.net/cfile/tistory/254300455885938421" />
           <p className="legend" style={captionStyle}>
-            신비한 동물사전과 김혜비의 범죄
+            신비한 동물들과 김혜비의 범죄
             <span style={subCaptionStyle}>
               Fantastic Beasts: The Crimes of Grindelwald
             </span>
