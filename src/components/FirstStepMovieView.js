@@ -18,7 +18,9 @@ export default class FirstStepMovieView extends Component {
             <li
               key={m.title}
               onClick={() => this.handleMovieTitle(m.title, m.mainImgUrl)}
-              className={classNames({ [s.selected]: m.title === movieTitle })}
+              className={classNames([s.movieLi], {
+                [s.selected]: m.title === movieTitle,
+              })}
             >
               {m.title}
             </li>

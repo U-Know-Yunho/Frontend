@@ -19,14 +19,30 @@
   }
 
   li {
+    margin: 10px;
     padding: 5px;
     cursor: pointer;
+    line-height: 1.4rem;
     &:hover {
-      color: $dark-red;
+      color: $red;
     }
   }
-  .selected {
-    color: $red;
+
+  .movieLi {
+    position: relative;
+    text-indent: 25px;
+    &::after {
+      content: '';
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg/2000px-Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg.png');
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+    }
   }
   .locationWrapper {
     display: flex;
@@ -35,9 +51,21 @@
     .locationBox {
       flex: 1;
     }
+
+    .locationLi {
+      margin: 10px;
+      background-color: $lightstone-gray;
+      text-align: right;
+    }
     .subLocationBox {
       flex: 1;
-      background-color: $lightstone-gray;
+    }
+  }
+
+  .selected {
+    color: $white;
+    background-color: $red !important;
+    &:hover {
       color: $white;
     }
   }
