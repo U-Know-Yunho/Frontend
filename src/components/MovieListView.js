@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import withLoading from '../hoc/withLoading';
 import s from '../scss/MovieListView.module.scss';
 
-export default class MovieListView extends Component {
+class MovieListView extends Component {
   render() {
     const { list } = this.props;
     return (
@@ -30,3 +31,5 @@ export default class MovieListView extends Component {
     );
   }
 }
+
+export default withLoading(MovieListView);

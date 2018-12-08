@@ -81,12 +81,12 @@ export default class RegisterFormView extends Component {
         <div className={cx(s.wrapper, s.registerWrapper)}>
           <form onSubmit={e => this.handleSubmit(e)} className={s.registerBox}>
             <h1>Join</h1>
-
-            <span>Username</span>
+            <label for="username">Username</label>
             <div className={s.inputWrapper}>
               <input
                 type="text"
                 name="username"
+                id="username"
                 className={s.usernameInput}
                 onChange={e => this.handleFieldChange(e, 'username')}
                 required
@@ -108,20 +108,22 @@ export default class RegisterFormView extends Component {
               )}
             </div>
 
-            <span>Password</span>
+            <label for="password">Password</label>
             <input
               value={password}
               type="password"
               name="password"
+              id="password"
               onChange={e => this.handleFieldChange(e, 'password')}
               required
             />
 
-            <span>Confirm Password</span>
+            <label for="confirmPassword">Confirm Password</label>
             <div className={s.inputWrapper}>
               <input
                 value={confirmPassword}
                 type="password"
+                id="confirmPassword"
                 onChange={e => this.handleFieldChange(e, 'confirmPassword')}
                 required
               />
@@ -135,25 +137,20 @@ export default class RegisterFormView extends Component {
               )}
             </div>
 
-            <span>이름</span>
+            <label for="lastname">이름</label>
             <input
               type="text"
               name="lastname"
+              id="lastname"
               placeholder="Lastname"
-              required
             />
-            <input
-              type="text"
-              name="firstname"
-              placeholder="Firstname"
-              required
-            />
+            <input type="text" name="firstname" placeholder="Firstname" />
 
-            <span>E-MAIL</span>
-            <input type="email" name="email" required />
+            <label for="email">E-MAIL</label>
+            <input type="email" name="email" id="email" />
 
-            <span>휴대전화</span>
-            <input type="tel" name="phonenumber" required />
+            <label for="phonenumber">휴대전화</label>
+            <input type="tel" name="phonenumber" id="phonenumber" />
 
             <button className={s.registerBtn}>가입하기</button>
 

@@ -1,0 +1,13 @@
+@import '../common.module.scss';
+
+.movieDetailWrapper {
+  background-color: #302f2a;
+  padding: 130px;
+  min-height: 80vh;
+  h2 {
+    color: $red;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

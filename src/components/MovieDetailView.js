@@ -3,8 +3,9 @@ import CarouselView from './CarouselView';
 import VideoView from './VideoView';
 import s from '../scss/MovieDetail.module.scss';
 import { Link } from 'react-router-dom';
+import withLoading from '../hoc/withLoading';
 
-export default class MovieDetailView extends Component {
+class MovieDetailView extends Component {
   static defaultProps = {
     pk: null,
     title: '',
@@ -20,6 +21,10 @@ export default class MovieDetailView extends Component {
     mainImgUrl: '',
     stillcuts: [],
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   handleArray(arr) {
     let str = '';
@@ -94,55 +99,54 @@ export default class MovieDetailView extends Component {
     const stillcutsData = this.handleImages(stillcuts);
 
     return (
-      <div className={s.movieDetailWrapper}>
-        <div className={s.movieDetailBox}>
-          <h2>Movie Detail</h2>
-          <div className={s.movieInfo}>
-            {/* 포스터 이미지 */}
-            <div className={s.posterWrapper}>
-              <img
-                className={s.poster}
-                src={mainImgUrl}
-                alt={`${title} 포스터`}
-              />
-              <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
-                예매하기
-              </Link>
-            </div>
-            <div className={s.basicInfo}>
-              <h3 className={s.title}>{title}</h3>
-              <span className={s.reservationScore}>
-                예매율: {reservationScore}%
-              </span>
-              <ul>
-                <li className={s.list}>감독: {director}</li>
-                <li className={s.list}>
-                  <span>배우: </span> <div>{castsData}</div>
-                </li>
-                <li className={s.list}>장르: {genre}</li>
-                <li className={s.list}>기본: {durationMin}분</li>
-                <li className={s.list}>개봉: {openingDate}</li>
-              </ul>
-            </div>
+      <div className={s.movieDetailBox}>
+        <div className={s.movieInfo}>
+          {/* 포스터 이미지 */}
+          <div className={s.posterWrapper}>
+            <img
+              className={s.poster}
+              src={mainImgUrl}
+              alt={`${title} 포스터`}
+            />
+            <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
+              예매하기
+            </Link>
           </div>
-          <div className={s.subWrapper}>
-            <span className={s.subTitle}>줄거리</span>
-            {descriptionData.map(d => (
-              <span key={d} className={s.descriptionLine}>
-                {d}
-              </span>
-            ))}
+          <div className={s.basicInfo}>
+            <h3 className={s.title}>{title}</h3>
+            <span className={s.reservationScore}>
+              예매율: {reservationScore}%
+            </span>
+            <ul>
+              <li className={s.list}>감독: {director}</li>
+              <li className={s.list}>
+                <span>배우: </span> <div>{castsData}</div>
+              </li>
+              <li className={s.list}>장르: {genre}</li>
+              <li className={s.list}>기본: {durationMin}분</li>
+              <li className={s.list}>개봉: {openingDate}</li>
+            </ul>
           </div>
-          <div className={s.subWrapper}>
-            <span className={s.subTitle}>예고편</span>
-            <VideoView trailer={trailer} />
-          </div>
-          <div className={s.subWrapper}>
-            <span className={s.subTitle}>스틸컷</span>
-            <CarouselView stillcuts={stillcutsData} />
-          </div>
+        </div>
+        <div className={s.subWrapper}>
+          <span className={s.subTitle}>줄거리</span>
+          {descriptionData.map(d => (
+            <span key={d} className={s.descriptionLine}>
+              {d}
+            </span>
+          ))}
+        </div>
+        <div className={s.subWrapper}>
+          <span className={s.subTitle}>예고편</span>
+          <VideoView trailer={trailer} />
+        </div>
+        <div className={s.subWrapper}>
+          <span className={s.subTitle}>스틸컷</span>
+          <CarouselView stillcuts={stillcutsData} />
         </div>
       </div>
     );
   }
 }
+
+export default withLoading(MovieDetailView);

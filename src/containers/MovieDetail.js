@@ -26,6 +26,7 @@ class MovieDetail extends Component {
       nowShow: '',
       mainImgUrl: '',
       stillcuts: '',
+      loading: true,
     };
   }
 
@@ -61,6 +62,7 @@ class MovieDetail extends Component {
       reservationScore,
       mainImgUrl,
       stillcuts,
+      loading: false,
     });
   }
 

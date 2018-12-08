@@ -12,6 +12,7 @@ export default class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       list: [],
     };
   }
@@ -52,9 +53,16 @@ export default class MovieList extends Component {
         list: homeList,
       });
     }
+
+    this.setState({
+      loading: false,
+    });
   }
 
   render() {
-    return <MovieListView list={this.state.list} movie={this.props.movie} />;
+    const { list, loading } = this.state;
+    return (
+      <MovieListView list={list} movie={this.props.movie} loading={loading} />
+    );
   }
 }
