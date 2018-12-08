@@ -89,7 +89,7 @@ export default class MyInfo extends Component {
     return (
       <MyInfoView
         {...this.state}
-        onSubmit={() => this.handleSubmit()}
+        onSubmit={e => this.handleSubmit(e)}
         onFieldChange={(e, name) => this.handleFieldChange(e, name)}
       />
     );
