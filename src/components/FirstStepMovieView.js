@@ -5,12 +5,10 @@ export default class FirstStepMovieView extends Component {
   handleMovieTitle(str, url) {
     const { onMovieTitle, onMoviePoster } = this.props;
     onMovieTitle(str);
-    console.log(url);
     onMoviePoster(url);
   }
   render() {
     const { selectedMovieList } = this.props;
-    console.log(selectedMovieList);
     return (
       <div className={s.movieBox}>
         <h3>영화</h3>

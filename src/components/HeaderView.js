@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import s from '../scss/Header.module.scss';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 export default class HeaderView extends Component {
   render() {
     const { isLogin, logout, history } = this.props;
+    const currentLocation = this.props.location.pathname;
     return (
       <div className={s.menuBar}>
         <Link to="/" className={s.logo}>
           Home
         </Link>
         <div className={s.menu}>
-          <Link to="/movies" className={s.link}>
+          <Link
+            to="/movies"
+            className={classNames([s.link], {
+              [s.HeaderFocus]: currentLocation === '/movies',
+            })}
+          >
             Movie
           </Link>
-          <Link to="/reservation" className={s.link}>
+          <Link
+            to="/reservation"
+            className={classNames([s.link], {
+              [s.HeaderFocus]: currentLocation === '/reservation',
+            })}
+          >
             Reservation
           </Link>
           {isLogin ? (
@@ -28,22 +40,42 @@ export default class HeaderView extends Component {
               >
                 Logout
               </button>
-              <Link to="/myCGV" className={s.link}>
+              <Link
+                to="/myCGV"
+                className={classNames([s.link], {
+                  [s.HeaderFocus]: currentLocation === '/myCGV',
+                })}
+              >
                 myCGV
               </Link>
             </>
           ) : (
             <>
-              <Link to="/login" className={s.link}>
+              <Link
+                to="/login"
+                className={classNames([s.link], {
+                  [s.HeaderFocus]: currentLocation === '/login',
+                })}
+              >
                 Login
               </Link>
 
-              <Link to="/register" className={s.link}>
+              <Link
+                to="/register"
+                className={classNames([s.link], {
+                  [s.HeaderFocus]: currentLocation === '/register',
+                })}
+              >
                 Join
               </Link>
             </>
           )}
-          <Link to="/about" className={s.link}>
+          <Link
+            to="/about"
+            className={classNames([s.link], {
+              [s.HeaderFocus]: currentLocation === '/about',
+            })}
+          >
             About
           </Link>
         </div>

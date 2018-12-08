@@ -1,0 +1,30 @@
+@import '../common.module.scss';
+
+.myCGVWrapper {
+  padding: 20vh;
+  background-color: $silver-white;
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+  .myCGVBox {
+    width: $content-width;
+    height: 600px;
+    margin: 10px auto;
+    display: flex;
+    .myCGVNav {
+      //   border: 1px solid orange;
+      flex: 1;
+      margin-right: 20px;
+    }
+    .myCGVContent {
+      flex: 3;
+      //   border: 1px solid powderblue;
+      background-color: $white;
+      box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+}

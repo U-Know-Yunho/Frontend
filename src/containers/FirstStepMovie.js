@@ -16,7 +16,6 @@ export default class FirstStepMovie extends Component {
     const { movieTitle } = this.props;
     if (movieTitle.trim() === '') {
       const { data: list } = await api.get('api/movies/list/');
-      console.log(list);
       this.setState({
         selectedMovieList: list,
       });
