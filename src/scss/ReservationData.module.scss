@@ -52,9 +52,8 @@
   .movieData {
     display: flex;
     color: $silver;
-    font-size: 0.7rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     .moviePoster {
       width: 40%;
@@ -62,6 +61,7 @@
       margin-right: 3px;
     }
     .movieInfo {
+      font-size: 0.7rem;
       .movieTitle {
         font-size: 0.8rem;
         display: block;
@@ -74,6 +74,25 @@
         display: block;
         line-height: 1rem;
         margin: 0 3px;
+      }
+    }
+  }
+  .basicData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $silver;
+    ul {
+      width: 90%;
+    }
+    li {
+      font-size: 0.7rem;
+      line-height: 1rem;
+      .subTitle {
+        display: inline-block;
+        color: $white;
+        width: 40%;
+        font-size: 0.8rem;
       }
     }
   }

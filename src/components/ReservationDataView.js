@@ -14,6 +14,7 @@ export default class ReservationDataView extends Component {
       moviePoster,
       location,
       subLocation,
+      auditorium,
       date,
       time,
       number,
@@ -51,13 +52,22 @@ export default class ReservationDataView extends Component {
           )}
         </div>
         <div className={s.basicData}>
-          {location && date && time ? (
+          {subLocation && date && time ? (
             <ul>
               <li>
-                {location} {subLocation}
+                <span className={s.subTitle}>극장</span> CGV{subLocation}
               </li>
               <li>
-                {date} {time}
+                <span className={s.subTitle}>일시</span> {date}
+              </li>
+              <li>
+                <span className={s.subTitle}> </span> {time}
+              </li>
+              <li>
+                <span className={s.subTitle}>상영관</span> {auditorium}
+              </li>
+              <li>
+                <span className={s.subTitle}>인원</span> {number}명
               </li>
             </ul>
           ) : (

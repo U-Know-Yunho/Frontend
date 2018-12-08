@@ -21,7 +21,7 @@ export default class ReserveProvider extends Component {
       date: '2018-12-21',
       // 선택된 관, 시간, 총 좌석, 남은 좌석
       auditorium: '2관',
-      time: '20:00~22:05',
+      time: '20:00',
       allSeat: 100,
       ableSeat: 77,
       // 선택된 인원수
