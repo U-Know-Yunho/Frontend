@@ -19,11 +19,12 @@ export default class MyInfoView extends Component {
       <div className={cx(s.wrapper, s.registerWrapper)}>
         <form onSubmit={e => onSubmit(e)} className={s.registerBox}>
           <h1>Info</h1>
-          <span>Username</span>
+          <label for="username">Username</label>
           <div className={s.inputWrapper}>
             <input
               type="text"
               name="username"
+              id="username"
               className={s.usernameInput}
               value={username}
               required
@@ -31,20 +32,22 @@ export default class MyInfoView extends Component {
             />
           </div>
 
-          <span>Password</span>
+          <label for="password">Password</label>
           <input
             value={password}
             type="password"
             name="password"
+            id="password"
             onChange={e => onFieldChange(e, 'password')}
             required
           />
 
-          <span>Confirm Password</span>
+          <label for="confirmPassword">Confirm Password</label>
           <div className={s.inputWrapper}>
             <input
               value={confirmPassword}
               type="password"
+              id="confirmPassword"
               onChange={e => onFieldChange(e, 'confirmPassword')}
               required
             />
@@ -58,10 +61,11 @@ export default class MyInfoView extends Component {
             )}
           </div>
 
-          <span>이름</span>
+          <label for="lastname">이름</label>
           <input
             type="text"
             name="lastname"
+            id="lastname"
             placeholder="Lastname"
             value={lastname}
             required
@@ -76,19 +80,21 @@ export default class MyInfoView extends Component {
             disabled
           />
 
-          <span>E-MAIL</span>
+          <label for="email">E-MAIL</label>
           <input
             type="email"
             name="email"
+            id="email"
             value={email}
             onChange={e => onFieldChange(e, 'email')}
             required
           />
 
-          <span>휴대전화</span>
+          <label for="phonenumber">휴대전화</label>
           <input
             type="tel"
             name="phonenumber"
+            id="phonenumber"
             value={phonenumber}
             onChange={e => onFieldChange(e, 'phonenumber')}
             required

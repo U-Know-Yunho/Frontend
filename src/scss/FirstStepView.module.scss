@@ -3,7 +3,7 @@
 .eachDataBox {
   flex: 1;
   background-color: $stone-gray;
-  color: #ccc;
+  color: $ligten-silver;
   height: 500px;
   border-right: 1px solid $silver;
   h3 {
@@ -23,6 +23,7 @@
     padding: 5px;
     cursor: pointer;
     line-height: 1.4rem;
+    transition: 0.3s;
     &:hover {
       color: $red;
     }
@@ -49,7 +50,7 @@
     justify-content: space-between;
     height: 460px;
     .locationBox {
-      flex: 1;
+      flex: 3;
     }
 
     .locationLi {
@@ -58,12 +59,13 @@
       text-align: right;
     }
     .subLocationBox {
-      flex: 1;
+      flex: 2;
     }
   }
 
   .selected {
     color: $white;
+    transition: 0.3s;
     background-color: $red !important;
     &:hover {
       color: $white;

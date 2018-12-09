@@ -30,6 +30,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid $silver-gray;
+    transition: 0.3s;
+    &:hover {
+      background-color: $white;
+      border: 1px solid $red;
+      color: $red;
+    }
   }
 
   .seatSelectButton,
@@ -41,6 +48,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid $red;
+    transition: 0.3s;
+    &:hover {
+      background-color: $white;
+      color: $red;
+    }
   }
   .movieData,
   .basicData,

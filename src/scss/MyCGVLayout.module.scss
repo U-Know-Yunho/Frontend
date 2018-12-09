@@ -3,6 +3,8 @@
 .myCGVWrapper {
   padding: 20vh;
   background-color: $silver-white;
+
+  box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
   h2 {
     text-transform: uppercase;
     text-align: center;
@@ -22,9 +24,11 @@
     }
     .myCGVContent {
       flex: 3;
-      //   border: 1px solid powderblue;
       background-color: $white;
       box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

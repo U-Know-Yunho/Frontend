@@ -20,7 +20,7 @@
     &::after {
       content: '';
       position: absolute;
-      top: 7px;
+      top: 4px;
       left: 0;
       width: inherit;
       height: inherit;
@@ -43,6 +43,7 @@
       font-weight: 700;
       background-color: #fff;
       border: 0;
+      transition: 0.3s;
 
       &:active {
         outline: none;

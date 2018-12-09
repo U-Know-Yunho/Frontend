@@ -18,7 +18,6 @@ export default class MyInfo extends Component {
   }
   // 현재 로그인 중인 유저 정보 가져와서 상태에 넣어주기
   async componentDidMount() {
-    window.scrollTo(0, 0);
     // FIX: 헤더 조건 basic Auth로 설정되어있음. bearer auth로 변경 요청하기
     // const token = localStorage.getItem('token');
     // const { data } = await api.get('api/members/profile/', {

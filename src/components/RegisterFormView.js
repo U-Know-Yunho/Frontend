@@ -78,7 +78,7 @@ export default class RegisterFormView extends Component {
       return <Redirect to="/login" />;
     } else {
       return (
-        <div className={cx(s.wrapper, s.registerWrapper)}>
+        <>
           <form onSubmit={e => this.handleSubmit(e)} className={s.registerBox}>
             <h1>Join</h1>
             <label for="username">Username</label>
@@ -160,7 +160,7 @@ export default class RegisterFormView extends Component {
               </div>
             </Link>
           </form>
-        </div>
+        </>
       );
     }
   }
