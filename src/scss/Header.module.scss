@@ -8,6 +8,10 @@
   align-items: center;
   height: 10vh;
 
+  nav {
+    display: none;
+  }
+
   .logo {
     position: relative;
     width: 100px;
@@ -57,5 +61,26 @@
     .HeaderFocus {
       color: $red;
     }
+  }
+}
+
+// 반응형
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .menuBar {
+    position: fixed;
+    height: 10vh;
+    width: 100%;
+    background-color: $white;
+    z-index: 100;
+  }
+  .logo {
+    margin: 0 auto;
+  }
+  .menu {
+    display: none;
   }
 }

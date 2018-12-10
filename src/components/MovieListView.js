@@ -15,7 +15,11 @@ class MovieListView extends Component {
               <div className={s.rank}>{l.pk}</div>
             ) : null}
             <figure>
-              <img src={l.mainImgUrl} alt={l.title} />
+              <img
+                src={l.mainImgUrl}
+                alt={l.title}
+                onLoad={e => console.log('load')}
+              />
               <figcaption>{l.title}</figcaption>
             </figure>
             <div className={s.button}>
