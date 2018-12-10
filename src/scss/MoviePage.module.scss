@@ -11,7 +11,8 @@
   }
   .nav {
     color: #f4f4f4;
-    margin: 40px 0;
+    margin: 40px auto;
+    width: 65vw;
     a {
       display: inline-block;
       background-color: #242320;
@@ -19,7 +20,7 @@
       height: 50px;
       line-height: 51px;
       font-size: 1rem;
-      margin: 10px;
+      margin: 8px;
       cursor: pointer;
     }
     // 각 버튼 클릭 시 빨간 색으로 표시
@@ -29,7 +30,7 @@
     }
   }
   ul {
-    width: 85%;
+    width: 65vw;
     margin: 0 auto;
   }
 }
