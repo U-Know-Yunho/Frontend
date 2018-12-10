@@ -2,35 +2,53 @@
 
 .wrapper {
   background-color: #302f2a;
-  width: 100%;
-  padding: 130px;
-  text-align: center;
-  h2 {
-    color: white;
-    font-size: 2rem;
-  }
-  .nav {
-    color: #f4f4f4;
-    margin: 40px auto;
-    width: 65vw;
-    a {
-      display: inline-block;
-      background-color: #242320;
-      width: 150px;
-      height: 50px;
-      line-height: 51px;
-      font-size: 1rem;
-      margin: 8px;
-      cursor: pointer;
+  width: 100vw;
+  .container {
+    background-color: #302f2a;
+    text-align: center;
+    h2 {
+      color: white;
     }
-    // 각 버튼 클릭 시 빨간 색으로 표시
-    .active {
-      transition: 0.3s;
-      background: $dark-red;
+    .nav {
+      color: #f4f4f4;
+      margin: 40px auto;
+      a {
+        display: inline-block;
+        background-color: #242320;
+        width: 150px;
+        height: 50px;
+        line-height: 51px;
+        font-size: 1rem;
+        margin: 8px;
+        cursor: pointer;
+      }
+      // 각 버튼 클릭 시 빨간 색으로 표시
+      .active {
+        transition: 0.3s;
+        background: $dark-red;
+      }
     }
   }
-  ul {
-    width: 65vw;
-    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 48px 0;
+    h2 {
+      font-size: 1.3rem;
+    }
+    ul {
+      width: 100vw;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 130px 0;
+    ul {
+      width: 70vw;
+      margin: 0 auto;
+    }
   }
 }
