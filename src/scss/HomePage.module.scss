@@ -112,8 +112,9 @@
       border: 1px solid $red;
       background-image: url('http://img.cgv.co.kr/event/develop/1810_ott_insta/header.jpg');
       background-repeat: no-repeat;
-      background-size: 115%;
-      background-position: -50px -5px;
+      background-size: cover;
+      //   background-position: -50px -5px;
+      background-position: top;
     }
 
     .secondEvent {
@@ -124,8 +125,9 @@
       border: 1px solid $red;
       background-image: url('http://img.cgv.co.kr/R2014/images/arthouse/main_visual.jpg');
       background-repeat: no-repeat;
-      background-size: 100%;
-      background-position: 0 -5px;
+      background-size: cover;
+      //   background-position: 0 -5px;
+      background-position: center;
     }
 
     .thirdEvent {
@@ -136,8 +138,9 @@
       border: 1px solid $red;
       background-image: url('http://img.cgv.co.kr/event/develop/1808_ssg_card/bg_event.jpg');
       background-repeat: no-repeat;
-      background-size: 100%;
-      background-position: 0 -15px;
+      background-size: cover;
+      //   background-position: 0 -15px;
+      background-position: top;
     }
   }
 }
@@ -170,4 +173,31 @@
   margin: 64px 0;
   line-height: 50px;
   background: #ee2e24;
+}
+
+@media (max-width: 768px) {
+  .subTitle {
+    display: none;
+  }
+  .trailer {
+    order: 1;
+    padding: 0;
+    .trailerVideo {
+      width: 100%;
+    }
+  }
+  .movie {
+    order: 2;
+  }
+  .event,
+  .carousel {
+    order: 3;
+  }
+  .event {
+    padding: 10vh 5vh;
+    .eventImages {
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
 }

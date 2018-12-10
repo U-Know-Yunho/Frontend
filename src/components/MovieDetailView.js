@@ -4,6 +4,7 @@ import VideoView from './VideoView';
 import s from '../scss/MovieDetail.module.scss';
 import { Link } from 'react-router-dom';
 import withLoading from '../hoc/withLoading';
+import classNames from 'classnames';
 
 class MovieDetailView extends Component {
   static defaultProps = {
@@ -136,7 +137,7 @@ class MovieDetailView extends Component {
             </span>
           ))}
         </div>
-        <div className={s.subWrapper}>
+        <div className={classNames([s.subWrapper], [s.reponsiveSubWrapper])}>
           <span className={s.subTitle}>예고편</span>
           <VideoView trailer={trailer} />
         </div>

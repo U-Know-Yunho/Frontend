@@ -32,18 +32,18 @@ export default class RegisterFormView extends Component {
     if (this.state.isIdConfirmed) {
       const username = e.target.elements.username.value;
       const password = e.target.elements.password.value;
-      const firstname = e.target.elements.firstname.value;
-      const lastname = e.target.elements.lastname.value;
+      const firstName = e.target.elements.firstname.value;
+      const lastName = e.target.elements.lastname.value;
       const email = e.target.elements.email.value;
-      const phonenumber = e.target.elements.phonenumber.value;
+      const phoneNumber = e.target.elements.phonenumber.value;
 
       const { ...value } = {
         username,
         password,
-        firstname,
-        lastname,
+        firstName,
+        lastName,
         email,
-        phonenumber,
+        phoneNumber,
       };
 
       try {

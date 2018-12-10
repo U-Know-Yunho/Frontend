@@ -48,3 +48,11 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .layoutWrapper {
+    .children {
+      padding-top: 10vh;
+    }
+  }
+}
