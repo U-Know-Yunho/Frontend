@@ -49,15 +49,12 @@
     position: relative;
     top: 25px;
     font-family: 'noto-sans';
-    font-weight: 400;
-    font-size: 0.8em;
-    padding-top: 7px;
-    background-color: $light-silver;
+    font-weight: 700;
+    font-size: 1em;
     transition: 0.3s;
 
     &:hover {
-      color: $white;
-      background-color: $gray;
+      color: $red;
     }
   }
 
