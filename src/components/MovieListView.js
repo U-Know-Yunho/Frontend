@@ -31,6 +31,13 @@ class MovieListView extends Component {
             </div>
           </li>
         ))}
+        <li className={s.empty} />
+        <li className={s.empty} />
+        <li className={s.empty} />
+        <li className={s.empty} />
+        <li className={s.empty} />
+        <li className={s.empty} />
+        <li className={s.empty} />
       </ul>
     );
   }
