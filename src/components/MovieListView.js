@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withLoading from '../hoc/withLoading';
 import s from '../scss/MovieListView.module.scss';
+import c from 'classnames';
 
 class MovieListView extends Component {
   render() {
-    const { list } = this.props;
+    const { list, page } = this.props;
     return (
-      <ul className={s.movieList}>
-        {list.map(l => (
+      <ul className={c(s.movieList, { [s.home]: page === 'home' })}>
+        {list.map((l, i) => (
           <li key={l.pk} className={s.movieItem}>
             {// movie: current이면 순위를 보여주고, upcomming이면 순위를 보여주지 않습니다.
             this.props.movie === 'current' ? (
-              <div className={s.rank}>{l.pk}</div>
+              <div className={s.rank}>{i + 1}</div>
             ) : null}
             <figure>
               <img
@@ -31,13 +32,18 @@ class MovieListView extends Component {
             </div>
           </li>
         ))}
-        <li className={s.empty} />
-        <li className={s.empty} />
-        <li className={s.empty} />
-        <li className={s.empty} />
-        <li className={s.empty} />
-        <li className={s.empty} />
-        <li className={s.empty} />
+        {/* flex: space-between 마지막 줄에 아이템이 몇개 있든 윗 줄과 맞추려고 추가한 empty요소 */}
+        {page === 'home' ? null : (
+          <React.Fragment>
+            <li className={s.empty} />
+            <li className={s.empty} />
+            <li className={s.empty} />
+            <li className={s.empty} />
+            <li className={s.empty} />
+            <li className={s.empty} />
+            <li className={s.empty} />
+          </React.Fragment>
+        )}
       </ul>
     );
   }

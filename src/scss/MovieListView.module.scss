@@ -38,9 +38,13 @@
     justify-content: space-between;
     flex-wrap: wrap;
     // min-width: 750px;
+    // 홈페이지에서의 리스트는 wrap되지 않습니다.
+    &.home {
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
     .empty {
-      // content: '';
-      // display: inline-block;
       width: 196px;
     }
   }
@@ -82,7 +86,7 @@
       justify-content: space-between;
       a {
         display: inline-block;
-        width: 100px;
+        width: 79px;
         height: 50px;
         line-height: 51px;
       }
