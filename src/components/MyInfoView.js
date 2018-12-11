@@ -8,17 +8,17 @@ export default class MyInfoView extends Component {
       username,
       password,
       confirmPassword,
-      lastname,
-      firstname,
+      lastName,
+      firstName,
       email,
-      phonenumber,
+      phoneNumber,
       onSubmit,
       onFieldChange,
     } = this.props;
     return (
-      <div className={cx(s.wrapper, s.registerWrapper)}>
+      <div className={cx(s.wrapper, s.registerWrapper, s.infoWrapper)}>
         <form onSubmit={e => onSubmit(e)} className={s.registerBox}>
-          <h1>Info</h1>
+          {/* <h1>Info</h1> */}
           <label for="username">Username</label>
           <div className={s.inputWrapper}>
             <input
@@ -67,7 +67,7 @@ export default class MyInfoView extends Component {
             name="lastname"
             id="lastname"
             placeholder="Lastname"
-            value={lastname}
+            value={lastName}
             required
             disabled
           />
@@ -75,7 +75,7 @@ export default class MyInfoView extends Component {
             type="text"
             name="firstname"
             placeholder="Firstname"
-            value={firstname}
+            value={firstName}
             required
             disabled
           />
@@ -91,14 +91,17 @@ export default class MyInfoView extends Component {
           />
 
           <label for="phonenumber">휴대전화</label>
-          <input
-            type="tel"
-            name="phonenumber"
-            id="phonenumber"
-            value={phonenumber}
-            onChange={e => onFieldChange(e, 'phonenumber')}
-            required
-          />
+          <div className={s.inputWrapper}>
+            <input
+              type="tel"
+              name="phonenumber"
+              id="phonenumber"
+              value={phoneNumber}
+              onChange={e => onFieldChange(e, 'phonenumber')}
+              required
+            />
+            <span className={s.default}>'-'을 포함해주세요</span>
+          </div>
 
           <button className={s.registerBtn}>변경하기</button>
         </form>

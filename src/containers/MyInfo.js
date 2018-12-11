@@ -10,29 +10,24 @@ export default class MyInfo extends Component {
       username: '',
       password: '',
       confirmPassword: '',
-      lastname: '',
-      firstname: '',
+      lastName: '',
+      firstName: '',
       email: '',
-      phonenumber: '',
+      phoneNumber: '',
     };
   }
   // 현재 로그인 중인 유저 정보 가져와서 상태에 넣어주기
   async componentDidMount() {
     const {
-      username,
-      lastName: lastname,
-      firstName: firstname,
-      email,
-      phoneNumber: phonenumber,
+      data: { username, lastName, firstName, email, phoneNumber },
     } = await api.get('/api/members/profile/');
 
-    console.log(lastname);
     this.setState({
       username,
-      lastname,
-      firstname,
+      lastName,
+      firstName,
       email,
-      phonenumber,
+      phoneNumber,
     });
   }
 
@@ -45,18 +40,32 @@ export default class MyInfo extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const { password, email, phonenumber } = this.state;
-    try {
+    const { password, email, phoneNumber } = this.state;
+
+    const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
+    const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
+    const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+    if (!pass.test(password)) {
+      alert(
+        '비밀번호는 영문,숫자,특수문자를 하나 이상 포함한 8자리 이상이어야합니다.'
+      );
+    } else if (!mail.test(email)) {
+      alert('정확한 이메일 주소를 입력해주세요');
+    } else if (!phone.test(phoneNumber)) {
+      alert('정확한 핸드폰 번호를 입력해주세요');
+    } else {
       // password를 입력하지 않으면 submit요청이 일어나지 않음
-      await api.patch('api/members/profile/', {
-        password,
-        email,
-        phonenumber,
-      });
-      // 정보 수정이 성공적으로 되었을 때
-      alert('회원정보가 성공적으로 수정되었습니다');
-    } catch {
-      alert('정보를 정확히 입력해주세요.');
+      try {
+        await api.patch('api/members/profile/', {
+          password,
+          email,
+          phone_number: phoneNumber,
+        });
+        // 정보 수정이 성공적으로 되었을 때
+        alert('회원정보가 성공적으로 수정되었습니다');
+      } catch {
+        alert('서버에서 에러가 생겼습니다');
+      }
     }
   }
 
