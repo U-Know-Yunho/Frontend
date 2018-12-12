@@ -36,6 +36,7 @@
         display: none;
       }
     }
+
     .button {
       display: none;
     }
@@ -91,6 +92,7 @@
 
 // 데스크탑
 @media (min-width: 768px) {
+
   // 전체 ul
   .movieList {
     display: flex;
@@ -114,7 +116,7 @@
   .movieItem {
     background-color: $white;
     text-align: center;
-    height: 345px;
+    height: 360px;
     width: 180px;
     position: relative;
     box-sizing: border-box;
@@ -122,6 +124,12 @@
     margin: 24px 8px;
     border-style: none;
     box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    color: $stone-gray;
+
+    // btn 박스 바닥에 붙이기 위해 지정해줌, 지워도 되는 부분입니다
+    figure {
+      height: 304px;
+    }
 
     // 포스터 이미지
     img {
@@ -135,7 +143,8 @@
       margin-top: 10px;
       height: 30px;
       line-height: 31px;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
+      font-weight: 600;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -145,12 +154,15 @@
     .button {
       display: flex;
       justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: $lightenstone-gray;
 
       a {
         display: inline-block;
         width: 79px;
-        height: 50px;
-        line-height: 51px;
+        height: 40px;
+        line-height: 40px;
       }
     }
 
@@ -166,6 +178,7 @@
       left: 10px;
       color: #f2f2f1;
     }
+
     .button {
       a {
         background-color: $dark-white;

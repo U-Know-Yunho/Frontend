@@ -77,6 +77,9 @@ class MovieDetailView extends Component {
     }
     return arr;
   }
+  handleUrl(trailer) {
+    return trailer.split('=')[1];
+  }
 
   render() {
     const {
@@ -98,6 +101,7 @@ class MovieDetailView extends Component {
     const castsData = this.handleArray(casts);
     const descriptionData = this.handleString(description);
     const stillcutsData = this.handleImages(stillcuts);
+    const videoSrc = this.handleUrl(trailer);
 
     return (
       <div className={s.movieDetailBox}>
@@ -139,7 +143,8 @@ class MovieDetailView extends Component {
         </div>
         <div className={classNames([s.subWrapper], [s.reponsiveSubWrapper])}>
           <span className={s.subTitle}>예고편</span>
-          <VideoView trailer={trailer} />
+          <VideoView trailer={videoSrc} />
+          {/* <iframe width="420" height="315" src={videoSrc} /> */}
         </div>
         <div className={s.subWrapper}>
           <span className={s.subTitle}>스틸컷</span>

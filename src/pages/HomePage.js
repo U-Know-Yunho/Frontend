@@ -58,7 +58,7 @@ export default class HomePage extends Component {
           <section className={s.trailer}>
             <span className={s.subTitle}>예고편</span>
             <div className={s.trailerVideo}>
-              <VideoView />
+              <VideoView trailer="XTZko22Ze3o" />
             </div>
           </section>
           <section className={s.event}>

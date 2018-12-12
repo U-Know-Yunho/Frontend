@@ -3,11 +3,11 @@
 .AboutBox {
   border: 1px solid red;
   margin: 0 auto;
-  width: fit-content;
+  width: $content-width;
   display: flex;
   flex-direction: column;
   align-items: center;
-  span {
+  h3 {
     height: 40px;
     background-color: $red;
     color: $white;
@@ -19,13 +19,28 @@
   }
   .members {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     .member {
-      flex: 1;
-      width: 200px;
-      height: 300px;
-      border: 1px solid slateblue;
+      width: 180px;
       margin: 10px 5px;
+      padding: 15px;
       background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .image {
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+        object-fit: cover;
+        object-position: center;
+      }
+      span {
+        display: block;
+        text-align: center;
+        line-height: 1.4rem;
+      }
     }
   }
 }
