@@ -1,33 +1,23 @@
 import React, { Component } from 'react';
-import { DefaultPlayer as Video } from 'react-html5video';
-import 'react-html5video/dist/styles.css';
+import YouTube from 'react-youtube';
 
 export default class VideoView extends Component {
   render() {
-    // const { trailer } = this.props;
-    // console.log(trailer);
-    // const trailer = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
-    const trailer = 'https://www.youtube.com/watch?v=XTZko22Ze3o';
-    return (
-      <Video
-        autoPlay={false}
-        loop
-        muted
-        controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
-        poster="http://sourceposter.jpg"
-        onCanPlayThrough={() => {
-          // Do stuff
-        }}
-      >
-        <source src={trailer} type="video/webm" />
-        {/* <track
-          label="English"
-          kind="subtitles"
-          srcLang="en"
-          //   src="http://source.vtt"
-          default
-        /> */}
-      </Video>
-    );
+    const opts = {
+      width: '100%',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        host: 'https://www.youtube.com',
+        autoplay: 1,
+      },
+    };
+    const { trailer } = this.props;
+
+    return <YouTube videoId={trailer} opts={opts} onReady={this._onReady} />;
+  }
+
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
   }
 }
