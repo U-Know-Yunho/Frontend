@@ -42,6 +42,7 @@ export default class MyInfo extends Component {
     e.preventDefault();
     const { password, email, phoneNumber } = this.state;
 
+    // 비밀번호, 이메일, 핸드폰 정규표현식
     const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
     const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
     const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
@@ -54,7 +55,7 @@ export default class MyInfo extends Component {
     } else if (!phone.test(phoneNumber)) {
       alert('정확한 핸드폰 번호를 입력해주세요');
     } else {
-      // password를 입력하지 않으면 submit요청이 일어나지 않음
+      // 정규표현식에서 걸리지 않으면 수정 요청
       try {
         await api.patch('api/members/profile/', {
           password,
@@ -64,7 +65,7 @@ export default class MyInfo extends Component {
         // 정보 수정이 성공적으로 되었을 때
         alert('회원정보가 성공적으로 수정되었습니다');
       } catch {
-        alert('서버에서 에러가 생겼습니다');
+        alert('서버에서 에러가 발생했습니다');
       }
     }
   }

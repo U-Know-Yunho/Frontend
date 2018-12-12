@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .wrapper {
     padding: 48px 0;
     h2 {
@@ -46,6 +46,9 @@
 @media (min-width: 768px) {
   .wrapper {
     padding: 130px 0;
+    h2 {
+      font-size: 2rem;
+    }
     ul {
       width: 65vw;
       margin: 0 auto;

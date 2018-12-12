@@ -97,7 +97,7 @@ export default class MyInfoView extends Component {
               name="phonenumber"
               id="phonenumber"
               value={phoneNumber}
-              onChange={e => onFieldChange(e, 'phonenumber')}
+              onChange={e => onFieldChange(e, 'phoneNumber')}
               required
             />
             <span className={s.default}>'-'을 포함해주세요</span>

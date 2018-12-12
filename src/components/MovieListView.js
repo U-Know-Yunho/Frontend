@@ -6,15 +6,13 @@ import c from 'classnames';
 
 class MovieListView extends Component {
   render() {
-    const { list, page } = this.props;
+    const { list, page, movie } = this.props;
     return (
       <ul className={c(s.movieList, { [s.home]: page === 'home' })}>
         {list.map((l, i) => (
           <li key={l.pk} className={s.movieItem}>
             {// movie: current이면 순위를 보여주고, upcomming이면 순위를 보여주지 않습니다.
-            this.props.movie === 'current' ? (
-              <div className={s.rank}>{i + 1}</div>
-            ) : null}
+            movie === 'current' ? <div className={s.rank}>{i + 1}</div> : null}
             <figure>
               <img
                 src={l.mainImgUrl}
@@ -23,6 +21,8 @@ class MovieListView extends Component {
               />
               <figcaption>{l.title}</figcaption>
             </figure>
+            {/* <p className={s.date}>{l.openingDate}</p>
+            <p className={s.score}>{l.reservationScore}</p> */}
             <div className={s.button}>
               <Link to={`/movies/detail/${l.pk}`}>상세정보</Link>
               {/* 특정 영화의 예매버튼을 클릭하여 예매하기 페이지로 접속하면

@@ -1,7 +1,7 @@
 @import '../common.module.scss';
 
 // 모바일
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .movieItem {
     width: 85vw;
     margin: 0 auto;
@@ -35,7 +35,6 @@
 
 // 데스크탑
 @media (min-width: 768px) {
-
   // 전체 ul
   .movieList {
     display: flex;
