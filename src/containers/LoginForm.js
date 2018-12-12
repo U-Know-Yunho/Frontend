@@ -4,10 +4,14 @@ import { withUser } from '../contexts/UserContext';
 
 class LoginForm extends Component {
   render() {
-    const { login, checkId } = this.props;
+    const { login, checkId, socialLogin } = this.props;
     return (
       <div>
-        <LoginFormView onLogin={login} onCheckId={checkId} />
+        <LoginFormView
+          onLogin={login}
+          onSocialLogin={socialLogin}
+          onCheckId={checkId}
+        />
       </div>
     );
   }

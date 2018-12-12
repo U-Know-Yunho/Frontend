@@ -12,6 +12,7 @@ export default class UserProvider extends Component {
       logout: this.logout.bind(this),
       register: this.register.bind(this),
       checkId: this.checkId.bind(this),
+      socialLogin: this.socialLogin.bind(this),
     };
   }
   async componentDidMount() {
@@ -59,6 +60,39 @@ export default class UserProvider extends Component {
     this.setState({
       isLogin: true,
     });
+  }
+
+  async socialLogin(
+    id,
+    first_name = '',
+    last_name = '',
+    email = '',
+    phone_number = ''
+    // response
+  ) {
+    console.log(id);
+    console.log(first_name);
+    console.log(last_name);
+    console.log(email);
+    console.log(phone_number);
+    // console.log('test');
+    // console.log(response);
+    // try {
+    //   const res = await api.post('/api/members/social-login/', {
+    //     user_id: userID,
+    //     last_name,
+    //     first_name,
+    //     email,
+    //     phone_number,
+    //   });
+    //   console.log(res.data.token);
+    //   localStorage.setItem('token', res.data.token);
+    //   this.setState({
+    //     isLogin: true,
+    //   });
+    // } catch {
+    //   alert('소셜 로그인 실패');
+    // }
   }
 
   logout() {

@@ -8,7 +8,7 @@ export default class VideoView extends Component {
     const trailer = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
     return (
       <Video
-        autoPlay
+        autoPlay={false}
         loop
         muted
         controls={['PlayPause', 'Seek', 'Time', 'Volume', 'Fullscreen']}
