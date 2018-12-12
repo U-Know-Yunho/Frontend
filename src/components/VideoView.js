@@ -4,9 +4,10 @@ import 'react-html5video/dist/styles.css';
 
 export default class VideoView extends Component {
   render() {
-    const { trailer } = this.props;
+    // const { trailer } = this.props;
     // console.log(trailer);
     // const trailer = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
+    const trailer = 'https://www.youtube.com/watch?v=XTZko22Ze3o';
     return (
       <Video
         autoPlay={false}
@@ -19,13 +20,13 @@ export default class VideoView extends Component {
         }}
       >
         <source src={trailer} type="video/webm" />
-        <track
+        {/* <track
           label="English"
           kind="subtitles"
           srcLang="en"
-          src="http://source.vtt"
+          //   src="http://source.vtt"
           default
-        />
+        /> */}
       </Video>
     );
   }
