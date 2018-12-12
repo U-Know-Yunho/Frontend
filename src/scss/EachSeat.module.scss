@@ -22,16 +22,19 @@
     font-size: 16px;
     opacity: 0.5;
   }
+
   label:hover {
     background: #16a085;
   }
+
   input:checked {
-    + label {
+    +label {
       opacity: 1;
     }
   }
+
   input:checked {
-    + label {
+    +label {
       background: #16a085;
     }
   }
