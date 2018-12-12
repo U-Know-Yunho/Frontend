@@ -32,7 +32,11 @@ export default class MoviePage extends Component {
               </Link>
             </nav>
             {/* movie가 upcomming이면 그대로 upcomming을 보내고 null이면 'current'를 보냅니다 */}
-            <MovieList page="main" movie={movie ? movie : 'current'} />
+            <MovieList
+              page="main"
+              movie={movie ? movie : 'current'}
+              key={movie ? movie : 'current'}
+            />
           </div>
         </div>
       </Layout>

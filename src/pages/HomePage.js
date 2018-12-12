@@ -53,7 +53,7 @@ export default class HomePage extends Component {
                 + MORE
               </Link>
             )}
-            <MovieList page="home" movie={movie} />
+            <MovieList page="home" movie={movie} key={movie} />
           </section>
           <section className={s.trailer}>
             <span className={s.subTitle}>예고편</span>
