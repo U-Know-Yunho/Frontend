@@ -48,6 +48,7 @@
       flex-wrap: nowrap;
       width: 100%;
     }
+
     .empty {
       width: 196px;
     }
@@ -55,7 +56,6 @@
 
   // 각각 li
   .movieItem {
-    border: 1px solid grey;
     background-color: $white;
     text-align: center;
     height: 345px;
