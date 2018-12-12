@@ -10,25 +10,31 @@
   background-size: cover;
   background-position: center;
 }
+
 .myCGVMenuBox {
   background-color: $white;
   box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
   height: calc(100% - 220px - 20px);
+
   h3:last-of-type {
     margin-top: 35px;
   }
+
   .myCGVMenuTitle {
     background-color: $red;
     text-align: center;
     color: $white;
     padding: 10px;
   }
+
   .myCGVMenuList {
     display: block;
     // width: 50%;
     text-align: center;
-    margin: 15px auto;
+    margin: 24px auto;
+    color: $gray;
   }
+
   //   현재 클릭된 메뉴 클래스
   .myCGVFocus {
     color: $dark-red;
