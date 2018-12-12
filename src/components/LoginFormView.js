@@ -3,7 +3,7 @@ import s from '../scss/LoginForm.module.scss';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 export default class LoginFormView extends Component {
   constructor(props) {
@@ -113,7 +113,7 @@ export default class LoginFormView extends Component {
             <button className={s.facebook} onClick={this.handleOpenModal}>
               페이스북으로 시작하기
             </button>
-            <ReactModal
+            {/* <ReactModal
               isOpen={this.state.showModal}
               contentLabel="Facebook Login Modal"
               ariaHideApp={false}
@@ -147,7 +147,7 @@ export default class LoginFormView extends Component {
               }}
             >
               <button onClick={this.handleCloseModal}>Close Modal</button>
-            </ReactModal>
+            </ReactModal> */}
           </div>
         </div>
       );
