@@ -6,10 +6,15 @@ export default class AboutView extends Component {
     const { memberData } = this.props;
     return (
       <div className={s.AboutBox}>
-        <span>유노윤호들</span>
+        <h3>유노윤호들</h3>
         <div className={s.members}>
           {memberData.map(m => (
-            <div className={s.member}>{m.name}</div>
+            <div className={s.member}>
+              <img src={m.img} alt={m.name} className={s.image} />
+              <span>{m.name}</span>
+              <span>[{m.role}]</span>
+              <span>{m.comment}</span>
+            </div>
           ))}
         </div>
       </div>
