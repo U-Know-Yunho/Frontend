@@ -4,8 +4,9 @@ import 'react-html5video/dist/styles.css';
 
 export default class VideoView extends Component {
   render() {
-    // const { trailer } = this.props;
-    const trailer = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
+    const { trailer } = this.props;
+    // console.log(trailer);
+    // const trailer = 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4';
     return (
       <Video
         autoPlay={false}

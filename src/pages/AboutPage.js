@@ -7,7 +7,8 @@ export default class AboutPage extends Component {
   render() {
     return (
       <Layout>
-        <div className={s.loginWrapper}>
+        <div className={s.aboutWrapper}>
+          <h2>About</h2>
           <About />
         </div>
       </Layout>
