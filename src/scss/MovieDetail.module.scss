@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
   .movieInfo {
     //   border: 1px solid white;
     display: flex;
@@ -21,6 +22,7 @@
         width: 100%;
         height: auto;
       }
+
       .button {
         width: 100%;
         height: 35px;
@@ -32,6 +34,7 @@
         line-height: 35px;
         transition: 0.3s;
         border: 1px solid $red;
+
         &:hover {
           background-color: $white;
           color: $red;
@@ -87,7 +90,7 @@
     }
 
     .descriptionLine {
-      color: $ligten-silver;
+      color: $lighten-silver;
       line-height: 1.8rem;
       margin: 30px;
       display: block;
@@ -101,13 +104,16 @@
   .movieDetailBox {
     margin: 0 auto;
     width: 100%;
+
     .movieInfo {
       padding: 5vh;
       order: 2;
+
       .poster {
         height: auto;
       }
     }
+
     .subWrapper {
       //   clear: both;
       order: 2;
@@ -118,6 +124,7 @@
         margin: 0;
       }
     }
+
     .reponsiveSubWrapper {
       //   float: inline-start;
       order: 1;

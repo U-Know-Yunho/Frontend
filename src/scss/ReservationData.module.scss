@@ -6,6 +6,7 @@
   display: flex;
   background-color: $black;
   margin: 20px 0;
+
   .homeButton,
   .movieSelectButton,
   .movieData,
@@ -16,11 +17,13 @@
   .goReserveButton {
     flex: 1;
   }
+
   .movieData,
   .basicData,
   .seatData {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid $light-gray;
   }
+
   .homeButton,
   .movieSelectButton {
     background-color: $silver-gray;
@@ -32,6 +35,7 @@
     align-items: center;
     border: 1px solid $silver-gray;
     transition: 0.3s;
+
     &:hover {
       background-color: $white;
       border: 1px solid $red;
@@ -50,11 +54,13 @@
     align-items: center;
     border: 1px solid $red;
     transition: 0.3s;
+
     &:hover {
       background-color: $white;
       color: $red;
     }
   }
+
   .movieData,
   .basicData,
   .seatData,
@@ -62,19 +68,23 @@
     color: $white;
     padding: 10px;
   }
+
   .movieData {
     display: flex;
     color: $silver;
     display: flex;
     justify-content: center;
     align-items: center;
+
     .moviePoster {
       width: 40%;
       height: 70%;
       margin-right: 3px;
     }
+
     .movieInfo {
       font-size: 0.7rem;
+
       .movieTitle {
         font-size: 0.8rem;
         display: block;
@@ -83,6 +93,7 @@
         text-overflow: ellipsis;
         margin-bottom: 5px;
       }
+
       span {
         display: block;
         line-height: 1rem;
@@ -90,17 +101,21 @@
       }
     }
   }
+
   .basicData {
     display: flex;
     justify-content: center;
     align-items: center;
     color: $silver;
+
     ul {
       width: 90%;
     }
+
     li {
       font-size: 0.7rem;
       line-height: 1rem;
+
       .subTitle {
         display: inline-block;
         color: $white;
@@ -109,6 +124,7 @@
       }
     }
   }
+
   .empty {
     height: 100%;
     color: $light-gray;

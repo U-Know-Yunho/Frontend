@@ -1,0 +1,14 @@
+@import '../common.module.scss';
+
+.aboutWrapper {
+  padding: 20vh;
+  background-color: $stone-gray;
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: $white;
+  }
+}
