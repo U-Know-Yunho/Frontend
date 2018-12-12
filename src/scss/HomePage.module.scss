@@ -18,6 +18,7 @@
   justify-content: center;
 
   .movieNav {
+
     // 현재상영작 & 개봉예정작 버튼
     button {
       background-color: $gray;
@@ -36,6 +37,9 @@
       transition: 0.3s;
       background: $dark-red;
     }
+    ul {
+      width: 70%;
+    }
   }
 
   // 전체보기 링크
@@ -43,36 +47,48 @@
     display: inline-block;
     width: 72px;
     height: 24px;
-    margin: 8px 0 8px 78%;
+    margin: 8px 0 8px 77%;
     color: $lightenstone-gray;
     position: relative;
     top: 25px;
     font-family: 'noto-sans';
-    font-weight: 400;
-    font-size: 0.8em;
-    padding-top: 7px;
-    background-color: $light-silver;
+    font-weight: 700;
+    font-size: 1em;
     transition: 0.3s;
 
     &:hover {
-      color: $white;
-      background-color: $gray;
+      color: $red;
     }
   }
 
   // 무비 리스트 가운데 정렬
   ul {
-    width: 70vw;
+    width: 65vw;
     margin: 24px auto 0 auto;
-
-    li {
-      padding: 8px;
-      margin: 8px 8px 0 8px;
-      border-style: none;
-      box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
-    }
   }
 }
+
+
+
+// 트레일러 영역
+
+.trailer {
+  width: 100%;
+  background-color: $gray;
+  background-image: url("./CGV_trailer.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .trailerVideo {
+    width: 50%;
+  }
+
+  padding-bottom: 10vh;
+}
+
 
 // 이벤트 영역
 .subTitle {
@@ -145,23 +161,6 @@
   }
 }
 
-// 트레일러 영역
-
-.trailer {
-  width: 100%;
-  background-color: $gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  .trailerVideo {
-    width: 50%;
-  }
-
-  padding-bottom: 10vh;
-}
-
 .subTitle {
   display: inline-block;
   width: 100px;
@@ -179,22 +178,28 @@
   .subTitle {
     display: none;
   }
+
   .trailer {
     order: 1;
     padding: 0;
+
     .trailerVideo {
       width: 100%;
     }
   }
+
   .movie {
     order: 2;
   }
+
   .event,
   .carousel {
     order: 3;
   }
+
   .event {
     padding: 10vh 5vh;
+
     .eventImages {
       margin-bottom: 0;
       width: 100%;

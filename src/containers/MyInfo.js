@@ -10,44 +10,24 @@ export default class MyInfo extends Component {
       username: '',
       password: '',
       confirmPassword: '',
-      lastname: '',
-      firstname: '',
+      lastName: '',
+      firstName: '',
       email: '',
-      phonenumber: '',
+      phoneNumber: '',
     };
   }
   // 현재 로그인 중인 유저 정보 가져와서 상태에 넣어주기
   async componentDidMount() {
-    // FIX: 헤더 조건 basic Auth로 설정되어있음. bearer auth로 변경 요청하기
-    // const token = localStorage.getItem('token');
-    // const { data } = await api.get('api/members/profile/', {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
     const {
-      username,
-      last_name: lastname,
-      first_name: firstname,
-      email,
-      phone_number: phonenumber,
-    } = {
-      pk: 1,
-      username: 'team4',
-      password:
-        'pbkdf2_sha256$120000$p8QbCth4UNV2$cUxOhFiCSNvUzcdDXHxP6YX4zs9QErSevN6tXwzGCfs=',
-      last_name: '정',
-      first_name: '윤호',
-      email: 'test@test',
-      phone_number: '010-0000-0000',
-    };
+      data: { username, lastName, firstName, email, phoneNumber },
+    } = await api.get('/api/members/profile/');
 
     this.setState({
       username,
-      lastname,
-      firstname,
+      lastName,
+      firstName,
       email,
-      phonenumber,
+      phoneNumber,
     });
   }
 
@@ -60,27 +40,32 @@ export default class MyInfo extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const token = localStorage.getItem('token');
-    const { password, email, phonenumber } = this.state;
-    try {
+    const { password, email, phoneNumber } = this.state;
+
+    const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
+    const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
+    const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+    if (!pass.test(password)) {
+      alert(
+        '비밀번호는 영문,숫자,특수문자를 하나 이상 포함한 8자리 이상이어야합니다.'
+      );
+    } else if (!mail.test(email)) {
+      alert('정확한 이메일 주소를 입력해주세요');
+    } else if (!phone.test(phoneNumber)) {
+      alert('정확한 핸드폰 번호를 입력해주세요');
+    } else {
       // password를 입력하지 않으면 submit요청이 일어나지 않음
-      await api.patch(
-        'api/members/profile/',
-        {
+      try {
+        await api.patch('api/members/profile/', {
           password,
           email,
-          phonenumber,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      // 정보 수정이 성공적으로 되었을 때
-      alert('회원정보가 성공적으로 수정되었습니다');
-    } catch {
-      alert('정보를 정확히 입력해주세요.');
+          phone_number: phoneNumber,
+        });
+        // 정보 수정이 성공적으로 되었을 때
+        alert('회원정보가 성공적으로 수정되었습니다');
+      } catch {
+        alert('서버에서 에러가 생겼습니다');
+      }
     }
   }
 

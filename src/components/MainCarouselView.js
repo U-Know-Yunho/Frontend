@@ -18,7 +18,6 @@ export default class MainCarouselView extends Component {
       textAlign: 'left',
       textShadow: '1px 1px black',
       display: 'block',
-      opacity: '1',
     };
     const subCaptionStyle = {
       display: 'block',
