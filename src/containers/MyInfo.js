@@ -47,20 +47,18 @@ export default class MyInfo extends Component {
     const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
     const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
     if (!pass.test(password)) {
-      alert(
-        '비밀번호는 영문,숫자,특수문자를 하나 이상 포함한 8자리 이상이어야합니다.'
-      );
+      alert('비밀번호는 형식에 맞게 설정해주세요.');
     } else if (!mail.test(email)) {
-      alert('정확한 이메일 주소를 입력해주세요');
+      alert('정확한 이메일 주소를 입력하세요');
     } else if (!phone.test(phoneNumber)) {
-      alert('정확한 핸드폰 번호를 입력해주세요');
+      alert('정확한 핸드폰 번호를 입력하세요');
     } else {
       // 정규표현식에서 걸리지 않으면 수정 요청
       try {
         await api.patch('api/members/profile/', {
           password,
           email,
-          phone_number: phoneNumber,
+          phoneNumber,
         });
         // 정보 수정이 성공적으로 되었을 때
         alert('회원정보가 성공적으로 수정되었습니다');

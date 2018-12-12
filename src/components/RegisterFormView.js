@@ -46,14 +46,26 @@ export default class RegisterFormView extends Component {
         phoneNumber,
       };
 
-      try {
-        await this.props.onRegister({ ...value });
-        // 회원가입이 성공적으로 되었을 때
-        this.setState({
-          success: true,
-        });
-      } catch {
-        alert('잘못 입력했습니다.');
+      // 비밀번호, 이메일, 핸드폰 번호 형식 제한
+      const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
+      const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
+      const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+      if (!pass.test(password)) {
+        alert('비밀번호는 형식에 맞게 설정해주세요.');
+      } else if (!mail.test(email)) {
+        alert('정확한 이메일 주소를 입력하세요');
+      } else if (!phone.test(phoneNumber)) {
+        alert('정확한 핸드폰 번호를 입력하세요');
+      } else {
+        try {
+          await this.props.onRegister({ ...value });
+          // 회원가입이 성공적으로 되었을 때
+          this.setState({
+            success: true,
+          });
+        } catch {
+          alert('서버 에러가 발생했습니다.');
+        }
       }
     }
   }
@@ -90,6 +102,7 @@ export default class RegisterFormView extends Component {
                 className={s.usernameInput}
                 onChange={e => this.handleFieldChange(e, 'username')}
                 required
+                autoComplete="off"
               />
 
               <button
@@ -109,14 +122,20 @@ export default class RegisterFormView extends Component {
             </div>
 
             <label for="password">Password</label>
-            <input
-              value={password}
-              type="password"
-              name="password"
-              id="password"
-              onChange={e => this.handleFieldChange(e, 'password')}
-              required
-            />
+            <div className={s.inputWrapper}>
+              <input
+                value={password}
+                type="password"
+                name="password"
+                id="password"
+                placeholder="8자리 이상으로 설정해주세요"
+                onChange={e => this.handleFieldChange(e, 'password')}
+                required
+              />
+              <span className={s.default}>
+                문자,숫자,특수문자를 하나 이상 포함하세요
+              </span>
+            </div>
 
             <label for="confirmPassword">Confirm Password</label>
             <div className={s.inputWrapper}>
@@ -143,14 +162,37 @@ export default class RegisterFormView extends Component {
               name="lastname"
               id="lastname"
               placeholder="Lastname"
+              required
+              autoComplete="off"
             />
-            <input type="text" name="firstname" placeholder="Firstname" />
+            <input
+              type="text"
+              name="firstname"
+              placeholder="Firstname"
+              required
+              autoComplete="off"
+            />
 
             <label for="email">E-MAIL</label>
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              autoComplete="off"
+            />
 
             <label for="phonenumber">휴대전화</label>
-            <input type="tel" name="phonenumber" id="phonenumber" />
+            <div className={s.inputWrapper}>
+              <input
+                type="tel"
+                name="phonenumber"
+                id="phonenumber"
+                required
+                autoComplete="off"
+              />
+              <span className={s.default}>'-'을 포함해주세요</span>
+            </div>
 
             <button className={s.registerBtn}>가입하기</button>
 

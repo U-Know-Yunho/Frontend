@@ -2,8 +2,24 @@
 
 // 모바일
 @media (max-width: 767px) {
+  // .movieList {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   flex-wrap: wrap;
+
+  //   // min-width: 750px;
+  //   // 홈페이지에서의 리스트는 wrap되지 않습니다.
+  //   &.home {
+  //     justify-content: center;
+  //     flex-wrap: nowrap;
+  //     width: 100%;
+  //   }
+  //   .empty {
+  //     width: 196px;
+  //   }
+  // }
   .movieItem {
-    width: 85vw;
+    width: 50%;
     margin: 0 auto;
     padding: 5px;
     display: flex;
@@ -21,14 +37,8 @@
         height: 100%;
       }
     }
-
     .button {
-      a {
-        display: block;
-        width: 50px;
-        height: 25px;
-        line-height: 24px;
-      }
+      display: none;
     }
   }
 }
@@ -110,27 +120,25 @@
       left: 10px;
       color: #f2f2f1;
     }
-  }
-}
+    .button {
+      a {
+        background-color: $dark-white;
+        box-sizing: border-box;
+        border: 1px solid $dark-white;
+        transition: 0.3s;
 
-// 공통 부분
-.button {
-  a {
-    background-color: $dark-white;
-    box-sizing: border-box;
-    border: 1px solid $dark-white;
-    transition: 0.3s;
+        &:hover {
+          background-color: $white;
+          border: 1px solid $red;
+          color: $red;
+        }
 
-    &:hover {
-      background-color: $white;
-      border: 1px solid $red;
-      color: $red;
-    }
-
-    &:active {
-      background-color: $red;
-      border: 1px solid $red;
-      color: $white;
+        &:active {
+          background-color: $red;
+          border: 1px solid $red;
+          color: $white;
+        }
+      }
     }
   }
 }

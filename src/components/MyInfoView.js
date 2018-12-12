@@ -33,14 +33,19 @@ export default class MyInfoView extends Component {
           </div>
 
           <label for="password">Password</label>
-          <input
-            value={password}
-            type="password"
-            name="password"
-            id="password"
-            onChange={e => onFieldChange(e, 'password')}
-            required
-          />
+          <div className={s.inputWrapper}>
+            <input
+              value={password}
+              type="password"
+              name="password"
+              id="password"
+              onChange={e => onFieldChange(e, 'password')}
+              required
+            />
+            <span className={s.default}>
+              문자,숫자,특수문자를 하나 이상 포함하세요
+            </span>
+          </div>
 
           <label for="confirmPassword">Confirm Password</label>
           <div className={s.inputWrapper}>
@@ -87,6 +92,7 @@ export default class MyInfoView extends Component {
             id="email"
             value={email}
             onChange={e => onFieldChange(e, 'email')}
+            autoComplete="off"
             required
           />
 
@@ -98,6 +104,7 @@ export default class MyInfoView extends Component {
               id="phonenumber"
               value={phoneNumber}
               onChange={e => onFieldChange(e, 'phoneNumber')}
+              autoComplete="off"
               required
             />
             <span className={s.default}>'-'을 포함해주세요</span>
