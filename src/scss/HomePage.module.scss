@@ -22,7 +22,7 @@
     // 현재상영작 & 개봉예정작 버튼
     button {
       background-color: $gray;
-      color: #f4f4f4;
+      color: $silver-white;
       width: 150px;
       height: 50px;
       font-size: 1rem;
@@ -37,6 +37,7 @@
       transition: 0.3s;
       background: $dark-red;
     }
+
     ul {
       width: 70%;
     }
@@ -47,7 +48,7 @@
     display: inline-block;
     width: 72px;
     height: 24px;
-    margin: 8px 0 8px 77%;
+    margin: 0 0 0 72%;
     color: $lightenstone-gray;
     position: relative;
     top: 25px;
@@ -95,7 +96,7 @@
   display: inline-block;
   width: 100px;
   text-align: center;
-  color: #f4f4f4;
+  color: $silver-white;
   width: 150px;
   height: 50px;
   font-size: 1rem;
@@ -165,7 +166,7 @@
   display: inline-block;
   width: 100px;
   text-align: center;
-  color: #f4f4f4;
+  color: $silver-white;
   width: 150px;
   height: 50px;
   font-size: 1rem;
