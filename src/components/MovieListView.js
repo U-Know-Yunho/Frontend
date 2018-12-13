@@ -5,12 +5,31 @@ import s from '../scss/MovieListView.module.scss';
 import c from 'classnames';
 
 class MovieListView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mobileClick: null,
+    };
+  }
+
+  handleClass(pk) {
+    this.setState({
+      mobileClick: pk,
+    });
+  }
   render() {
     const { list, page, movie } = this.props;
     return (
       <ul className={c(s.movieList, { [s.home]: page === 'home' })}>
         {list.map((l, i) => (
-          <li key={l.pk} className={s.movieItem}>
+          <li
+            key={l.pk}
+            className={c(s.movieItem, {
+              [s.mobileClick]: this.state.mobileClick === l.pk,
+            })}
+            onClick={() => this.handleClass(l.pk)}
+          >
             {// movie: current이면 순위를 보여주고, upcomming이면 순위를 보여주지 않습니다.
             movie === 'current' ? <div className={s.rank}>{i + 1}</div> : null}
             <figure>
