@@ -17,6 +17,7 @@ export default class MainCarouselView extends Component {
       //   border: '1px solid red',
       textAlign: 'left',
       textShadow: '1px 1px black',
+      opacity: '1',
       display: 'block',
     };
     const subCaptionStyle = {
@@ -24,6 +25,7 @@ export default class MainCarouselView extends Component {
       fontSize: '1.1rem',
       color: '#9c9c9c',
       padding: '10px 0',
+      opacity: '1',
     };
     return (
       <Carousel

@@ -7,7 +7,7 @@ export default class VideoView extends Component {
       width: '100%',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
-        host: 'https://www.youtube.com',
+        // origin: 'https://www.youtube.com',
         autoplay: 1,
       },
     };
