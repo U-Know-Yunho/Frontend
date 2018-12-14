@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import withLoading from '../hoc/withLoading';
 import s from '../scss/MovieListView.module.scss';
 import c from 'classnames';
+// import '../scss/ispinner-master/ispinner.css';
 
 class MovieListView extends Component {
   constructor(props) {
@@ -61,6 +62,29 @@ class MovieListView extends Component {
                 onLoad={() => l.onLoad()}
               />
               <figcaption>{l.title}</figcaption>
+              {this.state.load ? null : (
+                <div
+                  className={c(
+                    s.ispinner,
+                    s.ispinner__animating,
+                    s.ispinner__gray
+                  )}
+                >
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                  <div className={s.ispinner__blade} />
+                </div>
+              )}
             </figure>
             {/* <p className={s.date}>{l.openingDate}</p>
             <p className={s.score}>{l.reservationScore}</p> */}
