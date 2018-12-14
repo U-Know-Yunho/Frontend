@@ -4,7 +4,6 @@
   .myCGVWrapper {
     padding: 20vh;
     background-color: $silver-white;
-
     box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
     h2 {
       text-transform: uppercase;
@@ -36,5 +35,22 @@
         padding: 35px;
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .myCGVWrapper {
+    background-color: $silver-white;
+
+    h2 {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+    .myCGVNav {
+      position: relative;
+    }
+  }
+  .myCGVContent {
   }
 }
