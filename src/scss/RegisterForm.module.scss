@@ -127,7 +127,18 @@
   }
 }
 
+// 정보 수정 페이지에서의 폼 css
 .infoWrapper {
+  width: 100%;
+  .registerBox {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    label:nth-child(5) {
+      margin-top: 23px;
+    }
+  }
+
   // 개인 정보 수정 페이지에서 유저네임 인풋
   .usernameInput {
     width: 100%;

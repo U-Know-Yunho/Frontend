@@ -18,7 +18,6 @@
   justify-content: center;
 
   .movieNav {
-
     // 현재상영작 & 개봉예정작 버튼
     button {
       background-color: $gray;
@@ -172,7 +171,7 @@
   background: #ee2e24;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .subTitle {
     display: none;
   }
