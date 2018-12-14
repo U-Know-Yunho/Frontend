@@ -92,7 +92,6 @@
 
 // 데스크탑
 @media (min-width: 768px) {
-
   // 전체 ul
   .movieList {
     display: flex;
@@ -129,12 +128,21 @@
     // btn 박스 바닥에 붙이기 위해 지정해줌, 지워도 되는 부분입니다
     figure {
       height: 304px;
-    }
-
-    // 포스터 이미지
-    img {
-      width: 100%;
-      height: 235px;
+      // position: relative;
+      // 포스터 이미지
+      img {
+        width: 100%;
+        height: 235px;
+      }
+      .loaded + figcaption::before {
+        content: 'loading';
+        display: block;
+        width: 166px;
+        height: 235px;
+        background-color: white;
+        position: absolute;
+        top: 8px;
+      }
     }
 
     // 영화 타이틀
@@ -177,6 +185,7 @@
       top: -2px;
       left: 10px;
       color: #f2f2f1;
+      z-index: 99;
     }
 
     .button {

@@ -10,7 +10,27 @@ class MovieListView extends Component {
 
     this.state = {
       mobileClick: null,
+      load: false,
     };
+
+    const list = this.props.list.map(l => {
+      let resolve;
+      const loadPromise = new Promise(r => {
+        resolve = r;
+      });
+      return {
+        ...l,
+        loadPromise,
+        onLoad: resolve,
+      };
+    });
+    this.allLoadPromise = Promise.all(list.map(item => item.loadPromise));
+    this.list = list;
+    this.allLoadPromise.then(() =>
+      this.setState({
+        load: true,
+      })
+    );
   }
 
   handleClass(pk) {
@@ -18,11 +38,12 @@ class MovieListView extends Component {
       mobileClick: pk,
     });
   }
+
   render() {
-    const { list, page, movie } = this.props;
+    const { page, movie } = this.props;
     return (
       <ul className={c(s.movieList, { [s.home]: page === 'home' })}>
-        {list.map((l, i) => (
+        {this.list.map((l, i) => (
           <li
             key={l.pk}
             className={c(s.movieItem, {
@@ -34,9 +55,10 @@ class MovieListView extends Component {
             movie === 'current' ? <div className={s.rank}>{i + 1}</div> : null}
             <figure>
               <img
+                className={c({ [s.loaded]: !this.state.load })}
                 src={l.mainImgUrl}
                 alt={l.title}
-                onLoad={e => console.log('load')}
+                onLoad={() => l.onLoad()}
               />
               <figcaption>{l.title}</figcaption>
             </figure>
@@ -46,7 +68,7 @@ class MovieListView extends Component {
               <Link to={`/movies/detail/${l.pk}`}>상세정보</Link>
               {/* 특정 영화의 예매버튼을 클릭하여 예매하기 페이지로 접속하면
             선택한 영화의 id를 예매페이지컴포넌트에서 match.params.movieId 프롭으로 접근할 수 있도록 
-            해당 주소로 보냅시다.  */}
+            해당 주소로 보냅시다. */}
               <Link to={`/reservation/?moviePk=${l.pk}`}>예매하기</Link>
             </div>
           </li>
