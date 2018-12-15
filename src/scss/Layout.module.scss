@@ -12,7 +12,7 @@
 
   .children {
     //   footer 가 20vh, 헤더가 8vh
-    min-height: calc(100vh - 20vh - 8vh);
+    min-height: calc(100vh - 20vh - 72px);
   }
 
   .footer {
@@ -49,10 +49,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .layoutWrapper {
     .children {
-      padding-top: 10vh;
+      padding-top: 72px;
     }
   }
 }
