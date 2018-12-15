@@ -3,64 +3,70 @@ import classNames from 'classnames';
 import s from '../scss/FirstStepView.module.scss';
 
 export default class FirstStepTheaterView extends Component {
-  handleLocation(l) {
-    const {
-      onLocation,
-      onSubLocation,
-      allLocationList,
-      onSubLocationList,
-    } = this.props;
-    let subArr = [];
-    for (const item of allLocationList) {
-      if (item.location === l) {
-        subArr.push(item.subLocation);
-      }
-    }
-    onLocation(l);
-    onSubLocation('');
-    onSubLocationList(subArr);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subLocationShowList: [],
+      subLocationNoneList: [],
+    };
   }
 
-  handleSubLocation(l) {
+  handleLocation(t) {
+    const { onLocation } = this.props;
+    onLocation(t[0].location);
+    const subLocationShowList = t[1].theaterSet.filter(t => t.show);
+    const subLocationNoneList = t[1].theaterSet.filter(t => !t.show);
+
+    this.setState({
+      subLocationShowList,
+      subLocationNoneList,
+    });
+  }
+
+  handleSubLocation(s) {
     const { onSubLocation } = this.props;
-    onSubLocation(l);
+    onSubLocation(s);
   }
-
-  handleSubLocationList() {}
 
   render() {
-    const {
-      selectedLocationList,
-      selectedSubLocationList,
-      location,
-      subLocation,
-    } = this.props;
+    const { theaterList, location, subLocation } = this.props;
+    const { subLocationShowList, subLocationNoneList } = this.state;
     return (
       <div className={s.eachDataBox}>
         <h3>극장</h3>
         <div className={s.locationWrapper}>
           <ul className={s.locationBox}>
-            {selectedLocationList.map(t => (
+            {theaterList.map(t => (
               <li
-                key={t}
+                key={t[0].location}
                 onClick={() => this.handleLocation(t)}
                 className={classNames([s.locationLi], {
-                  [s.selected]: t === location,
+                  [s.selected]: t[0].location === location,
                 })}
               >
-                {t}
+                {t[0].location} ({t[2].num})
               </li>
             ))}
           </ul>
           <ul className={s.subLocationBox}>
-            {location !== ''
-              ? selectedSubLocationList.map(l => (
+            {subLocationShowList !== []
+              ? subLocationShowList.map(l => (
                   <li
-                    key={l}
-                    onClick={() => this.handleSubLocation(l)}
-                    className={classNames({ [s.selected]: l === subLocation })}
+                    key={l.subLocation}
+                    onClick={() => this.handleSubLocation(l.subLocation)}
+                    className={classNames({
+                      [s.selected]: l.subLocation === subLocation,
+                    })}
                   >
-                    {l}
+                    {l.subLocation}
+                  </li>
+                ))
+              : null}
+            {subLocationNoneList !== []
+              ? subLocationNoneList.map(l => (
+                  <li key={l.subLocation} className={s.movieNoneLi}>
+                    {l.subLocation}
                   </li>
                 ))
               : null}
