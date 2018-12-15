@@ -1,9 +1,17 @@
 @import '../common.module.scss';
+@media (min-width: 768px) {
+  .ReservationStepsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 130px;
+  }
+}
 
-.ReservationStepsWrapper {
-  padding: 130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 767px) {
+  .ReservationStepsWrapper {
+    padding-top: 135px;
+    position: relative;
+  }
 }
