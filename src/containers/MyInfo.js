@@ -8,25 +8,27 @@ class MyInfo extends Component {
     super(props);
     console.log(props);
     this.state = {
-      username: '',
+      username: props.username,
       password: '',
       confirmPassword: '',
-      lastName: this.props.lastName,
-      firstName: '',
-      email: '',
-      phoneNumber: '',
+      lastName: props.lastName,
+      firstName: props.firstName,
+      email: props.email,
+      phoneNumber: props.phoneNumber,
     };
   }
-  componentDidMount() {
-    // console.log(this.props);
-    // const { username, lastName, firstName, email, phoneNumber } = this.props;
-    // this.setState({
-    //   username,
-    //   lastName,
-    //   firstName,
-    //   email,
-    //   phoneNumber,
-    // });
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      const { username, lastName, firstName, email, phoneNumber } = nextProps;
+      this.setState({
+        username,
+        lastName,
+        firstName,
+        email,
+        phoneNumber,
+      });
+    }
   }
 
   handleFieldChange(e, name) {

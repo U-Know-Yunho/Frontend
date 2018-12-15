@@ -13,6 +13,7 @@ export default class UserProvider extends Component {
       register: this.register.bind(this),
       checkId: this.checkId.bind(this),
       socialLogin: this.socialLogin.bind(this),
+      // getMe: this.getMe.bind(this),
       username: '',
       lastName: '',
       firstName: '',
@@ -20,11 +21,13 @@ export default class UserProvider extends Component {
       phoneNumber: '',
     };
   }
+
   async componentDidMount() {
     if (localStorage.getItem('token')) {
       const {
         data: { username: name, lastName, firstName, email, phoneNumber },
       } = await api.get('/api/members/profile/');
+      // console.log(name);
       this.setState({
         isLogin: true,
         username: name,
