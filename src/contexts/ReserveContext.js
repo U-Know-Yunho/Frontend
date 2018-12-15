@@ -18,7 +18,7 @@ export default class ReserveProvider extends Component {
       location: '',
       subLocation: '',
       // 선택된 날짜
-      date: '2018-12-21',
+      date: '',
       // 선택된 관, 시간, 총 좌석, 남은 좌석
       auditorium: '2관',
       time: '20:00',

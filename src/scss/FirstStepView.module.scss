@@ -26,12 +26,12 @@
     cursor: pointer;
     line-height: 1.4rem;
     transition: 0.3s;
-
-    &:hover {
-      color: $red;
-    }
   }
 
+  .movieNoneLi {
+    color: $silver-gray;
+    cursor: not-allowed;
+  }
   .movieLi {
     position: relative;
     text-indent: 25px;
@@ -48,6 +48,10 @@
       width: 30px;
       height: 30px;
     }
+
+    &:hover {
+      color: $red;
+    }
   }
 
   .locationWrapper {
@@ -56,7 +60,7 @@
     height: 460px;
 
     .locationBox {
-      flex: 3;
+      flex: 1;
     }
 
     .locationLi {
@@ -66,7 +70,7 @@
     }
 
     .subLocationBox {
-      flex: 2;
+      flex: 1;
     }
   }
 
