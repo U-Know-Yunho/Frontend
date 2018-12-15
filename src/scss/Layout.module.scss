@@ -11,7 +11,7 @@
   }
 
   .children {
-    //   footer 가 20vh, 헤더가 8vh
+    // footer 가 20vh, 헤더가 8vh
     min-height: calc(100vh - 20vh - 72px);
   }
 
@@ -52,7 +52,8 @@
 @media (max-width: 767px) {
   .layoutWrapper {
     .children {
-      padding-top: 72px;
+      min-height: calc(100vh - 20vh - 54px);
+      padding-top: 57px;
     }
   }
 }

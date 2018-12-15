@@ -13,12 +13,25 @@ export default class UserProvider extends Component {
       register: this.register.bind(this),
       checkId: this.checkId.bind(this),
       socialLogin: this.socialLogin.bind(this),
+      username: '',
+      lastName: '',
+      firstName: '',
+      email: '',
+      phoneNumber: '',
     };
   }
   async componentDidMount() {
     if (localStorage.getItem('token')) {
+      const {
+        data: { username: name, lastName, firstName, email, phoneNumber },
+      } = await api.get('/api/members/profile/');
       this.setState({
         isLogin: true,
+        username: name,
+        lastName,
+        firstName,
+        email,
+        phoneNumber,
       });
     }
   }
@@ -33,7 +46,7 @@ export default class UserProvider extends Component {
       phoneNumber,
     } = value;
 
-    const res = await api.post('/api/members/signup/', {
+    await api.post('/api/members/signup/', {
       username,
       password,
       lastName,
@@ -41,7 +54,6 @@ export default class UserProvider extends Component {
       email,
       phoneNumber,
     });
-    console.log(res.data);
   }
 
   async checkId(username) {
@@ -57,8 +69,16 @@ export default class UserProvider extends Component {
       password,
     });
     localStorage.setItem('token', res.data.token);
+    const {
+      data: { username: name, lastName, firstName, email, phoneNumber },
+    } = await api.get('/api/members/profile/');
     this.setState({
       isLogin: true,
+      username: name,
+      lastName,
+      firstName,
+      email,
+      phoneNumber,
     });
   }
 
@@ -97,8 +117,6 @@ export default class UserProvider extends Component {
 
   logout() {
     const token = localStorage.getItem('token');
-    console.log(token);
-
     api.get('/api/members/logout/', {
       headers: {
         Authorization: 'Token ' + token,
@@ -108,6 +126,11 @@ export default class UserProvider extends Component {
     localStorage.removeItem('token');
     this.setState({
       isLogin: false,
+      username: '',
+      lastName: '',
+      firstName: '',
+      email: '',
+      phoneNumber: '',
     });
   }
 

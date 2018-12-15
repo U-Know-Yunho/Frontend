@@ -107,7 +107,7 @@ export default class MyInfoView extends Component {
               autoComplete="off"
               required
             />
-            <span className={s.default}>'-'을 포함해주세요</span>
+            <span className={s.default}>'-'은 포함하지 않습니다</span>
           </div>
 
           <button className={s.registerBtn}>변경하기</button>
