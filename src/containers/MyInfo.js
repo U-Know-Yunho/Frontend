@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import api from '../api';
 import MyInfoView from '../components/MyInfoView';
 
-export default class MyInfo extends Component {
+class MyInfo extends Component {
   constructor(props) {
     super(props);
 

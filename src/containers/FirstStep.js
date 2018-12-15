@@ -13,12 +13,13 @@ export default class FirstStep extends Component {
     this.state = {
       movieShowList: [],
       movieNoneList: [],
-      dateShowList: [],
-      dateNoneList: [],
-      theaterList: [],
+      dateList: [],
+      locationList: [],
+      subLocationShowList: [],
+      subLocationNoneList: [],
       handleMovieClick: this.handleMovieClick.bind(this),
       handleDateClick: this.handleDateClick.bind(this),
-      handleTheaterClick: this.handleTheaterClick.bind(this),
+      handleLocationClick: this.handleLocationClick.bind(this),
     };
   }
 
@@ -31,39 +32,12 @@ export default class FirstStep extends Component {
     const dataTmp = res.data;
     this.handleMovieList(dataTmp.movie);
     this.handleDateList(dataTmp.date);
-    this.handleTheaterList(dataTmp.theater);
+    this.handleLocationList(dataTmp.theater);
 
     // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
     if (pk) {
       this.handleMovieClick(pk);
     }
-  }
-
-  handleDateList(data) {
-    console.log(1);
-    const dateShowList = data.filter(t => t[2].show);
-    const dateNoneList = data.filter(t => !t[2].show);
-    this.setState({
-      dateShowList,
-      dateNoneList,
-    });
-  }
-
-  handleTheaterList(data) {
-    console.log(2);
-    this.setState({
-      theaterList: data,
-    });
-  }
-
-  handleMovieList(data) {
-    console.log(3);
-    const movieShowList = data.filter(s => s.show);
-    const movieNoneList = data.filter(s => !s.show);
-    this.setState({
-      movieShowList,
-      movieNoneList,
-    });
   }
 
   // 1. dataBar 에 선택한 데이터 업로드
@@ -78,25 +52,43 @@ export default class FirstStep extends Component {
 
   // 영화를 선택했을 때
   async handleMovieClick(pk) {
+    // 1. 상태 저장
     const { onMovieTitle, onMoviePoster } = this.props;
     const res = await api.get(`/api/movies/detail/${pk}/`);
     const selectTitle = res.data.title;
     const selectPoster = res.data.mainImgUrl;
     onMovieTitle(selectTitle);
     onMoviePoster(selectPoster);
-
+    // 2. 선택에 따라 리스트 업데이트
     this.upLoadList();
   }
 
-  // 극장을 선택했을 때
-  handleTheaterClick() {
+  // Location을 선택했을 때
+  handleLocationClick(t) {
+    const { onLocation } = this.props;
+    onLocation(t[0].location);
+
+    const subLocationShowList = t[1].theaterSet.filter(s => s.show);
+    const subLocationNoneList = t[1].theaterSet.filter(s => !s.show);
+    this.setState({
+      subLocationShowList,
+      subLocationNoneList,
+    });
+  }
+
+  // subLocation을 선택했을 때
+  handleSubLocationClick(t) {
     //
+    const { onSubLocation } = this.props;
+    onSubLocation(t);
   }
 
   // 날짜를 선택했을 때
   handleDateClick(date) {
+    // 1. 선택한 날짜 상태 저장
     const { onDate } = this.props;
     onDate(date);
+    // 2. 선택에 따라 리스트 업데이트
   }
 
   // 선택 시 리스트 업로드
@@ -127,8 +119,35 @@ export default class FirstStep extends Component {
 
     const dataTmp = res.data;
     this.handleMovieList(dataTmp.movie);
-    this.handleTheaterList(dataTmp.theater);
+    this.handleLocationList(dataTmp.theater);
     this.handleDateList(dataTmp.date);
+  }
+
+  handleDateList(data) {
+    this.setState({
+      dateList: data,
+    });
+  }
+
+  handleLocationList(data) {
+    // const locationList = data.map(d => d[0].location);
+    this.setState({
+      locationList: data,
+      // subLocationShowList:,
+      // subLocationNoneList:
+    });
+  }
+  handleSubLocationList() {
+    //
+  }
+
+  handleMovieList(data) {
+    const movieShowList = data.filter(s => s.show);
+    const movieNoneList = data.filter(s => !s.show);
+    this.setState({
+      movieShowList,
+      movieNoneList,
+    });
   }
 
   render() {

@@ -3,49 +3,31 @@ import classNames from 'classnames';
 import s from '../scss/FirstStepView.module.scss';
 
 export default class FirstStepTheaterView extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      subLocationShowList: [],
-      subLocationNoneList: [],
-    };
-  }
-
-  handleLocation(t) {
-    const { onLocation } = this.props;
-    onLocation(t[0].location);
-    const subLocationShowList = t[1].theaterSet.filter(t => t.show);
-    const subLocationNoneList = t[1].theaterSet.filter(t => !t.show);
-
-    this.setState({
+  render() {
+    const {
+      locationList,
       subLocationShowList,
       subLocationNoneList,
-    });
-  }
-
-  handleSubLocation(s) {
-    const { onSubLocation } = this.props;
-    onSubLocation(s);
-  }
-
-  render() {
-    const { theaterList, location, subLocation } = this.props;
-    const { subLocationShowList, subLocationNoneList } = this.state;
+      location,
+      subLocation,
+      handleLocationClick,
+      handleSubLocationClick,
+    } = this.props;
     return (
       <div className={s.eachDataBox}>
         <h3>극장</h3>
         <div className={s.locationWrapper}>
           <ul className={s.locationBox}>
-            {theaterList.map(t => (
+            {locationList.map(t => (
               <li
                 key={t[0].location}
-                onClick={() => this.handleLocation(t)}
+                onClick={() => handleLocationClick(t)}
                 className={classNames([s.locationLi], {
                   [s.selected]: t[0].location === location,
                 })}
               >
-                {t[0].location} ({t[2].num})
+                {t[0].location}
+                {/* ({t[2].num}) */}
               </li>
             ))}
           </ul>
@@ -54,7 +36,7 @@ export default class FirstStepTheaterView extends Component {
               ? subLocationShowList.map(l => (
                   <li
                     key={l.subLocation}
-                    onClick={() => this.handleSubLocation(l.subLocation)}
+                    onClick={() => handleSubLocationClick(l.subLocation)}
                     className={classNames({
                       [s.selected]: l.subLocation === subLocation,
                     })}
