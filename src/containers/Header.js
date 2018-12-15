@@ -5,18 +5,44 @@ import classNames from 'classnames';
 import { withUser } from '../contexts/UserContext';
 import { withRouter } from 'react-router-dom';
 import menu from '../scss/menu.png';
+import close from '../scss/btn_close.png';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      active: false,
+    };
+  }
+
+  handleMenuActive() {
+    this.setState({
+      active: !this.state.active,
+    });
+  }
+
   render() {
     const { isLogin, logout, history } = this.props;
     const currentLocation = this.props.location.pathname;
     return (
-      <div className={s.menuBar}>
-        <img src={menu} alt="모바일메뉴버튼" className={s.menuButton} />
+      <div className={classNames(s.menuBar, { [s.active]: this.state.active })}>
+        <img
+          src={menu}
+          alt="모바일메뉴버튼"
+          className={s.menuButton}
+          onClick={() => this.handleMenuActive()}
+        />
         <Link to="/" className={s.logo}>
           Home
         </Link>
-        <div className={classNames(s.menu, s.active)}>
+        <div className={classNames(s.menu)}>
+          <img
+            src={close}
+            alt="모바일메뉴 닫힘 버튼"
+            className={s.menuClose}
+            onClick={() => this.handleMenuActive()}
+          />
           <Link
             to="/movies"
             className={classNames([s.link], {

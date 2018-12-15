@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 import api from '../api';
 import MyInfoView from '../components/MyInfoView';
+import { withUser } from '../contexts/UserContext';
 
 class MyInfo extends Component {
   constructor(props) {
     super(props);
-
+    console.log(props);
     this.state = {
       username: '',
       password: '',
       confirmPassword: '',
-      lastName: '',
+      lastName: this.props.lastName,
       firstName: '',
       email: '',
       phoneNumber: '',
     };
   }
-  // 현재 로그인 중인 유저 정보 가져와서 상태에 넣어주기
-  async componentDidMount() {
-    const {
-      data: { username, lastName, firstName, email, phoneNumber },
-    } = await api.get('/api/members/profile/');
-
-    this.setState({
-      username,
-      lastName,
-      firstName,
-      email,
-      phoneNumber,
-    });
+  componentDidMount() {
+    // console.log(this.props);
+    // const { username, lastName, firstName, email, phoneNumber } = this.props;
+    // this.setState({
+    //   username,
+    //   lastName,
+    //   firstName,
+    //   email,
+    //   phoneNumber,
+    // });
   }
 
   handleFieldChange(e, name) {
@@ -78,3 +76,5 @@ class MyInfo extends Component {
     );
   }
 }
+
+export default withUser(MyInfo);

@@ -49,7 +49,7 @@ export default class RegisterFormView extends Component {
       // 비밀번호, 이메일, 핸드폰 번호 형식 제한
       const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
       const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
-      const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+      const phone = /^\d{2,3}\d{3,4}\d{4}$/;
       if (!pass.test(password)) {
         alert('비밀번호는 형식에 맞게 설정해주세요.');
       } else if (!mail.test(email)) {
@@ -191,7 +191,7 @@ export default class RegisterFormView extends Component {
                 required
                 autoComplete="off"
               />
-              <span className={s.default}>'-'을 포함해주세요</span>
+              <span className={s.default}>'-'은 포함하지 않습니다</span>
             </div>
 
             <button className={s.registerBtn}>가입하기</button>
