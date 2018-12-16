@@ -22,13 +22,13 @@ export default class ReserveProvider extends Component {
       // 선택된 관, 시간, 총 좌석, 남은 좌석
       auditorium: '2관',
       time: '',
-      timePk: null,
+      timePk: 1,
       allSeat: 100,
       ableSeat: 77,
       // 선택된 인원수
       number: 0,
       // 선택된 좌석
-      seat: '',
+      seat: [],
       // 선택된 좌석에 따른 가격
       price: null,
       // 상태 변경 함수들
@@ -39,6 +39,9 @@ export default class ReserveProvider extends Component {
       onDate: this.onDate.bind(this),
       onTime: this.onTime.bind(this),
       onStep: this.onStep.bind(this),
+      onSeatAdd: this.onSeatAdd.bind(this),
+      onSeatDel: this.onSeatDel.bind(this),
+      onSeatReset: this.onSeatReset.bind(this),
     };
   }
 
@@ -81,9 +84,39 @@ export default class ReserveProvider extends Component {
   }
 
   onNumber(number) {
-    console.log(number);
     this.setState({
       number,
+    });
+  }
+  onSeatAdd(seatName) {
+    console.log(seatName);
+    const seat = this.state.seat;
+    seat.push(seatName);
+    seat.sort(function(x, y) {
+      //FIXME: 좌석 배열 추가시 알파벳 비교 조건 완성하기
+      if (x[0].localeCompare(y[0]) === 0) {
+        if (x.slice(1) - y.slice(1) < 0) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
+      return 0;
+    });
+    this.setState({
+      seat,
+    });
+  }
+  onSeatDel(seatName) {
+    const seat = this.state.seat.filter(i => i !== seatName);
+    this.setState({
+      seat,
+    });
+  }
+
+  onSeatReset() {
+    this.setState({
+      seat: [],
     });
   }
 

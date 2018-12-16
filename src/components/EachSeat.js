@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import s from '../scss/EachSeat.module.scss';
 import c from 'classnames';
 
-// 각 좌석의 체크박스 입니다.
+// 각 좌석입니다.
 // 체크박스는 제어되는 체크박스입니다.
 export default class EachSeat extends Component {
   constructor(props) {
     super(props);
 
+    // 예약되어있는 좌석은 초기값 true, 예약 가능 좌석 초기값 false
     this.state = {
       isChecked: this.props.isReserved,
     };
@@ -18,12 +19,14 @@ export default class EachSeat extends Component {
     // 예약 되어있는 좌석의 경우 상태변화가 일어나지 않습니다.
     const {
       number,
+      seatName,
       isReserved,
       selected,
       onDecreaseSelect,
       onIncreaseSelect,
+      onSeatAdd,
+      onSeatDel,
     } = this.props;
-
     // 선택 인원이 0일 때는 아무것도 할 수 없습니다
     if (number === 0) {
       alert('인원 수를 선택해주세요');
@@ -33,20 +36,29 @@ export default class EachSeat extends Component {
         // 클릭한 좌석이 현재 선택 중인 좌석일 때
         // 1.상태를 선택되지 않음으로 변경
         // 2.SeatView에서 카운트 중인 현재 선택된 좌석 수에서 마이너스 1
-        this.setState(prevState => ({
-          isChecked: !prevState.isChecked,
-        }));
+        // 3.컨텍스트에 저장해둔 좌석 삭제
+        // this.setState(prevState => ({
+        //   isChecked: !prevState.isChecked,
+        // }));
+        this.setState({
+          isChecked: false,
+        });
         onDecreaseSelect();
+        onSeatDel(seatName);
       } else {
         // 클릭한 좌석이 현재 선택 중이지 않은 좌석일 때
         if (selected < number) {
           // 현재 선택된 좌석의 수가 선택한 인원 수 보다 작을 때만
           // 1.상태를 선택됨으로 변경
           // 2.SeatView에서 카운트 중인 현재 선택된 좌석 수에서 플러스 1
-          this.setState(prevState => ({
-            isChecked: !prevState.isChecked,
-          }));
+          // this.setState(prevState => ({
+          //   isChecked: !prevState.isChecked,
+          // }));
+          this.setState({
+            isChecked: true,
+          });
           onIncreaseSelect();
+          onSeatAdd(seatName);
         } else if (selected >= number) {
           // 현재 선택 중인 좌석 수가 선택한 인원 수와 같거나 많을 때
           alert('인원 수를 초과하셨습니다');
@@ -59,18 +71,18 @@ export default class EachSeat extends Component {
   }
 
   render() {
-    const { row, colNum } = this.props;
+    const { pk } = this.props;
     return (
       <div className={s.eachSeat}>
         <input
           type="checkbox"
-          id={`seat${row}${colNum}`}
+          id={pk}
           checked={this.state.isChecked}
           onChange={() => this.handleCheck()}
         />
         <label
           className={c({ [s.reserved]: this.props.isReserved })}
-          for={`seat${row}${colNum}`}
+          for={pk}
         />
       </div>
     );
