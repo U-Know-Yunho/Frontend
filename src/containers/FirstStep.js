@@ -62,7 +62,7 @@ export default class FirstStep extends Component {
     }
 
     // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
-    if (pk) {
+    if (pk && movieTitle === '') {
       this.handleMovieClick(pk);
     }
   }
