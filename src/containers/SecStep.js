@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 // import Seat from './Seat';
 import NumberView from '../components/NumberView';
 import FirstDataView from '../components/FirstDataView';
-import SeatView from '../components/SeatView';
+import Seat from '../containers/Seat';
 import s from '../scss/SecStep.module.scss';
+import { withReserving } from '../contexts/ReserveContext';
 
-export default class SecStep extends Component {
+class SecStep extends Component {
   constructor(props) {
     super(props);
 
@@ -32,6 +33,7 @@ export default class SecStep extends Component {
       selected: 0,
       seatKey: !prevState.seatKey,
     }));
+    this.props.onSeatReset();
   }
 
   render() {
@@ -46,7 +48,7 @@ export default class SecStep extends Component {
             <FirstDataView />
           </div>
           <div className={s.secondLine}>
-            <SeatView
+            <Seat
               key={this.state.seatKey}
               selected={this.state.selected}
               onIncreaseSelect={() => this.handleIncreaseSelect()}
@@ -59,3 +61,5 @@ export default class SecStep extends Component {
     );
   }
 }
+
+export default withReserving(SecStep);

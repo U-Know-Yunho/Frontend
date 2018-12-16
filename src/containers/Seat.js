@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import EachSeat from './EachSeat';
+import EachSeat from '../components/EachSeat';
 import { withReserving } from '../contexts/ReserveContext';
 import s from '../scss/SeatView.module.scss';
-import api from '../api';
+// import api from '../api';
 
-class SeatView extends Component {
+class Seat extends Component {
   constructor(props) {
     super(props);
 
@@ -65,7 +65,7 @@ class SeatView extends Component {
             row: 1,
             number: 8,
             seatName: 'A8',
-            reservationCheck: false,
+            reservationCheck: true,
           },
           {
             pk: 9,
@@ -79,7 +79,7 @@ class SeatView extends Component {
             row: 1,
             number: 10,
             seatName: 'A10',
-            reservationCheck: true,
+            reservationCheck: false,
           },
         ],
       ],
@@ -98,7 +98,14 @@ class SeatView extends Component {
   //   });
   // }
   render() {
-    const { number, onIncreaseSelect, onDecreaseSelect, selected } = this.props;
+    const {
+      number,
+      onIncreaseSelect,
+      onDecreaseSelect,
+      selected,
+      onSeatAdd,
+      onSeatDel,
+    } = this.props;
     const { seatArr } = this.state;
     return (
       <div className={s.seatArea}>
@@ -106,14 +113,16 @@ class SeatView extends Component {
           <div className={s.row} key={index}>
             {rowItem.map(i => (
               <EachSeat
-                key={i.seatName}
-                row={i.row}
-                colNum={i.number}
+                key={i.pk}
+                pk={i.pk}
+                seatName={i.seatName}
                 isReserved={i.reservationCheck}
                 number={number}
                 onIncreaseSelect={() => onIncreaseSelect()}
                 onDecreaseSelect={() => onDecreaseSelect()}
                 selected={selected}
+                onSeatAdd={seatName => onSeatAdd(seatName)}
+                onSeatDel={seatName => onSeatDel(seatName)}
               />
             ))}
           </div>
@@ -123,4 +132,4 @@ class SeatView extends Component {
   }
 }
 
-export default withReserving(SeatView);
+export default withReserving(Seat);
