@@ -14,8 +14,10 @@ export default class AboutView extends Component {
               <span>{m.name}</span>
               <span>[{m.role}]</span>
               <span>{m.comment}</span>
-              <button>버튼1</button>
-              <button>버튼2</button>
+              <div className={s.button}>
+                <button>git hub</button>
+                <button>찜하기</button>
+              </div>
             </div>
           ))}
         </div>

@@ -41,7 +41,7 @@ export default class About extends Component {
           name: '위성환',
           img: 'https://t1.daumcdn.net/cfile/tistory/271D70345287DE3F0B',
           role: 'IOS Developer',
-          comment: '좋은데?',
+          comment: '인간에게 가장 해로운 벌레는 대충',
         },
         {
           name: '김도향',
