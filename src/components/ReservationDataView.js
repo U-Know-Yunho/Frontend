@@ -30,6 +30,14 @@ export default class ReservationDataView extends Component {
     }
   }
 
+  handleThirdStep() {
+    const { number, seat, onStep } = this.props;
+    if (number > 0 && number === seat.length) {
+      onStep('third');
+    } else {
+      alert('좌석을 인원수에 맞게 선택해주세요.');
+    }
+  }
   render() {
     const {
       step,
@@ -136,7 +144,7 @@ export default class ReservationDataView extends Component {
             좌석선택
           </div>
         ) : step === 'sec' ? (
-          <div className={s.nextButton} onClick={() => onStep('third')}>
+          <div className={s.nextButton} onClick={() => this.handleThirdStep()}>
             결제선택
           </div>
         ) : (
