@@ -20,7 +20,8 @@ export default class ReserveProvider extends Component {
       // 선택된 날짜
       date: '',
       // 선택된 관, 시간, 총 좌석, 남은 좌석
-      auditorium: '2관',
+      auditorium: '',
+      currentSeatsNo: '',
       time: '',
       timePk: 1,
       allSeat: 100,
@@ -76,10 +77,12 @@ export default class ReserveProvider extends Component {
     });
   }
 
-  onTime(time, timePk) {
+  onTime(time, timePk, auditorium, currentSeatsNo) {
     this.setState({
       time,
       timePk,
+      auditorium,
+      currentSeatsNo,
     });
   }
 

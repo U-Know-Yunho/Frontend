@@ -87,7 +87,7 @@ export default class ReservationDataView extends Component {
                 <span className={s.subTitle}> </span> {time}
               </li>
               <li>
-                <span className={s.subTitle}>상영관</span> {auditorium}
+                <span className={s.subTitle}>상영관</span> {auditorium}관
               </li>
               <li>
                 <span className={s.subTitle}>인원</span> {number}명
@@ -99,7 +99,15 @@ export default class ReservationDataView extends Component {
         </div>
         <div className={s.seatData}>
           {seat ? (
-            <span>{seat}</span>
+            <ul>
+              <li>
+                <span className={s.subTitle}>좌석명</span> Standard석
+              </li>
+              <li>
+                <span className={s.subTitle}>좌석번호</span>
+                {seat.map(s => s + ' ')}
+              </li>
+            </ul>
           ) : (
             <span className={s.empty}>좌석선택</span>
           )}

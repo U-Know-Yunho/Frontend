@@ -14,12 +14,14 @@ export default class FirstStepTimeView extends Component {
             {timeList.map(t => (
               <li
                 key={t.times}
-                onClick={() => handleTimeClick(t.times, t.pk)}
+                onClick={() =>
+                  handleTimeClick(t.times, t.pk, t.auditorium, t.currentSeatsNo)
+                }
                 className={classNames({
                   [s.selected]: t.times === time,
                 })}
               >
-                {t.times}
+                {t.times} ({t.currentSeatsNo}석)
               </li>
             ))}
           </ul>

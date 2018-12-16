@@ -157,9 +157,9 @@ export default class FirstStep extends Component {
   }
 
   // 시간 선택했을 때
-  handleTimeClick(time, pk) {
+  handleTimeClick(time, pk, auditorium, currentSeatsNo) {
     const { onTime } = this.props;
-    onTime(time, pk);
+    onTime(time, pk, auditorium, currentSeatsNo);
     this.setState({
       lastSelected: 'time',
       selectedTime: time,
