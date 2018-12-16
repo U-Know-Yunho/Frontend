@@ -1,7 +1,6 @@
 @import '../common.module.scss';
 
 .AboutBox {
-  border: 1px solid red;
   margin: 0 auto;
   width: $content-width;
   display: flex;
@@ -25,9 +24,9 @@
     justify-content: center;
 
     .member {
-      width: 180px;
+      width: 200px;
       margin: 12px;
-      padding: 16px;
+      padding: 14px;
       background-color: $white;
       display: flex;
       flex-direction: column;
@@ -52,14 +51,41 @@
 
       span:nth-child(3) {
         padding-top: 0;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
       }
 
       span:nth-child(4) {
         padding-top: 8px;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 400;
         color: $silver;
+      }
+
+      .button {
+        padding-top: 8px;
+        align-items: flex-end;
+        cursor: pointer;
+
+        button {
+          background-color: $darken-white;
+          color: $lightenstone-gray;
+          font-size: 0.8rem;
+          font-weight: 700;
+          line-height: 1.5;
+          width: 80px;
+          height: 36px;
+          margin: 0 3px;
+          border: none;
+          padding: 0;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: $white;
+            border: 1px solid $red;
+            color: $red;
+          }
+        }
+
       }
     }
   }
