@@ -21,7 +21,8 @@ export default class ReserveProvider extends Component {
       date: '',
       // 선택된 관, 시간, 총 좌석, 남은 좌석
       auditorium: '2관',
-      time: '20:00',
+      time: '',
+      timePk: null,
       allSeat: 100,
       ableSeat: 77,
       // 선택된 인원수
@@ -32,11 +33,11 @@ export default class ReserveProvider extends Component {
       price: null,
       // 상태 변경 함수들
       onNumber: this.onNumber.bind(this),
-      onMovieTitle: this.onMovieTitle.bind(this),
-      onMoviePoster: this.onMoviePoster.bind(this),
+      onMovie: this.onMovie.bind(this),
       onLocation: this.onLocation.bind(this),
       onSubLocation: this.onSubLocation.bind(this),
       onDate: this.onDate.bind(this),
+      onTime: this.onTime.bind(this),
       onStep: this.onStep.bind(this),
     };
   }
@@ -47,15 +48,10 @@ export default class ReserveProvider extends Component {
     });
   }
 
-  onMoviePoster(moviePoster = '') {
-    this.setState({
-      moviePoster,
-    });
-  }
-
-  onMovieTitle(movieTitle) {
+  onMovie(movieTitle, moviePoster = '') {
     this.setState({
       movieTitle,
+      moviePoster,
     });
   }
 
@@ -74,6 +70,13 @@ export default class ReserveProvider extends Component {
   onDate(date) {
     this.setState({
       date,
+    });
+  }
+
+  onTime(time, timePk) {
+    this.setState({
+      time,
+      timePk,
     });
   }
 

@@ -8,6 +8,28 @@ export default class ReservationDataView extends Component {
   //     return str.trim() === '';
   //   }
 
+  handleNextStep() {
+    const {
+      movieTitle,
+      location,
+      subLocation,
+      date,
+      time,
+      onStep,
+    } = this.props;
+    if (
+      movieTitle !== '' &&
+      location !== '' &&
+      subLocation !== '' &&
+      date !== '' &&
+      time !== ''
+    ) {
+      onStep('sec');
+    } else {
+      alert('영화, 극장, 시간을 선택해주세요.');
+    }
+  }
+
   render() {
     const {
       step,
@@ -86,7 +108,10 @@ export default class ReservationDataView extends Component {
           {price ? <span>{price}</span> : <span className={s.empty}>결제</span>}
         </div>
         {step === 'first' ? (
-          <div className={s.seatSelectButton} onClick={() => onStep('sec')}>
+          <div
+            className={s.seatSelectButton}
+            onClick={() => this.handleNextStep()}
+          >
             좌석선택
           </div>
         ) : (

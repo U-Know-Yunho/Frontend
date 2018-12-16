@@ -5,23 +5,28 @@ import classNames from 'classnames';
 export default class FirstStepDateView extends Component {
   render() {
     const { handleDateClick, date, dateList } = this.props;
-
     return (
       <div className={s.eachDataBox}>
         <h3>날짜</h3>
         <div>
           <ul>
-            {dateList.map(d => (
-              <li
-                key={d[0].date}
-                onClick={() => handleDateClick(d[0].date)}
-                className={classNames({
-                  [s.selected]: d[0].date === date,
-                })}
-              >
-                {d[0].date}
-              </li>
-            ))}
+            {dateList.map(d =>
+              d[2].show ? (
+                <li
+                  key={d[0].date}
+                  onClick={() => handleDateClick(d[0].date)}
+                  className={classNames({
+                    [s.selected]: d[0].date === date,
+                  })}
+                >
+                  {d[0].date}
+                </li>
+              ) : (
+                <li key={d[0].date} className={s.movieNoneLi}>
+                  {d[0].date}
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>
