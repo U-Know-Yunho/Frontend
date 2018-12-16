@@ -57,7 +57,7 @@ class MovieListView extends Component {
             <figure>
               <img
                 className={c({ [s.loaded]: !this.state.load })}
-                src={l.mainImgUrl}
+                src={l.thumbImgUrl}
                 alt={l.title}
                 onLoad={() => l.onLoad()}
               />

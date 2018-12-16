@@ -78,6 +78,7 @@ export default class ReserveProvider extends Component {
   }
 
   onNumber(number) {
+    console.log(number);
     this.setState({
       number,
     });

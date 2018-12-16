@@ -20,7 +20,7 @@ class NumberView extends Component {
               key={n}
               // 선택중인 값과 li의 값이 같다면 선택된 상태라는 클래스를 붙여서 다른 css를 적용한다.
               className={classNames({ [s.selected]: number === n })}
-              onClick={e => {
+              onClick={() => {
                 // 선택 중인 좌석이 있을 때는 인원 수 변경시 경고창 띄우기
                 if (selected !== 0) {
                   alert('선택하신 좌석이 해제됩니다');

@@ -38,26 +38,24 @@ export default class SecStep extends Component {
   render() {
     return (
       <React.Fragment>
-        <ReserveProvider>
-          <div className={s.wrapper}>
-            <div className={s.firstLine}>
-              <NumberView
-                selected={this.state.selected}
-                onResetSelected={() => this.resetSelected()}
-              />
-              <FirstDataView />
-            </div>
-            <div className={s.secondLine}>
-              <SeatView
-                key={this.state.seatKey}
-                selected={this.state.selected}
-                onIncreaseSelect={() => this.handleIncreaseSelect()}
-                onDecreaseSelect={() => this.handleDecreaseSelect()}
-              />
-              <div className={s.side}>옵션 창입니다</div>
-            </div>
+        <div className={s.wrapper}>
+          <div className={s.firstLine}>
+            <NumberView
+              selected={this.state.selected}
+              onResetSelected={() => this.resetSelected()}
+            />
+            <FirstDataView />
           </div>
-        </ReserveProvider>
+          <div className={s.secondLine}>
+            <SeatView
+              key={this.state.seatKey}
+              selected={this.state.selected}
+              onIncreaseSelect={() => this.handleIncreaseSelect()}
+              onDecreaseSelect={() => this.handleDecreaseSelect()}
+            />
+            <div className={s.side}>옵션 창입니다</div>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

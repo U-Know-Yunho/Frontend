@@ -41,7 +41,7 @@ export default class HomePage extends Component {
                 onClick={() => this.handleMovie('upcomming')}
                 className={classNames({ [s.active]: movie === 'upcomming' })}
               >
-                상영 예정작
+                개봉 예정작
               </button>
             </div>
             {movie === 'current' ? (

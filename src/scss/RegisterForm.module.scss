@@ -130,6 +130,12 @@
   }
 }
 
+// 정보 수정 페이지 비밀번호 확인 폼
+.checkBox {
+  .registerBtn {
+    margin-top: 15px;
+  }
+}
 // 정보 수정 페이지에서의 폼 css
 .infoWrapper {
   width: 100%;
@@ -179,5 +185,8 @@
       margin-top: 20px;
       font-size: 1.3rem;
     }
+  }
+  .checkBox {
+    padding-top: 25%;
   }
 }
