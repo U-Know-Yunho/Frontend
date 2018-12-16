@@ -2,7 +2,7 @@
 
 @media (min-width: 768px) {
   .dataWrapper {
-    width: 700px;
+    width: 750px;
     height: 150px;
     display: flex;
     background-color: $black;
@@ -19,7 +19,7 @@
     .movieSelectButton,
     .seatSelectButton,
     .goReserveButton {
-      flex: 1.5;
+      flex: 1.3;
     }
 
     .movieData,
