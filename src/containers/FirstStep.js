@@ -80,6 +80,7 @@ export default class FirstStep extends Component {
   // 영화를 선택했을 때
   async handleMovieClick(pk) {
     // 1. 상태 저장
+    console.log(pk);
     const { onMovie } = this.props;
     // const res = await api.get(`/api/movies/detail/${pk}/`);
     // const selectTitle = res.data.title;
@@ -295,7 +296,6 @@ export default class FirstStep extends Component {
           this.setState({
             selectedTime: '',
           });
-          this.upLoadList();
         }
       }
     }
