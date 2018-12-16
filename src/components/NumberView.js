@@ -10,7 +10,13 @@ class NumberView extends Component {
   };
   render() {
     const num = [0, 1, 2, 3, 4, 5, 6, 7];
-    const { number, onNumber, onResetSelected, selected } = this.props;
+    const {
+      number,
+      onNumber,
+      onResetSelected,
+      selected,
+      onPriceReset,
+    } = this.props;
     return (
       <div className={s.wrapper}>
         <p>인원</p>
@@ -27,6 +33,7 @@ class NumberView extends Component {
                 }
                 onNumber(n);
                 onResetSelected();
+                onPriceReset();
               }}
             >
               {n}

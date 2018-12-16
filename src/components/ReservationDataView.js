@@ -91,32 +91,46 @@ export default class ReservationDataView extends Component {
               <li>
                 <span className={s.subTitle}>상영관</span> {auditorium}관
               </li>
-              <li>
-                <span className={s.subTitle}>인원</span> {number}명
-              </li>
             </ul>
           ) : (
             <span className={s.empty}>영화정보</span>
           )}
         </div>
         <div className={s.seatData}>
-          {seat.length !== 0 ? (
+          {number > 0 ? (
             <ul>
+              <li>
+                <span className={s.subTitle}>인원</span> {number}명
+              </li>
               <li>
                 <span className={s.subTitle}>좌석명</span> Standard석
               </li>
               <li>
-                <span className={s.subTitle}>좌석번호</span>
-                {seat.map(s => s + ' ')}
+                <span className={s.subTitle}>번호</span>
+                <span>
+                  {seat.map((s, i) => (i === seat.length - 1 ? s : s + ', '))}
+                </span>
+              </li>
+              <li>
+                <span className={s.subTitle} />
+                {number > 0 && number === seat.length
+                  ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                  : 0}
               </li>
             </ul>
           ) : (
             <span className={s.empty}>좌석선택</span>
           )}
         </div>
-        <div className={s.payData}>
-          {price ? <span>{price}</span> : <span className={s.empty}>결제</span>}
-        </div>
+        {/* <div className={s.payData}>
+          {number > 0 && number === seat.length ? (
+            <span>
+              {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          ) : (
+            <span className={s.empty}>결제</span>
+          )}
+        </div> */}
         {step === 'first' ? (
           <div className={s.nextButton} onClick={() => this.handleNextStep()}>
             좌석선택

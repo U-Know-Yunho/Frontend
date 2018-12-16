@@ -15,6 +15,7 @@ class MyInfo extends Component {
       firstName: props.firstName,
       email: props.email,
       phoneNumber: props.phoneNumber,
+      //FIXME: 비밀번호 확인 api 되는거 확인하면 기본값 false로 변경하기
       checkedPassword: true,
     };
   }

@@ -4,14 +4,21 @@ import s from '../scss/FirstDataView.module.scss';
 
 class FirstDataView extends Component {
   render() {
-    const { theater, date, auditorium, time, allSeat, ableSeat } = this.props;
+    const {
+      subLocation,
+      date,
+      auditorium,
+      time,
+      allSeat,
+      currentSeatsNo,
+    } = this.props;
     return (
       <div className={s.wrapper}>
         <div className={s.place}>
-          <p>{theater}</p>
-          <p>{auditorium}</p>
+          <p>{subLocation}</p>
+          <p>{auditorium}관</p>
           <p>
-            잔여 좌석 : {ableSeat} / {allSeat}
+            잔여 좌석 : {currentSeatsNo} / {allSeat}
           </p>
         </div>
         <p className={s.schedule}>
