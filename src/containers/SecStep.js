@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import Seat from './Seat';
-import ReserveProvider from '../contexts/ReserveContext';
 import NumberView from '../components/NumberView';
 import FirstDataView from '../components/FirstDataView';
 import SeatView from '../components/SeatView';

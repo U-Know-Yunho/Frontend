@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import s from '../scss/EachSeat.module.scss';
 import c from 'classnames';
 
-// 각 좌석의 체크박스 입니다.
+// 각 좌석입니다.
 // 체크박스는 제어되는 체크박스입니다.
 export default class EachSeat extends Component {
   constructor(props) {
