@@ -201,7 +201,7 @@ export default class FirstStep extends Component {
     });
 
     const dataTmp = res.data;
-    if (!lastSelected === 'movie') {
+    if (!params.has('movie')) {
       this.handleMovieList(dataTmp.movie);
     }
     this.handleLocationList(dataTmp.theater);
@@ -249,10 +249,12 @@ export default class FirstStep extends Component {
       const findMovie = dataTmp.movie.find(m => m.title === selectedMovieTitle);
       if (findMovie && !findMovie.show) {
         onMovie('', '');
-        this.setState({
-          selectedMovieTitle: '',
-        });
-        this.upLoadList();
+        this.setState(
+          {
+            selectedMovieTitle: '',
+          },
+          () => this.upLoadList()
+        );
       }
     }
     // subLocation 처리
@@ -266,10 +268,12 @@ export default class FirstStep extends Component {
         );
         if (findSubLocation && !findSubLocation.show) {
           onSubLocation('');
-          this.setState({
-            selectedSubLocation: '',
-          });
-          this.upLoadList();
+          this.setState(
+            {
+              selectedSubLocation: '',
+            },
+            () => this.upLoadList()
+          );
         }
       }
     }
@@ -278,10 +282,12 @@ export default class FirstStep extends Component {
       const findDate = dataTmp.date.find(d => d[0].date === selectedDate);
       if (findDate && !findDate[2].show) {
         onDate('');
-        this.setState({
-          selectedDate: '',
-        });
-        this.upLoadList();
+        this.setState(
+          {
+            selectedDate: '',
+          },
+          () => this.upLoadList()
+        );
       }
     }
     // time 처리
