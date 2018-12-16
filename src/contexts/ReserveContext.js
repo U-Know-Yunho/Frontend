@@ -7,7 +7,7 @@ export default class ReserveProvider extends Component {
 
     this.state = {
       // step: first -> step1, step: sec -> step2 컴포를 화면에 그림
-      step: 'first',
+      step: 'sec',
       // 영화, 극장, 날짜, 시간, 인원수, 좌석
       // 선택된 영화 제목
       movieTitle: '',
@@ -23,15 +23,14 @@ export default class ReserveProvider extends Component {
       auditorium: '',
       currentSeatsNo: '',
       time: '',
-      timePk: 1,
+      timePk: null,
       allSeat: 100,
-      ableSeat: 77,
       // 선택된 인원수
       number: 0,
       // 선택된 좌석
       seat: [],
       // 선택된 좌석에 따른 가격
-      price: null,
+      price: 0,
       // 상태 변경 함수들
       onNumber: this.onNumber.bind(this),
       onMovie: this.onMovie.bind(this),
@@ -43,6 +42,9 @@ export default class ReserveProvider extends Component {
       onSeatAdd: this.onSeatAdd.bind(this),
       onSeatDel: this.onSeatDel.bind(this),
       onSeatReset: this.onSeatReset.bind(this),
+      onPricePlus: this.onPricePlus.bind(this),
+      onPriceSub: this.onPriceSub.bind(this),
+      onPriceReset: this.onPriceReset.bind(this),
     };
   }
 
@@ -91,6 +93,7 @@ export default class ReserveProvider extends Component {
       number,
     });
   }
+  // 좌석 상태 변경
   onSeatAdd(seatName) {
     console.log(seatName);
     const seat = this.state.seat;
@@ -120,6 +123,25 @@ export default class ReserveProvider extends Component {
   onSeatReset() {
     this.setState({
       seat: [],
+    });
+  }
+
+  // 가격 상태 변경
+  onPricePlus() {
+    const price = this.state.price;
+    this.setState({
+      price: price + 7000,
+    });
+  }
+  onPriceSub() {
+    const price = this.state.price;
+    this.setState({
+      price: price - 7000,
+    });
+  }
+  onPriceReset() {
+    this.setState({
+      price: 0,
     });
   }
 

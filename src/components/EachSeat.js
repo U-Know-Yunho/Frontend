@@ -26,6 +26,8 @@ export default class EachSeat extends Component {
       onIncreaseSelect,
       onSeatAdd,
       onSeatDel,
+      onPricePlus,
+      onPriceSub,
     } = this.props;
     // 선택 인원이 0일 때는 아무것도 할 수 없습니다
     if (number === 0) {
@@ -43,8 +45,12 @@ export default class EachSeat extends Component {
         this.setState({
           isChecked: false,
         });
+        // 현재 선택중인 인원 수 빼기
         onDecreaseSelect();
+        // 선택됐던 좌석 삭제
         onSeatDel(seatName);
+        // 더했던 가격 빼기
+        onPriceSub();
       } else {
         // 클릭한 좌석이 현재 선택 중이지 않은 좌석일 때
         if (selected < number) {
@@ -59,6 +65,7 @@ export default class EachSeat extends Component {
           });
           onIncreaseSelect();
           onSeatAdd(seatName);
+          onPricePlus();
         } else if (selected >= number) {
           // 현재 선택 중인 좌석 수가 선택한 인원 수와 같거나 많을 때
           alert('인원 수를 초과하셨습니다');

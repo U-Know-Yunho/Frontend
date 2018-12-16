@@ -105,6 +105,8 @@ class Seat extends Component {
       selected,
       onSeatAdd,
       onSeatDel,
+      onPricePlus,
+      onPriceSub,
     } = this.props;
     const { seatArr } = this.state;
     return (
@@ -123,6 +125,8 @@ class Seat extends Component {
                 selected={selected}
                 onSeatAdd={seatName => onSeatAdd(seatName)}
                 onSeatDel={seatName => onSeatDel(seatName)}
+                onPricePlus={() => onPricePlus()}
+                onPriceSub={() => onPriceSub()}
               />
             ))}
           </div>
