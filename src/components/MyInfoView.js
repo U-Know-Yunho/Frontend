@@ -18,7 +18,7 @@ export default class MyInfoView extends Component {
     return (
       <div className={cx(s.wrapper, s.registerWrapper, s.infoWrapper)}>
         <form onSubmit={e => onSubmit(e)} className={s.registerBox}>
-          {/* <h1>Info</h1> */}
+          <h1>Info</h1>
           <label for="username">Username</label>
           <div className={s.inputWrapper}>
             <input
@@ -31,7 +31,6 @@ export default class MyInfoView extends Component {
               disabled
             />
           </div>
-
           <label for="password">Password</label>
           <div className={s.inputWrapper}>
             <input
@@ -46,7 +45,6 @@ export default class MyInfoView extends Component {
               문자,숫자,특수문자를 하나 이상 포함하세요
             </span>
           </div>
-
           <label for="confirmPassword">Confirm Password</label>
           <div className={s.inputWrapper}>
             <input
@@ -84,6 +82,12 @@ export default class MyInfoView extends Component {
             required
             disabled
           />
+          <input
+            type="button"
+            className={s.apply}
+            value="개명 신청"
+            onClick={() => alert('고객센터에 문의해주시기 바랍니다.')}
+          />
 
           <label for="email">E-MAIL</label>
           <input
@@ -95,7 +99,6 @@ export default class MyInfoView extends Component {
             autoComplete="off"
             required
           />
-
           <label for="phonenumber">휴대전화</label>
           <div className={s.inputWrapper}>
             <input
@@ -109,7 +112,6 @@ export default class MyInfoView extends Component {
             />
             <span className={s.default}>'-'은 포함하지 않습니다</span>
           </div>
-
           <button className={s.registerBtn}>변경하기</button>
         </form>
       </div>

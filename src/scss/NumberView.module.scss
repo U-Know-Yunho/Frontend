@@ -1,13 +1,17 @@
 @import '../common.module.scss';
+@media (min-width: 768px) {
+  .wrapper {
+    width: 50%;
+    min-width: 320px;
+  }
+}
+@media (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+  }
+}
 
-// 세나언니랑 낼 말해보기
-// 클래스 이름 무조건으로!
-
-// 오른팔이 2시에 온다고했다
-// 우선 진행하고있겠음 호호
 .wrapper {
-  width: 50%;
-  min-width: 320px;
   display: flex;
   align-items: center;
   justify-content: center;

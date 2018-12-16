@@ -1,137 +1,198 @@
 @import '../common.module.scss';
 
-.dataWrapper {
-  width: 70vw;
-  height: 150px;
-  display: flex;
-  background-color: $black;
-  margin: 20px 0;
-
-  .homeButton,
-  .movieSelectButton,
-  .movieData,
-  .basicData,
-  .seatData,
-  .payData,
-  .seatSelectButton,
-  .goReserveButton {
-    flex: 1;
-  }
-
-  .movieData,
-  .basicData,
-  .seatData {
-    border-right: 1px solid $light-gray;
-  }
-
-  .homeButton,
-  .movieSelectButton {
-    background-color: $silver-gray;
-    cursor: pointer;
-    color: $white;
-    font-weight: bold;
+@media (min-width: 768px) {
+  .dataWrapper {
+    width: 750px;
+    height: 150px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid $silver-gray;
-    transition: 0.3s;
+    background-color: $black;
+    margin: 20px 0;
 
-    &:hover {
-      background-color: $white;
+    .movieData,
+    .basicData,
+    .seatData,
+    .payData {
+      flex: 1;
+    }
+
+    .homeButton,
+    .movieSelectButton,
+    .seatSelectButton,
+    .goReserveButton {
+      flex: 1.3;
+    }
+
+    .movieData,
+    .basicData,
+    .seatData {
+      border-right: 1px solid $light-gray;
+    }
+
+    .homeButton,
+    .movieSelectButton {
+      background-color: $silver-gray;
+      cursor: pointer;
+      color: $white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $silver-gray;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $white;
+        border: 1px solid $red;
+        color: $red;
+      }
+    }
+
+    .seatSelectButton,
+    .goReserveButton {
+      background-color: $red;
+      cursor: pointer;
+      color: $white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 1px solid $red;
-      color: $red;
-    }
-  }
+      transition: 0.3s;
 
-  .seatSelectButton,
-  .goReserveButton {
-    background-color: $red;
-    cursor: pointer;
-    color: $white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid $red;
-    transition: 0.3s;
-
-    &:hover {
-      background-color: $white;
-      color: $red;
-    }
-  }
-
-  .movieData,
-  .basicData,
-  .seatData,
-  .payData {
-    color: $white;
-    padding: 10px;
-  }
-
-  .movieData {
-    display: flex;
-    color: $silver;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .moviePoster {
-      width: 40%;
-      height: 70%;
-      margin-right: 3px;
-    }
-
-    .movieInfo {
-      font-size: 0.7rem;
-
-      .movieTitle {
-        font-size: 0.8rem;
-        display: block;
-        color: $white;
-        line-height: 1.2rem;
-        text-overflow: ellipsis;
-        margin-bottom: 5px;
-      }
-
-      span {
-        display: block;
-        line-height: 1rem;
-        margin: 0 3px;
+      &:hover {
+        background-color: $white;
+        color: $red;
       }
     }
-  }
 
-  .basicData {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $silver;
-
-    ul {
-      width: 90%;
+    .movieData,
+    .basicData,
+    .seatData,
+    .payData {
+      color: $white;
+      padding: 10px;
     }
 
-    li {
-      font-size: 0.7rem;
-      line-height: 1rem;
+    .movieData {
+      display: flex;
+      color: $silver;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      .subTitle {
-        display: inline-block;
-        color: $white;
+      .moviePoster {
         width: 40%;
-        font-size: 0.8rem;
+        height: 70%;
+        margin-right: 3px;
+      }
+
+      .movieInfo {
+        font-size: 0.7rem;
+
+        .movieTitle {
+          font-size: 0.8rem;
+          display: block;
+          color: $white;
+          line-height: 1.2rem;
+          text-overflow: ellipsis;
+          margin-bottom: 5px;
+        }
+
+        span {
+          display: block;
+          line-height: 1rem;
+          margin: 0 3px;
+        }
       }
     }
-  }
 
-  .empty {
-    height: 100%;
-    color: $light-gray;
-    font-weight: bold;
-    text-align: center;
+    .basicData {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $silver;
+
+      ul {
+        width: 90%;
+      }
+
+      li {
+        font-size: 0.7rem;
+        line-height: 1rem;
+
+        .subTitle {
+          display: inline-block;
+          color: $white;
+          width: 40%;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .empty {
+      height: 100%;
+      color: $light-gray;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dataWrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    // height: 120px;
+    background-color: $stone-gray;
+    color: white;
+    position: fixed;
+    top: 54px;
+    // padding-top: 7px;
+
+    .movieData,
+    .basicData,
+    .seatData,
+    .payData {
+      order: -1;
+      width: 25%;
+      height: 100px;
+    }
+    .movieData {
+      background-image: url('../../src/scss/menu_movie.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 7px;
+    }
+    .homeButton,
+    .movieSelectButton,
+    .seatSelectButton,
+    .goReserveButton {
+      width: 50%;
+      height: 35px;
+      padding: 5px;
+      background-color: white;
+      color: $stone-gray;
+      text-align: center;
+      line-height: 25px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+    .homeButton,
+    .movieSelectButton {
+      border-right: 1px solid $stone-gray;
+      // background-color: white;
+    }
+    .seatSelectButton,
+    .goReserveButton {
+      border-left: 1px solid $stone-gray;
+    }
+    .empty {
+      display: none;
+    }
   }
 }

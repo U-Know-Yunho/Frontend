@@ -1,6 +1,12 @@
 @import '../common.module.scss';
-
-.firstStepWrapper {
-  width: 70vw;
-  display: flex;
+@media (min-width: 768px) {
+  .firstStepWrapper {
+    width: 750px;
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  .firstStepWrapper {
+    width: 100vw;
+  }
 }

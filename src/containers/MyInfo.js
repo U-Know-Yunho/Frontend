@@ -6,17 +6,29 @@ import { withUser } from '../contexts/UserContext';
 class MyInfo extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
+    this.state = {
+      username: props.username,
+      password: '',
+      confirmPassword: '',
+      lastName: props.lastName,
+      firstName: props.firstName,
+      email: props.email,
+      phoneNumber: props.phoneNumber,
+    };
   }
-  componentWillMount() {
-    console.log(this.props);
-    const { username, lastName, firstName, email, phoneNumber } = this.props;
-    this.setState({
-      username,
-      lastName,
-      firstName,
-      email,
-      phoneNumber,
-    });
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      const { username, lastName, firstName, email, phoneNumber } = nextProps;
+      this.setState({
+        username,
+        lastName,
+        firstName,
+        email,
+        phoneNumber,
+      });
+    }
   }
 
   handleFieldChange(e, name) {

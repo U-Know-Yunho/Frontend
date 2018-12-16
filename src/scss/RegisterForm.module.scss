@@ -21,6 +21,9 @@
     color: $stone-gray;
   }
 
+  label:nth-child(6) {
+    margin-top: 20px;
+  }
   input {
     height: 30px;
     padding-left: 5px;
@@ -134,13 +137,47 @@
     margin: 0 auto;
     width: 100%;
     max-width: 350px;
-    label:nth-child(5) {
-      margin-top: 23px;
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: $stone-gray;
+    }
+    // 개인 정보 수정 페이지에서 유저네임 인풋
+    .usernameInput {
+      width: 100%;
+    }
+    input {
+      &[placeholder='Firstname'] {
+        display: inline-block;
+        width: calc(70% - 20% - 10px);
+      }
+    }
+    .apply {
+      display: inline-block;
+      width: 20%;
+      height: 30px;
+      background-color: $stone-gray;
+      border: 0;
+      color: $white;
+      margin-left: 5px;
+      text-align: center;
+    }
+    .registerBtn {
+      margin-bottom: 12px;
     }
   }
+}
 
-  // 개인 정보 수정 페이지에서 유저네임 인풋
-  .usernameInput {
+@media (max-width: 767px) {
+  .registerBox {
+    // height: 100%;
     width: 100%;
+    h1 {
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
   }
 }

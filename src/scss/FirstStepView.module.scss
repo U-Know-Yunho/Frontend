@@ -85,3 +85,12 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .eachDataBox {
+    height: 400px;
+    ul {
+      overflow-y: scroll;
+    }
+  }
+}
