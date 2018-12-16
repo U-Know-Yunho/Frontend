@@ -13,7 +13,16 @@ export default class Layout extends Component {
         <footer className={s.footer}>
           <div className={s.footerImg} />
           <div className={s.footerInfo}>
-            Team Uknow-Yunho : CGV CLONE PROJECT
+            React | SPA | Context API | RESTful API | SCSS | CSS module | Git &
+            Github | Zenhub | Adobe CC
+            <span className={s.team}>
+              <a
+                href="https://github.com/U-Know-Yunho/Frontend"
+                target="_blank"
+              >
+                Team Uknow-Yunho : CGV CLONE PROJECT
+              </a>
+            </span>
           </div>
         </footer>
       </div>

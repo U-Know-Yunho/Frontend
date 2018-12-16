@@ -30,6 +30,7 @@ export default class ReserveProvider extends Component {
       number: 0,
       // 선택된 좌석
       seat: [],
+      ea: 11000,
       // 선택된 좌석에 따른 가격
       price: null,
       // 상태 변경 함수들
@@ -43,6 +44,7 @@ export default class ReserveProvider extends Component {
       onSeatAdd: this.onSeatAdd.bind(this),
       onSeatDel: this.onSeatDel.bind(this),
       onSeatReset: this.onSeatReset.bind(this),
+      onPrice: this.onPrice.bind(this),
     };
   }
 
@@ -120,6 +122,12 @@ export default class ReserveProvider extends Component {
   onSeatReset() {
     this.setState({
       seat: [],
+    });
+  }
+
+  onPrice(price) {
+    this.setState({
+      price,
     });
   }
 

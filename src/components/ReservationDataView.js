@@ -48,12 +48,14 @@ export default class ReservationDataView extends Component {
     return (
       <div className={s.dataWrapper}>
         {step === 'first' ? (
-          <div className={s.homeButton} onClick={() => onStep('first')}>
-            CGV 홈
+          <div className={s.previousButton}>CGV 홈</div>
+        ) : step === 'sec' ? (
+          <div className={s.previousButton} onClick={() => onStep('first')}>
+            영화선택
           </div>
         ) : (
-          <div className={s.movieSelectButton} onClick={() => onStep('first')}>
-            영화선택
+          <div className={s.previousButton} onClick={() => onStep('sec')}>
+            좌석선택
           </div>
         )}
         <div className={s.movieData}>
@@ -116,14 +118,15 @@ export default class ReservationDataView extends Component {
           {price ? <span>{price}</span> : <span className={s.empty}>결제</span>}
         </div>
         {step === 'first' ? (
-          <div
-            className={s.seatSelectButton}
-            onClick={() => this.handleNextStep()}
-          >
+          <div className={s.nextButton} onClick={() => this.handleNextStep()}>
             좌석선택
           </div>
+        ) : step === 'sec' ? (
+          <div className={s.nextButton} onClick={() => onStep('third')}>
+            결제선택
+          </div>
         ) : (
-          <div className={s.goReserveButton}>예매하기</div>
+          <div className={s.nextButton}>예매완료</div>
         )}
       </div>
     );

@@ -1,0 +1,12 @@
+@import '../common.module.scss';
+@media (min-width: 768px) {
+  .thirdStepWrapper {
+    width: 750px;
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  .thirdStepWrapper {
+    width: 100vw;
+  }
+}

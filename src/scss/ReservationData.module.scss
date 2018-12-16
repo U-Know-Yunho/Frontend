@@ -11,14 +11,9 @@
     .movieData,
     .basicData,
     .seatData,
-    .payData {
-      flex: 1;
-    }
-
-    .homeButton,
-    .movieSelectButton,
-    .seatSelectButton,
-    .goReserveButton {
+    .payData,
+    .previousButton,
+    .nextButton {
       flex: 1;
     }
 
@@ -28,8 +23,7 @@
       border-right: 1px solid $light-gray;
     }
 
-    .homeButton,
-    .movieSelectButton {
+    .previousButton {
       background-color: $silver-gray;
       cursor: pointer;
       color: $white;
@@ -47,8 +41,7 @@
       }
     }
 
-    .seatSelectButton,
-    .goReserveButton {
+    .nextButton {
       background-color: $red;
       cursor: pointer;
       color: $white;
@@ -169,10 +162,8 @@
       background-position: center;
       background-position-y: 7px;
     }
-    .homeButton,
-    .movieSelectButton,
-    .seatSelectButton,
-    .goReserveButton {
+    .previousButton,
+    .nextButton {
       width: 50%;
       height: 35px;
       padding: 5px;
@@ -183,13 +174,11 @@
       font-size: 0.9rem;
       font-weight: bold;
     }
-    .homeButton,
-    .movieSelectButton {
+    .previousButton {
       border-right: 1px solid $stone-gray;
       // background-color: white;
     }
-    .seatSelectButton,
-    .goReserveButton {
+    .nextButton {
       border-left: 1px solid $stone-gray;
     }
     .empty {
