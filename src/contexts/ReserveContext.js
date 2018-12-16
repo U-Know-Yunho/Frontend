@@ -22,6 +22,7 @@ export default class ReserveProvider extends Component {
       // 선택된 관, 시간, 총 좌석, 남은 좌석
       auditorium: '2관',
       time: '20:00',
+      timePk: 1,
       allSeat: 100,
       ableSeat: 77,
       // 선택된 인원수
