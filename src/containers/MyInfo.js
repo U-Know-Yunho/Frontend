@@ -15,7 +15,7 @@ class MyInfo extends Component {
       firstName: props.firstName,
       email: props.email,
       phoneNumber: props.phoneNumber,
-      checkedPassword: false,
+      checkedPassword: true,
     };
   }
 
@@ -80,6 +80,11 @@ class MyInfo extends Component {
     this.setState({ checkedPassword: true });
   }
 
+  async handleDeleteAcc() {
+    await api.get('http://younghoonjean.com/api/members/user-delete/');
+    // 유저 정보를 db에서 지우는게 성공하면 아래 코드 실행
+    this.props.deleteAcc();
+  }
   render() {
     return (
       <MyInfoView
@@ -87,6 +92,7 @@ class MyInfo extends Component {
         onSubmit={e => this.handleSubmit(e)}
         onFieldChange={(e, name) => this.handleFieldChange(e, name)}
         onCheckPassword={e => this.handleCheckPassword(e)}
+        onDeleteAcc={() => this.handleDeleteAcc()}
       />
     );
   }
