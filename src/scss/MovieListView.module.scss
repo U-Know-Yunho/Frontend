@@ -147,17 +147,18 @@
       position: relative;
       // 포스터 이미지
       img {
-        width: 100%;
+        width: 162px;
+        margin: 0 auto;
         height: 235px;
       }
       .loaded + figcaption::before {
         content: '';
         display: block;
-        width: 166px;
-        height: 235px;
+        width: 170px;
+        height: 237px;
         background-color: white;
         position: absolute;
-        top: 0;
+        top: -1px;
       }
       .loaded + figcaption + .ispinner {
         position: absolute;

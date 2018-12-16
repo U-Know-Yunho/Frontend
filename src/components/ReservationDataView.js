@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import s from '../scss/ReservationData.module.scss';
+import { withReserving } from '../contexts/ReserveContext';
 
 export default class ReservationDataView extends Component {
   //   handleEmptyString(str) {
@@ -55,7 +56,7 @@ export default class ReservationDataView extends Component {
           {subLocation && date && time ? (
             <ul>
               <li>
-                <span className={s.subTitle}>극장</span> CGV{subLocation}
+                <span className={s.subTitle}>극장</span> {subLocation}
               </li>
               <li>
                 <span className={s.subTitle}>일시</span> {date}

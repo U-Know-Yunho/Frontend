@@ -20,29 +20,30 @@ export default class MovieList extends Component {
   async componentDidMount() {
     // 현재 상영작 & 개봉 예정작 판별하여 가지고 있는 전체 영화 리스트 요청
     const { movie } = this.props;
-    // const { data: list } =
-    //   movie === 'current'
-    //     ? await api.get('api/movies/list/', {
-    //         params: {
-    //           now_show: true,
-    //         },
-    //       })
-    //     : await api.get('api/movies/pre-movies');
+    const { data } =
+      movie === 'current'
+        ? await api.get('api/movies/list/', {
+            params: {
+              nowShow: true,
+            },
+          })
+        : await api.get('api/movies/pre-movies');
 
-    const list = [
-      {
-        id: 1,
-        title: '죽을래',
-      },
-      {
-        id: 2,
-        title: '죽을래',
-      },
-      {
-        id: 3,
-        title: '죽을래',
-      },
-    ];
+    const list = data.results;
+    // const list = [
+    //   {
+    //     id: 1,
+    //     title: '죽을래',
+    //   },
+    //   {
+    //     id: 2,
+    //     title: '죽을래',
+    //   },
+    //   {
+    //     id: 3,
+    //     title: '죽을래',
+    //   },
+    // ];
     if (this.props.page === 'main') {
       // MoviePage에서의 영화 리스트
       // 전체 리스트 사용

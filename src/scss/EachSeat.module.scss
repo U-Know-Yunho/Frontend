@@ -23,19 +23,21 @@
     opacity: 0.5;
   }
 
-  label:hover {
-    background: #16a085;
-  }
-
   input:checked {
-    +label {
+    + label {
       opacity: 1;
+    }
+    + .reserved {
+      opacity: 0.5;
     }
   }
 
   input:checked {
-    +label {
+    + label {
       background: #16a085;
+    }
+    + .reserved {
+      background: $red;
     }
   }
 }

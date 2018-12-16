@@ -15,6 +15,7 @@ class MyInfo extends Component {
       firstName: props.firstName,
       email: props.email,
       phoneNumber: props.phoneNumber,
+      checkedPassword: false,
     };
   }
 
@@ -68,12 +69,24 @@ class MyInfo extends Component {
     }
   }
 
+  async handleCheckPassword(e) {
+    e.preventDefault();
+    const password = e.target.pass.value;
+    await api.post('/api/memebers/check-password/', {
+      password,
+    });
+    // 비밀번호 체크 요청이 성공하면 비밀번호 확인이 완료 된 것
+    // 맞는 비밀번호를 입력했을 때 상태 바꿈
+    this.setState({ checkedPassword: true });
+  }
+
   render() {
     return (
       <MyInfoView
         {...this.state}
         onSubmit={e => this.handleSubmit(e)}
         onFieldChange={(e, name) => this.handleFieldChange(e, name)}
+        onCheckPassword={e => this.handleCheckPassword(e)}
       />
     );
   }
