@@ -14,7 +14,6 @@ export default class MainCarouselView extends Component {
       color: 'white',
       background: 'transparent',
       fontSize: '1.6rem',
-      //   border: '1px solid red',
       textAlign: 'left',
       textShadow: '1px 1px black',
       opacity: '1',

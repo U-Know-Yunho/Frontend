@@ -47,7 +47,7 @@ export default class ReserveProvider extends Component {
     });
   }
 
-  onMoviePoster(moviePoster) {
+  onMoviePoster(moviePoster = '') {
     this.setState({
       moviePoster,
     });

@@ -20,6 +20,7 @@ export default class UserProvider extends Component {
       phoneNumber: '',
     };
   }
+
   async componentDidMount() {
     if (localStorage.getItem('token')) {
       const {

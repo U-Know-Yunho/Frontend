@@ -26,8 +26,7 @@ export default class FirstStepTheaterView extends Component {
                   [s.selected]: t[0].location === location,
                 })}
               >
-                {t[0].location}
-                {/* ({t[2].num}) */}
+                {t[0].location}({t[2].num})
               </li>
             ))}
           </ul>

@@ -11,6 +11,10 @@ export default class FirstStep extends Component {
     super(props);
 
     this.state = {
+      selectedMovieTitle: '',
+      selectedSubLocation: '',
+      selectedLocation: '',
+      selectedDate: '',
       movieShowList: [],
       movieNoneList: [],
       dateList: [],
@@ -20,6 +24,7 @@ export default class FirstStep extends Component {
       handleMovieClick: this.handleMovieClick.bind(this),
       handleDateClick: this.handleDateClick.bind(this),
       handleLocationClick: this.handleLocationClick.bind(this),
+      handleSubLocationClick: this.handleSubLocationClick.bind(this),
     };
   }
 
@@ -59,14 +64,24 @@ export default class FirstStep extends Component {
     const selectPoster = res.data.mainImgUrl;
     onMovieTitle(selectTitle);
     onMoviePoster(selectPoster);
+
+    // // 임시
+    // onMovieTitle(pk);
+    // onMoviePoster(pk);
     // 2. 선택에 따라 리스트 업데이트
-    this.upLoadList();
+    this.setState(
+      {
+        selectedMovieTitle: pk,
+      },
+      () => this.upLoadList()
+    );
   }
 
   // Location을 선택했을 때
   handleLocationClick(t) {
-    const { onLocation } = this.props;
+    const { onLocation, onSubLocation } = this.props;
     onLocation(t[0].location);
+    onSubLocation('');
 
     const subLocationShowList = t[1].theaterSet.filter(s => s.show);
     const subLocationNoneList = t[1].theaterSet.filter(s => !s.show);
@@ -74,13 +89,28 @@ export default class FirstStep extends Component {
       subLocationShowList,
       subLocationNoneList,
     });
+
+    this.setState(
+      {
+        selectedLocation: t[0].location,
+        selectedSubLocation: '',
+      },
+      () => this.upLoadList()
+    );
   }
 
   // subLocation을 선택했을 때
   handleSubLocationClick(t) {
-    //
+    // 1. 선택한 subLocation 상태 저장
     const { onSubLocation } = this.props;
     onSubLocation(t);
+    // 2. 선택에 따라 리스트 업데이트
+    this.setState(
+      {
+        selectedSubLocation: t,
+      },
+      () => this.upLoadList()
+    );
   }
 
   // 날짜를 선택했을 때
@@ -89,30 +119,43 @@ export default class FirstStep extends Component {
     const { onDate } = this.props;
     onDate(date);
     // 2. 선택에 따라 리스트 업데이트
+    this.setState(
+      {
+        selectedDate: date,
+      },
+      () => this.upLoadList()
+    );
   }
 
   // 선택 시 리스트 업로드
   async upLoadList() {
-    const { movieTitle, subLocation, date } = this.props;
-    // 컨텍스트에서 date나 theater가 선택되어 있다면 params에 같이 넣기
-    // 그렇지 않다면 params에 movie만 넣기
+    const {
+      selectedMovieTitle,
+      selectedLocation,
+      selectedSubLocation,
+      selectedDate,
+    } = this.state;
 
     const params = new URLSearchParams();
-
     // 무비만 선택되어 있을 때
-    if (movieTitle !== '') {
-      params.append('movie', movieTitle);
+    if (selectedMovieTitle !== '') {
+      params.append('movie', selectedMovieTitle);
     }
     // 극장이 선택되어 있을 때
-    if (subLocation !== '') {
-      params.append('subLocation', subLocation);
+    if (selectedLocation !== '') {
+      params.append('location', selectedLocation);
+    }
+    // 극장이 선택되어 있을 때
+    if (selectedSubLocation !== '') {
+      params.append('subLocation', selectedSubLocation);
     }
     // 날짜가 선택되어 있을 때
-    if (date !== '') {
-      params.append('date', date);
+    if (selectedDate !== '') {
+      params.append('date', selectedDate);
     }
 
-    console.log(params);
+    console.log(params.toString());
+
     const res = await api.get('api/tickets/filter/', {
       params,
     });
@@ -123,22 +166,16 @@ export default class FirstStep extends Component {
     this.handleDateList(dataTmp.date);
   }
 
-  handleDateList(data) {
+  handleDateList(dateList) {
     this.setState({
-      dateList: data,
+      dateList,
     });
   }
 
-  handleLocationList(data) {
-    // const locationList = data.map(d => d[0].location);
+  handleLocationList(locationList) {
     this.setState({
-      locationList: data,
-      // subLocationShowList:,
-      // subLocationNoneList:
+      locationList,
     });
-  }
-  handleSubLocationList() {
-    //
   }
 
   handleMovieList(data) {
@@ -154,11 +191,7 @@ export default class FirstStep extends Component {
     return (
       <div className={s.firstStepWrapper}>
         <FirstStepMovieView {...this.props} {...this.state} />
-        <FirstStepTheaterView
-          key={this.props.movieTitle}
-          {...this.props}
-          {...this.state}
-        />
+        <FirstStepTheaterView {...this.props} {...this.state} />
         <FirstStepDateView {...this.props} {...this.state} />
         <FirstStepTime {...this.props} />
       </div>
