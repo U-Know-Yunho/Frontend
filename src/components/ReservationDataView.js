@@ -98,7 +98,7 @@ export default class ReservationDataView extends Component {
           )}
         </div>
         <div className={s.seatData}>
-          {seat ? (
+          {seat.length !== 0 ? (
             <ul>
               <li>
                 <span className={s.subTitle}>좌석명</span> Standard석
