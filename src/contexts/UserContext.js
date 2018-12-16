@@ -13,6 +13,7 @@ export default class UserProvider extends Component {
       register: this.register.bind(this),
       checkId: this.checkId.bind(this),
       socialLogin: this.socialLogin.bind(this),
+      deleteAcc: this.deleteAcc.bind(this),
       // getMe: this.getMe.bind(this),
       username: '',
       lastName: '',
@@ -126,6 +127,18 @@ export default class UserProvider extends Component {
       },
     });
 
+    localStorage.removeItem('token');
+    this.setState({
+      isLogin: false,
+      username: '',
+      lastName: '',
+      firstName: '',
+      email: '',
+      phoneNumber: '',
+    });
+  }
+
+  deleteAcc() {
     localStorage.removeItem('token');
     this.setState({
       isLogin: false,

@@ -16,6 +16,7 @@ export default class MyInfoView extends Component {
       onFieldChange,
       onCheckPassword,
       checkedPassword,
+      onDeleteAcc,
     } = this.props;
     return (
       <div className={cx(s.wrapper, s.registerWrapper, s.infoWrapper)}>
@@ -116,6 +117,16 @@ export default class MyInfoView extends Component {
               <span className={s.default}>'-'은 포함하지 않습니다</span>
             </div>
             <button className={s.registerBtn}>변경하기</button>
+            <div className={s.loginWrapper}>
+              <span
+                onClick={() =>
+                  window.confirm('탈퇴 시 계정은 복구할 수 없습니다.') &&
+                  onDeleteAcc()
+                }
+              >
+                회원 탈퇴
+              </span>
+            </div>
           </form>
         ) : (
           <form
