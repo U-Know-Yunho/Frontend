@@ -8,15 +8,17 @@
     background-color: $black;
     margin: 20px 0;
 
-    .movieData,
-    .basicData,
-    .seatData,
-    .payData,
     .previousButton,
     .nextButton {
       flex: 1;
     }
 
+    .movieData,
+    .basicData,
+    .seatData,
+    .payData {
+      flex: 2;
+    }
     .movieData,
     .basicData,
     .seatData {
@@ -62,7 +64,7 @@
     .basicData,
     .seatData {
       color: $white;
-      padding: 5px;
+      padding: 10px;
     }
 
     .movieData {
@@ -73,16 +75,18 @@
       align-items: center;
 
       .moviePoster {
-        width: 40%;
-        height: 70%;
+        flex: 2;
         margin-right: 3px;
+        height: 100%;
+        width: auto;
       }
 
       .movieInfo {
+        flex: 3;
         font-size: 0.7rem;
 
         .movieTitle {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
           display: block;
           color: $white;
           line-height: 1.2rem;
@@ -102,23 +106,23 @@
     .seatData {
       display: flex;
       justify-content: center;
-      // align-items: center;
+      align-items: center;
       color: $silver;
-      padding-top: 35px;
+      //   padding-top: 35px;
 
       ul {
         width: 90%;
       }
 
       li {
-        font-size: 0.7rem;
-        line-height: 1rem;
+        font-size: 0.8rem;
+        line-height: 1.1rem;
 
         .subTitle {
           display: inline-block;
           color: $white;
           width: 40%;
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
       }
     }
@@ -140,6 +144,14 @@
           font-size: 1rem;
           padding-right: 8px;
         }
+      }
+      .priceSubTitle {
+        font-weight: bold;
+      }
+      .price {
+        color: $red;
+        font-weight: bold;
+        display: inline-block;
       }
     }
 

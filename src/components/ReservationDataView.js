@@ -17,17 +17,17 @@ export default class ReservationDataView extends Component {
       time,
       onStep,
     } = this.props;
-    if (
-      movieTitle !== '' &&
-      location !== '' &&
-      subLocation !== '' &&
-      date !== '' &&
-      time !== ''
-    ) {
-      onStep('sec');
-    } else {
-      alert('영화, 극장, 시간을 선택해주세요.');
-    }
+    // if (
+    //   movieTitle !== '' &&
+    //   location !== '' &&
+    //   subLocation !== '' &&
+    //   date !== '' &&
+    //   time !== ''
+    // ) {
+    onStep('sec');
+    // } else {
+    //   alert('영화, 극장, 시간을 선택해주세요.');
+    // }
   }
 
   handleThirdStep() {
@@ -59,11 +59,11 @@ export default class ReservationDataView extends Component {
           <div className={s.previousButton}>CGV 홈</div>
         ) : step === 'sec' ? (
           <div className={s.previousButton} onClick={() => onStep('first')}>
-            영화선택
+            영화
           </div>
         ) : (
           <div className={s.previousButton} onClick={() => onStep('sec')}>
-            좌석선택
+            좌석
           </div>
         )}
         <div className={s.movieData}>
@@ -120,10 +120,13 @@ export default class ReservationDataView extends Component {
                 </span>
               </li>
               <li>
-                <span className={s.subTitle} />
-                {number > 0 && number === seat.length
-                  ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                  : 0}
+                <span className={s.priceSubTitle}>총금액 </span>
+                <span className={s.price}>
+                  {number > 0 && number === seat.length
+                    ? price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                    : 0}{' '}
+                  원
+                </span>
               </li>
             </ul>
           ) : (
@@ -141,14 +144,14 @@ export default class ReservationDataView extends Component {
         </div> */}
         {step === 'first' ? (
           <div className={s.nextButton} onClick={() => this.handleNextStep()}>
-            좌석선택
+            좌석
           </div>
         ) : step === 'sec' ? (
           <div className={s.nextButton} onClick={() => this.handleThirdStep()}>
-            결제선택
+            결제
           </div>
         ) : (
-          <div className={s.nextButton}>예매완료</div>
+          <div className={s.nextButton}>예매</div>
         )}
       </div>
     );

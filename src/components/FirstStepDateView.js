@@ -11,7 +11,7 @@ export default class FirstStepDateView extends Component {
         <div>
           <ul>
             {dateList.map(d =>
-              d[2].show ? (
+              d[1].show ? (
                 <li
                   key={d[0].date}
                   onClick={() => handleDateClick(d[0].date)}

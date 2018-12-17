@@ -22,7 +22,7 @@ export default class MovieList extends Component {
     const { movie } = this.props;
     const { data } =
       movie === 'current'
-        ? await api.get('api/movies/list/', {
+        ? await api.get('api/movies/', {
             params: {
               nowShow: true,
             },

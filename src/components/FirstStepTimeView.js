@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import s from '../scss/FirstStepView.module.scss';
-import { link } from 'fs';
 import classNames from 'classnames';
 
 export default class FirstStepTimeView extends Component {
