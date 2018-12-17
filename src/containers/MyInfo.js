@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from '../api';
 import MyInfoView from '../components/MyInfoView';
 import { withUser } from '../contexts/UserContext';
+import { Redirect } from 'react-router-dom';
 
 class MyInfo extends Component {
   constructor(props) {
@@ -15,8 +16,9 @@ class MyInfo extends Component {
       firstName: props.firstName,
       email: props.email,
       phoneNumber: props.phoneNumber,
+      deleteSuccess: false,
       //FIXME: 비밀번호 확인 api 되는거 확인하면 기본값 false로 변경하기
-      checkedPassword: false,
+      checkedPassword: true,
     };
   }
 
@@ -73,9 +75,14 @@ class MyInfo extends Component {
     await api.delete('api/members/user-delete/');
     // 유저 정보를 db에서 지우는게 성공하면 아래 코드 실행
     this.props.deleteAcc();
+    this.setState({
+      deleteSuccess: true,
+    });
   }
   render() {
-    return (
+    return this.state.deleteSuccess ? (
+      <Redirect to="/" />
+    ) : (
       <MyInfoView
         {...this.state}
         onSubmit={e => this.handleSubmit(e)}
