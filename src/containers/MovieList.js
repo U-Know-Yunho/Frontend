@@ -22,28 +22,10 @@ export default class MovieList extends Component {
     const { movie } = this.props;
     const { data } =
       movie === 'current'
-        ? await api.get('api/movies/list/', {
-            params: {
-              nowShow: true,
-            },
-          })
-        : await api.get('api/movies/pre-movies');
+        ? await api.get('api/movies/')
+        : await api.get('api/movies/pre');
 
     const list = data.results;
-    // const list = [
-    //   {
-    //     id: 1,
-    //     title: '죽을래',
-    //   },
-    //   {
-    //     id: 2,
-    //     title: '죽을래',
-    //   },
-    //   {
-    //     id: 3,
-    //     title: '죽을래',
-    //   },
-    // ];
     if (this.props.page === 'main') {
       // MoviePage에서의 영화 리스트
       // 전체 리스트 사용

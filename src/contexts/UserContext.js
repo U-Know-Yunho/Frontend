@@ -8,13 +8,13 @@ export default class UserProvider extends Component {
 
     this.state = {
       isLogin: false,
+      infoLoading: false,
       login: this.login.bind(this),
       logout: this.logout.bind(this),
       register: this.register.bind(this),
       checkId: this.checkId.bind(this),
       socialLogin: this.socialLogin.bind(this),
       deleteAcc: this.deleteAcc.bind(this),
-      // getMe: this.getMe.bind(this),
       username: '',
       lastName: '',
       firstName: '',
@@ -28,6 +28,11 @@ export default class UserProvider extends Component {
       const {
         data: { username: name, lastName, firstName, email, phoneNumber },
       } = await api.get('/api/members/profile/');
+
+      // 베이스URL 설정
+      // const apiWithoutBaseUrl = api.create({
+      //   baseUrl: ""
+      // })
       // console.log(name);
       this.setState({
         isLogin: true,
@@ -36,6 +41,7 @@ export default class UserProvider extends Component {
         firstName,
         email,
         phoneNumber,
+        infoLoading: true,
       });
     }
   }
