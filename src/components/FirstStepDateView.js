@@ -9,7 +9,7 @@ export default class FirstStepDateView extends Component {
       <div className={s.eachDataBox}>
         <h3>날짜</h3>
         <div>
-          <ul>
+          <ul className={s.scrollBox}>
             {dateList.map(d =>
               d[1].show ? (
                 <li
