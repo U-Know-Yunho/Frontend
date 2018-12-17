@@ -14,7 +14,7 @@
     }
 
     .empty {
-      width: 196px;
+      width: 125px;
     }
   }
 
@@ -41,6 +41,9 @@
       }
     }
 
+    .mobileInfo {
+      display: none;
+    }
     .button {
       display: none;
     }
@@ -143,7 +146,7 @@
 
     // btn 박스 바닥에 붙이기 위해 지정해줌, 지워도 되는 부분입니다
     figure {
-      height: 304px;
+      height: 272x;
       position: relative;
       // 포스터 이미지
       img {
@@ -251,16 +254,53 @@
     // 영화 타이틀
     figcaption {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 5px;
       height: 30px;
       line-height: 31px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
+    // 개봉 예정작에서만 적용
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    // 개봉일
+    .date {
+      margin: 5px 0 7px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      // line-height: 0.8rem;
+      span {
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 0.8rem;
+      }
+    }
+    // 예매율
+    .score {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 5px;
+      margin: 4px 0 8px;
+      font-size: 0.8rem;
+      height: 20px;
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 28px;
+        height: 20px;
+        background-image: url('../../src/scss/score2.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        // margin: 0 5px;
+      }
+    }
     // 상세정보 & 예매하기 버튼
     .button {
       display: flex;
@@ -271,10 +311,20 @@
 
       a {
         display: inline-block;
-        width: 79px;
+        width: 80px;
         height: 40px;
         line-height: 40px;
       }
+      // 예매하기 버튼 없을 때 width 값 전체 차지하기
+      .single {
+        width: 164px;
+      }
+      // a:nth-child(1) {
+      //   margin-right: 3px;
+      // }
+      // a:nth-child(2) {
+      //   margin-left: 3px;
+      // }
     }
 
     // 순위 스티커
@@ -286,7 +336,7 @@
       line-height: 36px;
       background-color: rgba(238, 46, 36, 0.95);
       top: -2px;
-      left: 10px;
+      left: 12px;
       color: #f2f2f1;
       z-index: 99;
     }
