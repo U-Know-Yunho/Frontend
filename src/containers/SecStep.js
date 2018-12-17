@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Seat from './Seat';
 import NumberView from '../components/NumberView';
 import FirstDataView from '../components/FirstDataView';
 import Seat from '../containers/Seat';

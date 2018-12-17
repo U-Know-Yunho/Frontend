@@ -46,6 +46,7 @@ export default class ReserveProvider extends Component {
       onPricePlus: this.onPricePlus.bind(this),
       onPriceSub: this.onPriceSub.bind(this),
       onPriceReset: this.onPriceReset.bind(this),
+      onBackToFirst: this.onBackToFirst.bind(this),
     };
   }
 
@@ -142,6 +143,15 @@ export default class ReserveProvider extends Component {
   }
   onPriceReset() {
     this.setState({
+      price: 0,
+    });
+  }
+
+  // 좌석 선택 창에서 영화 선택창으로 되돌아 갈 때
+  onBackToFirst() {
+    this.setState({
+      number: 0,
+      seat: [],
       price: 0,
     });
   }

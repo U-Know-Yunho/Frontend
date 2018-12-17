@@ -2,7 +2,10 @@
 // 데스크탑
 @media (min-width: 768px) {
   .wrapper {
-    width: 750px;
+    // width: 750px;
+    width: 67vw;
+    min-width: 750px;
+    max-width: 1050px;
     //   border: 1px solid orange;
     height: 500px;
     background-color: $stone-gray;
