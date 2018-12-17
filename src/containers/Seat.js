@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EachSeat from '../components/EachSeat';
 import { withReserving } from '../contexts/ReserveContext';
 import s from '../scss/SeatView.module.scss';
-// import api from '../api';
+import api from '../api';
 
 class Seat extends Component {
   constructor(props) {

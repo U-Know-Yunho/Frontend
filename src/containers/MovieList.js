@@ -20,10 +20,7 @@ export default class MovieList extends Component {
   async componentDidMount() {
     // 현재 상영작 & 개봉 예정작 판별하여 가지고 있는 전체 영화 리스트 요청
     const { movie } = this.props;
-    const { data } =
-      movie === 'current'
-        ? await api.get('api/movies/')
-        : await api.get('api/movies/pre');
+    const { data } = await api.get(`api/${movie}/`);
 
     const list = data.results;
     if (this.props.page === 'main') {

@@ -12,13 +12,13 @@ export default class HomePage extends Component {
     super(props);
 
     this.state = {
-      movie: 'current',
+      movie: 'movies',
     };
   }
 
   handleMovie(movie) {
     this.setState({
-      movie: movie,
+      movie,
     });
   }
   render() {
@@ -32,14 +32,14 @@ export default class HomePage extends Component {
           <section className={s.movie}>
             <div className={s.movieNav}>
               <button
-                onClick={() => this.handleMovie('current')}
-                className={classNames({ [s.active]: movie === 'current' })}
+                onClick={() => this.handleMovie('movies')}
+                className={classNames({ [s.active]: movie === 'movies' })}
               >
                 현재 상영작
               </button>
               <button
-                onClick={() => this.handleMovie('upcomming')}
-                className={classNames({ [s.active]: movie === 'upcomming' })}
+                onClick={() => this.handleMovie('movies/pre')}
+                className={classNames({ [s.active]: movie === 'movies/pre' })}
               >
                 개봉 예정작
               </button>
@@ -49,7 +49,7 @@ export default class HomePage extends Component {
                 + MORE
               </Link>
             ) : (
-              <Link to="/movies/?movie=upcomming" className={s.more}>
+              <Link to="/movies/?movie=pre" className={s.more}>
                 + MORE
               </Link>
             )}
