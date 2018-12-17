@@ -8,6 +8,7 @@ export default class MovieItem extends Component {
     super(props);
 
     this.state = {
+      // 기본값 true
       loading: true,
     };
   }
@@ -44,7 +45,7 @@ export default class MovieItem extends Component {
       >
         {// 현재상영작이면 순위를 보여주고, 개봉예정작이면 순위를 보여주지 않습니다.
         movie === 'movies' && <div className={s.rank}>{i + 1}</div>}
-        <figure>
+        <figure className={c({ [s.loaded]: this.state.loading })}>
           <img
             className={c({ [s.loaded]: this.state.loading })}
             src={thumbImgUrl}
