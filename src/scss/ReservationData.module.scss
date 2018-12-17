@@ -20,8 +20,7 @@
       flex: 2;
     }
     .movieData,
-    .basicData,
-    .seatData {
+    .basicData {
       border-right: 1px solid $light-gray;
     }
 
@@ -167,54 +166,54 @@
   }
 }
 
-@media (max-width: 767px) {
-  .dataWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
-    // height: 120px;
-    background-color: $stone-gray;
-    color: white;
-    position: fixed;
-    top: 54px;
-    // padding-top: 7px;
+// @media (max-width: 767px) {
+//   .dataWrapper {
+//     display: flex;
+//     flex-wrap: wrap;
+//     width: 100vw;
+//     // height: 120px;
+//     background-color: $stone-gray;
+//     color: white;
+//     position: fixed;
+//     top: 54px;
+//     // padding-top: 7px;
 
-    .movieData,
-    .basicData,
-    .seatData,
-    .payData {
-      order: -1;
-      width: 25%;
-      height: 100px;
-    }
-    .movieData {
-      background-image: url('../../src/scss/menu_movie.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-position-y: 7px;
-    }
-    .previousButton,
-    .nextButton {
-      width: 50%;
-      height: 35px;
-      padding: 5px;
-      background-color: white;
-      color: $stone-gray;
-      text-align: center;
-      line-height: 25px;
-      font-size: 0.9rem;
-      font-weight: bold;
-    }
-    .previousButton {
-      border-right: 1px solid $stone-gray;
-      // background-color: white;
-    }
-    .nextButton {
-      border-left: 1px solid $stone-gray;
-    }
-    .empty {
-      display: none;
-    }
-  }
-}
+//     .movieData,
+//     .basicData,
+//     .seatData,
+//     .payData {
+//       order: -1;
+//       width: 25%;
+//       height: 100px;
+//     }
+//     .movieData {
+//       background-image: url('../../src/scss/menu_movie.png');
+//       background-size: contain;
+//       background-repeat: no-repeat;
+//       background-position: center;
+//       background-position-y: 7px;
+//     }
+//     .previousButton,
+//     .nextButton {
+//       width: 50%;
+//       height: 35px;
+//       padding: 5px;
+//       background-color: white;
+//       color: $stone-gray;
+//       text-align: center;
+//       line-height: 25px;
+//       font-size: 0.9rem;
+//       font-weight: bold;
+//     }
+//     .previousButton {
+//       border-right: 1px solid $stone-gray;
+//       // background-color: white;
+//     }
+//     .nextButton {
+//       border-left: 1px solid $stone-gray;
+//     }
+//     .empty {
+//       display: none;
+//     }
+//   }
+// }
