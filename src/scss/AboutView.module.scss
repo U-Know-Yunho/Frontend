@@ -1,92 +1,190 @@
 @import '../common.module.scss';
 
-.AboutBox {
-  margin: 0 auto;
-  width: $content-width;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  h3 {
-    height: 40px;
-    background-color: $red;
-    color: $white;
-    display: inline-block;
-    width: 14%;
-    line-height: 40px;
-    margin: 10px 0 40px;
-    text-align: center;
-  }
-
-  .members {
+// 데스크탑
+@media (min-width: 768px) {
+  .AboutBox {
+    margin: 0 auto;
+    width: $content-width;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
-    .member {
-      width: 200px;
-      margin: 12px;
-      padding: 14px;
-      background-color: $white;
+    h3 {
+      height: 40px;
+      background-color: $red;
+      color: $white;
+      display: inline-block;
+      width: 14%;
+      line-height: 40px;
+      margin: 10px 0 40px;
+      text-align: center;
+    }
+
+    .members {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-flow: row wrap;
+      justify-content: center;
 
-      .image {
-        width: 150px;
-        height: 150px;
-        border-radius: 75px;
-        object-fit: cover;
-        object-position: center;
-      }
+      .member {
+        width: 200px;
+        margin: 12px;
+        padding: 14px;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-      span {
-        display: block;
-        padding-top: 16px;
-        text-align: center;
-        line-height: 1.4rem;
-        font-weight: 700;
-        color: $gray;
-      }
-
-      span:nth-child(3) {
-        padding-top: 0;
-        font-size: 0.9rem;
-      }
-
-      span:nth-child(4) {
-        padding-top: 8px;
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: $silver;
-      }
-
-      .button {
-        padding-top: 8px;
-        align-items: flex-end;
-        cursor: pointer;
-
-        button {
-          background-color: $darken-white;
-          color: $lightenstone-gray;
-          font-size: 0.8rem;
-          font-weight: 700;
-          line-height: 1.5;
-          width: 80px;
-          height: 36px;
-          margin: 0 3px;
-          border: none;
-          padding: 0;
-          transition: 0.3s;
-
-          &:hover {
-            background-color: $white;
-            border: 1px solid $red;
-            color: $red;
-          }
+        .image {
+          width: 150px;
+          height: 150px;
+          border-radius: 75px;
+          object-fit: cover;
+          object-position: center;
         }
 
+        span {
+          display: block;
+          padding-top: 16px;
+          text-align: center;
+          line-height: 1.4rem;
+          font-weight: 700;
+          color: $gray;
+        }
+
+        span:nth-child(3) {
+          padding-top: 0;
+          font-size: 0.9rem;
+        }
+
+        span:nth-child(4) {
+          padding-top: 8px;
+          font-size: 0.9rem;
+          font-weight: 400;
+          color: $silver;
+        }
+
+        .button {
+          padding-top: 8px;
+          align-items: flex-end;
+          cursor: pointer;
+
+          button {
+            background-color: $darken-white;
+            color: $lightenstone-gray;
+            font-size: 0.8rem;
+            font-weight: 700;
+            line-height: 1.5;
+            width: 80px;
+            height: 36px;
+            margin: 0 3px;
+            border: none;
+            padding: 0;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: $white;
+              border: 1px solid $red;
+              color: $red;
+            }
+          }
+
+        }
       }
     }
   }
+}
+
+//모바일 뷰
+@media (max-width: 767px) {
+  .AboutBox {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      height: 40px;
+      background-color: $red;
+      color: $white;
+      display: inline-block;
+      width: 88px;
+      line-height: 40px;
+      margin: 10px 0 40px;
+      text-align: center;
+    }
+
+    .members {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .member {
+        width: 320px;
+        margin: 12px 0;
+        padding: 24px;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .image {
+          width: 150px;
+          height: 150px;
+          border-radius: 75px;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        span {
+          display: block;
+          padding-top: 16px;
+          text-align: center;
+          line-height: 1.4rem;
+          font-weight: 700;
+          color: $gray;
+        }
+
+        span:nth-child(3) {
+          padding-top: 0;
+          font-size: 0.9rem;
+        }
+
+        span:nth-child(4) {
+          padding-top: 8px;
+          font-size: 0.9rem;
+          font-weight: 400;
+          color: $silver;
+        }
+
+        .button {
+          padding-top: 16px;
+          align-items: flex-end;
+          cursor: pointer;
+
+          button {
+            background-color: $darken-white;
+            color: $lightenstone-gray;
+            font-size: 0.8rem;
+            font-weight: 700;
+            line-height: 1.5;
+            width: 80px;
+            height: 36px;
+            margin: 0 3px;
+            border: none;
+            padding: 0;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: $white;
+              border: 1px solid $red;
+              color: $red;
+            }
+          }
+
+        }
+      }
+    }
+  }
+
 }
