@@ -16,21 +16,8 @@ class MyInfo extends Component {
       email: props.email,
       phoneNumber: props.phoneNumber,
       //FIXME: 비밀번호 확인 api 되는거 확인하면 기본값 false로 변경하기
-      checkedPassword: true,
+      checkedPassword: false,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      const { username, lastName, firstName, email, phoneNumber } = nextProps;
-      this.setState({
-        username,
-        lastName,
-        firstName,
-        email,
-        phoneNumber,
-      });
-    }
   }
 
   handleFieldChange(e, name) {
@@ -82,7 +69,8 @@ class MyInfo extends Component {
   }
 
   async handleDeleteAcc() {
-    await api.get('http://younghoonjean.com/api/members/user-delete/');
+    // const token = localStorage.getItem('token');
+    await api.delete('api/members/user-delete/');
     // 유저 정보를 db에서 지우는게 성공하면 아래 코드 실행
     this.props.deleteAcc();
   }

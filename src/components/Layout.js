@@ -14,7 +14,7 @@ export default class Layout extends Component {
           <div className={s.footerImg} />
           <div className={s.footerInfo}>
             React | SPA | Context API | RESTful API | SCSS | CSS module | Git &
-            Github | Zenhub | Adobe CC
+            Github | Zenhub | Adobe photoshop CC | Adobe illustrator CC
             <span className={s.team}>
               <a
                 href="https://github.com/U-Know-Yunho/Frontend"
