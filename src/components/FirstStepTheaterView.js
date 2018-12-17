@@ -20,13 +20,13 @@ export default class FirstStepTheaterView extends Component {
           <ul className={s.locationBox}>
             {locationList.map(t => (
               <li
-                key={t[0].location}
+                key={t.location}
                 onClick={() => handleLocationClick(t)}
                 className={classNames([s.locationLi], {
-                  [s.selected]: t[0].location === location,
+                  [s.selected]: t.location === location,
                 })}
               >
-                {t[0].location}({t[2].num})
+                {t.location}({t.num})
               </li>
             ))}
           </ul>

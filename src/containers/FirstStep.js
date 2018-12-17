@@ -37,29 +37,33 @@ export default class FirstStep extends Component {
     const { pk, movieTitle, location, subLocation, date, time } = this.props;
 
     // 초기 리스트 출력
-    const res = await api.get('api/tickets/filter/');
+    const res = await api.get('api/tickets/filter/', {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    });
     const dataTmp = res.data;
     this.handleMovieList(dataTmp.movie);
+    this.handleLocationList(dataTmp.location);
     this.handleDateList(dataTmp.date);
-    this.handleLocationList(dataTmp.theater);
+
+    // this.handleSubLocationList(dataTmp.location[0].location);
 
     // secStep에서 뒤로가기 눌렀을 시
-    if (
-      movieTitle !== '' &&
-      location !== '' &&
-      subLocation !== '' &&
-      date !== '' &&
-      time !== ''
-    ) {
-      this.setState({
-        selectedMovieTitle: movieTitle,
-        selectedLocation: location,
-        selectedSubLocation: subLocation,
-        selectedDate: date,
-        selectedTime: time,
-      });
-      this.upLoadList();
-    }
+    // if (
+    //   movieTitle !== '' &&
+    //   location !== '' &&
+    //   subLocation !== '' &&
+    //   date !== '' &&
+    //   time !== ''
+    // ) {
+    //   this.setState({
+    //     selectedMovieTitle: movieTitle,
+    //     selectedLocation: location,
+    //     selectedSubLocation: subLocation,
+    //     selectedDate: date,
+    //     selectedTime: time,
+    //   });
+    //   this.upLoadList();
+    // }
 
     // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
     if (pk && movieTitle === '') {
@@ -82,22 +86,12 @@ export default class FirstStep extends Component {
     // 1. 상태 저장
     console.log(pk);
     const { onMovie } = this.props;
-    // const res = await api.get(`/api/movies/detail/${pk}/`);
-    // const selectTitle = res.data.title;
-    // const selectPoster = res.data.mainImgUrl;
-    let selectTitle;
-    let selectPoster;
-    // 임시
-    if (pk === 1) {
-      selectTitle = '보헤미안 랩소디';
-    }
-    if (pk === 2) {
-      selectTitle = '스파이더맨-뉴 유니버스';
-    }
-    if (pk === 3) {
-      selectTitle = '스윙키즈';
-    }
-    selectPoster = pk;
+    const res = await api.get(`/api/movies/detail/${pk}/`, {
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    });
+    const selectTitle = res.data.title;
+    const selectPoster = res.data.mainImgUrl;
+
     onMovie(selectTitle, selectPoster);
 
     // 2. 선택에 따라 리스트 업데이트
@@ -113,13 +107,13 @@ export default class FirstStep extends Component {
   // Location을 선택했을 때
   handleLocationClick(t) {
     const { onLocation, onSubLocation } = this.props;
-    onLocation(t[0].location);
+    onLocation(t.location);
     onSubLocation('');
 
     this.setState(
       {
         lastSelected: 'location',
-        selectedLocation: t[0].location,
+        selectedLocation: t.location,
         selectedSubLocation: '',
       },
       () => this.upLoadList()
@@ -187,7 +181,7 @@ export default class FirstStep extends Component {
     }
     // 극장이 선택되어 있을 때
     if (selectedSubLocation !== '') {
-      params.append('subLocation', selectedSubLocation);
+      params.append('sub_location', selectedSubLocation);
     }
     // 날짜가 선택되어 있을 때
     if (selectedDate !== '') {
@@ -196,24 +190,45 @@ export default class FirstStep extends Component {
 
     console.log(params.toString());
 
-    const res = await api.get('api/tickets/filter/', {
-      params,
-    });
+    const res = await api.get(
+      'api/tickets/filter/',
+      {
+        params,
+      },
+      {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      }
+    );
 
     const dataTmp = res.data;
+    console.log('dataTmp');
+    console.log(dataTmp);
     if (!params.has('movie')) {
       this.handleMovieList(dataTmp.movie);
     }
-    this.handleLocationList(dataTmp.theater);
+
+    // if (lastSelected !== 'movie') {
+    this.handleLocationList(dataTmp.location);
+    // }
+
+    // location 이 선택되었을 때에만 subLocation 리스트 갱신
+    if (params.has('location')) {
+      this.handleSubLocationList(dataTmp.subLocation);
+    }
+
     if (!params.has('time')) {
       this.handleDateList(dataTmp.date);
     }
 
+    if (dataTmp.time) {
+      this.handleTimeList(dataTmp.time);
+    }
+
     // 기존 선택되어있던 데이터 초기화 또는 유지 처리
-    this.isSelectedDataValidate(dataTmp);
+    // this.isSelectedDataValidate(dataTmp);
 
     // 세 개 전부 선택되면 time 보이기
-    this.isReadyForTimeList(dataTmp);
+    // this.isReadyForTimeList(dataTmp);
   }
 
   isReadyForTimeList(dataTmp) {
@@ -233,78 +248,102 @@ export default class FirstStep extends Component {
   }
 
   // 기존 선택되어있던 데이터 초기화 또는 유지 처리
-  isSelectedDataValidate(dataTmp) {
-    const {
-      lastSelected,
-      selectedMovieTitle,
-      selectedLocation,
-      selectedSubLocation,
-      selectedDate,
-      selectedTime,
-    } = this.state;
-    const { onMovie, onSubLocation, onDate, onTime } = this.props;
+  //   isSelectedDataValidate(dataTmp) {
+  //     const {
+  //       lastSelected,
+  //       selectedMovieTitle,
+  //       selectedLocation,
+  //       selectedSubLocation,
+  //       selectedDate,
+  //       selectedTime,
+  //     } = this.state;
+  //     const { onMovie, onSubLocation, onDate, onTime } = this.props;
 
-    // movie 처리
-    if (lastSelected !== 'movie') {
-      const findMovie = dataTmp.movie.find(m => m.title === selectedMovieTitle);
-      if (findMovie && !findMovie.show) {
-        onMovie('', '');
-        this.setState(
-          {
-            selectedMovieTitle: '',
-          },
-          () => this.upLoadList()
-        );
-      }
-    }
-    // subLocation 처리
-    if (lastSelected !== 'subLocation') {
-      const findLocation = dataTmp.theater.find(
-        l => l[0].location === selectedLocation
-      );
-      if (findLocation) {
-        const findSubLocation = findLocation[1].theaterSet.find(
-          s => s.subLocation === selectedSubLocation
-        );
-        if (findSubLocation && !findSubLocation.show) {
-          onSubLocation('');
-          this.setState(
-            {
-              selectedSubLocation: '',
-            },
-            () => this.upLoadList()
-          );
-        }
-      }
-    }
-    // date 처리
-    if (lastSelected !== 'date') {
-      const findDate = dataTmp.date.find(d => d[0].date === selectedDate);
-      if (findDate && !findDate[2].show) {
-        onDate('');
-        this.setState(
-          {
-            selectedDate: '',
-          },
-          () => this.upLoadList()
-        );
-      }
-    }
-    // time 처리
-    if (lastSelected !== 'time') {
-      const findDate = dataTmp.date.find(d => d[0].date === selectedDate);
-      if (findDate) {
-        const findTime = findDate[1].timeSet.find(
-          t => t.times === selectedTime
-        );
-        if (!findTime) {
-          onTime('', null);
-          this.setState({
-            selectedTime: '',
-          });
-        }
-      }
-    }
+  //     // movie 처리
+  //     if (lastSelected !== 'movie') {
+  //       const findMovie = dataTmp.movie.find(m => m.title === selectedMovieTitle);
+  //       if (findMovie && !findMovie.show) {
+  //         onMovie('', '');
+  //         this.setState(
+  //           {
+  //             selectedMovieTitle: '',
+  //           },
+  //           () => this.upLoadList()
+  //         );
+  //       }
+  //     }
+  //     // subLocation 처리
+  //     if (lastSelected !== 'subLocation') {
+  //       const findLocation = dataTmp.theater.find(
+  //         l => l[0].location === selectedLocation
+  //       );
+  //       if (findLocation) {
+  //         const findSubLocation = findLocation[1].theaterSet.find(
+  //           s => s.subLocation === selectedSubLocation
+  //         );
+  //         if (findSubLocation && !findSubLocation.show) {
+  //           onSubLocation('');
+  //           this.setState(
+  //             {
+  //               selectedSubLocation: '',
+  //             },
+  //             () => this.upLoadList()
+  //           );
+  //         }
+  //       }
+  //     }
+  //     // date 처리
+  //     if (lastSelected !== 'date') {
+  //       const findDate = dataTmp.date.find(d => d[0].date === selectedDate);
+  //       if (findDate && !findDate[2].show) {
+  //         onDate('');
+  //         this.setState(
+  //           {
+  //             selectedDate: '',
+  //           },
+  //           () => this.upLoadList()
+  //         );
+  //       }
+  //     }
+  //     // time 처리
+  //     if (lastSelected !== 'time') {
+  //       const findDate = dataTmp.date.find(d => d[0].date === selectedDate);
+  //       if (findDate) {
+  //         const findTime = findDate[1].timeSet.find(
+  //           t => t.times === selectedTime
+  //         );
+  //         if (!findTime) {
+  //           onTime('', null);
+  //           this.setState({
+  //             selectedTime: '',
+  //           });
+  //         }
+  //       }
+  //     }
+  //   }
+
+  handleMovieList(movieList) {
+    const movieShowList = movieList.filter(m => m.show);
+    const movieNoneList = movieList.filter(m => !m.show);
+    this.setState({
+      movieShowList,
+      movieNoneList,
+    });
+  }
+
+  handleLocationList(locationList) {
+    this.setState({
+      locationList,
+    });
+  }
+
+  handleSubLocationList(subLocationList) {
+    const subLocationShowList = subLocationList.filter(s => s.show);
+    const subLocationNoneList = subLocationList.filter(s => !s.show);
+    this.setState({
+      subLocationShowList,
+      subLocationNoneList,
+    });
   }
 
   handleDateList(dateList) {
@@ -313,29 +352,10 @@ export default class FirstStep extends Component {
     });
   }
 
-  handleLocationList(locationList) {
-    const { location } = this.props;
+  handleTimeList(timeList) {
+    console.log(timeList);
     this.setState({
-      locationList,
-    });
-
-    const activeL = locationList.find(l => l[0].location === location);
-    if (activeL) {
-      const subLocationShowList = activeL[1].theaterSet.filter(s => s.show);
-      const subLocationNoneList = activeL[1].theaterSet.filter(s => !s.show);
-      this.setState({
-        subLocationShowList,
-        subLocationNoneList,
-      });
-    }
-  }
-
-  handleMovieList(data) {
-    const movieShowList = data.filter(s => s.show);
-    const movieNoneList = data.filter(s => !s.show);
-    this.setState({
-      movieShowList,
-      movieNoneList,
+      timeList,
     });
   }
 
