@@ -60,7 +60,7 @@ class MyInfo extends Component {
   async handleCheckPassword(e) {
     e.preventDefault();
     const password = e.target.pass.value;
-    await api.post('/api/memebers/check-password/', {
+    await api.post('/api/members/check-password/', {
       password,
     });
     // 비밀번호 체크 요청이 성공하면 비밀번호 확인이 완료 된 것
