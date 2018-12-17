@@ -14,6 +14,7 @@ export default class MovieList extends Component {
     this.state = {
       loading: true,
       list: [],
+      next: '',
     };
   }
 
@@ -23,11 +24,13 @@ export default class MovieList extends Component {
     const { data } = await api.get(`api/${movie}/`);
 
     const list = data.results;
+    const next = data.next;
     if (this.props.page === 'main') {
       // MoviePage에서의 영화 리스트
       // 전체 리스트 사용
       this.setState({
         list,
+        next,
       });
     } else if (this.props.page === 'home') {
       // MainPage에서의 영화 리스트
@@ -42,15 +45,32 @@ export default class MovieList extends Component {
       loading: false,
     });
   }
+  // 더보기 버튼 클릭시 실행되는 함수
+  async handleViewMore() {
+    const nextUrl = this.state.next;
+    const nowList = this.state.list;
+    const { data } = await api.get(nextUrl, {
+      baseURL: '',
+    });
+    const list = nowList.concat(data.results);
+    const next = data.next;
+    console.log(list);
+    this.setState({
+      list,
+      next,
+    });
+  }
 
   render() {
-    const { list, loading } = this.state;
+    const { list, loading, next } = this.state;
     return (
       <MovieListView
+        // key={next}
         list={list}
         movie={this.props.movie}
         page={this.props.page}
         loading={loading}
+        onViewMore={() => this.handleViewMore()}
       />
     );
   }

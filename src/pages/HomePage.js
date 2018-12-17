@@ -44,7 +44,7 @@ export default class HomePage extends Component {
                 개봉 예정작
               </button>
             </div>
-            {movie === 'current' ? (
+            {movie === 'movies' ? (
               <Link to="/movies" className={s.more}>
                 + MORE
               </Link>
