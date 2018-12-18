@@ -51,7 +51,10 @@
       position: relative;
     }
     .myCGVContent {
-      padding: 10px 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
       min-height: 350px;
     }
   }

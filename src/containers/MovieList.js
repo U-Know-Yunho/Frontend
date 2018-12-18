@@ -6,8 +6,8 @@ export default class MovieList extends Component {
   // 받는 prop : page와 movie
   // page: main -> /movie 경로, MoviePage 상태(전체 리스트)
   // page: home -> / 경로, MainPage 상태(리스트 중 4개)
-  // movie: current -> 리스트 종류 현재 상영작
-  // movie: upcomming -> 리스트 종류 개봉 예정작
+  // movie: movies -> 리스트 종류 현재 상영작
+  // movie: movies/pre -> 리스트 종류 개봉 예정작
 
   constructor(props) {
     super(props);
@@ -54,7 +54,6 @@ export default class MovieList extends Component {
     });
     const list = nowList.concat(data.results);
     const next = data.next;
-    console.log(list);
     this.setState({
       list,
       next,
@@ -65,7 +64,7 @@ export default class MovieList extends Component {
     const { list, loading, next } = this.state;
     return (
       <MovieListView
-        // key={next}
+        next={next}
         list={list}
         movie={this.props.movie}
         page={this.props.page}

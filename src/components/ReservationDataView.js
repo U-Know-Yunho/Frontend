@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import s from '../scss/ReservationData.module.scss';
-import { withReserving } from '../contexts/ReserveContext';
 
 export default class ReservationDataView extends Component {
   //   handleEmptyString(str) {
@@ -38,6 +37,16 @@ export default class ReservationDataView extends Component {
       alert('좌석을 인원수에 맞게 선택해주세요.');
     }
   }
+
+  handleReturnTofirst() {
+    const { onBackToFirst, onStep } = this.props;
+    const res = window.confirm('선택하신 정보가 초기화 됩니다');
+    if (res) {
+      onBackToFirst();
+      onStep('first');
+    }
+  }
+
   render() {
     const {
       step,
@@ -58,7 +67,10 @@ export default class ReservationDataView extends Component {
         {step === 'first' ? (
           <div className={s.previousButton}>CGV 홈</div>
         ) : step === 'sec' ? (
-          <div className={s.previousButton} onClick={() => onStep('first')}>
+          <div
+            className={s.previousButton}
+            onClick={() => this.handleReturnTofirst()}
+          >
             영화
           </div>
         ) : (
@@ -133,15 +145,6 @@ export default class ReservationDataView extends Component {
             <span className={s.empty}>좌석선택</span>
           )}
         </div>
-        {/* <div className={s.payData}>
-          {number > 0 && number === seat.length ? (
-            <span>
-              {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            </span>
-          ) : (
-            <span className={s.empty}>결제</span>
-          )}
-        </div> */}
         {step === 'first' ? (
           <div className={s.nextButton} onClick={() => this.handleNextStep()}>
             좌석
