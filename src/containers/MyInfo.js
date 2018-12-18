@@ -61,9 +61,13 @@ class MyInfo extends Component {
 
   async handleCheckPassword(e) {
     e.preventDefault();
+    // const token = localStorage.getItem('token');
     const password = e.target.pass.value;
     await api.post('/api/members/check-password/', {
       password,
+      // Header: {
+      //   'Content-Type': 'multipart/form-data',
+      // },
     });
     // 비밀번호 체크 요청이 성공하면 비밀번호 확인이 완료 된 것
     // 맞는 비밀번호를 입력했을 때 상태 바꿈

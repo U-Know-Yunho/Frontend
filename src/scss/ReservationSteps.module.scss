@@ -9,9 +9,14 @@
   }
 }
 
-// @media (max-width: 767px) {
-//   .ReservationStepsWrapper {
-//     padding-top: 132px;
-//     position: relative;
-//   }
-// }
+@media (max-width: 767px) {
+  .ReservationStepsWrapper {
+    padding-top: 126px;
+    position: relative;
+    h1 {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+  }
+}
