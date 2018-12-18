@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withUser } from '../contexts/UserContext';
 import s from '../scss/MyCGVNavView.module.scss';
 import classNames from 'classnames';
 import profile from '../scss/somebody.png';
 
-export default class MyCGVNavView extends Component {
+class MyCGVNavView extends Component {
   render() {
     //   현재 url 받아오기
     const currentLocation = this.props.location.pathname;
+    const { firstName, lastName } = this.props;
     return (
       <>
         <div className={s.myCGVProfile}>
           <img src={profile} alt="프로필 사진" />
-          <p>정윤호님</p>
+          <p>
+            {lastName}
+            {firstName}님
+          </p>
         </div>
         <div className={s.myCGVMenuBox}>
           <h3 className={s.myCGVMenuTitle}>정보수정</h3>
@@ -54,3 +59,4 @@ export default class MyCGVNavView extends Component {
     );
   }
 }
+export default withUser(MyCGVNavView);

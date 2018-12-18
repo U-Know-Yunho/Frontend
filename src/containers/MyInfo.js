@@ -17,8 +17,7 @@ class MyInfo extends Component {
       email: props.email,
       phoneNumber: props.phoneNumber,
       deleteSuccess: false,
-      //FIXME: 비밀번호 확인 api 되는거 확인하면 기본값 false로 변경하기
-      checkedPassword: true,
+      checkedPassword: false,
     };
   }
 
@@ -31,14 +30,16 @@ class MyInfo extends Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    const { password, email, phoneNumber } = this.state;
+    const { password, confirmPassword, email, phoneNumber } = this.state;
 
     // 비밀번호, 이메일, 핸드폰 정규표현식
     const pass = /^(?=.*\d)(?=.*[\w])(?=.*[\W]).{8,}$/gm;
     const mail = /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim;
-    const phone = /^\d{2,3}-\d{3,4}-\d{4}$/;
+    const phone = /^\d{2,3}\d{3,4}\d{4}$/;
     if (!pass.test(password)) {
       alert('비밀번호는 형식에 맞게 설정해주세요.');
+    } else if (password !== confirmPassword) {
+      alert('비밀번호를 다시 한 번 확인해주세요');
     } else if (!mail.test(email)) {
       alert('정확한 이메일 주소를 입력하세요');
     } else if (!phone.test(phoneNumber)) {
@@ -51,10 +52,12 @@ class MyInfo extends Component {
           email,
           phoneNumber,
         });
+
         // 정보 수정이 성공적으로 되었을 때
+        this.props.refreshInfo();
         alert('회원정보가 성공적으로 수정되었습니다');
       } catch {
-        alert('서버에서 에러가 발생했습니다');
+        alert('서버에서 에러가 발생했습니다. 잠시 후 다시 시도해주세요');
       }
     }
   }
@@ -65,9 +68,6 @@ class MyInfo extends Component {
     const password = e.target.pass.value;
     await api.post('/api/members/check-password/', {
       password,
-      // Header: {
-      //   'Content-Type': 'multipart/form-data',
-      // },
     });
     // 비밀번호 체크 요청이 성공하면 비밀번호 확인이 완료 된 것
     // 맞는 비밀번호를 입력했을 때 상태 바꿈

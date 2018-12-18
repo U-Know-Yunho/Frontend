@@ -23,7 +23,7 @@ class Header extends Component {
   }
 
   render() {
-    const { isLogin, logout, history } = this.props;
+    const { isLogin, logout, history, firstName, lastName } = this.props;
     const currentLocation = this.props.location.pathname;
     return (
       <div className={classNames(s.menuBar, { [s.active]: this.state.active })}>
@@ -37,6 +37,12 @@ class Header extends Component {
           Home
         </Link>
         <div className={classNames(s.menu)}>
+          {lastName !== '' && firstName !== '' && (
+            <Link to="/myCGV/info" className={s.username}>
+              {lastName}
+              {firstName}님
+            </Link>
+          )}
           <img
             src={close}
             alt="모바일메뉴 닫힘 버튼"

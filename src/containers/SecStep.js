@@ -4,6 +4,9 @@ import FirstDataView from '../components/FirstDataView';
 import Seat from '../containers/Seat';
 import s from '../scss/SecStep.module.scss';
 import { withReserving } from '../contexts/ReserveContext';
+import seatAble from '../scss/seat_able.png';
+import seatSelected from '../scss/seat_selected.png';
+import seatDisabled from '../scss/seat_disabled.png';
 
 class SecStep extends Component {
   constructor(props) {
@@ -53,7 +56,20 @@ class SecStep extends Component {
               onIncreaseSelect={() => this.handleIncreaseSelect()}
               onDecreaseSelect={() => this.handleDecreaseSelect()}
             />
-            <div className={s.side}>옵션 창입니다</div>
+            <div className={s.side}>
+              <figure>
+                <img src={seatSelected} alt="선택중인 좌석" />
+                <p>선택</p>
+              </figure>
+              <figure>
+                <img src={seatDisabled} alt="선택중인 좌석" />
+                <p>선택 불가</p>
+              </figure>
+              <figure>
+                <img src={seatAble} alt="선택중인 좌석" />
+                <p>선택 가능</p>
+              </figure>
+            </div>
           </div>
         </div>
       </React.Fragment>

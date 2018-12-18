@@ -1,5 +1,6 @@
 @import '../common.module.scss';
 
+// 데스크탑
 @media (min-width: 768px) {
   .menuBar {
     width: $content-width;
@@ -17,6 +18,16 @@
       right: -13px;
       .menuClose {
         display: none;
+      }
+      .username {
+        padding: 3px 6px;
+        margin: 0 14px;
+        color: $stone-gray;
+        font-size: 0.9rem;
+        border-bottom: 1px solid $stone-gray;
+        &:hover {
+          font-weight: 700;
+        }
       }
       .link {
         padding: 3px 10px;
@@ -71,6 +82,9 @@
     .menuClose {
       display: none;
     }
+    .username {
+      display: none;
+    }
   }
   // 모바일버전에서 메뉴 버튼을 눌렀을 때
   .menuBar.active {
@@ -106,6 +120,16 @@
         top: -4px;
         left: 18px;
         transform: rotateZ(-135deg);
+      }
+      &::after {
+        content: '';
+        display: block;
+        background-image: url(../../src/scss/img_deco_christmas1.png);
+        background-size: cover;
+        width: 100vw;
+        height: 20px;
+        position: absolute;
+        top: 0;
       }
       .menuClose {
         display: block;
