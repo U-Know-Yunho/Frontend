@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import s from '../scss/FirstStep.module.scss';
 import api from '../api';
-import FirstStepTheaterView from '../components/FirstStepTheaterView';
-import FirstStepMovieView from '../components/FirstStepMovieView';
-import FirstStepDateView from '../components/FirstStepDateView';
-import FirstStepTimeView from '../components/FirstStepTimeView';
-import withLoading from '../hoc/withLoading';
+import s from '../scss/FirstStepView.module.scss';
+import FirstStepView from '../components/FirstStepView';
 
 export default class FirstStep extends Component {
   constructor(props) {
@@ -56,7 +52,12 @@ export default class FirstStep extends Component {
     this.handleLocationList(dataList.location);
     this.handleDateList(dataList.date);
 
-    this.handleLocationClick(dataList.location[0].location);
+    // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
+    if (pk && movieTitle === '') {
+      this.handleMovieClick(pk);
+    } else {
+      this.handleLocationClick(dataList.location[0].location);
+    }
 
     // secStep에서 뒤로가기 눌렀을 시
     if (
@@ -90,11 +91,6 @@ export default class FirstStep extends Component {
       });
 
       firstStepInitialize(!firstStepReload);
-    }
-
-    // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
-    if (pk && movieTitle === '') {
-      this.handleMovieClick(pk);
     }
   }
 
@@ -205,8 +201,8 @@ export default class FirstStep extends Component {
     dateParams.append('location', selectedLocation);
     // subLocation
     if (selectedSubLocation !== '') {
-      movieParams.append('sub_location', selectedSubLocation);
-      dateParams.append('sub_location', selectedSubLocation);
+      movieParams.append('subLocation', selectedSubLocation);
+      dateParams.append('subLocation', selectedSubLocation);
     }
     // date
     if (selectedDate !== '') {
@@ -226,7 +222,8 @@ export default class FirstStep extends Component {
     }
     if (lastSelected !== 'subLocation') {
       const dataList = await this.getDataList(subLocationParams);
-      this.handleSubLocationList(dataList.subLocation);
+      if (dataList.subLocation)
+        this.handleSubLocationList(dataList.subLocation);
     }
     if (lastSelected !== 'date') {
       const dataList = await this.getDataList(dateParams);
@@ -356,11 +353,14 @@ export default class FirstStep extends Component {
 
   render() {
     return (
-      <div className={s.firstStepWrapper}>
-        <FirstStepMovieView {...this.props} {...this.state} />
-        <FirstStepTheaterView {...this.props} {...this.state} />
-        <FirstStepDateView {...this.props} {...this.state} />
-        <FirstStepTimeView {...this.props} {...this.state} />
+      <div className={[s.firstStepWrapper]}>
+        <div className={s.dataTitlesWrapper}>
+          <h3>영화</h3>
+          <h3>극장</h3>
+          <h3 className={s.dateBoxTitle}>날짜</h3>
+          <h3 className={s.timeBoxTitle}>시간</h3>
+        </div>
+        <FirstStepView {...this.state} {...this.props} />
       </div>
     );
   }

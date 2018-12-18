@@ -1,96 +1,84 @@
 @import '../common.module.scss';
 
-.eachDataBox {
-  flex: 1;
-  background-color: $stone-gray;
-  color: $lighten-silver;
-  height: 500px;
-  border-right: 1px solid $silver-gray;
+@media (min-width: 768px) {
+  // .firstStepWrapper {
+  //   width: 750px;
+  //   display: flex;
+  // }
+  // 서형이&혜비랑 상의해보기 길이 값
+  .firstStepWrapper {
+    width: 67vw;
+    min-width: 750px;
+    max-width: 1050px;
+    height: 500px;
+    background-color: $stone-gray;
 
-  h3 {
-    background-color: $black;
-    color: $white;
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-  }
-
-  .scrollBox {
-    height: 460px;
-    overflow-y: scroll;
-  }
-
-  li {
-    margin: 10px;
-    padding: 5px;
-    cursor: pointer;
-    line-height: 1.4rem;
-    transition: 0.3s;
-  }
-
-  .movieNoneLi {
-    color: $silver-gray;
-    cursor: not-allowed;
-  }
-  .movieLi {
-    position: relative;
-    text-indent: 25px;
-
-    &::after {
-      content: '';
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg/2000px-Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg.png');
-      background-size: 18px 18px;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 30px;
-      height: 30px;
+    .dataTitlesWrapper {
+      display: flex;
+      h3 {
+        flex: 3;
+        background-color: $black;
+        color: $white;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-right: 1px solid $silver-gray;
+        font-size: 1.1rem;
+        // font-weight: bold;
+      }
+      .dateBoxTitle {
+        flex: 1.5;
+      }
+      .timeBoxTitle {
+        border-right: none;
+      }
     }
 
-    &:hover {
-      color: $red;
+    .dataBoxesWrapper {
+      display: flex;
+      height: 460px;
+      position: relative;
+
+      .movieDataBox,
+      .theaterDataBox,
+      .dateDataBox,
+      .timeDataBox {
+        flex: 3;
+        background-color: $stone-gray;
+        color: $lighten-silver;
+        border-right: 1px solid $silver-gray;
+      }
+      .dateDataBox {
+        flex: 1.5;
+      }
+      .timeDataBox {
+        border-right: none;
+      }
     }
-  }
-
-  .locationWrapper {
-    display: flex;
-    justify-content: space-between;
-    height: 460px;
-
-    .locationBox {
-      flex: 1;
-    }
-
-    .locationLi {
-      margin: 10px;
-      background-color: $lightstone-gray;
-      text-align: right;
-    }
-
-    .subLocationBox {
-      flex: 1;
-    }
-  }
-
-  .selected {
-    color: $white;
-    transition: 0.3s;
-    background-color: $red !important;
-    border-radius: 1px;
-
-    &:hover {
-      color: $white;
+    .loadingWrapper {
+      height: 500px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $white;
+      }
     }
   }
 }
-
 @media (max-width: 767px) {
-  .eachDataBox {
-    height: 400px;
-    ul {
-      overflow-y: scroll;
+  .firstStepWrapper {
+    width: 100vw;
+
+    .eachDataBox {
+      height: 400px;
+      //     ul {
+      //       overflow-y: scroll;
+      //     }
     }
   }
 }

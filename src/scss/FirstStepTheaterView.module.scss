@@ -1,0 +1,48 @@
+@import '../common.module.scss';
+
+.locationWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 460px;
+
+  .locationBox {
+    flex: 1;
+  }
+
+  .locationLi {
+    margin: 10px 5px 10px 10px;
+    background-color: $lightstone-gray;
+    text-align: right;
+  }
+  .subLocationLi {
+    margin: 10px 10px 10px 5px;
+  }
+
+  .subLocationBox {
+    flex: 1;
+  }
+
+  li {
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 1.4rem;
+    transition: 0.3s;
+  }
+
+  .movieNoneLi {
+    color: $silver-gray;
+    cursor: not-allowed;
+  }
+
+  .selected {
+    color: $white;
+    transition: 0.3s;
+    background-color: $red !important;
+    border-radius: 1px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

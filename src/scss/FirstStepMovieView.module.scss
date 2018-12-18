@@ -1,0 +1,51 @@
+@import '../common.module.scss';
+
+.scrollBox {
+  height: 460px;
+  overflow-y: scroll;
+  li {
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 1.4rem;
+    transition: 0.3s;
+  }
+
+  .movieNoneLi {
+    color: $silver-gray;
+    cursor: not-allowed;
+  }
+  .movieLi {
+    position: relative;
+    padding-left: 30px;
+    // display: block;
+
+    &::after {
+      content: '';
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg/2000px-Republic_Of_Korea_Broadcasting-TV_Rating_System%2812%29.svg.png');
+      background-size: 18px 18px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+    }
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  .selected {
+    color: $white;
+    transition: 0.3s;
+    background-color: $red !important;
+    border-radius: 1px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

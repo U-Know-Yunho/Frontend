@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import s from '../scss/FirstStepView.module.scss';
+import s from '../scss/FirstStepMovieView.module.scss';
 import api from '../api';
-import withLoading from '../hoc/withLoading';
 
-class FirstStepMovieView extends Component {
+export default class FirstStepMovieView extends Component {
   render() {
     const {
       movieShowList,
@@ -15,33 +14,28 @@ class FirstStepMovieView extends Component {
     } = this.props;
 
     return (
-      <div className={s.eachDataBox}>
-        <h3>영화</h3>
-        <ul className={s.scrollBox}>
-          {movieShowList.map(m => (
-            <li
-              key={m.title}
-              onClick={() => handleMovieClick(m.pk)}
-              className={classNames([s.movieLi], {
-                [s.selected]: m.title === movieTitle,
-              })}
-            >
-              {m.title}
-            </li>
-          ))}
-          {movieNoneList.map(m => (
-            <li
-              key={m.title}
-              onClick={() => handleInvalidClick()}
-              className={s.movieNoneLi}
-            >
-              {m.title}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className={s.scrollBox}>
+        {movieShowList.map(m => (
+          <li
+            key={m.title}
+            onClick={() => handleMovieClick(m.pk)}
+            className={classNames([s.movieLi], {
+              [s.selected]: m.title === movieTitle,
+            })}
+          >
+            {m.title}
+          </li>
+        ))}
+        {movieNoneList.map(m => (
+          <li
+            key={m.title}
+            onClick={() => handleInvalidClick()}
+            className={s.movieNoneLi}
+          >
+            {m.title}
+          </li>
+        ))}
+      </ul>
     );
   }
 }
-
-export default withLoading(FirstStepMovieView);

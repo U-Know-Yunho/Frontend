@@ -1,0 +1,110 @@
+@import '../common.module.scss';
+
+.timeWrapper {
+  .dayNight {
+    border: 1px solid powderblue;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 0;
+    border: none;
+    border-bottom: 1px solid $silver-gray;
+    .jojoTitle,
+    .nightTitle {
+      position: relative;
+      margin: 0 5px;
+      font-size: 0.9rem;
+    }
+  }
+  .jojo,
+  .night {
+    width: inherit;
+    height: inherit;
+    text-indent: 25px;
+  }
+  .jojo::after {
+    content: '';
+    background: url('./sun.png');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    top: 0;
+    left: 0;
+  }
+  .night::after {
+    content: '';
+    background: url('./luna.png');
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    top: 0;
+    left: 0;
+  }
+  li {
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 1.4rem;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    // border: 1px solid orange;
+  }
+  .timeLi:hover {
+    color: $red;
+  }
+  .timeInfo {
+    // border: 1px solid red;
+    display: inline-block;
+    position: relative;
+    .time {
+      font-weight: bold;
+    }
+    .currentSeatsNo,
+    .auditorium {
+      font-size: 0.8rem;
+      color: $silver;
+    }
+  }
+  .jojoSign {
+    position: relative;
+    text-indent: 25px;
+    margin: 0 5px;
+    font-size: 0.9rem;
+    &::after {
+      content: '';
+      background: url('./sun.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      //   border: 1px solid red;
+      height: 80%;
+      line-height: 80%;
+      margin: 5% 0;
+      width: 25px;
+      left: 0;
+    }
+  }
+
+  .movieNoneLi {
+    color: $silver-gray;
+    cursor: not-allowed;
+  }
+  .selected {
+    color: $white;
+    transition: 0.3s;
+    background-color: $red !important;
+    border-radius: 1px;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
