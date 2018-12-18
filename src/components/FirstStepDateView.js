@@ -46,7 +46,7 @@ export default class FirstStepDateView extends Component {
     const year = this.getYear(dateList[0][0], monthGroup.length);
     const month = this.getMonth(dateList[0][0], monthGroup.length);
     return (
-      <div className={s.scrollBox}>
+      <div className={s.dateBox}>
         {monthGroup.map((group, index) => (
           <ul key={group}>
             <li className={s.year}>{year[index]}</li>

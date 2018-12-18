@@ -14,7 +14,7 @@ export default class FirstStepMovieView extends Component {
     } = this.props;
 
     return (
-      <ul className={s.scrollBox}>
+      <ul className={s.movieBox}>
         {movieShowList.map(m => (
           <li
             key={m.title}

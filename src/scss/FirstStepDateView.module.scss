@@ -1,6 +1,6 @@
 @import '../common.module.scss';
 
-.scrollBox {
+.dateBox {
   height: 460px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -16,17 +16,13 @@
     color: $red;
   }
   .year {
-    // border: 1px solid red;
     line-height: 1rem;
-    // padding: 0;
     margin-bottom: 0;
     font-size: 0.9rem;
   }
   .month {
-    // border: 1px solid blue;
     font-weight: bold;
     font-size: 2rem;
-    // padding: 0;
     margin-top: 0;
   }
 
@@ -59,6 +55,21 @@
 
     &:hover {
       color: $white;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dateBox {
+    border-bottom: 10px solid #242320;
+    height: fit-content;
+    overflow: hidden;
+    li {
+      display: inline-block;
+    }
+    .year,
+    .month {
+      display: block;
     }
   }
 }

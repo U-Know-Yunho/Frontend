@@ -108,3 +108,13 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .timeWrapper {
+    border-bottom: 0;
+    height: fit-content;
+    li {
+      display: inline-block;
+    }
+  }
+}

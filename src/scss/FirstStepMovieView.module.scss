@@ -1,6 +1,6 @@
 @import '../common.module.scss';
 
-.scrollBox {
+.movieBox {
   height: 460px;
   overflow-y: scroll;
   li {
@@ -47,5 +47,13 @@
     &:hover {
       color: $white;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .movieBox {
+    height: fit-content;
+    overflow: hidden;
+    border-bottom: 10px solid #242320;
   }
 }

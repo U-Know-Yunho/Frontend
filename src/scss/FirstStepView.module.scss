@@ -72,13 +72,31 @@
 }
 @media (max-width: 767px) {
   .firstStepWrapper {
-    width: 100vw;
-
-    .eachDataBox {
-      height: 400px;
-      //     ul {
-      //       overflow-y: scroll;
-      //     }
+    width: 100%;
+    background-color: $stone-gray;
+    color: $lighten-silver;
+    .dataTitlesWrapper {
+      display: flex;
+      h3 {
+        font-size: 1rem;
+        display: inline-block;
+        background-color: $black;
+        color: $white;
+        flex: 1;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        &::after {
+          content: '>';
+          position: absolute;
+          right: 0;
+        }
+        &:last-of-type {
+          &::after {
+            content: '';
+          }
+        }
+      }
     }
   }
 }
