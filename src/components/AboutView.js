@@ -6,17 +6,23 @@ export default class AboutView extends Component {
     const { memberData } = this.props;
     return (
       <div className={s.AboutBox}>
-        <h3>유노윤호들</h3>
+        <h3>열정 지기</h3>
         <div className={s.members}>
           {memberData.map(m => (
             <div className={s.member}>
               <img src={m.img} alt={m.name} className={s.image} />
               <span>{m.name}</span>
               <span>[{m.role}]</span>
-              <span>{m.comment}</span>
+              {m.comment.map(c => (
+                <span>{c}</span>
+              ))}
               <div className={s.button}>
-                <button>git hub</button>
-                <button>찜하기</button>
+                <a href={m.git} target="_blank" rel="noopener noreferrer">
+                  GITHUB
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  찜하기
+                </a>
               </div>
             </div>
           ))}
