@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import s from '../scss/FirstStepView.module.scss';
 import classNames from 'classnames';
+import withLoading from '../hoc/withLoading';
 
-export default class FirstStepDateView extends Component {
+class FirstStepDateView extends Component {
   render() {
     const { handleDateClick, date, dateList, handleInvalidClick } = this.props;
     return (
@@ -37,3 +38,5 @@ export default class FirstStepDateView extends Component {
     );
   }
 }
+
+export default withLoading(FirstStepDateView);

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/FirstStepView.module.scss';
+import withLoading from '../hoc/withLoading';
 
-export default class FirstStepTheaterView extends Component {
+class FirstStepTheaterView extends Component {
   render() {
     const {
       locationList,
@@ -72,3 +73,5 @@ export default class FirstStepTheaterView extends Component {
     );
   }
 }
+
+export default withLoading(FirstStepTheaterView);

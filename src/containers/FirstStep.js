@@ -5,13 +5,14 @@ import FirstStepTheaterView from '../components/FirstStepTheaterView';
 import FirstStepMovieView from '../components/FirstStepMovieView';
 import FirstStepDateView from '../components/FirstStepDateView';
 import FirstStepTimeView from '../components/FirstStepTimeView';
-import { decode } from 'punycode';
+import withLoading from '../hoc/withLoading';
 
 export default class FirstStep extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      loading: true,
       lastSelected: '',
       selectedMovieTitle: '',
       selectedSubLocation: '',
@@ -233,6 +234,11 @@ export default class FirstStep extends Component {
     }
 
     this.isReadyForTimeList();
+
+    console.log('loading false');
+    this.setState({
+      loading: false,
+    });
   }
 
   async getDataList(params) {

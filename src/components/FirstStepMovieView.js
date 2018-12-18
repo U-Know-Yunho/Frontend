@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/FirstStepView.module.scss';
 import api from '../api';
+import withLoading from '../hoc/withLoading';
 
-export default class FirstStepMovieView extends Component {
+class FirstStepMovieView extends Component {
   render() {
     const {
       movieShowList,
@@ -42,3 +43,5 @@ export default class FirstStepMovieView extends Component {
     );
   }
 }
+
+export default withLoading(FirstStepMovieView);
