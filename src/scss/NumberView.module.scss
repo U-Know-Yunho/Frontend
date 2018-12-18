@@ -3,11 +3,25 @@
   .wrapper {
     width: 50%;
     min-width: 320px;
+    ul {
+      li {
+        padding: 5px 10px;
+      }
+    }
   }
 }
 @media (max-width: 767px) {
   .wrapper {
     width: 100%;
+    p {
+      font-size: 0.8rem;
+    }
+    ul {
+      font-size: 0.8rem;
+      li {
+        padding: 4px 7px;
+      }
+    }
   }
 }
 
@@ -26,7 +40,6 @@
     li {
       background-color: $lightstone-gray;
       margin: 2px;
-      padding: 5px 10px;
       cursor: pointer;
     }
     .selected {
