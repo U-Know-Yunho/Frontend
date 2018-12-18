@@ -11,7 +11,7 @@ export default class About extends Component {
           name: '안세나',
           img: 'https://avatars3.githubusercontent.com/u/42930317?s=460&v=4',
           role: 'Front-end Developer',
-          comment: ['!!세나 === 열정', '고양이 집사'],
+          comment: ['!!세나 === 열정', '고양이 집사 & 초코 덕후'],
           git: 'https://github.com/sena-a',
         },
         {
