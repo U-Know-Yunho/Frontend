@@ -32,9 +32,27 @@
       // 각 버튼 클릭 시 빨간 색으로 표시
       .active {
         transition: 0.3s;
-        background: $dark-red;
+        background: $red;
       }
     }
+
+    button {
+      background: $red;
+      width: 88px;
+      height: 40px;
+      margin-top: 40px;
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 3.2;
+      border: none;
+      color: $white;
+      transition: 0.3s;
+
+      &:hover {
+        background: $black;
+      }
+    }
+
   }
 }
 

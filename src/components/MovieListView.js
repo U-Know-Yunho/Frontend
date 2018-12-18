@@ -95,7 +95,7 @@ class MovieListView extends Component {
         </ul>
         {page === 'main' && (
           <button className={s.viewMore} onClick={() => onViewMore()}>
-            더보기
+            더 보기
           </button>
         )}
       </React.Fragment>
