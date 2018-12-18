@@ -43,7 +43,7 @@ export default class MyInfoView extends Component {
                 name="password"
                 id="password"
                 onChange={e => onFieldChange(e, 'password')}
-                placeholder="입력하지 않으시면 변경되지 않습니다"
+                required
               />
               <span className={s.default}>
                 문자,숫자,특수문자를 하나 이상 포함하세요
@@ -56,6 +56,7 @@ export default class MyInfoView extends Component {
                 type="password"
                 id="confirmPassword"
                 onChange={e => onFieldChange(e, 'confirmPassword')}
+                required
               />
 
               {confirmPassword === '' ? (

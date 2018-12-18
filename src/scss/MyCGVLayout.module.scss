@@ -2,7 +2,7 @@
 
 @media (min-width: 768px) {
   .myCGVWrapper {
-    padding: 20vh;
+    padding: 20vh 0;
     background-color: $silver-white;
     box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
     h2 {
@@ -13,7 +13,9 @@
       margin-bottom: 30px;
     }
     .myCGVBox {
-      width: 100%;
+      width: 65%;
+      max-width: 920px;
+      min-width: 550px;
       height: 600px;
       margin: 10px auto;
       display: flex;
@@ -21,12 +23,15 @@
         //   border: 1px solid orange;
         // flex: 1;
         width: 20%;
+        max-width: 200px;
         min-width: 180px;
         margin-right: 20px;
       }
       .myCGVContent {
         // flex: 3;
         width: 80%;
+        max-width: 700px;
+        min-width: 350px;
         background-color: $white;
         box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
         display: flex;
