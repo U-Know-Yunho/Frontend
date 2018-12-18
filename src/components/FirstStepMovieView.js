@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/FirstStepView.module.scss';
 import api from '../api';
+import withLoading from '../hoc/withLoading';
 
-export default class FirstStepMovieView extends Component {
+class FirstStepMovieView extends Component {
   render() {
     const {
       movieShowList,
       movieNoneList,
       movieTitle,
       handleMovieClick,
+      handleInvalidClick,
     } = this.props;
 
     return (
@@ -28,7 +30,11 @@ export default class FirstStepMovieView extends Component {
             </li>
           ))}
           {movieNoneList.map(m => (
-            <li key={m.title} className={s.movieNoneLi}>
+            <li
+              key={m.title}
+              onClick={() => handleInvalidClick()}
+              className={s.movieNoneLi}
+            >
               {m.title}
             </li>
           ))}
@@ -37,3 +43,5 @@ export default class FirstStepMovieView extends Component {
     );
   }
 }
+
+export default withLoading(FirstStepMovieView);
