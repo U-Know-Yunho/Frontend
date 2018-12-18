@@ -13,9 +13,15 @@
     margin: 10px 5px 10px 10px;
     background-color: $lightstone-gray;
     text-align: right;
+    &:hover {
+      color: $red;
+    }
   }
   .subLocationLi {
     margin: 10px 10px 10px 5px;
+    &:hover {
+      color: $red;
+    }
   }
 
   .subLocationBox {

@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import s from '../scss/ReservationData.module.scss';
 
 export default class ReservationDataView extends Component {
-  //   handleEmptyString(str) {
-  //     console.log(str);
-  //     return str.trim() === '';
-  //   }
-
   handleNextStep() {
     const {
       movieTitle,

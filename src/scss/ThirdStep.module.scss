@@ -1,7 +1,9 @@
 @import '../common.module.scss';
 @media (min-width: 768px) {
   .thirdStepWrapper {
-    width: 750px;
+    width: 67vw;
+    min-width: 750px;
+    max-width: 1050px;
     display: flex;
   }
 }

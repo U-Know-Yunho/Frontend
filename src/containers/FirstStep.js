@@ -232,7 +232,6 @@ export default class FirstStep extends Component {
 
     this.isReadyForTimeList();
 
-    console.log('loading false');
     this.setState({
       loading: false,
     });
