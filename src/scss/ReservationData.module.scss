@@ -109,10 +109,11 @@
     .seatData {
       display: flex;
       justify-content: center;
-      align-items: center;
+      // align-items: center;
       color: $silver;
 
       ul {
+        padding-top: 25px;
         width: 90%;
       }
 
@@ -165,58 +166,143 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-top: 0;
     }
   }
 }
 
-// @media (max-width: 767px) {
-//   .dataWrapper {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 100vw;
-//     // height: 120px;
-//     background-color: $stone-gray;
-//     color: white;
-//     position: fixed;
-//     top: 54px;
-//     // padding-top: 7px;
+@media (max-width: 767px) {
+  .dataWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    // height: 120px;
+    background-color: $stone-gray;
+    color: white;
+    position: fixed;
+    top: 54px;
+    // border-top: 10px solid $light-silver;
+    border-bottom: 26px solid $silver-white;
+    // padding-top: 7px;
 
-//     .movieData,
-//     .basicData,
-//     .seatData,
-//     .payData {
-//       order: -1;
-//       width: 25%;
-//       height: 100px;
-//     }
-//     .movieData {
-//       background-image: url('../../src/scss/menu_movie.png');
-//       background-size: contain;
-//       background-repeat: no-repeat;
-//       background-position: center;
-//       background-position-y: 7px;
-//     }
-//     .previousButton,
-//     .nextButton {
-//       width: 50%;
-//       height: 35px;
-//       padding: 5px;
-//       background-color: white;
-//       color: $stone-gray;
-//       text-align: center;
-//       line-height: 25px;
-//       font-size: 0.9rem;
-//       font-weight: bold;
-//     }
-//     .previousButton {
-//       border-right: 1px solid $stone-gray;
-//       // background-color: white;
-//     }
-//     .nextButton {
-//       border-left: 1px solid $stone-gray;
-//     }
-//     .empty {
-//       display: none;
-//     }
-//   }
-// }
+    .movieData,
+    .basicData,
+    .seatData {
+      order: 2;
+      // flex: 1;
+      // width: 30%;
+      flex: 1;
+      height: 100px;
+      // border-bottom: 1px solid $light-gray;
+    }
+    .movieData {
+      display: flex;
+      color: $silver;
+      width: 80px;
+      max-width: 80px;
+      // background-image: url('../../src/scss/menu_movie.png');
+      // background-size: contain;
+      // background-repeat: no-repeat;
+      // background-position: center;
+      // background-position-y: 7px;
+      .moviePoster {
+        width: 80px;
+        height: 100%;
+      }
+      .movieInfo {
+        display: none;
+      }
+    }
+    .basicData,
+    .seatData {
+      // min-width: 80px;
+      // border-left: 1px solid $light-gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $silver;
+      ul {
+        width: 90%;
+        margin: 0 auto;
+        padding-left: 10%;
+      }
+
+      li {
+        font-size: 0.7rem;
+        margin: 2px;
+
+        .subTitle {
+          display: inline-block;
+          color: $white;
+          width: 30%;
+          min-width: 30px;
+        }
+      }
+    }
+
+    .previousButton,
+    .nextButton {
+      position: fixed;
+      top: 150px;
+      height: 35px;
+      padding: 5px;
+      // background-color: white;
+      color: $stone-gray;
+      text-align: center;
+      line-height: 25px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .previousButton {
+      left: 0;
+    }
+    .nextButton {
+      right: 0;
+    }
+    .seatData {
+      ul {
+        width: 90%;
+        margin: 0 auto;
+        // padding-left: 10%;
+
+        // 좌석 번호 영역
+        li:nth-child(3) {
+          display: flex;
+          span:nth-child(2) {
+            width: 60%;
+            padding-left: 2px;
+            // min-height: 32px;
+          }
+        }
+        li:nth-child(4) {
+          text-align: right;
+          padding-top: 7px;
+          color: $white;
+          font-size: 0.7rem;
+          // padding-right: 8px;
+        }
+      }
+      .priceSubTitle {
+        font-weight: bold;
+        margin-right: 4px;
+      }
+      .price {
+        color: $red;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+    .empty {
+      display: none;
+      // width: 100%;
+      // height: 100%;
+      // color: $light-gray;
+      // font-weight: bold;
+      // text-align: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // padding-top: 0;
+    }
+  }
+}
