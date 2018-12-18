@@ -41,10 +41,12 @@
         top: -1px;
         left: -1px;
       }
+
       img {
         width: 100%;
         height: 100%;
       }
+
       figcaption {
         display: none;
       }
@@ -53,6 +55,7 @@
     .mobileInfo {
       display: none;
     }
+
     .button {
       display: none;
     }
@@ -120,6 +123,7 @@
 
 // 데스크탑
 @media (min-width: 768px) {
+
   // 전체 ul
   .movieList {
     display: flex;
@@ -157,13 +161,15 @@
     figure {
       height: 272x;
       position: relative;
+
       // 포스터 이미지
       img {
         width: 162px;
         margin: 0 auto;
         height: 235px;
       }
-      .loaded + figcaption::before {
+
+      .loaded+figcaption::before {
         content: '';
         display: block;
         width: 170px;
@@ -186,17 +192,20 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     // 개봉 예정작에서만 적용
     .info {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     // 개봉일
     .date {
       margin: 5px 0 7px;
       font-size: 0.8rem;
       font-weight: bold;
+
       // line-height: 0.8rem;
       span {
         display: inline-block;
@@ -204,6 +213,7 @@
         font-size: 0.8rem;
       }
     }
+
     // 예매율
     .score {
       display: flex;
@@ -213,6 +223,7 @@
       margin: 4px 0 8px;
       font-size: 0.8rem;
       height: 20px;
+
       &::before {
         content: '';
         display: inline-block;
@@ -224,6 +235,7 @@
         // margin: 0 5px;
       }
     }
+
     // 상세정보 & 예매하기 버튼
     .button {
       display: flex;
@@ -238,10 +250,12 @@
         height: 40px;
         line-height: 40px;
       }
+
       // 예매하기 버튼 없을 때 width 값 전체 차지하기
       .single {
         width: 164px;
       }
+
       // a:nth-child(1) {
       //   margin-right: 3px;
       // }
@@ -285,13 +299,14 @@
       }
     }
   }
+
 }
 
 // 공통부분 - 이미지 로딩 인디케이터
 
 .movieItem {
   figure {
-    .loaded + figcaption + .ispinner {
+    .loaded+figcaption+.ispinner {
       position: absolute;
       width: 20px;
       height: 20px;
@@ -308,54 +323,67 @@
         animation: iSpinnerBlade 1s linear infinite;
         animation-play-state: paused;
       }
+
       .ispinner__blade:nth-child(1) {
         animation-delay: -1.6666666667s;
         transform: rotate(30deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(2) {
         animation-delay: -1.5833333333s;
         transform: rotate(60deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(3) {
         animation-delay: -1.5s;
         transform: rotate(90deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(4) {
         animation-delay: -1.4166666667s;
         transform: rotate(120deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(5) {
         animation-delay: -1.3333333333s;
         transform: rotate(150deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(6) {
         animation-delay: -1.25s;
         transform: rotate(180deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(7) {
         animation-delay: -1.1666666667s;
         transform: rotate(210deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(8) {
         animation-delay: -1.0833333333s;
         transform: rotate(240deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(9) {
         animation-delay: -1s;
         transform: rotate(270deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(10) {
         animation-delay: -0.9166666667s;
         transform: rotate(300deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(11) {
         animation-delay: -0.8333333333s;
         transform: rotate(330deg) translate(0, -150%);
       }
+
       .ispinner__blade:nth-child(12) {
         animation-delay: -0.75s;
         transform: rotate(360deg) translate(0, -150%);
       }
+
       .ispinner__blade {
         animation-play-state: running;
       }
@@ -363,6 +391,7 @@
       .ispinner__blade {
         background-color: $dark-red;
       }
+
       height: 35px;
     }
 
@@ -370,9 +399,11 @@
       0% {
         opacity: 0.85;
       }
+
       50% {
         opacity: 0.25;
       }
+
       100% {
         opacity: 0.25;
       }
