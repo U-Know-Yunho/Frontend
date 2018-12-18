@@ -15,6 +15,7 @@ export default class UserProvider extends Component {
       checkId: this.checkId.bind(this),
       socialLogin: this.socialLogin.bind(this),
       deleteAcc: this.deleteAcc.bind(this),
+      refreshInfo: this.refreshInfo.bind(this),
       username: '',
       lastName: '',
       firstName: '',
@@ -29,11 +30,6 @@ export default class UserProvider extends Component {
         data: { username: name, lastName, firstName, email, phoneNumber },
       } = await api.get('/api/members/profile/');
 
-      // 베이스URL 설정
-      // const apiWithoutBaseUrl = api.create({
-      //   baseUrl: ""
-      // })
-      // console.log(name);
       this.setState({
         isLogin: true,
         username: name,
@@ -156,6 +152,16 @@ export default class UserProvider extends Component {
     });
   }
 
+  async refreshInfo() {
+    const {
+      data: { email, phoneNumber },
+    } = await api.get('/api/members/profile/');
+
+    this.setState({
+      email,
+      phoneNumber,
+    });
+  }
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
