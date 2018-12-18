@@ -7,13 +7,32 @@ import ReservationDataView from '../components/ReservationDataView';
 import ThirdStep from './ThirdStep';
 
 class ReservationSteps extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      firstStepReload: false,
+      firstStepInitialize: this.firstStepInitialize.bind(this),
+    };
+  }
+
+  firstStepInitialize(bool) {
+    this.setState({
+      firstStepReload: bool,
+    });
+  }
+
   render() {
     return (
       <div className={s.ReservationStepsWrapper}>
         {this.props.step === 'first' ? (
           <>
             <h1>Reservation</h1>
-            <FirstStep {...this.props} />
+            <FirstStep
+              key={this.state.firstStepReload}
+              {...this.props}
+              {...this.state}
+            />
           </>
         ) : this.props.step === 'sec' ? (
           <>

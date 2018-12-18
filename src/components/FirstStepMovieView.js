@@ -10,6 +10,7 @@ export default class FirstStepMovieView extends Component {
       movieNoneList,
       movieTitle,
       handleMovieClick,
+      handleInvalidClick,
     } = this.props;
 
     return (
@@ -28,7 +29,11 @@ export default class FirstStepMovieView extends Component {
             </li>
           ))}
           {movieNoneList.map(m => (
-            <li key={m.title} className={s.movieNoneLi}>
+            <li
+              key={m.title}
+              onClick={() => handleInvalidClick()}
+              className={s.movieNoneLi}
+            >
               {m.title}
             </li>
           ))}

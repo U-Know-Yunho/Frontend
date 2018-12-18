@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export default class FirstStepDateView extends Component {
   render() {
-    const { handleDateClick, date, dateList } = this.props;
+    const { handleDateClick, date, dateList, handleInvalidClick } = this.props;
     return (
       <div className={s.eachDataBox}>
         <h3>날짜</h3>
@@ -22,7 +22,11 @@ export default class FirstStepDateView extends Component {
                   {d[0].date}
                 </li>
               ) : (
-                <li key={d[0].date} className={s.movieNoneLi}>
+                <li
+                  key={d[0].date}
+                  onClick={() => handleInvalidClick()}
+                  className={s.movieNoneLi}
+                >
                   {d[0].date}
                 </li>
               )

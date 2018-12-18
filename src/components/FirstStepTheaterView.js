@@ -12,23 +12,34 @@ export default class FirstStepTheaterView extends Component {
       subLocation,
       handleLocationClick,
       handleSubLocationClick,
+      handleInvalidClick,
     } = this.props;
     return (
       <div className={s.eachDataBox}>
         <h3>극장</h3>
         <div className={s.locationWrapper}>
           <ul className={s.locationBox}>
-            {locationList.map(t => (
-              <li
-                key={t.location}
-                onClick={() => handleLocationClick(t)}
-                className={classNames([s.locationLi], {
-                  [s.selected]: t.location === location,
-                })}
-              >
-                {t.location}({t.num})
-              </li>
-            ))}
+            {locationList.map(t =>
+              t.num === 0 ? (
+                <li
+                  key={t.location}
+                  onClick={() => handleInvalidClick()}
+                  className={[s.locationLi]}
+                >
+                  {t.location}({t.num})
+                </li>
+              ) : (
+                <li
+                  key={t.location}
+                  onClick={() => handleLocationClick(t.location)}
+                  className={classNames([s.locationLi], {
+                    [s.selected]: t.location === location,
+                  })}
+                >
+                  {t.location}({t.num})
+                </li>
+              )
+            )}
           </ul>
           <ul className={s.subLocationBox}>
             {subLocationShowList !== []
@@ -46,7 +57,11 @@ export default class FirstStepTheaterView extends Component {
               : null}
             {subLocationNoneList !== []
               ? subLocationNoneList.map(l => (
-                  <li key={l.subLocation} className={s.movieNoneLi}>
+                  <li
+                    key={l.subLocation}
+                    onClick={() => handleInvalidClick()}
+                    className={s.movieNoneLi}
+                  >
                     {l.subLocation}
                   </li>
                 ))

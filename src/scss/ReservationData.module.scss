@@ -73,23 +73,22 @@
     .movieData {
       display: flex;
       color: $silver;
-      display: flex;
       justify-content: center;
       align-items: center;
 
       .moviePoster {
-        flex: 2;
+        flex: 1;
         margin-right: 3px;
-        height: 100%;
-        width: auto;
+        width: 50%;
+        height: auto;
       }
 
       .movieInfo {
-        flex: 3;
+        flex: 1;
         font-size: 0.7rem;
 
         .movieTitle {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           display: block;
           color: $white;
           line-height: 1.2rem;
@@ -124,7 +123,7 @@
           display: inline-block;
           color: $white;
           width: 40%;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
         }
       }
     }

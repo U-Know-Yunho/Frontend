@@ -30,6 +30,7 @@ export default class FirstStep extends Component {
       handleSubLocationClick: this.handleSubLocationClick.bind(this),
       handleDateClick: this.handleDateClick.bind(this),
       handleTimeClick: this.handleTimeClick.bind(this),
+      handleInvalidClick: this.handleInvalidClick.bind(this),
     };
   }
 
@@ -43,41 +44,52 @@ export default class FirstStep extends Component {
       date,
       time,
       onLocation,
+      firstStepInitialize,
+      firstStepReload,
     } = this.props;
 
     // 초기 리스트 출력
     const res = await api.get('api/tickets/filter/');
-    const dataTmp = res.data;
-    this.handleMovieList(dataTmp.movie);
-    this.handleLocationList(dataTmp.location);
-    this.handleDateList(dataTmp.date);
+    const dataList = res.data;
+    this.handleMovieList(dataList.movie);
+    this.handleLocationList(dataList.location);
+    this.handleDateList(dataList.date);
 
-    const res2 = await api.get('api/tickets/filter/', {
-      params: {
-        location: dataTmp.location[0].location,
-      },
-    });
-    this.handleLocationClick(dataTmp.location[0]);
+    this.handleLocationClick(dataList.location[0].location);
 
     // secStep에서 뒤로가기 눌렀을 시
-    // if (
-    //   movieTitle !== '' &&
-    //   location !== '' &&
-    //   subLocation !== '' &&
-    //   date !== '' &&
-    //   time !== ''
-    // ) {
-    //   this.setState(
-    //     {
-    //       selectedMovieTitle: movieTitle,
-    //       selectedLocation: location,
-    //       selectedSubLocation: subLocation,
-    //       selectedDate: date,
-    //       selectedTime: time,
-    //     },
-    //     () => this.upLoadList()
-    //   );
-    // }
+    if (
+      movieTitle !== '' &&
+      location !== '' &&
+      subLocation !== '' &&
+      date !== '' &&
+      time !== ''
+    ) {
+      const {
+        onMovie,
+        onLocation,
+        onSubLocation,
+        onDate,
+        onTime,
+        firstStepReload,
+        firstStepInitialize,
+      } = this.props;
+      onMovie('', '');
+      onLocation('');
+      onSubLocation('');
+      onDate('');
+      onTime('', '', '', '');
+
+      this.setState({
+        selectedMovieTitle: '',
+        selectedLocation: '',
+        selectedSubLocation: '',
+        selectedDate: '',
+        selectedTime: '',
+      });
+
+      firstStepInitialize(!firstStepReload);
+    }
 
     // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
     if (pk && movieTitle === '') {
@@ -108,13 +120,13 @@ export default class FirstStep extends Component {
   // Location을 선택했을 때
   handleLocationClick(t) {
     const { onLocation, onSubLocation } = this.props;
-    onLocation(t.location);
+    onLocation(t);
     onSubLocation('');
 
     this.setState(
       {
         lastSelected: 'location',
-        selectedLocation: t.location,
+        selectedLocation: t,
         selectedSubLocation: '',
       },
       () => this.upLoadList()
@@ -147,7 +159,7 @@ export default class FirstStep extends Component {
         lastSelected: 'date',
         selectedDate: date,
       },
-      () => this.upLoadList(false)
+      () => this.upLoadList()
     );
   }
 
@@ -163,17 +175,6 @@ export default class FirstStep extends Component {
 
   // 선택 시 리스트 업로드
   async upLoadList() {
-    const { lastSelected } = this.state;
-    this.uploadListOneSelected();
-    this.uploadListAllSelected();
-
-    if (lastSelected === 'location') {
-    }
-  }
-
-  // 방금 선택된 하나로만 데이터 갖고 오기
-  // 기존에 선택된 것이 있을 때
-  async uploadListOneSelected() {
     const {
       lastSelected,
       selectedMovieTitle,
@@ -181,188 +182,64 @@ export default class FirstStep extends Component {
       selectedSubLocation,
       selectedDate,
     } = this.state;
+    // movie를 제외한 조건으로 무비 리스트 업로드
+    // location을 제외한 조건으로 location 리스트 업로드
+    // subLocation을 제외한 조건으로 subLocation 리스트 업로드
+    // date를 제외한 조건으로 date 리스트 업로드
 
-    const params = new URLSearchParams();
+    const movieParams = new URLSearchParams();
+    const locationParams = new URLSearchParams();
+    const subLocationParams = new URLSearchParams();
+    const dateParams = new URLSearchParams();
 
-    // location 은 movie나 date를 눌렀을 때에만 제어된다.
-    if (lastSelected === 'movie') {
-      params.append('movie', selectedMovieTitle);
-    } else if (lastSelected === 'location') {
-      params.append('location', selectedLocation);
-    } else if (lastSelected === 'subLocation') {
-      params.append('sub_location', selectedSubLocation);
-    } else if (lastSelected === 'date') {
-      params.append('time', selectedDate);
+    // movie
+    if (selectedMovieTitle !== '') {
+      locationParams.append('movie', selectedMovieTitle);
+      subLocationParams.append('movie', selectedMovieTitle);
+      dateParams.append('movie', selectedMovieTitle);
+    }
+    // location - location 은 늘 선택되어 있으므로 if문 필요 없음.
+    movieParams.append('location', selectedLocation);
+    subLocationParams.append('location', selectedLocation);
+    dateParams.append('location', selectedLocation);
+    // subLocation
+    if (selectedSubLocation !== '') {
+      movieParams.append('sub_location', selectedSubLocation);
+      dateParams.append('sub_location', selectedSubLocation);
+    }
+    // date
+    if (selectedDate !== '') {
+      movieParams.append('time', selectedDate);
+      locationParams.append('time', selectedDate);
+      subLocationParams.append('time', selectedDate);
     }
 
-    const res = await api.get('api/tickets/filter/', {
-      params,
-    });
-    const dataList = res.data;
-
-    // 리스트들 업데이트
-    // 방금 선택된 것이 아니지만 기존이 선택된 것이 있을 때에만 업데이트 후 재선택
-
-    if (
-      selectedMovieTitle !== '' &&
-      (lastSelected === 'date' || lastSelected === 'subLocation')
-    ) {
+    // 리스트 업데이트
+    if (lastSelected !== 'movie') {
+      const dataList = await this.getDataList(movieParams);
       this.handleMovieList(dataList.movie);
-      this.isSelectedDataValidate('movie', dataList.movie);
     }
-    // location은 subLocation 을 클릭할 때에는 변하면 안되므로 조건 추가
-    // location은 늘 선택되어 있으므로 validate 검사 필요 없음
-
-    if (
-      selectedSubLocation === '' &&
-      (lastSelected === 'movie' || lastSelected === 'date')
-    ) {
+    if (lastSelected !== 'location') {
+      const dataList = await this.getDataList(locationParams);
       this.handleLocationList(dataList.location);
     }
-
-    if (
-      lastSelected === 'movie' ||
-      lastSelected === 'date' ||
-      lastSelected === 'location'
-    ) {
-      params.append('location', selectedLocation);
-      const res2 = await api.get('api/tickets/filter/', {
-        params,
-      });
-      const dataList2 = res2.data;
-      this.handleSubLocationList(dataList2.subLocation);
-      this.isSelectedDataValidate('subLocation', dataList2.subLocation);
+    if (lastSelected !== 'subLocation') {
+      const dataList = await this.getDataList(subLocationParams);
+      this.handleSubLocationList(dataList.subLocation);
     }
-
-    if (
-      selectedDate !== '' &&
-      (lastSelected === 'movie' || lastSelected === 'subLocation')
-    ) {
+    if (lastSelected !== 'date') {
+      const dataList = await this.getDataList(dateParams);
       this.handleDateList(dataList.date);
-      this.isSelectedDataValidate('date', dataList.date);
     }
+
+    this.isReadyForTimeList();
   }
 
-  // 지금까지 선택된 것들로 데이터 갖고 오기
-  // 기존에 선택된 것이 없을 때
-  async uploadListAllSelected() {
-    const {
-      lastSelected,
-      selectedMovieTitle,
-      selectedLocation,
-      selectedSubLocation,
-      selectedDate,
-    } = this.state;
-
-    const params = new URLSearchParams();
-
-    if (selectedMovieTitle !== '') {
-      params.append('movie', selectedMovieTitle);
-    }
-
-    if (selectedDate !== '') {
-      params.append('time', selectedDate);
-    }
-
-    if (selectedSubLocation !== '') {
-      params.append('location', selectedLocation);
-      params.append('sub_location', selectedSubLocation);
-    }
+  async getDataList(params) {
     const res = await api.get('api/tickets/filter/', {
       params,
     });
-
-    const dataList = res.data;
-
-    // 방금 선택된 것이 아니지만 기존이 선택된 것이 없을 때에만 업데이트
-    if (selectedMovieTitle === '' && lastSelected !== 'movie') {
-      this.handleMovieList(dataList.movie);
-    }
-
-    // location 은 늘 선택되어 있으므로 처리해줄 필요 없음.
-
-    if (
-      // subLocation 은 선택된 location 을 params에 넣어줌 그래야 리스트가 반환됨.
-      // location 은 늘 선택되어 있음
-      selectedSubLocation === '' &&
-      lastSelected !== 'subLocation'
-    ) {
-      params.append('location', selectedLocation);
-      const res2 = await api.get('api/tickets/filter/', {
-        params,
-      });
-
-      const dataList2 = res2.data;
-      this.handleSubLocationList(dataList2.subLocation);
-    }
-    if (selectedDate === '' && lastSelected !== 'date') {
-      this.handleDateList(dataList.date);
-    }
-
-    // 만약 dataList에 time 리스트가 반환된다면 다 선택되었다는 것
-    // 이때 타임 뿌려주기
-    if (dataList.time) {
-      console.log('조건 전부 선택 완료');
-      this.isReadyForTimeList(dataList.time);
-    }
-  }
-
-  // 기존 선택되어있던 데이터 초기화 또는 유지 처리
-  async isSelectedDataValidate(selectedName, selectedData) {
-    const {
-      lastSelected,
-      selectedMovieTitle,
-      selectedLocation,
-      selectedSubLocation,
-      selectedDate,
-      selectedTime,
-    } = this.state;
-    const { onMovie, onLocation, onSubLocation, onDate, onTime } = this.props;
-
-    // movie 처리
-    if (selectedName === 'movie') {
-      const findMovie = selectedData.find(m => m.title === selectedMovieTitle);
-      // findMovie 찾았지만 show가 false 일 때
-      if (findMovie && !findMovie.show) {
-        onMovie('', '');
-        this.setState(
-          {
-            selectedMovieTitle: '',
-          }
-          //   () => this.upLoadList()
-        );
-      }
-    }
-
-    // subLocation 처리
-    if (selectedName === 'subLocation') {
-      const findSubLocation = selectedData.find(
-        s => s.subLocation === selectedSubLocation
-      );
-      if (findSubLocation && !findSubLocation.show) {
-        onSubLocation('');
-        this.setState(
-          {
-            selectedSubLocation: '',
-          }
-          //   () => this.upLoadList()
-        );
-      }
-    }
-
-    // date 처리
-    if (selectedName === 'date') {
-      const findDate = selectedData.find(d => d[0].date === selectedDate);
-      if (findDate && !findDate[1].show) {
-        onDate('');
-        this.setState(
-          {
-            selectedDate: '',
-          }
-          //   () => this.upLoadList()
-        );
-      }
-    }
+    return res.data;
   }
 
   handleMovieList(movieList) {
@@ -423,6 +300,15 @@ export default class FirstStep extends Component {
     const { movieTitle, location, subLocation, date } = this.props;
 
     if (movieTitle !== '' && subLocation !== '' && date !== '') {
+      const res = await api.get('api/tickets/filter/', {
+        params: {
+          movie: movieTitle,
+          location,
+          sub_location: subLocation,
+          time: date,
+        },
+      });
+      const timeList = res.data.time;
       this.setState({
         timeList,
       });
@@ -431,6 +317,35 @@ export default class FirstStep extends Component {
         timeList: [],
       });
     }
+  }
+
+  async handleInvalidClick() {
+    alert('선택된 조건의 상영이 없습니다.\n선택이 초기화됩니다.');
+
+    const {
+      onMovie,
+      onLocation,
+      onSubLocation,
+      onDate,
+      onTime,
+      firstStepReload,
+      firstStepInitialize,
+    } = this.props;
+    onMovie('', '');
+    onLocation('');
+    onSubLocation('');
+    onDate('');
+    onTime('', '', '', '');
+
+    this.setState({
+      selectedMovieTitle: '',
+      selectedLocation: '',
+      selectedSubLocation: '',
+      selectedDate: '',
+      selectedTime: '',
+    });
+
+    firstStepInitialize(!firstStepReload);
   }
 
   render() {
