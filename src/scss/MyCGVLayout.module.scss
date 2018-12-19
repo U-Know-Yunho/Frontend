@@ -38,6 +38,15 @@
         // align-items: center;
         // justify-content: center;
         padding: 35px;
+        h3 {
+          width: 100%;
+          background-color: $stone-gray;
+          height: 28px;
+          line-height: 28px;
+          text-align: center;
+          font-size: 0.8rem;
+          color: $white;
+        }
       }
     }
   }
