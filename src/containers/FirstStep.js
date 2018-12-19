@@ -40,7 +40,11 @@ export default class FirstStep extends Component {
       subLocation,
       date,
       time,
+      onMovie,
       onLocation,
+      onSubLocation,
+      onDate,
+      onTime,
       firstStepInitialize,
       firstStepReload,
     } = this.props;
@@ -67,15 +71,6 @@ export default class FirstStep extends Component {
       date !== '' &&
       time !== ''
     ) {
-      const {
-        onMovie,
-        onLocation,
-        onSubLocation,
-        onDate,
-        onTime,
-        firstStepReload,
-        firstStepInitialize,
-      } = this.props;
       onMovie('', '');
       onLocation('');
       onSubLocation('');
@@ -96,13 +91,17 @@ export default class FirstStep extends Component {
 
   // 영화를 선택했을 때
   async handleMovieClick(pk) {
+    this.setState({
+      loading: true,
+    });
     // 1. 상태 저장
-    const { onMovie } = this.props;
+    const { onMovie, onTime } = this.props;
     const res = await api.get(`/api/movies/detail/${pk}/`);
     const selectTitle = res.data.title;
     const selectPoster = res.data.mainImgUrl;
 
     onMovie(selectTitle, selectPoster);
+    onTime('', '', '', '');
 
     // 2. 선택에 따라 리스트 업데이트
     this.setState(
@@ -116,9 +115,13 @@ export default class FirstStep extends Component {
 
   // Location을 선택했을 때
   handleLocationClick(t) {
-    const { onLocation, onSubLocation } = this.props;
+    this.setState({
+      loading: true,
+    });
+    const { onLocation, onSubLocation, onTime } = this.props;
     onLocation(t);
     onSubLocation('');
+    onTime('', '', '', '');
 
     this.setState(
       {
@@ -132,9 +135,13 @@ export default class FirstStep extends Component {
 
   // subLocation을 선택했을 때
   handleSubLocationClick(t) {
+    this.setState({
+      loading: true,
+    });
     // 1. 선택한 subLocation 상태 저장
-    const { onSubLocation } = this.props;
+    const { onSubLocation, onTime } = this.props;
     onSubLocation(t);
+    onTime('', '', '', '');
     // 2. 선택에 따라 리스트 업데이트
     this.setState(
       {
@@ -147,9 +154,14 @@ export default class FirstStep extends Component {
 
   // 날짜를 선택했을 때
   handleDateClick(date) {
+    this.setState({
+      loading: true,
+    });
     // 1. 선택한 날짜 상태 저장
-    const { onDate } = this.props;
+    const { onDate, onTime } = this.props;
     onDate(date);
+    onTime('', '', '', '');
+
     // 2. 선택에 따라 리스트 업데이트
     this.setState(
       {
@@ -161,9 +173,9 @@ export default class FirstStep extends Component {
   }
 
   // 시간 선택했을 때
-  handleTimeClick(time, pk, auditorium, currentSeatsNo) {
+  handleTimeClick(time, pk, auditoriumName, currentSeatsNo) {
     const { onTime } = this.props;
-    onTime(time, pk, auditorium, currentSeatsNo);
+    onTime(time, pk, auditoriumName, currentSeatsNo);
     this.setState({
       lastSelected: 'time',
       selectedTime: time,
@@ -302,7 +314,7 @@ export default class FirstStep extends Component {
   }
 
   async isReadyForTimeList() {
-    const { movieTitle, location, subLocation, date } = this.props;
+    const { movieTitle, location, subLocation, date, onTime } = this.props;
 
     if (movieTitle !== '' && subLocation !== '' && date !== '') {
       const res = await api.get('api/tickets/filter/', {
@@ -314,12 +326,15 @@ export default class FirstStep extends Component {
         },
       });
       const timeList = res.data.time;
+      console.log(timeList);
       this.setState({
         timeList,
       });
     } else {
+      onTime('', '', '', '');
       this.setState({
         timeList: [],
+        selectedTime: '',
       });
     }
   }
@@ -355,7 +370,7 @@ export default class FirstStep extends Component {
 
   render() {
     return (
-      <div className={[s.firstStepWrapper]}>
+      <div className={s.firstStepWrapper}>
         <div className={s.dataTitlesWrapper}>
           <h3>영화</h3>
           <h3>극장</h3>

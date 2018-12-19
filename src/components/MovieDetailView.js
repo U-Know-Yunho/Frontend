@@ -10,8 +10,9 @@ class MovieDetailView extends Component {
   static defaultProps = {
     pk: null,
     title: '',
-    director: '',
+    directors: '',
     casts: [],
+    age: '',
     durationMin: null,
     openingDate: '',
     genre: '',
@@ -85,8 +86,9 @@ class MovieDetailView extends Component {
     const {
       pk,
       title,
-      director,
+      directors,
       casts,
+      age,
       durationMin,
       openingDate,
       genre,
@@ -96,13 +98,17 @@ class MovieDetailView extends Component {
       nowShow,
       mainImgUrl,
       stillcuts,
+      directorsImg,
+      castsImg,
     } = this.props;
 
     const castsData = this.handleArray(casts);
     const descriptionData = this.handleString(description);
     const stillcutsData = this.handleImages(stillcuts);
     const videoSrc = this.handleUrl(trailer);
-    console.log(nowShow);
+
+    console.log(directorsImg);
+    console.log(castsImg);
 
     return (
       <div className={s.movieDetailBox}>
@@ -114,17 +120,21 @@ class MovieDetailView extends Component {
               src={mainImgUrl}
               alt={`${title} 포스터`}
             />
-            <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
-              예매하기
-            </Link>
+            {nowShow ? (
+              <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
+                예매하기
+              </Link>
+            ) : null}
           </div>
           <div className={s.basicInfo}>
-            <h3 className={s.title}>{title}</h3>
+            <h3 className={s.title}>
+              {title} [{age}]
+            </h3>
             <span className={s.reservationScore}>
               예매율: {reservationScore}%
             </span>
             <ul>
-              <li className={s.list}>감독: {director}</li>
+              <li className={s.list}>감독: {directors[0].director}</li>
               <li className={s.list}>
                 <span>배우: </span> <div>{castsData}</div>
               </li>
@@ -141,6 +151,36 @@ class MovieDetailView extends Component {
               {d}
             </span>
           ))}
+        </div>
+        <div className={s.subWrapper}>
+          <div className={s.actorsBox}>
+            <span className={s.subTitle}>배우</span>
+            <ul className={s.actorUl}>
+              {castsImg.map(c => (
+                <li key={c.profileImgUrl} className={s.actorLi}>
+                  <img src={c.profileImgUrl} alt={c.actor} />
+                  <span>{c.actor}</span>
+                  <span className={s.engName}>{c.engActor}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className={s.subWrapper}>
+          <div className={s.directorsBox}>
+            <span className={s.subTitle}>제작진</span>
+            <ul className={s.directorUl}>
+              {directorsImg.map(d => (
+                <li key={d.profileImg} className={s.directorLi}>
+                  <img src={d.profileImg} alt={d.director} />
+                  {/* <span className={s.directorTitle}>감독</span> */}
+                  <span>{d.director}</span>
+                  <span className={s.engName}>{d.engDirector}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className={classNames([s.subWrapper], [s.reponsiveSubWrapper])}>
           <span className={s.subTitle}>예고편</span>

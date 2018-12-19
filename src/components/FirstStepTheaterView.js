@@ -14,17 +14,6 @@ export default class FirstStepTheaterView extends Component {
       handleSubLocationClick,
       handleInvalidClick,
     } = this.props;
-    // const subLocationShowList = [
-    //   {
-    //     subLocation: '강남',
-    //     // show:'true'
-    //   },
-    // ];
-    // const subLocationNoneList = [
-    //   {
-    //     subLocation: '영통',
-    //   },
-    // ];
     return (
       <div className={s.locationWrapper}>
         <ul className={s.locationBox}>
@@ -69,7 +58,7 @@ export default class FirstStepTheaterView extends Component {
                 <li
                   key={l.subLocation}
                   onClick={() => handleInvalidClick()}
-                  className={classNames([s.subLocationLi], [s.movieNoneLi])}
+                  className={s.movieNoneLi}
                 >
                   {l.subLocation}
                 </li>

@@ -49,7 +49,7 @@ export default class ReservationDataView extends Component {
       moviePoster,
       location,
       subLocation,
-      auditorium,
+      auditoriumName,
       date,
       time,
       number,
@@ -104,7 +104,7 @@ export default class ReservationDataView extends Component {
                 <span className={s.subTitle}> </span> {time}
               </li>
               <li>
-                <span className={s.subTitle}>상영관</span> {auditorium}관
+                <span className={s.subTitle}>상영관</span> {auditoriumName}
               </li>
             </ul>
           ) : (

@@ -1,20 +1,46 @@
 import React, { Component } from 'react';
 import s from '../scss/FirstStepView.module.scss';
+import ss from '../scss/withLoading.module.scss';
 import FirstStepTheaterView from '../components/FirstStepTheaterView';
 import FirstStepMovieView from '../components/FirstStepMovieView';
 import FirstStepDateView from '../components/FirstStepDateView';
 import FirstStepTimeView from '../components/FirstStepTimeView';
 import classNames from 'classnames';
-import withLoading from '../hoc/withLoading';
 
-class FirstStepView extends Component {
+export default class FirstStepView extends Component {
   render() {
     return (
-      <div
-        className={classNames([s.dataBoxesWrapper], {
-          [s.loadingWrapper]: this.props.loading,
-        })}
-      >
+      <div className={s.dataBoxesWrapper}>
+        <div
+          className={classNames(
+            {
+              [s.loadingDisplay]: this.props.loading,
+            },
+            [s.basicDisplay]
+          )}
+        >
+          <div
+            className={classNames(
+              [ss.ispinner],
+              [ss.ispinner__animating],
+              [ss.ispinner__gray]
+            )}
+          >
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+            <div className={ss.ispinner__blade} />
+          </div>
+        </div>
         <div className={s.movieDataBox}>
           <FirstStepMovieView {...this.props} {...this.state} />
         </div>
@@ -22,7 +48,7 @@ class FirstStepView extends Component {
           <FirstStepTheaterView {...this.props} {...this.state} />
         </div>
         <div className={s.dateDataBox}>
-          <FirstStepDateView {...this.props} {...this.state} />
+          {/* <FirstStepDateView {...this.props} {...this.state} /> */}
         </div>
         <div className={s.timeDataBox}>
           <FirstStepTimeView {...this.props} {...this.state} />
@@ -32,4 +58,4 @@ class FirstStepView extends Component {
   }
 }
 
-export default withLoading(FirstStepView);
+// export default withLoading(FirstStepView);

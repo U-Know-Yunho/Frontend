@@ -7,7 +7,7 @@ class FirstDataView extends Component {
     const {
       subLocation,
       date,
-      auditorium,
+      auditoriumName,
       time,
       allSeat,
       currentSeatsNo,
@@ -16,7 +16,7 @@ class FirstDataView extends Component {
       <div className={s.wrapper}>
         <div className={s.place}>
           <p>{subLocation}</p>
-          <p>{auditorium}관</p>
+          <p>{auditoriumName}</p>
           <p>
             잔여 좌석 : {currentSeatsNo} / {allSeat}
           </p>

@@ -46,7 +46,7 @@ export default class FirstStepTimeView extends Component {
                   )}
                 >
                   <span className={s.time}>{times[idx]}</span>
-                  <span className={s.auditorium}> {t.auditorium}관 </span>
+                  <span className={s.auditorium}> {t.auditoriumName} </span>
                   <span className={s.currentSeatsNo}>
                     [잔여{t.currentSeatsNo}석]
                   </span>
@@ -56,7 +56,12 @@ export default class FirstStepTimeView extends Component {
               <li
                 key={t.times}
                 onClick={() =>
-                  handleTimeClick(t.times, t.pk, t.auditorium, t.currentSeatsNo)
+                  handleTimeClick(
+                    t.times,
+                    t.pk,
+                    t.auditoriumName,
+                    t.currentSeatsNo
+                  )
                 }
                 className={classNames(
                   {
@@ -79,7 +84,7 @@ export default class FirstStepTimeView extends Component {
                   )}
                 >
                   <span className={s.time}>{times[idx]}</span>
-                  <span className={s.auditorium}> {t.auditorium}관 </span>
+                  <span className={s.auditorium}> {t.auditoriumName} </span>
                   <span className={s.currentSeatsNo}>
                     [잔여{t.currentSeatsNo}석]
                   </span>

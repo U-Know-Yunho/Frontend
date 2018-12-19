@@ -75,7 +75,7 @@
   }
 
   .subWrapper {
-    //   border: 1px solid salmon;
+    // border: 1px solid salmon;
     text-align: center;
     margin-top: 50px;
 
@@ -87,6 +87,48 @@
       width: 20%;
       line-height: 40px;
       margin: 30px;
+    }
+
+    .actorsBox,
+    .directorsBox {
+      color: $lighten-silver;
+      width: 100%;
+
+      .directorTitle {
+        font-weight: bold;
+        padding: 3px;
+      }
+      .actorUl,
+      .directorUl {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .actorLi,
+      .directorLi {
+        // border: 1px solid pink;
+        min-width: 130px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        img {
+          height: 130px;
+          width: 100px;
+          margin: 5px;
+          object-fit: cover;
+          object-position: center;
+        }
+        span {
+          padding-top: 5px;
+          font-size: 0.9rem;
+        }
+        .engName {
+          font-size: 0.8rem;
+          color: $silver-gray;
+        }
+      }
     }
 
     .descriptionLine {
