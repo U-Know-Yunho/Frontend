@@ -5,7 +5,7 @@ import withLoading from '../hoc/withLoading';
 
 class HistoryList extends Component {
   render() {
-    return <MyMovieView list={this.props.seenList} />;
+    return <MyMovieView list={this.props.seenList} page={'history'} />;
   }
 }
 

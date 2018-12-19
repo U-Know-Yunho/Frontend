@@ -14,25 +14,34 @@
       height: 100%;
     }
     .info {
-      margin: 7px;
-      width: 100%;
+      margin: 10px;
+      width: 60%;
       p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
       .title {
-        width: 90%;
+        width: 100%;
         font-size: 0.9rem;
         font-weight: bold;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-bottom: 2px;
       }
-      p:nth-child(2) {
-        font-size: 0.7rem;
-        margin: 2px 0;
-      }
+
       .date {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin: 12px 0 3px;
+      }
+      .theater,
+      .num {
+        display: inline-block;
+        padding-right: 5px;
+      }
+      .seat,
+      .cancle {
+        margin-top: 3px;
       }
     }
   }

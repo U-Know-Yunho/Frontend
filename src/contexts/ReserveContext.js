@@ -193,11 +193,11 @@ export default class ReserveProvider extends Component {
       location !== '' &&
       subLocation !== '' &&
       date !== '' &&
-      !timePk &&
+      timePk &&
       seatPk !== []
     ) {
       const { data } = await api.post('api/tickets/reservations/', {
-        screen: 100,
+        screen: timePk,
         seats: seatPk,
       });
       console.log(data);

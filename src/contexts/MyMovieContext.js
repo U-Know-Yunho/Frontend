@@ -17,7 +17,10 @@ export default class MyMovieProvider extends Component {
 
   async componentWillMount() {
     if (localStorage.getItem('token')) {
+      // 실제 가져올 데이터
       // const { data } = await api.get('api/members/reservations/1');
+
+      // 예매 내역, 본 영화, 취소 내역에 하나 씩 들어가도록 설정한 데이터
       const data = [
         {
           pk: 17,
@@ -102,15 +105,17 @@ export default class MyMovieProvider extends Component {
       // 상영일이 지나지 않은 예매 내역
       const readyList = data
         .filter(l => l.screeningSet.time > today)
-        .filter(l => l.isActive);
+        .filter(l => l.isActive)
+        .reverse();
 
       // 상영일이 지난 내가 본 영화 내역
       const seenList = data
         .filter(l => l.screeningSet.time < today)
-        .filter(l => l.isActive);
+        .filter(l => l.isActive)
+        .reverse();
 
       // 상영일과 관계없이 취소된 내역
-      const cancledList = data.filter(l => !l.isActive);
+      const cancledList = data.filter(l => !l.isActive).reverse();
 
       this.setState({
         readyList,
