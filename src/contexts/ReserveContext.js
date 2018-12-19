@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import api from '../api';
 const { Provider, Consumer } = React.createContext();
 
 export default class ReserveProvider extends Component {
@@ -29,6 +30,7 @@ export default class ReserveProvider extends Component {
       number: 0,
       // 선택된 좌석
       seat: [],
+      seatPk: [],
       ea: 11000,
       // 선택된 좌석에 따른 가격
       price: 0,
@@ -47,6 +49,8 @@ export default class ReserveProvider extends Component {
       onPriceSub: this.onPriceSub.bind(this),
       onPriceReset: this.onPriceReset.bind(this),
       onBackToFirst: this.onBackToFirst.bind(this),
+      onBackToSec: this.onBackToSec.bind(this),
+      onReserve: this.onReserve.bind(this),
     };
   }
 
@@ -96,8 +100,7 @@ export default class ReserveProvider extends Component {
     });
   }
   // 좌석 상태 변경
-  onSeatAdd(seatName) {
-    console.log(seatName);
+  onSeatAdd(seatName, pk) {
     const seat = this.state.seat;
     seat.push(seatName);
     seat.sort(function(x, y) {
@@ -114,20 +117,27 @@ export default class ReserveProvider extends Component {
         return -1;
       }
     });
+    const seatPk = this.state.seatPk;
+    seatPk.push(pk);
+    seatPk.sort((x, y) => x - y);
     this.setState({
       seat,
+      seatPk,
     });
   }
-  onSeatDel(seatName) {
+  onSeatDel(seatName, pk) {
     const seat = this.state.seat.filter(i => i !== seatName);
+    const seatPk = this.state.seat.filter(p => p !== pk);
     this.setState({
       seat,
+      seatPk,
     });
   }
 
   onSeatReset() {
     this.setState({
       seat: [],
+      seatPk: [],
     });
   }
 
@@ -159,6 +169,42 @@ export default class ReserveProvider extends Component {
     });
   }
 
+  // 결제 창에서 좌석 선택창으로 돌아 갈 때
+  onBackToSec() {
+    this.setState({
+      number: 0,
+      seat: [],
+      price: 0,
+    });
+  }
+  // 예매생성
+  async onReserve() {
+    const {
+      timePk,
+      seatPk,
+      movieTitle,
+      location,
+      subLocation,
+      date,
+    } = this.state;
+    // 선택된게 없는지 마지막에 한 번 더 확인
+    if (
+      movieTitle !== '' &&
+      location !== '' &&
+      subLocation !== '' &&
+      date !== '' &&
+      timePk &&
+      seatPk !== []
+    ) {
+      const { data } = await api.post('api/tickets/reservations/', {
+        screen: timePk,
+        seats: seatPk,
+      });
+      console.log(data);
+    } else {
+      alert('선택 사항을 다시 한 번 확인해주세요');
+    }
+  }
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }

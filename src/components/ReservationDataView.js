@@ -41,7 +41,19 @@ export default class ReservationDataView extends Component {
       onStep('first');
     }
   }
+  handleReturnToSec() {
+    const { onBackToSec, onStep } = this.props;
+    const res = window.confirm('선택하신 좌석 정보가 초기화 됩니다');
+    if (res) {
+      onBackToSec();
+      onStep('sec');
+    }
+  }
 
+  handleReservation() {
+    const { onReserve } = this.props;
+    onReserve();
+  }
   render() {
     const {
       step,
@@ -69,7 +81,10 @@ export default class ReservationDataView extends Component {
             영화
           </div>
         ) : (
-          <div className={s.previousButton} onClick={() => onStep('sec')}>
+          <div
+            className={s.previousButton}
+            onClick={() => this.handleReturnToSec()}
+          >
             좌석
           </div>
         )}
@@ -149,7 +164,12 @@ export default class ReservationDataView extends Component {
             결제
           </div>
         ) : (
-          <div className={s.nextButton}>예매</div>
+          <div
+            className={s.nextButton}
+            onClick={() => this.handleReservation()}
+          >
+            예매
+          </div>
         )}
       </div>
     );

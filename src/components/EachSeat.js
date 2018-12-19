@@ -20,6 +20,7 @@ export default class EachSeat extends Component {
     const {
       number,
       seatName,
+      seatPk,
       isReserved,
       selected,
       onDecreaseSelect,
@@ -48,7 +49,7 @@ export default class EachSeat extends Component {
         // 현재 선택중인 인원 수 빼기
         onDecreaseSelect();
         // 선택됐던 좌석 삭제
-        onSeatDel(seatName);
+        onSeatDel(seatName, seatPk);
         // 더했던 가격 빼기
         onPriceSub();
       } else {
@@ -64,7 +65,7 @@ export default class EachSeat extends Component {
             isChecked: true,
           });
           onIncreaseSelect();
-          onSeatAdd(seatName);
+          onSeatAdd(seatName, seatPk);
           onPricePlus();
         } else if (selected >= number) {
           // 현재 선택 중인 좌석 수가 선택한 인원 수와 같거나 많을 때
@@ -78,18 +79,18 @@ export default class EachSeat extends Component {
   }
 
   render() {
-    const { pk } = this.props;
+    const { seatPk } = this.props;
     return (
       <div className={s.eachSeat}>
         <input
           type="checkbox"
-          id={pk}
+          id={seatPk}
           checked={this.state.isChecked}
           onChange={() => this.handleCheck()}
         />
         <label
           className={c({ [s.reserved]: this.props.isReserved })}
-          for={pk}
+          for={seatPk}
         />
       </div>
     );
