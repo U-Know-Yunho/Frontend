@@ -9,4 +9,4 @@ class HistoryList extends Component {
   }
 }
 
-export default withLoading(withMyMovie(HistoryList));
+export default withMyMovie(HistoryList);

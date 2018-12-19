@@ -5,9 +5,16 @@ export default class MyMovieView extends Component {
   render() {
     const { list, page } = this.props;
     return (
-      <React.Fragment>
+      <div className={s.wrapper}>
+        <div className={s.nav}>
+          <span>영화</span>
+          <span>극장</span>
+          <span>날짜</span>
+          <span>인원수</span>
+          <span>좌석</span>
+        </div>
         {list.map(l => (
-          <div className={s.wrapper}>
+          <div className={s.movie}>
             <img
               src={l.screeningSet.imgUrl}
               alt="영화 포스터"
@@ -29,7 +36,7 @@ export default class MyMovieView extends Component {
             </div>
           </div>
         ))}
-      </React.Fragment>
+      </div>
     );
   }
 }
