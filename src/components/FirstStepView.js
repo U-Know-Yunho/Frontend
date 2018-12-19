@@ -44,15 +44,19 @@ export default class FirstStepView extends Component {
           </div>
         </div>
         <div className={s.movieDataBox}>
+          <h3 className={s.mobileSub}>영화 선택</h3>
           <FirstStepMovieView {...this.props} {...this.state} />
         </div>
         <div className={s.theaterDataBox}>
+          <h3 className={s.mobileSub}>극장 선택</h3>
           <FirstStepTheaterView {...this.props} {...this.state} />
         </div>
         <div className={s.dateDataBox}>
+          <h3 className={s.mobileSub}>날짜 선택</h3>
           <FirstStepDateView {...this.props} {...this.state} />
         </div>
         <div className={s.timeDataBox}>
+          <h3 className={s.mobileSub}>시간 선택</h3>
           <FirstStepTimeView {...this.props} {...this.state} />
         </div>
       </div>

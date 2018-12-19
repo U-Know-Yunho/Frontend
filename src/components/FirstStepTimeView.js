@@ -7,6 +7,10 @@ export default class FirstStepTimeView extends Component {
     const tmp = list.map(l => l.times.split(':'));
     return tmp.map(t => t[0] + ':' + t[1]);
   }
+  handleTime(t) {
+    const tmp = t.split(':');
+    return tmp[0] + ':' + tmp[1];
+  }
   handleSpecTime(list) {
     return list.map(l => parseInt(l.times.split(':')[0]));
   }

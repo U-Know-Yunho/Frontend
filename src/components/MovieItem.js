@@ -79,7 +79,7 @@ export default class MovieItem extends Component {
               <span>{date}</span> 개봉
             </p>
           )}
-          <p className={s.score}>{score}</p>
+          <p className={s.score}>{Math.floor(score * 100)}%</p>
         </div>
         <div className={s.button}>
           <Link
