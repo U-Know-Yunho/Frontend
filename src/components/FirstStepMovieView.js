@@ -9,7 +9,6 @@ import ageAll from './age_all.png';
 
 export default class FirstStepMovieView extends Component {
   handleAgeImg(age) {
-    console.log(age);
     switch (age) {
       case '전체':
         return ageAll;

@@ -254,8 +254,6 @@ export default class FirstStep extends Component {
       params,
     });
 
-    // console.log(params.toString());
-    // console.log(res.data);
     return res.data;
   }
 
@@ -326,7 +324,6 @@ export default class FirstStep extends Component {
         },
       });
       const timeList = res.data.time;
-      console.log(timeList);
       this.setState({
         timeList,
       });

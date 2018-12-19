@@ -37,7 +37,6 @@ class MovieDetail extends Component {
     const { movieId } = this.props;
     const res = await api.get(`/api/movies/detail/${movieId}/`);
     const res2 = await api.get(`/api/movies/staff/${movieId}/`);
-    console.log(res.data);
 
     const {
       pk,

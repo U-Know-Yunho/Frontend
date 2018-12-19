@@ -8,7 +8,6 @@
   justify-content: flex-start;
 
   .movieInfo {
-    // border: 1px solid white;
     display: flex;
     justify-content: space-between;
 
@@ -154,13 +153,17 @@
       .poster {
         height: auto;
       }
-    }
-    .basicInfo {
-      .title {
-        font-size: 1.2rem;
-      }
-      .castsMobile {
-        display: none;
+      .basicInfo {
+        padding: 10px;
+        .title {
+          font-size: 1.4rem;
+        }
+        .reservationScore {
+          margin: 22px 0;
+        }
+        .castsMobile {
+          display: none;
+        }
       }
     }
 
@@ -172,6 +175,9 @@
       .subTitle {
         display: none;
         margin: 0;
+      }
+      .directorsBox {
+        display: none;
       }
     }
 

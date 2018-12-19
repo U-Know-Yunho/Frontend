@@ -107,9 +107,6 @@ class MovieDetailView extends Component {
     const stillcutsData = this.handleImages(stillcuts);
     const videoSrc = this.handleUrl(trailer);
 
-    console.log(directorsImg);
-    console.log(castsImg);
-
     return (
       <div className={s.movieDetailBox}>
         <div className={s.movieInfo}>
