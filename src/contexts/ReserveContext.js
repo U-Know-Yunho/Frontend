@@ -51,6 +51,8 @@ export default class ReserveProvider extends Component {
       onBackToFirst: this.onBackToFirst.bind(this),
       onBackToSec: this.onBackToSec.bind(this),
       onReserve: this.onReserve.bind(this),
+      // 예매 성공 시 true로 변환
+      reserveSuccess: false,
     };
   }
 
@@ -196,11 +198,18 @@ export default class ReserveProvider extends Component {
       timePk &&
       seatPk !== []
     ) {
-      const { data } = await api.post('api/tickets/reservations/', {
-        screen: timePk,
-        seats: seatPk,
-      });
-      console.log(data);
+      try {
+        const { data } = await api.post('api/tickets/reservations/', {
+          screen: timePk,
+          seats: seatPk,
+        });
+        console.log(data);
+        this.setState({
+          reserveSuccess: true,
+        });
+      } catch {
+        alert('서버에 에러가 발생했습니다. 잠시 후 다시 시도해주세요.');
+      }
     } else {
       alert('선택 사항을 다시 한 번 확인해주세요');
     }
