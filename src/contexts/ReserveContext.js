@@ -51,8 +51,6 @@ export default class ReserveProvider extends Component {
       onBackToFirst: this.onBackToFirst.bind(this),
       onBackToSec: this.onBackToSec.bind(this),
       onReserve: this.onReserve.bind(this),
-      // 예매 성공 시 true로 변환
-      reserveSuccess: false,
     };
   }
 
@@ -205,9 +203,6 @@ export default class ReserveProvider extends Component {
           seats: seatPk,
         });
         console.log(data);
-        this.setState({
-          reserveSuccess: true,
-        });
       } catch {
         alert('서버에 에러가 발생했습니다. 잠시 후 다시 시도해주세요.');
       }
