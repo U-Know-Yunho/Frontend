@@ -6,13 +6,6 @@ export default class MyMovieView extends Component {
     const { list, page } = this.props;
     return (
       <div className={s.wrapper}>
-        <div className={s.nav}>
-          <span>영화</span>
-          <span>극장</span>
-          <span>날짜</span>
-          <span>인원수</span>
-          <span>좌석</span>
-        </div>
         {list.map(l => (
           <div className={s.movie}>
             <img
