@@ -23,7 +23,7 @@ export default class MyMovieProvider extends Component {
           pk: 17,
           screeningSet: {
             imgUrl:
-              'https://wps-9th-practice1.s3.amazonaws.com/media/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=62e252f3f593c0bd7c371e9ab81bba76444a3e21fc1f8e34a01ac921a5899397',
+              'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81319/81319_320.JPG',
             thumbImgUrl:
               'https://wps-9th-practice1.s3.amazonaws.com/media/CACHE/images/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D/3da84a88ebe64a09f4acffe977d32db3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=eab059322755a906e6fc32af2f3a8e1ef8db6f41a9acb0c47fd948cbbc4e7d28',
             title: '메리 셸리-프랑켄슈타인의 탄생',
@@ -43,7 +43,7 @@ export default class MyMovieProvider extends Component {
           pk: 18,
           screeningSet: {
             imgUrl:
-              'https://wps-9th-practice1.s3.amazonaws.com/media/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=62e252f3f593c0bd7c371e9ab81bba76444a3e21fc1f8e34a01ac921a5899397',
+              'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81319/81319_320.JPG',
             thumbImgUrl:
               'https://wps-9th-practice1.s3.amazonaws.com/media/CACHE/images/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D/3da84a88ebe64a09f4acffe977d32db3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=eab059322755a906e6fc32af2f3a8e1ef8db6f41a9acb0c47fd948cbbc4e7d28',
             title: '메리 셸리-프랑켄슈타인의 탄생',
@@ -66,7 +66,7 @@ export default class MyMovieProvider extends Component {
           pk: 20,
           screeningSet: {
             imgUrl:
-              'https://wps-9th-practice1.s3.amazonaws.com/media/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=62e252f3f593c0bd7c371e9ab81bba76444a3e21fc1f8e34a01ac921a5899397',
+              'http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81319/81319_320.JPG',
             thumbImgUrl:
               'https://wps-9th-practice1.s3.amazonaws.com/media/CACHE/images/%EB%A9%94%EB%A6%AC%20%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98%20%ED%83%84%EC%83%9D/%EB%A9%94%EB%A6%AC_%EC%85%B8%EB%A6%AC-%ED%94%84%EB%9E%91%EC%BC%84%EC%8A%88%ED%83%80%EC%9D%B8%EC%9D%98_%ED%83%84%EC%83%9D/3da84a88ebe64a09f4acffe977d32db3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181219%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181219T094112Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=eab059322755a906e6fc32af2f3a8e1ef8db6f41a9acb0c47fd948cbbc4e7d28',
             title: '메리 셸리-프랑켄슈타인의 탄생',
