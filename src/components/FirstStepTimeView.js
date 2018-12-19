@@ -11,33 +11,9 @@ export default class FirstStepTimeView extends Component {
     return list.map(l => parseInt(l.times.split(':')[0]));
   }
   render() {
-    // const { time, timeList, handleTimeClick } = this.props;
-    const { time, handleTimeClick } = this.props;
-    const timeList = [
-      {
-        times: '01:01:00',
-        currentSeatsNo: '100',
-        auditorium: '1',
-      },
-      {
-        times: '10:02:01',
-        currentSeatsNo: '99',
-        auditorium: '2',
-      },
-      {
-        times: '09:03:00',
-        currentSeatsNo: '0',
-        auditorium: '1',
-      },
-      {
-        times: '14:04:00',
-        currentSeatsNo: '0',
-        auditorium: '1',
-      },
-    ];
+    const { time, timeList, handleTimeClick } = this.props;
     const times = this.handleTimeList(timeList);
     const specialTimes = this.handleSpecTime(timeList);
-    console.log(specialTimes);
     return (
       <div className={s.timeWrapper}>
         <ul>

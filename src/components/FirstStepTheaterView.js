@@ -6,25 +6,25 @@ export default class FirstStepTheaterView extends Component {
   render() {
     const {
       locationList,
-      //   subLocationShowList,
-      //   subLocationNoneList,
+      subLocationShowList,
+      subLocationNoneList,
       location,
       subLocation,
       handleLocationClick,
       handleSubLocationClick,
       handleInvalidClick,
     } = this.props;
-    const subLocationShowList = [
-      {
-        subLocation: '강남',
-        // show:'true'
-      },
-    ];
-    const subLocationNoneList = [
-      {
-        subLocation: '영통',
-      },
-    ];
+    // const subLocationShowList = [
+    //   {
+    //     subLocation: '강남',
+    //     // show:'true'
+    //   },
+    // ];
+    // const subLocationNoneList = [
+    //   {
+    //     subLocation: '영통',
+    //   },
+    // ];
     return (
       <div className={s.locationWrapper}>
         <ul className={s.locationBox}>

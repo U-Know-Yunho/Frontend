@@ -201,8 +201,8 @@ export default class FirstStep extends Component {
     dateParams.append('location', selectedLocation);
     // subLocation
     if (selectedSubLocation !== '') {
-      movieParams.append('subLocation', selectedSubLocation);
-      dateParams.append('subLocation', selectedSubLocation);
+      movieParams.append('sub_location', selectedSubLocation);
+      dateParams.append('sub_location', selectedSubLocation);
     }
     // date
     if (selectedDate !== '') {
@@ -241,6 +241,9 @@ export default class FirstStep extends Component {
     const res = await api.get('api/tickets/filter/', {
       params,
     });
+
+    // console.log(params.toString());
+    // console.log(res.data);
     return res.data;
   }
 
@@ -298,7 +301,7 @@ export default class FirstStep extends Component {
     });
   }
 
-  async isReadyForTimeList(timeList) {
+  async isReadyForTimeList() {
     const { movieTitle, location, subLocation, date } = this.props;
 
     if (movieTitle !== '' && subLocation !== '' && date !== '') {
