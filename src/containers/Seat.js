@@ -88,10 +88,10 @@ class Seat extends Component {
   }
 
   async componentDidMount() {
-    // const pk = this.props.timePk;
-    // console.log(pk);
-    // const { data } = await api.get(`api/tickets/seats/${pk}/`);
-    const { data } = await api.get(`api/tickets/seats/100/`);
+    const pk = this.props.timePk;
+    console.log(pk);
+    const { data } = await api.get(`api/tickets/seats/${pk}/`);
+    // const { data } = await api.get(`api/tickets/seats/100/`);
     const seatArr = [];
     for (let i = 1; i <= data[data.length - 1].row; i++) {
       seatArr.push(data.filter(item => item.row === i));

@@ -56,11 +56,12 @@
       position: relative;
     }
     .myCGVContent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 35px;
-      min-height: 350px;
+      min-height: 50vh;
+      h3 {
+        width: 0;
+        height: 0;
+        font-size: 0;
+      }
     }
   }
 }
