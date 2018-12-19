@@ -37,6 +37,7 @@ class MovieDetail extends Component {
     const { movieId } = this.props;
     const res = await api.get(`/api/movies/detail/${movieId}/`);
     const res2 = await api.get(`/api/movies/staff/${movieId}/`);
+    console.log(res.data);
 
     const {
       pk,
@@ -44,15 +45,15 @@ class MovieDetail extends Component {
       directors,
       casts,
       age,
-      duration_min,
-      opening_date,
+      durationMin,
+      openingDate,
       genre,
       description,
       trailer,
-      reservation_score,
-      main_img_url,
+      reservationScore,
+      mainImgUrl,
       stillcuts,
-      now_show,
+      nowShow,
     } = res.data;
 
     const directorsImg = res2.data.directors;
@@ -64,18 +65,18 @@ class MovieDetail extends Component {
       directors,
       casts,
       age,
-      durationMin: duration_min,
-      openingDate: opening_date,
+      durationMin,
+      openingDate,
       genre,
       description,
       trailer,
-      reservationScore: reservation_score,
-      mainImgUrl: main_img_url,
+      reservationScore,
+      mainImgUrl,
       stillcuts,
-      loading: false,
-      nowShow: now_show,
+      nowShow,
       directorsImg,
       castsImg,
+      loading: false,
     });
   }
 

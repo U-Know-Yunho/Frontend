@@ -11,8 +11,10 @@ export default class FirstStepMovieView extends Component {
       movieTitle,
       handleMovieClick,
       handleInvalidClick,
+      movieAllList,
     } = this.props;
 
+    // console.log(movieAllList);
     return (
       <ul className={s.movieBox}>
         {movieShowList.map(m => (

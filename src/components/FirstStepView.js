@@ -3,8 +3,9 @@ import s from '../scss/FirstStepView.module.scss';
 import ss from '../scss/withLoading.module.scss';
 import FirstStepTheaterView from '../components/FirstStepTheaterView';
 import FirstStepMovieView from '../components/FirstStepMovieView';
-import FirstStepDateView from '../components/FirstStepDateView';
 import FirstStepTimeView from '../components/FirstStepTimeView';
+import FirstStepDateView from '../components/FirstStepDateView';
+
 import classNames from 'classnames';
 
 export default class FirstStepView extends Component {
@@ -19,6 +20,7 @@ export default class FirstStepView extends Component {
             [s.basicDisplay]
           )}
         >
+          {/* component위에 그려야하는 작업이므로 withLoading 사용 안하고 따로 빼줌 ㅠㅠ */}
           <div
             className={classNames(
               [ss.ispinner],
@@ -48,7 +50,7 @@ export default class FirstStepView extends Component {
           <FirstStepTheaterView {...this.props} {...this.state} />
         </div>
         <div className={s.dateDataBox}>
-          {/* <FirstStepDateView {...this.props} {...this.state} /> */}
+          <FirstStepDateView {...this.props} {...this.state} />
         </div>
         <div className={s.timeDataBox}>
           <FirstStepTimeView {...this.props} {...this.state} />
@@ -57,5 +59,3 @@ export default class FirstStepView extends Component {
     );
   }
 }
-
-// export default withLoading(FirstStepView);

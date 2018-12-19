@@ -17,6 +17,7 @@ export default class FirstStep extends Component {
       selectedTime: '',
       movieShowList: [],
       movieNoneList: [],
+      movieAllList: [],
       locationList: [],
       subLocationShowList: [],
       subLocationNoneList: [],
@@ -51,10 +52,16 @@ export default class FirstStep extends Component {
 
     // 초기 리스트 출력
     const res = await api.get('api/tickets/filter/');
+    // const res2 = await api.get('api/m/movies/');
     const dataList = res.data;
+    // console.log(res2.data);
     this.handleMovieList(dataList.movie);
     this.handleLocationList(dataList.location);
     this.handleDateList(dataList.date);
+
+    // this.setState({
+    //   movieAllList: res2.data,
+    // });
 
     // 영화가 선택되어 있으면 그에 따른 극장 리스트 출력
     if (pk && movieTitle === '') {
@@ -84,7 +91,6 @@ export default class FirstStep extends Component {
         selectedDate: '',
         selectedTime: '',
       });
-
       firstStepInitialize(!firstStepReload);
     }
   }

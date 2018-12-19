@@ -43,8 +43,11 @@ export default class FirstStepDateView extends Component {
   render() {
     const { dateList } = this.props;
     const monthGroup = this.cutForNextMonth(dateList);
-    const year = this.getYear(dateList[0][0], monthGroup.length);
-    const month = this.getMonth(dateList[0][0], monthGroup.length);
+    let year, month;
+    try {
+      year = this.getYear(dateList[0][0], monthGroup.length);
+      month = this.getMonth(dateList[0][0], monthGroup.length);
+    } catch {}
     return (
       <div className={s.dateBox}>
         {monthGroup.map((group, index) => (

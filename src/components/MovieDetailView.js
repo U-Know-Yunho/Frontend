@@ -135,8 +135,9 @@ class MovieDetailView extends Component {
             </span>
             <ul>
               <li className={s.list}>감독: {directors[0].director}</li>
-              <li className={s.list}>
-                <span>배우: </span> <div>{castsData}</div>
+              <li className={classNames([s.list], [s.castsMobile])}>
+                <span className={s.castsMobile}>배우: </span>{' '}
+                <div className={s.castsMobile}>{castsData}</div>
               </li>
               <li className={s.list}>장르: {genre}</li>
               <li className={s.list}>기본: {durationMin}분</li>
