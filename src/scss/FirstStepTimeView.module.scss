@@ -112,7 +112,8 @@
 @media (max-width: 767px) {
   .timeWrapper {
     border-bottom: 0;
-    height: fit-content;
+    min-height: 30vh;
+    overflow-y: scroll;
     li {
       display: inline-block;
     }

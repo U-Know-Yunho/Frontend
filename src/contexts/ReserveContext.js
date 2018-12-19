@@ -11,6 +11,7 @@ export default class ReserveProvider extends Component {
       step: 'first',
       // 영화, 극장, 날짜, 시간, 인원수, 좌석
       // 선택된 영화 제목
+      age: '',
       movieTitle: '',
       // 선택된 영화 포스터
       moviePoster: '',
@@ -31,7 +32,6 @@ export default class ReserveProvider extends Component {
       // 선택된 좌석
       seat: [],
       seatPk: [],
-      ea: 11000,
       // 선택된 좌석에 따른 가격
       price: 0,
       // 상태 변경 함수들
@@ -62,10 +62,11 @@ export default class ReserveProvider extends Component {
     });
   }
 
-  onMovie(movieTitle, moviePoster = '') {
+  onMovie(movieTitle, moviePoster = '', age = '') {
     this.setState({
       movieTitle,
       moviePoster,
+      age,
     });
   }
 

@@ -60,6 +60,7 @@ export default class ReservationDataView extends Component {
       movieTitle,
       moviePoster,
       location,
+      age,
       subLocation,
       auditoriumName,
       date,
@@ -99,7 +100,7 @@ export default class ReservationDataView extends Component {
               <div className={s.movieInfo}>
                 <span className={s.movieTitle}>{movieTitle}</span>
                 <span>SCREENX 2D</span>
-                <span>12세 관람가</span>
+                <span>{age}</span>
               </div>
             </>
           ) : (
