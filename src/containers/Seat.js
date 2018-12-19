@@ -89,6 +89,7 @@ class Seat extends Component {
 
   async componentDidMount() {
     // const pk = this.props.timePk;
+    // console.log(pk);
     // const { data } = await api.get(`api/tickets/seats/${pk}/`);
     const { data } = await api.get(`api/tickets/seats/100/`);
     const seatArr = [];
@@ -120,15 +121,15 @@ class Seat extends Component {
               {rowItem.map(i => (
                 <EachSeat
                   key={i.pk}
-                  pk={i.pk}
+                  seatPk={i.pk}
                   seatName={i.seatName}
                   isReserved={i.reservationCheck}
                   number={number}
                   onIncreaseSelect={() => onIncreaseSelect()}
                   onDecreaseSelect={() => onDecreaseSelect()}
                   selected={selected}
-                  onSeatAdd={seatName => onSeatAdd(seatName)}
-                  onSeatDel={seatName => onSeatDel(seatName)}
+                  onSeatAdd={(seatName, seatPk) => onSeatAdd(seatName, seatPk)}
+                  onSeatDel={(seatName, seatPk) => onSeatDel(seatName, seatPk)}
                   onPricePlus={() => onPricePlus()}
                   onPriceSub={() => onPriceSub()}
                 />
