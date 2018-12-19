@@ -5,7 +5,7 @@ export default class ThirdStepView extends Component {
   render() {
     return (
       <div className={s.thirdBox}>
-        <span>해비의 영역</span>
+        <span />
       </div>
     );
   }
