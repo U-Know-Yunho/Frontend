@@ -4,7 +4,7 @@ import { withMyMovie } from '../contexts/MyMovieContext';
 
 class CancledList extends Component {
   render() {
-    return <MyMovieView list={this.props.cancledList} page={'cancled'} />;
+    return <MyMovieView list={this.props.cancledList} page={'canceled'} />;
   }
 }
 

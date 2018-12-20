@@ -3,7 +3,8 @@ import s from '../scss/MyMovieView.module.scss';
 
 export default class MyMovieView extends Component {
   render() {
-    const { list, page } = this.props;
+    const { list, page, handleCancel } = this.props;
+    console.log(list);
     return (
       <div className={s.wrapper}>
         {list.map(l => (
@@ -19,14 +20,22 @@ export default class MyMovieView extends Component {
               <p className={s.date}>{l.screeningSet.time}</p>
               <p className={s.theater}>CGV{l.screeningSet.theater}</p>
               <p className={s.num}>인원 {l.num}명</p>
-              {page === 'history' ? (
+              {page === 'canceled' ? (
+                <p className={s.cancle}>취소</p>
+              ) : (
                 <p className={s.seat}>
                   좌석 {l.seatsReserved.map(s => s.seatName + ' ')}
                 </p>
-              ) : (
-                <p className={s.cancle}>취소</p>
               )}
             </div>
+            {page === 'reserved' ? (
+              <button
+                className={s.cancelButton}
+                onClick={() => handleCancel(l.pk)}
+              >
+                예매 취소
+              </button>
+            ) : null}
           </div>
         ))}
       </div>
