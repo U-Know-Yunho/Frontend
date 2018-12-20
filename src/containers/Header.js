@@ -52,7 +52,8 @@ class Header extends Component {
           <Link
             to="/movies"
             className={classNames([s.link], {
-              [s.HeaderFocus]: currentLocation === '/movies',
+              [s.HeaderFocus]:
+                currentLocation === '/movies' || currentLocation === '/movies/',
             })}
           >
             Movie
