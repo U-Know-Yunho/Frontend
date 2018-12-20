@@ -13,9 +13,7 @@ class MyCGVInfoPage extends Component {
           <meta charSet="utf-8" />
           <title>정보수정, CGV</title>
         </Helmet>
-        <MyCGVLayout>
-          <MyInfo />
-        </MyCGVLayout>
+        <MyCGVLayout>{this.props.infoLoading && <MyInfo />}</MyCGVLayout>
       </Layout>
     );
   }
