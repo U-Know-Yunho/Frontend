@@ -1,0 +1,24 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .wrapper {
+    background-color: $silver-white;
+
+    box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
+
+    h1 {
+      color: $red;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+// 공통 부분
+
+.wrapper {
+  background-color: $silver-white;
+}

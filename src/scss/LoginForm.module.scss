@@ -1,0 +1,115 @@
+@import '../common.module.scss';
+
+.loginBox {
+  position: relative;
+  text-align: center;
+  width: 350px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: $stone-gray;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  .loginBtn {
+    padding-left: 5px;
+    height: 40px;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+  }
+
+  .loginBtn {
+    background-color: $stone-gray;
+    font-size: 1rem;
+    border: 0;
+    color: $white;
+  }
+
+  .naver,
+  .kakao,
+  .facebook {
+    height: 40px;
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    background-color: $white;
+    border: 1px solid $dark-white;
+    text-align: left;
+    padding-left: 50px;
+    font-size: 0.8rem;
+    color: $silver-gray;
+
+    &::after {
+      width: 40px;
+      height: 100%;
+      content: '';
+      position: absolute;
+      border-right: 1px solid $dark-white;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  .naver::after {
+    background: url('http://dclip.co.kr/web/upload/131/image/naver.svg');
+  }
+
+  .kakao::after {
+    background: url('./kakao_sns.png');
+  }
+
+  .facebook::after {
+    background: url('https://www.sstransport.com/wp-content/uploads/2012/03/Facebook-icon-300x300.png');
+  }
+
+  .naver::after,
+  .kakao::after,
+  .facebook::after {
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .facebook {
+    margin-bottom: 0;
+  }
+
+  .registerWrapper {
+    text-align: right;
+    height: fit-content;
+    margin-bottom: 30px;
+
+    span {
+      position: relative;
+      left: 0;
+      color: $stone-gray;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: normal;
+      font-weight: medium;
+      text-align: right;
+      transition: 0.3s;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .loginBox {
+    h1 {
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
+  }
+}

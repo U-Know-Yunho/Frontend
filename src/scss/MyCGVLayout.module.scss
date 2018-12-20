@@ -1,0 +1,79 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .myCGVWrapper {
+    padding: 20vh 0;
+    background-color: $silver-white;
+    box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
+
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: $gray;
+    }
+
+    .myCGVBox {
+      width: 65%;
+      max-width: 920px;
+      min-width: 550px;
+      height: 600px;
+      margin: 10px auto;
+      display: flex;
+
+      .myCGVNav {
+        width: 20%;
+        max-width: 200px;
+        min-width: 180px;
+        margin-right: 20px;
+      }
+
+      .myCGVContent {
+        width: 80%;
+        max-width: 700px;
+        min-width: 350px;
+        background-color: $white;
+        box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 35px;
+
+        h3 {
+          width: 100%;
+          background-color: $stone-gray;
+          height: 28px;
+          line-height: 28px;
+          text-align: center;
+          font-size: 0.8rem;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .myCGVWrapper {
+    background-color: $silver-white;
+
+    h2 {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+
+    .myCGVNav {
+      position: relative;
+    }
+
+    .myCGVContent {
+      min-height: 50vh;
+
+      h3 {
+        width: 0;
+        height: 0;
+        font-size: 0;
+      }
+    }
+  }
+}

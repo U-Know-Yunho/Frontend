@@ -1,0 +1,22 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .loginWrapper {
+    padding: 20vh;
+  }
+}
+@media (max-width: 767px) {
+  .loginWrapper {
+    padding: 35px;
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.loginWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

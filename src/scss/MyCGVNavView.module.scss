@@ -1,0 +1,111 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .myCGVProfile {
+    height: 220px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    text-align: center;
+    padding-top: 24px;
+
+    img {
+      display: inline-block;
+      margin: 0 auto;
+      width: 140px;
+      height: 140px;
+    }
+
+    p {
+      color: $lightstone-gray;
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+  }
+
+  .myCGVMenuBox {
+    background-color: $white;
+    box-shadow: 3px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    height: calc(100% - 220px - 20px);
+
+    h3:last-of-type {
+      margin-top: 35px;
+    }
+
+    .myCGVMenuTitle {
+      background-color: $red;
+      text-align: center;
+      color: $white;
+      padding: 10px;
+    }
+
+    .myCGVMenuList {
+      display: block;
+      text-align: center;
+      margin: 24px auto;
+      color: $gray;
+    }
+
+    //   현재 클릭된 메뉴 클래스
+    .myCGVFocus {
+      color: $dark-red;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .myCGVProfile {
+    height: 100px;
+    width: 100%;
+    background-color: $stone-gray;
+    display: flex;
+    align-items: center;
+    color: white;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin: 0 15px;
+    }
+  }
+
+  .myCGVMenuBox {
+    display: flex;
+    background-color: white;
+    margin: 15px 0;
+
+    .myCGVMenuTitle {
+      width: 0;
+      height: 0;
+      font-size: 0;
+    }
+
+    .myCGVMenuList {
+      display: block;
+      text-align: center;
+      margin: 24px auto;
+      color: $gray;
+      font-size: 0.9rem;
+    }
+
+    .info {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      color: white;
+      font-size: 0.7rem;
+      border: 1px solid white;
+      border-radius: 1px;
+      padding: 5px;
+    }
+
+    //   현재 클릭된 메뉴 클래스
+    .myCGVFocus {
+      color: $dark-red;
+      font-weight: bold;
+    }
+  }
+}

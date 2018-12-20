@@ -1,0 +1,24 @@
+@import '../common.module.scss';
+
+.movieDetailWrapper {
+  background-color: $gray;
+  padding: 130px;
+  min-height: 80vh;
+  h2 {
+    color: $red;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+// 반응형
+@media (max-width: 767px) {
+  .movieDetailWrapper {
+    padding: 0;
+    h2 {
+      display: none;
+    }
+  }
+}

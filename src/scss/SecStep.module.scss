@@ -1,0 +1,81 @@
+@import '../common.module.scss';
+
+// 데스크탑
+@media (min-width: 768px) {
+  .wrapper {
+    width: 67vw;
+    min-width: 750px;
+    max-width: 1050px;
+    height: 500px;
+    background-color: $stone-gray;
+
+    .firstLine {
+      display: flex;
+      width: 100%;
+      background-color: $black;
+      color: $stone-white;
+      padding: 20px;
+    }
+
+    .secondLine {
+      display: flex;
+      width: 100%;
+      height: 419px;
+      color: $stone-white;
+      justify-content: space-evenly;
+      align-items: center;
+      position: relative;
+
+      .side {
+        width: 20%;
+      }
+    }
+  }
+}
+
+// 모바일
+@media (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+    background-color: $lightstone-gray;
+
+    .firstLine {
+      width: 100%;
+      background-color: $black;
+      color: $stone-white;
+      padding: 30px 20px;
+    }
+
+    .secondLine {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 400px;
+      color: $stone-white;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .side {
+        height: 20%;
+        display: flex;
+      }
+    }
+  }
+}
+
+// 공통부분
+
+// 옵션 영역
+.side {
+  figure {
+    display: flex;
+    font-size: 0.7rem;
+    align-items: center;
+
+    img {
+      width: 17px;
+      height: 17px;
+      margin: 4px 8px;
+    }
+  }
+}

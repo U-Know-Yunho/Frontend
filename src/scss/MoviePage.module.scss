@@ -1,0 +1,86 @@
+@import '../common.module.scss';
+
+.wrapper {
+  background-color: $stone-gray;
+  width: 100%;
+
+  .container {
+    background-color: $stone-gray;
+    text-align: center;
+
+    h2 {
+      font-weight: 700;
+      color: $white;
+    }
+
+    .nav {
+      color: #f4f4f4;
+      margin: 40px auto;
+
+      a {
+        display: inline-block;
+        background-color: $dark-gray;
+        width: 150px;
+        height: 50px;
+        line-height: 51px;
+        font-size: 1rem;
+        margin: 5px 8px;
+        cursor: pointer;
+      }
+
+      // 각 버튼 클릭 시 빨간 색으로 표시
+      .active {
+        transition: 0.3s;
+        background: $red;
+      }
+    }
+
+    button {
+      background: $red;
+      width: 88px;
+      height: 40px;
+      margin-top: 40px;
+      font-weight: 400;
+      font-size: 0.8rem;
+      line-height: 3.2;
+      border: none;
+      color: $white;
+      transition: 0.3s;
+
+      &:hover {
+        background: $black;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 48px 0;
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    ul {
+      width: 80vw;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 130px 0;
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    ul {
+      width: 65vw;
+      margin: 0 auto;
+    }
+  }
+}

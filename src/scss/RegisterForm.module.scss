@@ -1,0 +1,190 @@
+@import '../common.module.scss';
+
+.registerBox {
+  width: 350px;
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: $stone-gray;
+  }
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: $stone-gray;
+  }
+
+  label:nth-child(6) {
+    margin-top: 20px;
+  }
+  input {
+    height: 30px;
+    padding-left: 5px;
+
+    &[type='email'],
+    &[type='tel'],
+    &[type='password'] {
+      display: block;
+      width: 100%;
+    }
+
+    &[placeholder='Lastname'] {
+      width: 30%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    &[placeholder='Firstname'] {
+      display: inline-block;
+      width: calc(70% - 5px);
+    }
+  }
+
+  input::placeholder {
+    color: $lighten-silver;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: $stone-gray;
+    border: 0;
+    color: $white;
+  }
+
+  .registerBtn {
+    margin-top: 35px;
+  }
+
+  .inputWrapper {
+    position: relative;
+  }
+
+  .usernameInput {
+    width: 70%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .checkIdBtn {
+    display: inline-block;
+    width: calc(30% - 5px);
+    padding: 0;
+  }
+
+  .default,
+  .correct,
+  .wrong {
+    font-size: 0.6rem;
+    display: block;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    font-weight: normal;
+    margin: 5px 0;
+  }
+
+  .default {
+    color: $silver;
+  }
+
+  .correct {
+    color: green;
+  }
+
+  .wrong {
+    color: $red;
+  }
+
+  .loginWrapper {
+    text-align: right;
+    height: fit-content;
+    margin-bottom: 30px;
+
+    span {
+      position: relative;
+      left: 0;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: normal;
+      font-weight: bold;
+      text-align: right;
+      transition: 0.3s;
+      color: $silver-gray;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+// 정보 수정 페이지 비밀번호 확인 폼
+.checkBox {
+  .registerBtn {
+    margin-top: 15px;
+  }
+}
+// 정보 수정 페이지에서의 폼 css
+.infoWrapper {
+  margin-top: 25px;
+  width: 100%;
+  .registerBox {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 350px;
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: $stone-gray;
+    }
+    // 개인 정보 수정 페이지에서 유저네임 인풋
+    .usernameInput {
+      width: 100%;
+    }
+    input {
+      &[placeholder='Firstname'] {
+        display: inline-block;
+        width: calc(70% - 20% - 10px);
+      }
+    }
+    .apply {
+      display: inline-block;
+      width: 20%;
+      height: 30px;
+      background-color: $stone-gray;
+      border: 0;
+      color: $white;
+      margin-left: 5px;
+      text-align: center;
+    }
+    .registerBtn {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .registerBox {
+    width: 100%;
+    padding: 10px 0 45px;
+    h1 {
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
+    .loginWrapper {
+      margin-bottom: 0;
+    }
+  }
+}

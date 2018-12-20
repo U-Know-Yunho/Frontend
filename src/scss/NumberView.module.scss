@@ -1,0 +1,60 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .wrapper {
+    width: 50%;
+    min-width: 320px;
+
+    ul {
+      li {
+        padding: 5px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    width: 100%;
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    ul {
+      font-size: 0.8rem;
+
+      li {
+        padding: 4px 7px;
+      }
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 41px;
+
+  p {
+    height: 26px;
+    line-height: 27px;
+    margin: 0 7px;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      background-color: $stone-gray;
+      margin: 2px;
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: $white;
+      color: $black;
+    }
+  }
+}

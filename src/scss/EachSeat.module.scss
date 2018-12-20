@@ -1,0 +1,57 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .eachSeat {
+    label {
+      width: 23px;
+      height: 23px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .eachSeat {
+    label {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+.eachSeat {
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    border: 2px solid #fff;
+    text-align: center;
+    line-height: 20px;
+    margin: 0 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: black;
+  }
+
+  label {
+    font-size: 16px;
+    opacity: 0.5;
+  }
+
+  input:checked {
+    + label {
+      opacity: 1;
+    }
+    + .reserved {
+      opacity: 0.5;
+    }
+  }
+
+  input:checked {
+    + label {
+      background: #16a085;
+    }
+    + .reserved {
+      background: $red;
+    }
+  }
+}

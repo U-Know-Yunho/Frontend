@@ -1,0 +1,179 @@
+@import '../common.module.scss';
+
+// 데스크탑
+@media (min-width: 768px) {
+  .menuBar {
+    width: $content-width;
+    height: 72px;
+
+    .menuButton {
+      display: none;
+    }
+    .logo {
+      width: 100px;
+      height: 90%;
+    }
+    .menu {
+      position: relative;
+      right: -13px;
+      .menuClose {
+        display: none;
+      }
+      .username {
+        padding: 3px 6px;
+        margin: 0 14px;
+        color: $stone-gray;
+        font-size: 0.9rem;
+        border-bottom: 1px solid $stone-gray;
+        &:hover {
+          font-weight: 700;
+        }
+      }
+      .link {
+        padding: 3px 10px;
+        margin: 0 3px;
+        color: $black;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: 700;
+        background-color: $white;
+        border: 0;
+        transition: 0.3s;
+
+        &:active {
+          outline: none;
+        }
+
+        &:hover {
+          color: $red;
+        }
+      }
+
+      .HeaderFocus {
+        color: $red;
+      }
+    }
+  }
+}
+
+// 반응형
+@media (max-width: 767px) {
+  .menuBar {
+    position: fixed;
+    height: 54px;
+    width: 100%;
+    background-color: $white;
+    z-index: 100;
+    .logo {
+      margin: 0 auto;
+      width: 60px;
+      height: 90%;
+    }
+    .menuButton {
+      display: block;
+      position: absolute;
+      top: 5px;
+      width: 45px;
+      height: 45px;
+    }
+  }
+  .menu {
+    display: none;
+    .menuClose {
+      display: none;
+    }
+    .username {
+      display: none;
+    }
+  }
+  // 모바일버전에서 메뉴 버튼을 눌렀을 때
+  .menuBar.active {
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      top: 0;
+    }
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 54px;
+      left: 0;
+      height: 70px;
+      width: 100%;
+      background-color: white;
+      z-index: 999;
+      &::before {
+        content: '';
+        display: block;
+        background-image: url(../../src/scss/menu_arrow.png);
+        background-size: cover;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: -4px;
+        left: 18px;
+        transform: rotateZ(-135deg);
+      }
+      &::after {
+        content: '';
+        display: block;
+        background-image: url(../../src/scss/img_deco_christmas1.png);
+        background-size: cover;
+        width: 100%;
+        height: 20px;
+        position: absolute;
+        top: 0;
+      }
+      .menuClose {
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -35px;
+        right: 15px;
+      }
+      .link {
+        background-color: transparent;
+        border: 0;
+        display: inline-block;
+        margin: 5px;
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+// 공통 부분
+.menuBar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    position: relative;
+    cursor: pointer;
+    // 웹 접근성을 위해 Home 텍스트 숨기기. CGV 로고만 보이게
+    text-indent: 150px;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('http://img.cgv.co.kr/R2014/images/title/h1_cgv.png');
+      background-position-y: 40%;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}

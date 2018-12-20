@@ -1,0 +1,131 @@
+@import '../common.module.scss';
+
+// 데스크탑
+@media (min-width: 768px) {
+  .AboutBox {
+    margin: 0 auto;
+    width: $content-width;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      width: 14%;
+    }
+
+    .members {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      .member {
+        width: 200px;
+        margin: 12px;
+        padding: 14px;
+      }
+    }
+  }
+}
+
+//모바일 뷰
+@media (max-width: 767px) {
+  .AboutBox {
+    margin: 0 auto;
+    width: 100%;
+    h3 {
+      width: 100%;
+    }
+
+    .members {
+      display: flex;
+      flex-direction: column;
+
+      .member {
+        width: 70%;
+        min-width: 250px;
+        max-width: 300px;
+        margin: 12px auto;
+        padding: 24px;
+      }
+    }
+  }
+}
+
+// 공통부분
+.AboutBox {
+  h3 {
+    height: 40px;
+    background-color: $red;
+    color: $white;
+    display: inline-block;
+    line-height: 40px;
+    margin: 10px 0 40px;
+    text-align: center;
+  }
+  .member {
+    background-color: $white;
+
+    // 프로필 사진
+    .image {
+      display: block;
+      margin: 0 auto 16px;
+      width: 150px;
+      height: 150px;
+      border-radius: 75px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    // 글자
+    span {
+      display: block;
+      text-align: center;
+      line-height: 1.4rem;
+      font-weight: 700;
+      color: $gray;
+    }
+
+    span:nth-child(3) {
+      font-size: 0.9rem;
+    }
+
+    span:nth-child(4) {
+      padding-top: 8px;
+    }
+    span:nth-child(4),
+    span:nth-child(5) {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: $silver;
+    }
+    // 링크 버튼
+    .button {
+      padding-top: 8px;
+      cursor: pointer;
+      width: 172px;
+      margin: 5px auto 0;
+
+      a {
+        display: inline-block;
+        background-color: $darken-white;
+        border: 1px solid $darken-white;
+        color: $lightenstone-gray;
+        font-size: 0.8rem;
+        font-weight: 700;
+        line-height: 36px;
+        text-align: center;
+        width: 80px;
+        height: 36px;
+        margin: 0 3px;
+        transition: 0.3s;
+        box-sizing: border-box;
+
+        &:hover {
+          background-color: $white;
+          border: 1px solid $red;
+          color: $red;
+        }
+      }
+    }
+  }
+}

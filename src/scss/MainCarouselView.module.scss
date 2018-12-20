@@ -1,0 +1,14 @@
+@import '../common.module.scss';
+
+.carouselWrapper {
+  width: 70vw;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .carouselWrapper {
+    width: 100%;
+  }
+}

@@ -1,0 +1,193 @@
+@import '../common.module.scss';
+
+.movieDetailBox {
+  margin: 80px auto 0 auto;
+  width: 58vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .movieInfo {
+    display: flex;
+    justify-content: space-between;
+
+    .posterWrapper {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .poster {
+        width: 100%;
+        height: auto;
+      }
+
+      .button {
+        width: 100%;
+        height: 48px;
+        color: $white;
+        background-color: $red;
+        border: 0;
+        font-weight: bold;
+        text-align: center;
+        line-height: 44px;
+        transition: 0.3s;
+        border: 1px solid $red;
+
+        &:hover {
+          background-color: $white;
+          color: $red;
+        }
+      }
+    }
+
+    .basicInfo {
+      width: 70%;
+      padding: 30px;
+      color: #fff;
+
+      .title {
+        font-size: 1.6rem;
+      }
+
+      .reservationScore {
+        display: block;
+        font-size: 1.2rem;
+        margin: 30px 0;
+        color: #ccc;
+      }
+
+      .list {
+        color: #aaa;
+        font-size: 1rem;
+        line-height: 1.8rem;
+        display: flex;
+
+        span {
+          margin-right: 3px;
+          width: fit-content;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .subWrapper {
+    text-align: center;
+    margin-top: 50px;
+
+    .subTitle {
+      height: 40px;
+      background-color: $lightstone-gray;
+      color: $white;
+      display: inline-block;
+      width: 20%;
+      line-height: 40px;
+      margin: 30px;
+    }
+
+    .actorsBox,
+    .directorsBox {
+      color: $lighten-silver;
+      width: 100%;
+
+      .directorTitle {
+        font-weight: bold;
+        padding: 3px;
+      }
+      .actorUl,
+      .directorUl {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .actorLi,
+      .directorLi {
+        min-width: 130px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        img {
+          height: 130px;
+          width: 100px;
+          margin: 5px;
+          object-fit: cover;
+          object-position: center;
+        }
+        span {
+          padding-top: 5px;
+          font-size: 0.9rem;
+        }
+        .engName {
+          font-size: 0.8rem;
+          color: $silver-gray;
+        }
+      }
+    }
+
+    .descriptionLine {
+      color: $lighten-silver;
+      line-height: 1.8rem;
+      margin: 30px;
+      display: block;
+      font-size: 1rem;
+    }
+  }
+}
+
+// 반응형
+@media (max-width: 767px) {
+  .movieDetailBox {
+    margin: 0 auto;
+    width: 100%;
+
+    .movieInfo {
+      margin: 0 20px;
+      order: 2;
+      align-items: center;
+      .posterWrapper {
+        .poster {
+          height: auto;
+        }
+        .button {
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+      .basicInfo {
+        padding: 10px 20px;
+        .title {
+          font-size: 1.4rem;
+        }
+        .reservationScore {
+          margin: 18px 0;
+        }
+        .list {
+          line-height: 1.5rem;
+        }
+        .castsMobile {
+          display: none;
+        }
+      }
+    }
+
+    .subWrapper {
+      order: 2;
+      margin: 20px 0;
+
+      .subTitle {
+        display: none;
+        margin: 0;
+      }
+      .directorsBox {
+        display: none;
+      }
+    }
+
+    .reponsiveSubWrapper {
+      order: 1;
+    }
+  }
+}

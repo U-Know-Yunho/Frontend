@@ -1,0 +1,27 @@
+@import '../common.module.scss';
+
+.aboutWrapper {
+  padding: 20vh 0;
+  background-color: $stone-gray;
+  background-image: url('./about_bg.jpg');
+  background-size: 100%;
+
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: $white;
+  }
+}
+
+@media (max-width: 767px) {
+  .aboutWrapper {
+    padding: 8vh;
+
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+}

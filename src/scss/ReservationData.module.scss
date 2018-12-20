@@ -1,0 +1,303 @@
+@import '../common.module.scss';
+
+@media (min-width: 768px) {
+  .dataWrapper {
+    width: 67vw;
+    min-width: 750px;
+    max-width: 1050px;
+    height: 150px;
+    display: flex;
+    background-color: $black;
+    margin: 20px 0;
+
+    .previousButton,
+    .nextButton {
+      flex: 1.5;
+      height: 100%;
+    }
+
+    .movieData,
+    .basicData,
+    .seatData,
+    .payData {
+      flex: 2;
+    }
+
+    .movieData,
+    .basicData {
+      border-right: 1px solid $light-gray;
+    }
+
+    .previousButton {
+      background-color: $silver-gray;
+      cursor: pointer;
+      color: $white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $silver-gray;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $white;
+        border: 1px solid $red;
+        color: $red;
+      }
+    }
+
+    .nextButton {
+      background-color: $red;
+      cursor: pointer;
+      color: $white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $red;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $white;
+        color: $red;
+      }
+    }
+
+    .movieData,
+    .basicData,
+    .seatData {
+      color: $white;
+      padding: 10px;
+    }
+
+    .movieData {
+      display: flex;
+      color: $silver;
+      justify-content: center;
+      align-items: center;
+
+      .moviePoster {
+        flex: 1;
+        margin-right: 3px;
+        width: 50%;
+        height: auto;
+      }
+
+      .movieInfo {
+        flex: 1;
+        font-size: 0.7rem;
+
+        .movieTitle {
+          font-size: 0.8rem;
+          display: block;
+          color: $white;
+          line-height: 1.2rem;
+          text-overflow: ellipsis;
+          margin-bottom: 5px;
+        }
+
+        span {
+          display: block;
+          line-height: 1rem;
+        }
+      }
+    }
+
+    .basicData,
+    .seatData {
+      display: flex;
+      justify-content: center;
+      color: $silver;
+
+      ul {
+        padding-top: 25px;
+        width: 90%;
+      }
+
+      li {
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+
+        .subTitle {
+          display: inline-block;
+          color: $white;
+          width: 40%;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .seatData {
+      ul {
+        // 좌석 번호 영역
+        li:nth-child(3) {
+          display: flex;
+
+          span:nth-child(2) {
+            width: 60%;
+            padding-left: 2px;
+            min-height: 32px;
+          }
+        }
+
+        li:nth-child(4) {
+          text-align: right;
+          padding-top: 10px;
+          color: $white;
+          font-size: 1rem;
+          padding-right: 8px;
+        }
+      }
+
+      .priceSubTitle {
+        font-weight: bold;
+      }
+
+      .price {
+        color: $red;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+
+    .empty {
+      height: 100%;
+      color: $light-gray;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .dataWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: $stone-gray;
+    color: white;
+    position: fixed;
+    top: 54px;
+    border-bottom: 26px solid $silver-white;
+
+    .movieData,
+    .basicData,
+    .seatData {
+      order: 2;
+      flex: 1;
+      height: 100px;
+    }
+
+    .movieData {
+      display: flex;
+      color: $silver;
+      width: 80px;
+      max-width: 80px;
+
+      .moviePoster {
+        width: 80px;
+        height: 100%;
+      }
+
+      .movieInfo {
+        display: none;
+      }
+    }
+
+    .basicData,
+    .seatData {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $silver;
+
+      ul {
+        width: 90%;
+        margin: 0 auto;
+        padding-left: 10%;
+      }
+
+      li {
+        font-size: 0.7rem;
+        margin: 2px;
+
+        .subTitle {
+          display: inline-block;
+          color: $white;
+          width: 30%;
+          min-width: 30px;
+        }
+      }
+    }
+
+    .previousButton,
+    .nextButton {
+      position: fixed;
+      top: 150px;
+      height: 35px;
+      padding: 5px;
+      color: $stone-gray;
+      text-align: center;
+      line-height: 25px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    .previousButton {
+      left: 0;
+    }
+
+    .nextButton {
+      right: 0;
+    }
+
+    .seatData {
+      ul {
+        width: 90%;
+        margin: 0 auto;
+
+        // 좌석 번호 영역
+        li:nth-child(3) {
+          display: flex;
+
+          span:nth-child(2) {
+            width: 60%;
+            padding-left: 2px;
+          }
+        }
+
+        li:nth-child(4) {
+          text-align: right;
+          padding-top: 7px;
+          color: $white;
+          font-size: 0.7rem;
+        }
+      }
+
+      .priceSubTitle {
+        font-weight: bold;
+        margin-right: 4px;
+      }
+
+      .price {
+        color: $red;
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+
+    .empty {
+      display: none;
+    }
+  }
+}
