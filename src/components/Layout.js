@@ -19,6 +19,7 @@ export default class Layout extends Component {
               <a
                 href="https://github.com/U-Know-Yunho/Frontend"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Team Uknow-Yunho : CGV CLONE PROJECT
               </a>

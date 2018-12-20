@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import s from '../scss/RegisterForm.module.scss';

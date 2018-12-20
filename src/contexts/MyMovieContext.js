@@ -11,7 +11,7 @@ export default class MyMovieProvider extends Component {
       listsLoading: true,
       readyList: [],
       seenList: [],
-      cancledList: [],
+      canceledList: [],
       isAnythingCanceled: false,
       onIsAnythingCanceled: this.onIsAnythingCanceled.bind(this),
     };
@@ -48,12 +48,12 @@ export default class MyMovieProvider extends Component {
         .reverse();
 
       // 상영일과 관계없이 취소된 내역
-      const cancledList = data.filter(l => !l.isActive).reverse();
+      const canceledList = data.filter(l => !l.isActive).reverse();
 
       this.setState({
         readyList,
         seenList,
-        cancledList,
+        canceledList,
         listsLoading: false,
       });
     }
