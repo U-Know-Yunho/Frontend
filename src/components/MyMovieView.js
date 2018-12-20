@@ -7,7 +7,7 @@ export default class MyMovieView extends Component {
     return (
       <div className={s.wrapper}>
         {list.map(l => (
-          <div className={s.movie}>
+          <div key={l.pk} className={s.movie}>
             <img
               src={l.screeningSet.imgUrl}
               alt="영화 포스터"
@@ -17,7 +17,7 @@ export default class MyMovieView extends Component {
               <p className={s.title}>{l.screeningSet.title}</p>
               <p>SCREENX 2D</p>
               <p className={s.date}>{l.screeningSet.time}</p>
-              <p className={s.theater}>CGV{l.screeningSet.theater}</p>
+              <p className={s.theater}>{l.screeningSet.theater}</p>
               <p className={s.num}>인원 {l.num}명</p>
               {page === 'canceled' ? (
                 <p className={s.cancel}>취소</p>

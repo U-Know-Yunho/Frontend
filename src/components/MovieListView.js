@@ -31,6 +31,7 @@ class MovieListView extends Component {
         <ul className={c(s.movieList, { [s.home]: page === 'home' })}>
           {list.map((l, i) => (
             <MovieItem
+              key={l.pk}
               page={page}
               movie={movie}
               pk={l.pk}
