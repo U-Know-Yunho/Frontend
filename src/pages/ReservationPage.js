@@ -4,7 +4,7 @@ import qs from 'qs';
 import ReserveProvider from '../contexts/ReserveContext';
 import ReservationSteps from '../containers/ReservationSteps';
 import s from '../scss/ReservationPage.module.scss';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 
 export default class ReservationPage extends Component {
   componentDidMount() {
@@ -20,10 +20,10 @@ export default class ReservationPage extends Component {
     // firstStep component에서 선택된 영화 값으로 이 pk를 활용
     return (
       <Layout>
-        <Helmet>
+        {/* <Helmet>
           <meta charSet="utf-8" />
           <title>예매, CGV</title>
-        </Helmet>
+        </Helmet> */}
         <ReserveProvider>
           <div className={s.wrapper}>
             <ReservationSteps pk={pk} />

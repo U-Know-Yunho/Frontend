@@ -5,10 +5,8 @@ import api from '../api';
 
 class ReservedList extends Component {
   async handleCancel(pk) {
-    const { isAnythingCanceled, onIsAnythingCanceled } = this.props;
     const res = await api.patch(`api/members/reservations/${pk}`);
-    console.log(res.data);
-    onIsAnythingCanceled(!isAnythingCanceled);
+    this.props.getData();
   }
 
   render() {
