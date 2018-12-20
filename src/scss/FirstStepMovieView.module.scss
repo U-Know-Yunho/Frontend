@@ -11,7 +11,7 @@
     transition: 0.3s;
   }
   img {
-    width: 20px;
+    width: 18px;
     height: 100%;
     object-fit: contain;
     object-position: center;
@@ -21,10 +21,12 @@
   .movieNoneLi {
     color: $silver-gray;
     cursor: not-allowed;
+    font-size: 0.9rem;
   }
   .movieLi {
     position: relative;
     display: flex;
+    font-size: 0.9rem;
 
     &:hover {
       color: $red;

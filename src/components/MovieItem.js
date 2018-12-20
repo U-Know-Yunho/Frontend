@@ -13,10 +13,6 @@ export default class MovieItem extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   const date = this.props.date.splice(6);
-  //   console.log(date);
-  // }
   handleLoading() {
     this.setState({
       loading: false,
@@ -37,7 +33,6 @@ export default class MovieItem extends Component {
     } = this.props;
     return (
       <li
-        key={pk}
         className={c(s.movieItem, {
           [s.mobileClick]: mobileClick === pk,
         })}

@@ -36,18 +36,18 @@ export default class MainCarouselView extends Component {
         stopOnHover={false}
         className={s.carouselWrapper}
       >
-        <Link to="/movies/detail/10" className={s.logo}>
-          <div>
-            <img src={firstCarousel} alt="신비한 동물사전 영화포스터 이미지" />
-            <p className="legend" style={captionStyle}>
-              신비한 동물들과 그린델왈드의 범죄
-              <span style={subCaptionStyle}>
-                Fantastic Beasts: The Crimes of Grindelwald
-              </span>
-            </p>
-          </div>
-        </Link>
-        <Link to="/movies/detail/5" className={s.logo}>
+        {/* <Link to="/movies/detail/10" className={s.logo}> */}
+        <div>
+          <img src={firstCarousel} alt="신비한 동물사전 영화포스터 이미지" />
+          <p className="legend" style={captionStyle}>
+            신비한 동물들과 그린델왈드의 범죄
+            <span style={subCaptionStyle}>
+              Fantastic Beasts: The Crimes of Grindelwald
+            </span>
+          </p>
+        </div>
+        {/* </Link> */}
+        <Link to="/movies/detail/2" className={s.logo}>
           <div>
             <img src={thirdCarousel} alt="스윙키즈 영화포스터 이미지" />
             <p className="legend" style={captionStyle}>
@@ -56,7 +56,7 @@ export default class MainCarouselView extends Component {
             </p>
           </div>
         </Link>
-        <Link to="/movies/detail/1" className={s.logo}>
+        <Link to="/movies/detail/3" className={s.logo}>
           <div>
             <img src={secondCarousel} alt="보헤미안 랩소디 영화포스터 이미지" />
             <p className="legend" style={captionStyle}>
