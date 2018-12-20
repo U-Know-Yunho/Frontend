@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import MovieList from '../containers/MovieList';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import s from '../scss/HomePage.module.scss';
 import classNames from 'classnames';
 import VideoView from '../components/VideoView';
@@ -25,6 +26,10 @@ export default class HomePage extends Component {
     const { movie } = this.state;
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>윤호 그 이상의 열정, CGV</title>
+        </Helmet>
         <main>
           <section className={s.carousel}>
             <MainCarouselView />

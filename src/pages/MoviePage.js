@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import qs from 'qs';
 import s from '../scss/MoviePage.module.scss';
 import classNames from 'classnames';
+import { Helmet } from 'react-helmet';
 
 export default class MoviePage extends Component {
   render() {
@@ -16,6 +17,10 @@ export default class MoviePage extends Component {
 
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>무비 차트, CGV</title>
+        </Helmet>
         <div className={s.wrapper}>
           <div className={s.container}>
             {/* movie 값으로 현재 상영작인지 개봉예정작인지 판별하여 타이틀 나타내기  */}
