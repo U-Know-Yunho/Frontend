@@ -77,10 +77,10 @@ class MyInfo extends Component {
     // const token = localStorage.getItem('token');
     await api.delete('api/members/user-delete/');
     // 유저 정보를 db에서 지우는게 성공하면 아래 코드 실행
-    this.props.deleteAcc();
     this.setState({
       deleteSuccess: true,
     });
+    this.props.deleteAcc();
   }
   render() {
     return this.state.deleteSuccess ? (
