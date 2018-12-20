@@ -25,6 +25,7 @@ class Header extends Component {
   render() {
     const { isLogin, logout, history, firstName, lastName } = this.props;
     const currentLocation = this.props.location.pathname;
+    console.log(currentLocation);
     return (
       <div className={classNames(s.menuBar, { [s.active]: this.state.active })}>
         <img
@@ -52,7 +53,8 @@ class Header extends Component {
           <Link
             to="/movies"
             className={classNames([s.link], {
-              [s.HeaderFocus]: currentLocation === '/movies',
+              [s.HeaderFocus]:
+                currentLocation === '/movies' || currentLocation === '/movies/',
             })}
           >
             Movie

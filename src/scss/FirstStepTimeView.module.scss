@@ -72,26 +72,6 @@
       color: $silver;
     }
   }
-  .jojoSign {
-    position: relative;
-    text-indent: 25px;
-    margin: 0 5px;
-    font-size: 0.9rem;
-    &::after {
-      content: '';
-      background: url('./sun.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      position: absolute;
-      //   border: 1px solid red;
-      height: 80%;
-      line-height: 80%;
-      margin: 5% 0;
-      width: 25px;
-      left: 0;
-    }
-  }
 
   .movieNoneLi {
     color: $silver-gray;

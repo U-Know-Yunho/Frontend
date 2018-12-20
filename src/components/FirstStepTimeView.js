@@ -40,12 +40,12 @@ export default class FirstStepTimeView extends Component {
                   className={classNames(
                     [s.timeInfo],
                     {
-                      [s.jojo]:
-                        specialTimes[idx] <= 10 && specialTimes[idx] >= 7,
+                      [s.night]:
+                        specialTimes[idx] >= 22 || specialTimes[idx] <= 5,
                     },
                     {
-                      [s.night]:
-                        specialTimes[idx] <= 5 && specialTimes[idx] >= 0,
+                      [s.jojo]:
+                        specialTimes[idx] <= 10 && specialTimes[idx] >= 7,
                     }
                   )}
                 >
@@ -83,7 +83,7 @@ export default class FirstStepTimeView extends Component {
                     },
                     {
                       [s.night]:
-                        specialTimes[idx] <= 5 && specialTimes[idx] >= 0,
+                        specialTimes[idx] >= 22 || specialTimes[idx] <= 5,
                     }
                   )}
                 >
