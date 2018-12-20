@@ -159,7 +159,10 @@
           font-size: 1.4rem;
         }
         .reservationScore {
-          margin: 22px 0;
+          margin: 18px 0;
+        }
+        .list {
+          line-height: 1.5rem;
         }
         .castsMobile {
           display: none;
@@ -170,7 +173,7 @@
     .subWrapper {
       //   clear: both;
       order: 2;
-      margin: 0;
+      margin: 20px 0;
 
       .subTitle {
         display: none;

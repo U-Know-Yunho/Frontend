@@ -14,7 +14,7 @@
     .previousButton,
     .nextButton {
       flex: 1.5;
-      // flex: 1
+      height: 100%;
     }
 
     .movieData,
@@ -131,7 +131,6 @@
 
     .seatData {
       ul {
-
         // 좌석 번호 영역
         li:nth-child(3) {
           display: flex;

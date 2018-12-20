@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import s from '../scss/ReservationData.module.scss';
+import { Link } from 'react-router-dom';
 
 export default class ReservationDataView extends Component {
   handleNextStep() {
@@ -54,6 +55,11 @@ export default class ReservationDataView extends Component {
     const { onReserve } = this.props;
     onReserve();
   }
+
+  handleTime(t) {
+    const tmp = t.split(':');
+    return tmp[0] + ':' + tmp[1];
+  }
   render() {
     const {
       step,
@@ -72,13 +78,15 @@ export default class ReservationDataView extends Component {
     return (
       <div className={s.dataWrapper}>
         {step === 'first' ? (
-          <div className={s.previousButton}>CGV 홈</div>
+          <Link to="/movies" className={s.previousButton}>
+            <div>영화</div>
+          </Link>
         ) : step === 'sec' ? (
           <div
             className={s.previousButton}
             onClick={() => this.handleReturnTofirst()}
           >
-            영화
+            이전
           </div>
         ) : (
           <div
@@ -116,7 +124,7 @@ export default class ReservationDataView extends Component {
                 <span className={s.subTitle}>일시</span> {date}
               </li>
               <li>
-                <span className={s.subTitle}> </span> {time}
+                <span className={s.subTitle}> </span> {this.handleTime(time)}
               </li>
               <li>
                 <span className={s.subTitle}>상영관</span> {auditoriumName}

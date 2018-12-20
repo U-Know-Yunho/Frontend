@@ -15,7 +15,6 @@ class Seat extends Component {
 
   async componentDidMount() {
     const pk = this.props.timePk;
-    console.log(pk);
     const { data } = await api.get(`api/tickets/seats/${pk}/`);
     const seatArr = [];
     for (let i = 1; i <= data[data.length - 1].row; i++) {

@@ -128,7 +128,7 @@ class MovieDetailView extends Component {
               {title} [{age}]
             </h3>
             <span className={s.reservationScore}>
-              예매율: {reservationScore * 100}%
+              예매율: {Math.floor(reservationScore * 100)}%
             </span>
             <ul>
               <li className={s.list}>감독: {directors[0].director}</li>

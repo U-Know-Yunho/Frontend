@@ -14,6 +14,10 @@ class MovieListView extends Component {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   handleClass(pk) {
     this.setState({
       mobileClick: pk,

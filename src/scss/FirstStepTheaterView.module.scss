@@ -13,12 +13,14 @@
     margin: 10px 0 10px 10px;
     background-color: $lightstone-gray;
     text-align: right;
+    font-size: 0.9rem;
     &:hover {
       color: $red;
     }
   }
   .subLocationLi {
     // margin: 10px 10px 10px 5px;
+    font-size: 0.8rem;
     &:hover {
       color: $red;
     }
@@ -39,6 +41,7 @@
   .movieNoneLi {
     color: $silver-gray;
     cursor: not-allowed;
+    font-size: 0.8rem;
   }
 
   .selected {

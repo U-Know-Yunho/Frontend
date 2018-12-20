@@ -4,7 +4,6 @@ import s from '../scss/MyMovieView.module.scss';
 export default class MyMovieView extends Component {
   render() {
     const { list, page, handleCancel } = this.props;
-    console.log(list);
     return (
       <div className={s.wrapper}>
         {list.map(l => (

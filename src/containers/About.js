@@ -18,7 +18,7 @@ export default class About extends Component {
           name: '조서형',
           img: 'https://avatars1.githubusercontent.com/u/18183191?s=460&v=4',
           role: 'Front-end Developer',
-          comment: ['인간에게 가장 해로운', "벌레는 '대충'"],
+          comment: ['I ♡ FrontEnd', 'I ♡ 아구찜'],
           git: 'https://github.com/Seo-Hyung',
         },
         {
