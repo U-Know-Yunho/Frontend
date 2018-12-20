@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/FirstStepMovieView.module.scss';
-import ageAdult from './age_adult.png';
-import age12 from './age_12.png';
-import age15 from './age_15.png';
-import ageAll from './age_all.png';
+import ageAdult from '../scss/age_X.png';
+import age12 from '../scss/age_12.png';
+import age15 from '../scss/age_15.png';
+import ageAll from '../scss/age_O.png';
 
 export default class FirstStepMovieView extends Component {
   handleAgeImg(age) {

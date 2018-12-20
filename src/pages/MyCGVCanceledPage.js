@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import MyCGVLayout from '../components/MyCGVLayout';
-import CancledList from '../components/CancledList';
+import CanceledList from '../components/CanceledList';
 import { Helmet } from 'react-helmet';
 
 export default class MyCGVCanceledPage extends Component {
@@ -14,7 +14,7 @@ export default class MyCGVCanceledPage extends Component {
         </Helmet>
         <MyCGVLayout>
           <h3>취소 내역</h3>
-          {!this.props.listsLoading && <CancledList />}
+          {!this.props.listsLoading && <CanceledList />}
         </MyCGVLayout>
       </Layout>
     );

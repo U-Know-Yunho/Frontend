@@ -24,7 +24,7 @@ export default class MyMovieView extends Component {
                   좌석 {l.seatsReserved.map(s => s.seatName + ' ')}
                 </p>
               ) : (
-                <p className={s.cancle}>취소</p>
+                <p className={s.cancel}>취소</p>
               )}
             </div>
           </div>
