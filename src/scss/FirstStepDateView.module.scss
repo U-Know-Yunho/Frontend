@@ -4,6 +4,7 @@
   height: 460px;
   overflow-y: scroll;
   overflow-x: hidden;
+
   li {
     margin: 10px;
     cursor: pointer;
@@ -12,14 +13,17 @@
     text-align: center;
     display: block;
   }
+
   .dateLi:hover {
     color: $red;
   }
+
   .year {
     line-height: 1rem;
     margin-bottom: 0;
     font-size: 0.9rem;
   }
+
   .month {
     font-weight: bold;
     font-size: 2rem;
@@ -30,6 +34,7 @@
     // border: 1px solid blue;
     display: flex;
     font-size: 0.9rem;
+
     span {
       //   border: 1px solid blue;
       display: inline-block;
@@ -37,6 +42,7 @@
       text-align: right;
       padding: 5px;
     }
+
     .date {
       font-weight: bold;
       text-align: left;
@@ -47,6 +53,7 @@
     color: $silver-gray;
     cursor: not-allowed;
   }
+
   .selected {
     color: $white;
     transition: 0.3s;
@@ -63,9 +70,11 @@
   .dateBox {
     height: fit-content;
     overflow: hidden;
+
     li {
       display: inline-block;
     }
+
     .year,
     .month {
       display: block;

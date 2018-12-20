@@ -35,7 +35,7 @@
     // 각 버튼 클릭 시 빨간 색으로 표시
     .active {
       transition: 0.3s;
-      background: $dark-red;
+      background: $red;
     }
 
     ul {
@@ -99,7 +99,7 @@
   font-size: 1rem;
   margin: 64px 0 0 0;
   line-height: 50px;
-  background: #ee2e24;
+  background: $red;
 }
 
 .event {
@@ -168,7 +168,7 @@
   font-size: 1rem;
   margin: 64px 0;
   line-height: 50px;
-  background: #ee2e24;
+  background: $red;
 }
 
 @media (max-width: 767px) {
