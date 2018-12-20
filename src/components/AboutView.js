@@ -9,12 +9,12 @@ export default class AboutView extends Component {
         <h3>열정 지기</h3>
         <div className={s.members}>
           {memberData.map(m => (
-            <div className={s.member}>
+            <div className={s.member} key={m.name}>
               <img src={m.img} alt={m.name} className={s.image} />
               <span>{m.name}</span>
               <span>[{m.role}]</span>
-              {m.comment.map(c => (
-                <span>{c}</span>
+              {m.comment.map((c, i) => (
+                <span key={i}>{c}</span>
               ))}
               <div className={s.button}>
                 <a href={m.git} target="_blank" rel="noopener noreferrer">

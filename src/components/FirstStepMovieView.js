@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import s from '../scss/FirstStepMovieView.module.scss';
-import api from '../api';
 import ageAdult from './age_adult.png';
 import age12 from './age_12.png';
 import age15 from './age_15.png';

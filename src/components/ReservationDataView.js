@@ -11,17 +11,17 @@ export default class ReservationDataView extends Component {
       time,
       onStep,
     } = this.props;
-    // if (
-    //   movieTitle !== '' &&
-    //   location !== '' &&
-    //   subLocation !== '' &&
-    //   date !== '' &&
-    //   time !== ''
-    // ) {
-    onStep('sec');
-    // } else {
-    //   alert('조건을 모두 선택해주세요.');
-    // }
+    if (
+      movieTitle !== '' &&
+      location !== '' &&
+      subLocation !== '' &&
+      date !== '' &&
+      time !== ''
+    ) {
+      onStep('sec');
+    } else {
+      alert('조건을 모두 선택해주세요.');
+    }
   }
 
   handleThirdStep() {
@@ -67,7 +67,6 @@ export default class ReservationDataView extends Component {
       time,
       number,
       seat,
-      onStep,
       price,
     } = this.props;
     return (
