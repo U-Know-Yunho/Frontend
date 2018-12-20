@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MovieDetailView from '../components/MovieDetailView';
 import { withUser } from '../contexts/UserContext';
 import api from '../api';
-// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 class MovieDetail extends Component {
   static defaultProps = {
@@ -83,10 +83,10 @@ class MovieDetail extends Component {
   render() {
     return (
       <div>
-        {/* <Helmet>
+        <Helmet>
           <meta charSet="utf-8" />
           <title>{this.state.title}, CGV</title>
-        </Helmet> */}
+        </Helmet>
         <MovieDetailView {...this.state} />
       </div>
     );

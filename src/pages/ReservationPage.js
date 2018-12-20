@@ -5,7 +5,7 @@ import ReserveProvider from '../contexts/ReserveContext';
 import ReservationSteps from '../containers/ReservationSteps';
 import s from '../scss/ReservationPage.module.scss';
 import { Redirect } from 'react-router-dom';
-// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 export default class ReservationPage extends Component {
   componentDidMount() {
@@ -26,10 +26,10 @@ export default class ReservationPage extends Component {
     } else {
       return (
         <Layout>
-          {/* <Helmet>
-          <meta charSet="utf-8" />
-          <title>예매, CGV</title>
-        </Helmet> */}
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>예매, CGV</title>
+          </Helmet>
           <ReserveProvider>
             <div className={s.wrapper}>
               <ReservationSteps pk={pk} />
