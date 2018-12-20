@@ -35,7 +35,7 @@ Then, the components were divided and designed according to the MVP.
 ## Demo
 
 - [Click here](https://cgv.netlify.com) to see our website.
-- [Click here](https://www.youtube.com/watch?v=pWVyBVuAkXk) to see our demo video.
+- [Click here](https://www.youtube.com/watch?v=_k8WtPzqR3E) to see our demo video.
 
 ## Developers
 
