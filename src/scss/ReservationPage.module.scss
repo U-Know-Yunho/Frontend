@@ -1,4 +1,5 @@
 @import '../common.module.scss';
+
 @media (min-width: 768px) {
   .wrapper {
     background-color: $silver-white;
@@ -6,7 +7,7 @@
     box-shadow: inset 0px 3px 50px 0 rgba(94, 94, 94, 0.1);
 
     h1 {
-      color: #ee2e24;
+      color: $red;
       font-size: 1.8rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -15,6 +16,7 @@
     }
   }
 }
+
 // @media (max-width: 767px) {
 //   .wrapper {
 //     h1 {
