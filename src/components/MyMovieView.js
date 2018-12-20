@@ -4,11 +4,10 @@ import s from '../scss/MyMovieView.module.scss';
 export default class MyMovieView extends Component {
   render() {
     const { list, page, handleCancel } = this.props;
-    console.log(list);
     return (
       <div className={s.wrapper}>
         {list.map(l => (
-          <div className={s.movie}>
+          <div key={l.pk} className={s.movie}>
             <img
               src={l.screeningSet.imgUrl}
               alt="영화 포스터"

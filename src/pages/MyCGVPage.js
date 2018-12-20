@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import MyCGVLayout from '../components/MyCGVLayout';
 import ReservedList from '../containers/ReservedList';
-import { withMyMovie } from '../contexts/MyMovieContext';
 // import { Helmet } from 'react-helmet';
 
 export default class MyCGVPage extends Component {
