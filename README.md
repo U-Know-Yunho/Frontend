@@ -1,6 +1,7 @@
 # CGV Clone Project
 
-This is Team Uknow-Yunho's project to clone the CGV site. CGV is a Korean movie reservation site. You can see the original site [here](http://www.cgv.co.kr/).
+This is Team Uknow-Yunho's project to clone the CGV site.  
+CGV is a Korean movie reservation site. You can see the original site [here](http://www.cgv.co.kr/).
 
 We chose the major function, MVP, and focused on it, we redesign the website. Then, the components were divided and designed according to the MVP.
 
