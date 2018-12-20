@@ -54,13 +54,11 @@
     transition: 0.3s;
     display: flex;
     justify-content: center;
-    // border: 1px solid orange;
   }
   .timeLi:hover {
     color: $red;
   }
   .timeInfo {
-    // border: 1px solid red;
     display: inline-block;
     position: relative;
     .time {

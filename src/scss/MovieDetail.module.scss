@@ -43,7 +43,6 @@
 
     .basicInfo {
       width: 70%;
-      // border: 1px solid orange;
       padding: 30px;
       color: #fff;
 
@@ -74,7 +73,6 @@
   }
 
   .subWrapper {
-    // border: 1px solid salmon;
     text-align: center;
     margin-top: 50px;
 
@@ -106,7 +104,6 @@
       }
       .actorLi,
       .directorLi {
-        // border: 1px solid pink;
         min-width: 130px;
         display: flex;
         flex-direction: column;
@@ -177,7 +174,6 @@
     }
 
     .subWrapper {
-      //   clear: both;
       order: 2;
       margin: 20px 0;
 
@@ -191,7 +187,6 @@
     }
 
     .reponsiveSubWrapper {
-      //   float: inline-start;
       order: 1;
     }
   }

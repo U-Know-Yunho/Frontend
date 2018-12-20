@@ -1,7 +1,6 @@
 @import '../common.module.scss';
 
 .registerBox {
-  // height: 100%;
   width: 350px;
 
   h1 {
@@ -33,7 +32,6 @@
     &[type='password'] {
       display: block;
       width: 100%;
-      // margin: 10px 0;
     }
 
     &[placeholder='Lastname'] {
@@ -76,7 +74,6 @@
   }
 
   .checkIdBtn {
-    //   line-height: 1.4rem;
     display: inline-block;
     width: calc(30% - 5px);
     padding: 0;

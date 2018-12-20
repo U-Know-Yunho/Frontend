@@ -15,7 +15,6 @@ export default class ReserveProvider extends Component {
       movieTitle: '',
       // 선택된 영화 포스터
       moviePoster: '',
-      // 'https://wps-9th-practice1.s3.amazonaws.com/media/%EB%B3%B4%ED%97%A4%EB%AF%B8%EC%95%88%20%EB%9E%A9%EC%86%8C%EB%94%94/%EB%B3%B4%ED%97%A4%EB%AF%B8%EC%95%88_%EB%9E%A9%EC%86%8C%EB%94%94.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUQTVUBEK4SPUPKA%2F20181206%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181206T061347Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=9a5676ef4af21e9640739b3f124ed8188e105b712cfb8faaff287ee2dbd02545',
       // 선택된 극장
       location: '',
       subLocation: '',

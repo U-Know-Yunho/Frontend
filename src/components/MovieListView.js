@@ -3,7 +3,6 @@ import withLoading from '../hoc/withLoading';
 import s from '../scss/MovieListView.module.scss';
 import c from 'classnames';
 import MovieItem from './MovieItem';
-// import '../scss/ispinner-master/ispinner.css';
 
 class MovieListView extends Component {
   constructor(props) {

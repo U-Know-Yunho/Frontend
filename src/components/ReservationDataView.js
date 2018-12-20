@@ -65,7 +65,6 @@ export default class ReservationDataView extends Component {
       step,
       movieTitle,
       moviePoster,
-      location,
       age,
       subLocation,
       auditoriumName,

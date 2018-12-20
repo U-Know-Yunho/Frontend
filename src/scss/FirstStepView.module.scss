@@ -1,12 +1,6 @@
 @import '../common.module.scss';
 
 @media (min-width: 768px) {
-
-  // .firstStepWrapper {
-  //   width: 750px;
-  //   display: flex;
-  // }
-  // 서형이&혜비랑 상의해보기 길이 값
   .firstStepWrapper {
     width: 67vw;
     min-width: 750px;
@@ -14,7 +8,6 @@
     height: 500px;
     position: relative;
 
-    // background-color: $stone-gray;
     .dataTitlesWrapper {
       display: flex;
 
@@ -27,7 +20,6 @@
         line-height: 40px;
         border-right: 1px solid $silver-gray;
         font-size: 1.1rem;
-        // font-weight: bold;
       }
 
       .dateBoxTitle {

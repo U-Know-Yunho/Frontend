@@ -36,7 +36,6 @@ export default class MainCarouselView extends Component {
         stopOnHover={false}
         className={s.carouselWrapper}
       >
-        {/* <Link to="/movies/detail/10" className={s.logo}> */}
         <div>
           <img src={firstCarousel} alt="신비한 동물사전 영화포스터 이미지" />
           <p className="legend" style={captionStyle}>
@@ -46,7 +45,6 @@ export default class MainCarouselView extends Component {
             </span>
           </p>
         </div>
-        {/* </Link> */}
         <Link to="/movies/detail/2" className={s.logo}>
           <div>
             <img src={thirdCarousel} alt="스윙키즈 영화포스터 이미지" />

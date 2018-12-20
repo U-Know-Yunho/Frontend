@@ -6,8 +6,6 @@ export default class VideoView extends Component {
     const opts = {
       width: '100%',
       playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        // origin: 'https://www.youtube.com',
         autoplay: 1,
       },
     };

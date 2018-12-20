@@ -5,7 +5,7 @@ import api from '../api';
 
 class ReservedList extends Component {
   async handleCancel(pk) {
-    const res = await api.patch(`api/members/reservations/${pk}`);
+    await api.patch(`api/members/reservations/${pk}`);
     this.props.getData();
   }
 

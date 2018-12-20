@@ -63,7 +63,6 @@ class MyInfo extends Component {
 
   async handleCheckPassword(e) {
     e.preventDefault();
-    // const token = localStorage.getItem('token');
     const password = e.target.pass.value;
     await api.post('/api/members/check-password/', {
       password,

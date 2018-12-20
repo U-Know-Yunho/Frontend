@@ -7,7 +7,6 @@
     justify-content: center;
     flex-wrap: wrap;
 
-    // min-width: 750px;
     // 홈페이지에서의 리스트는 wrap되지 않습니다.
     &.home {
       width: 90%;
@@ -129,7 +128,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    // min-width: 750px;
     // 홈페이지에서의 리스트는 wrap되지 않습니다.
     &.home {
       justify-content: center;
@@ -205,7 +203,6 @@
       font-size: 0.8rem;
       font-weight: bold;
 
-      // line-height: 0.8rem;
       span {
         display: inline-block;
         margin-left: 4px;
@@ -231,7 +228,6 @@
         background-image: url('../../src/scss/score2.png');
         background-repeat: no-repeat;
         background-size: contain;
-        // margin: 0 5px;
       }
     }
 
@@ -254,13 +250,6 @@
       .single {
         width: 164px;
       }
-
-      // a:nth-child(1) {
-      //   margin-right: 3px;
-      // }
-      // a:nth-child(2) {
-      //   margin-left: 3px;
-      // }
     }
 
     // 순위 스티커

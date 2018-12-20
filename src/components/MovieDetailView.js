@@ -38,8 +38,6 @@ class MovieDetailView extends Component {
       }
       return str.slice(0, str.length - 2);
     }
-    // 왜 map이 안먹힐까
-    // return casts.map(c => c.actor.trim()).join(', ');
   }
 
   handleImages(stillcuts) {
@@ -172,7 +170,6 @@ class MovieDetailView extends Component {
               {directorsImg.map(d => (
                 <li key={d.profileImg} className={s.directorLi}>
                   <img src={d.profileImg} alt={d.director} />
-                  {/* <span className={s.directorTitle}>감독</span> */}
                   <span>{d.director}</span>
                   <span className={s.engName}>{d.engDirector}</span>
                 </li>
@@ -183,7 +180,6 @@ class MovieDetailView extends Component {
         <div className={classNames([s.subWrapper], [s.reponsiveSubWrapper])}>
           <span className={s.subTitle}>예고편</span>
           <VideoView trailer={videoSrc} />
-          {/* <iframe width="420" height="315" src={videoSrc} /> */}
         </div>
         <div className={s.subWrapper}>
           <span className={s.subTitle}>스틸컷</span>

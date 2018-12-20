@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
-import qs from 'qs';
 import ReserveProvider from '../contexts/ReserveContext';
 import ReservationSteps from '../containers/ReservationSteps';
 import s from '../scss/ReservationPage.module.scss';
 import { Redirect } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+// import qs from 'qs';
 
 export default class ReservationPage extends Component {
   componentDidMount() {

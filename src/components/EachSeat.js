@@ -40,9 +40,6 @@ export default class EachSeat extends Component {
         // 1.상태를 선택되지 않음으로 변경
         // 2.SeatView에서 카운트 중인 현재 선택된 좌석 수에서 마이너스 1
         // 3.컨텍스트에 저장해둔 좌석 삭제
-        // this.setState(prevState => ({
-        //   isChecked: !prevState.isChecked,
-        // }));
         this.setState({
           isChecked: false,
         });
@@ -58,9 +55,6 @@ export default class EachSeat extends Component {
           // 현재 선택된 좌석의 수가 선택한 인원 수 보다 작을 때만
           // 1.상태를 선택됨으로 변경
           // 2.SeatView에서 카운트 중인 현재 선택된 좌석 수에서 플러스 1
-          // this.setState(prevState => ({
-          //   isChecked: !prevState.isChecked,
-          // }));
           this.setState({
             isChecked: true,
           });

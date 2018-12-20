@@ -13,7 +13,6 @@ import MyCGVPage from './pages/MyCGVPage';
 import MyCGVInfoPage from './pages/MyCGVInfoPage';
 import MyCGVHistoryPage from './pages/MyCGVHistoryPage';
 import MyCGVCanceledPage from './pages/MyCGVCanceledPage';
-import SecStep from './containers/SecStep';
 
 class App extends Component {
   render() {
@@ -36,8 +35,6 @@ class App extends Component {
             <Route exact path="/myCGV/info" component={MyCGVInfoPage} />
             <Route exact path="/myCGV/history" component={MyCGVHistoryPage} />
             <Route exact path="/myCGV/canceled" component={MyCGVCanceledPage} />
-            {/* test 경로 (삭제 예정) */}
-            <Route exact path="/sec" component={SecStep} />
           </>
         </UserProvider>
       </BrowserRouter>
