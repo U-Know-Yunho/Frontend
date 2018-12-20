@@ -1,6 +1,7 @@
 @import '../common.module.scss';
 
 @media (min-width: 768px) {
+
   // .firstStepWrapper {
   //   width: 750px;
   //   display: flex;
@@ -12,9 +13,11 @@
     max-width: 1050px;
     height: 500px;
     position: relative;
+
     // background-color: $stone-gray;
     .dataTitlesWrapper {
       display: flex;
+
       h3 {
         flex: 3;
         background-color: $black;
@@ -26,9 +29,11 @@
         font-size: 1.1rem;
         // font-weight: bold;
       }
+
       .dateBoxTitle {
         flex: 1.5;
       }
+
       .timeBoxTitle {
         border-right: none;
       }
@@ -47,13 +52,16 @@
         background-color: $stone-gray;
         color: $lighten-silver;
         border-right: 1px solid $silver-gray;
+
         .mobileSub {
           display: none;
         }
       }
+
       .dateDataBox {
         flex: 1.5;
       }
+
       .timeDataBox {
         border-right: none;
       }
@@ -62,6 +70,7 @@
     .basicDisplay {
       display: none;
     }
+
     .loadingDisplay {
       display: block;
       position: absolute;
@@ -74,19 +83,24 @@
     }
   }
 }
+
 @media (max-width: 767px) {
   .firstStepWrapper {
     width: 100%;
     background-color: $stone-gray;
     color: $lighten-silver;
+
     .dataTitlesWrapper {
       display: none;
     }
+
     .dataBoxesWrapper {
       position: relative;
+
       .basicDisplay {
         display: none;
       }
+
       .loadingDisplay {
         display: block;
         position: absolute;
@@ -98,6 +112,7 @@
         align-items: center;
       }
     }
+
     .mobileSub {
       display: block;
       text-align: center;

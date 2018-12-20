@@ -5,13 +5,16 @@
     padding: 20vh 0;
     background-color: $silver-white;
     box-shadow: inset 0px 10px 20px 0 rgba(0, 0, 0, 0.1);
+
     h2 {
       text-transform: uppercase;
       text-align: center;
       font-weight: bold;
       font-size: 1.8rem;
       margin-bottom: 30px;
+      color: $gray;
     }
+
     .myCGVBox {
       width: 65%;
       max-width: 920px;
@@ -19,6 +22,7 @@
       height: 600px;
       margin: 10px auto;
       display: flex;
+
       .myCGVNav {
         //   border: 1px solid orange;
         // flex: 1;
@@ -27,6 +31,7 @@
         min-width: 180px;
         margin-right: 20px;
       }
+
       .myCGVContent {
         // flex: 3;
         width: 80%;
@@ -38,6 +43,7 @@
         // align-items: center;
         // justify-content: center;
         padding: 35px;
+
         h3 {
           width: 100%;
           background-color: $stone-gray;
@@ -61,11 +67,14 @@
       height: 0;
       font-size: 0;
     }
+
     .myCGVNav {
       position: relative;
     }
+
     .myCGVContent {
       min-height: 50vh;
+
       h3 {
         width: 0;
         height: 0;
