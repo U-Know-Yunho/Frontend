@@ -12,12 +12,15 @@ export default class MyMovieProvider extends Component {
       readyList: [],
       seenList: [],
       canceledList: [],
-      isAnythingCanceled: false,
-      onIsAnythingCanceled: this.onIsAnythingCanceled.bind(this),
+      getData: this.getData.bind(this),
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
+    this.getData();
+  }
+
+  async getData() {
     if (localStorage.getItem('token')) {
       // 실제 가져올 데이터
       const { data } = await api.get('api/members/reservations/1');
@@ -57,12 +60,6 @@ export default class MyMovieProvider extends Component {
         listsLoading: false,
       });
     }
-  }
-
-  onIsAnythingCanceled(bool) {
-    this.setState({
-      isAnythingCanceled: bool,
-    });
   }
 
   render() {
