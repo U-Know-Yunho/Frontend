@@ -8,7 +8,7 @@ export default class ReserveProvider extends Component {
 
         this.state = {
             // step: first -> step1, step: sec -> step2 컴포를 화면에 그림
-            step: 'sec',
+            step: 'first',
             // 영화, 극장, 날짜, 시간, 인원수, 좌석
             // 선택된 영화 제목
             age: '',
