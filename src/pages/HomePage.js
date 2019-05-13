@@ -54,7 +54,7 @@ export default class HomePage extends Component {
                 + MORE
               </Link>
             ) : (
-              <Link to="/movies/?movie=pre" className={s.more}>
+              <Link to="/movies?movie=pre" className={s.more}>
                 + MORE
               </Link>
             )}

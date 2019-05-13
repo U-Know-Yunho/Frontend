@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 export default class MoviePage extends Component {
   render() {
     const { location } = this.props;
-    // MoviePage 링크 : '/movies', 이 페이지에서 개봉예정작 버튼 클릭 시 '/movies/?movie=pre'링크로 이동
+    // MoviePage 링크 : '/movies', 이 페이지에서 개봉예정작 버튼 클릭 시 '/movies?movie=pre'링크로 이동
     // 주소의 쿼리스트링을 {?이름 : 값} 형태로 받아오는 코드
     const { movie } = qs.parse(location.search, { ignoreQueryPrefix: true });
     // '/movies'링크면, 즉 현재 상영작 링크면, movie 에는 null이 담겨있고, 개봉예정작 링크면 movie에는 'pre'이 들어가있게된다.
@@ -30,7 +30,7 @@ export default class MoviePage extends Component {
                 현재상영작
               </Link>
               <Link
-                to="/movies/?movie=pre"
+                to="/movies?movie=pre"
                 className={classNames({ [s.active]: movie })}
               >
                 개봉예정작

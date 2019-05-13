@@ -116,7 +116,7 @@ class MovieDetailView extends Component {
               alt={`${title} 포스터`}
             />
             {nowShow ? (
-              <Link to={`/reservation/?moviePk=${pk}`} className={s.button}>
+              <Link to={`/reservation?moviePk=${pk}`} className={s.button}>
                 예매하기
               </Link>
             ) : null}

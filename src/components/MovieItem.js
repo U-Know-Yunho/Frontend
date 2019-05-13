@@ -87,7 +87,7 @@ export default class MovieItem extends Component {
     선택한 영화의 id를 예매페이지컴포넌트에서 match.params.movieId 프롭으로 접근할 수 있도록 
     해당 주소로 보냅시다. */}
           {ableReserve && (
-            <Link to={`/reservation/?moviePk=${pk}`}>예매하기</Link>
+            <Link to={`/reservation?moviePk=${pk}`}>예매하기</Link>
           )}
         </div>
       </li>
